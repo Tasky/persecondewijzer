@@ -24,6 +24,10 @@ public class Speler {
 		
 	}
 	
+	/**
+	 * Geeft naam van de huidige speler terug
+	 * @return Naam van de huidige speler
+	 */
 	public String getNaam() {
 		
 		return this.naam;
