@@ -53,5 +53,41 @@ public class Joker {
 		
 	}
 	
+	/**
+	 * Verlaagd het jokeraantal met 1.
+	 * @return true met succes
+	 */
+	public boolean deductJoker() {
+		
+		int jokers = getAantal();
+		
+		if ( jokers > 0 ) {
+			setAantal(jokers-1);
+			
+			//TODO: timer verlagen met 16 seconde. 
+			
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	/**
+	 * Joker wordt ingezet en verwijderd van het aantal jokers.
+	 * @param aantal
+	 */
+	public void deductJokers(int aantal) {
+		
+		
+		int verwijderd = 0;
+		while ( aantal < verwijderd ) {
+			deductJoker();
+			verwijderd++;
+		}
+		
+		
+	}
+	
 	
 }
