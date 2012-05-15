@@ -15,7 +15,7 @@ public class Speler {
 	 * Constructor waarbij gelijk de naam toegewezen kan worden zonder setNaam() aan te roepen.
 	 * @param naam Naam van de huidige speler
 	 */
-	public Speler(String naam){
+	public Speler( String naam ){
 		
 		setNaam( naam );
 		
