@@ -57,7 +57,7 @@ public class Joker {
 	 * Verlaagd het jokeraantal met 1.
 	 * @return true met succes
 	 */
-	public boolean deductJoker() {
+	public boolean verwijderJoker() {
 		
 		int jokers = getAantal();
 		
@@ -77,7 +77,7 @@ public class Joker {
 	 * Joker wordt ingezet en verwijderd van het aantal jokers.
 	 * @param aantal
 	 */
-	public void deductJokers(int aantal) {
+	public void verwijderJokers(int aantal) {
 		
 		
 		int verwijderd = 0;
