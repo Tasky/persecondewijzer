@@ -82,7 +82,7 @@ public class Joker {
 		
 		int verwijderd = 0;
 		while ( aantal < verwijderd ) {
-			deductJoker();
+			verwijderJoker();
 			verwijderd++;
 		}
 		
