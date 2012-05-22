@@ -47,12 +47,12 @@ public class KiesOnderwerp extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		getContentPane().add(scrollPane, "cell 0 1,grow");
 		
-	    JPanel borderlaoutpanel = new JPanel();
-	    scrollPane.setViewportView(borderlaoutpanel);
-	    borderlaoutpanel.setLayout(new BorderLayout(0, 0));
+	    JPanel borderlayoutpanel = new JPanel();
+	    scrollPane.setViewportView(borderlayoutpanel);
+	    borderlayoutpanel.setLayout(new BorderLayout(0, 0));
 
 	    JPanel columnpanel = new JPanel();
-	    borderlaoutpanel.add(columnpanel, BorderLayout.NORTH);
+	    borderlayoutpanel.add(columnpanel, BorderLayout.NORTH);
 	    columnpanel.setLayout(new GridLayout(0, 1, 0, 1));
 	    columnpanel.setBackground(Color.gray);
 
