@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import javax.swing.JPanel;
 
-import components.ImagePanel;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+
+import views.components.ImagePanel;
+
 import java.awt.Font;
 
 public class Onderwerp extends JPanel {

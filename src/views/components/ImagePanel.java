@@ -1,4 +1,4 @@
-package components;
+package views.components;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
