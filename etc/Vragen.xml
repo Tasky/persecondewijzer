@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item>
-	<vraag>
-		<onderwerp>Topografie</onderwerp>
-		<vraag>Welke foto hoort bij welk land</vraag>
-		<optie>Egypte</optie>
-		<antwoord>fotoke.jpg</antwoord>
-	</vraag>
-	<vraag>
-		<onderwerp>Topografie</onderwerp>
-		<vraag>Welke foto hoort bij welk land</vraag>
-		<optie>Amsterdam</optie>
-		<antwoord>fotoke.jpg</antwoord>
-	</vraag>
-	<vraag>
-		<onderwerp>Topografie</onderwerp>
-		<vraag>Welke foto hoort bij welk land</vraag>
-		<optie>Amsterdam</optie>
-		<antwoord>fotoke.jpg</antwoord>
-	</vraag>
-</item>
+<onderwerpen>
+	<onderwerp name="Topografie" image="topografie.jpg">
+		<vraag>
+			<tekst>Welk land is dit?</tekst>
+			<opties>
+				<optie image="fotoke.jpg">Egypte</optie>
+				<optie image="fotoke.jpg">Japan</optie>
+				<optie image="fotoke.jpg">België</optie>
+			</opties>
+		</vraag>
+		<vraag>
+			<tekst>Waar ligt deze rivier?</tekst>
+			<opties>
+				<optie image="fotoke.jpg">België</optie>
+				<optie image="fotoke.jpg">Egypte</optie>
+				<optie image="fotoke.jpg">Japan</optie>
+			</opties>
+		</vraag>
+	</onderwerp>
+</onderwerpen>
