@@ -2,6 +2,7 @@ package logic;
 
 // TODO: Automatisch een stel vragen en onderwerpen selecteren.
 import java.util.Random;
+import javax.xml.*;
 
 public class Vraag {
 	
