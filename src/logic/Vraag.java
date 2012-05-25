@@ -1,5 +1,8 @@
 package logic;
 
+// TODO: Automatisch een stel vragen en onderwerpen selecteren.
+import java.util.Random;
+
 public class Vraag {
 	
 	public String vraag;
