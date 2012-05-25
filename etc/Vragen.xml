@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<onderwerpen>
-	<onderwerp id="1">Topografie</onderwerp>
-</onderwerpen>
-<vragen>
-	<vraag id="1" parent="1">Welke stad hoort bij welk land</vraag>
-	<vraag id="2" parent="1">Welk gebouw/object hoort bij welke stad</vraag>
-</vragen>
-<opties>
-	<optie id="1" parent="1">Egypte</optie>
-	<optie id="2" parent="1">Amsterdam</optie>
-</opties>
-<antwoorden>
-	<!-- File names zijn <onderwerp id>_<parent id>_<vraag id>_<antwoord id> -->
-	<optie id="1" parent="1" file="001_001_001_001.jpeg"></optie>
-	<optie id="2" parent="1" file="001_001_001_002.jpeg"></optie>
-</antwoorden>
+<item>
+	<vraag>
+		<onderwerp>Topografie</onderwerp>
+		<vraag>Welke foto hoort bij welk land</vraag>
+		<optie>Egypte</optie>
+		<antwoord>fotoke.jpg</antwoord>
+	</vraag>
+	<vraag>
+		<onderwerp>Topografie</onderwerp>
+		<vraag>Welke foto hoort bij welk land</vraag>
+		<optie>Amsterdam</optie>
+		<antwoord>fotoke.jpg</antwoord>
+	</vraag>
+	<vraag>
+		<onderwerp>Topografie</onderwerp>
+		<vraag>Welke foto hoort bij welk land</vraag>
+		<optie>Amsterdam</optie>
+		<antwoord>fotoke.jpg</antwoord>
+	</vraag>
+</item>
