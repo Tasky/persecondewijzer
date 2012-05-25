@@ -6,3 +6,12 @@
 	<vraag id="1" onderwerp="Topografie">Welke stad hoort bij welk land</vraag>
 	<vraag id="2" onderwerp="Topografie">Welk gebouw/object hoort bij welke stad</vraag>
 </vragen>
+<opties>
+	<optie id="1" parent="1">Egypte</optie>
+	<optie id="2" parent="1">Amsterdam</optie>
+</opties>
+<antwoorden>
+	<!-- File names zijn <onderwerp id>_<parent id>_<vraag id>_<antwoord id> -->
+	<optie id="1" parent="1" file="001_001_001_001.jpeg"></optie>
+	<optie id="2" parent="1" file="001_001_001_002.jpeg"></optie>
+</antwoorden>
