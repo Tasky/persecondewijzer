@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<topic>
-	<topografie>
-		<landen id="1">Welke stad hoort bij welk land</landen>
-		<landen id="2">Welk gebouw/object hoort bij welke stad</landen></topografie></topic>
+<onderwerpen>
+	<onderwerp id="1">Topografie</onderwerp>
+</onderwerpen>
+<vragen>
+	<vraag id="1" onderwerp="Topografie">Welke stad hoort bij welk land</vraag>
+	<vraag id="2" onderwerp="Topografie">Welk gebouw/object hoort bij welke stad</vraag>
+</vragen>
