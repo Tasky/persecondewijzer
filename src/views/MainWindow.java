@@ -3,10 +3,16 @@ package views;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.Panel;
+import java.awt.Color;
 
 public class MainWindow {
 
 	private JFrame frame;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -36,8 +42,29 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][30.00][100.00][100.00][30.00][300.00,grow]", "[200.00][][][][]"));
+		
+		Panel panel = new Panel();
+		panel.setBackground(Color.GREEN);
+		frame.getContentPane().add(panel, "cell 1 0 4 1,grow");
+		
+		textField = new JTextField();
+		frame.getContentPane().add(textField, "cell 2 1 2 1,growx");
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Spelregels");
+		frame.getContentPane().add(btnNewButton, "cell 2 2,growx");
+		
+		JButton btnNewButton_3 = new JButton("Start");
+		frame.getContentPane().add(btnNewButton_3, "cell 3 2 1 3,grow");
+		
+		JButton btnNewButton_1 = new JButton("Beheer");
+		frame.getContentPane().add(btnNewButton_1, "cell 2 3,growx");
+		
+		JButton btnNewButton_2 = new JButton("Highscores");
+		frame.getContentPane().add(btnNewButton_2, "cell 2 4,growx");
 	}
 
 }
