@@ -8,6 +8,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Panel;
 import java.awt.Color;
+import java.awt.Window;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow {
 
@@ -58,6 +61,12 @@ public class MainWindow {
 		frame.getContentPane().add(btnNewButton, "cell 2 2,growx");
 		
 		JButton btnNewButton_3 = new JButton("Start");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame = new KiesOnderwerp();
+				frame.setVisible(true);
+			}
+		});
 		frame.getContentPane().add(btnNewButton_3, "cell 3 2 1 3,grow");
 		
 		JButton btnNewButton_1 = new JButton("Beheer");
