@@ -74,8 +74,9 @@ public class MainWindow {
 				else
 				{
 					String naam = txtVulHierJe.getText();
-					frame = new KiesOnderwerp();
-					frame.setVisible(true);
+					KiesOnderwerp kiesOnderwerp = new KiesOnderwerp();
+					frame.setContentPane(kiesOnderwerp);
+					kiesOnderwerp.updateUI();
 				}
 			}
 		});
