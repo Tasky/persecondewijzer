@@ -12,10 +12,11 @@ import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class MainWindow {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField txtVulHierJe;
 
 	/**
 	 * Launch the application.
@@ -53,9 +54,10 @@ public class MainWindow {
 		panel.setBackground(Color.GREEN);
 		frame.getContentPane().add(panel, "cell 1 0 4 1,grow");
 		
-		textField = new JTextField();
-		frame.getContentPane().add(textField, "cell 2 1 2 1,growx");
-		textField.setColumns(10);
+		txtVulHierJe = new JTextField();
+		txtVulHierJe.setText("Vul hier je naam in");
+		frame.getContentPane().add(txtVulHierJe, "cell 2 1 2 1,growx");
+		txtVulHierJe.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Spelregels");
 		frame.getContentPane().add(btnNewButton, "cell 2 2,growx");
@@ -63,8 +65,18 @@ public class MainWindow {
 		JButton btnNewButton_3 = new JButton("Start");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame = new KiesOnderwerp();
-				frame.setVisible(true);
+				String naamNo = txtVulHierJe.getText();
+						
+				if (naamNo.equals("Vul hier je naam in") || naamNo.equals(""))
+				{
+					txtVulHierJe.setBackground(Color.red);
+				}
+				else
+				{
+					String naam = txtVulHierJe.getText();
+					frame = new KiesOnderwerp();
+					frame.setVisible(true);
+				}
 			}
 		});
 		frame.getContentPane().add(btnNewButton_3, "cell 3 2 1 3,grow");
