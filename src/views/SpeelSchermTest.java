@@ -53,7 +53,7 @@ public class SpeelSchermTest {
 		frame.getContentPane().setBackground(SystemColor.info);
 		frame.setBounds(300, 300, 1250, 900);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[150][150,grow][150,grow][150,grow][150,grow][150,grow][150,grow][150,grow][150,grow][150,grow][150,grow]", "[156.50,grow][200][grow][][][][][][][][][56.50][126.00,grow,fill][56.50]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[150][250][250][250][250][250][250][250][250][250][150,grow]", "[156.50,grow][200][grow][][][][][][][][][56.50][126.00,grow,fill][56.50]"));
 		
 		JTextPane txtpnWelkeStadIs = new JTextPane();
 		txtpnWelkeStadIs.setBackground(SystemColor.info);
@@ -123,9 +123,6 @@ public class SpeelSchermTest {
 		ImagePanel imagePanel_8 = new ImagePanel("images/stad.jpg");
 		frame.getContentPane().add(imagePanel_8, "cell 9 12,grow");
 		
-		ImagePanel imagePanel_9 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_9, "cell 10 12,grow");
-		
 		JComboBox comboBox = new JComboBox();
 		frame.getContentPane().add(comboBox, "cell 1 13,growx");
 		
@@ -152,9 +149,6 @@ public class SpeelSchermTest {
 		
 		JComboBox comboBox_8 = new JComboBox();
 		frame.getContentPane().add(comboBox_8, "cell 9 13,growx");
-		
-		JComboBox comboBox_9 = new JComboBox();
-		frame.getContentPane().add(comboBox_9, "cell 10 13,growx");
 	}
 
 }
