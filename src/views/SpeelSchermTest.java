@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import views.components.ImagePanel;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
+import views.panels.Timer;
+import javax.swing.DefaultComboBoxModel;
 
 public class SpeelSchermTest {
 
@@ -123,31 +125,46 @@ public class SpeelSchermTest {
 		ImagePanel imagePanel_8 = new ImagePanel("images/stad.jpg");
 		frame.getContentPane().add(imagePanel_8, "cell 9 12,grow");
 		
+		Timer timer = new Timer();
+		frame.getContentPane().add(timer, "cell 10 12,grow");
+		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setMaximumRowCount(9);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Athene", "Berlijn", "Brussel", "Dublin", "Kopenhagen", "Monaco", "Oslo", "Parijs", "Rome"}));
 		frame.getContentPane().add(comboBox, "cell 1 13,growx");
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setMaximumRowCount(9);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Athene", "Berlijn", "Brussel", "Dublin", "Kopenhagen", "Monaco", "Oslo", "Parijs", "Rome"}));
 		frame.getContentPane().add(comboBox_1, "cell 2 13,growx");
 		
 		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setMaximumRowCount(9);
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Athene", "Berlijn", "Brussel", "Dublin", "Kopenhagen", "Monaco", "Oslo", "Parijs", "Rome"}));
 		frame.getContentPane().add(comboBox_2, "cell 3 13,growx");
 		
 		JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setMaximumRowCount(9);
 		frame.getContentPane().add(comboBox_3, "cell 4 13,growx");
 		
 		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setMaximumRowCount(9);
 		frame.getContentPane().add(comboBox_4, "cell 5 13,growx");
 		
 		JComboBox comboBox_5 = new JComboBox();
+		comboBox_5.setMaximumRowCount(9);
 		frame.getContentPane().add(comboBox_5, "cell 6 13,growx");
 		
 		JComboBox comboBox_6 = new JComboBox();
+		comboBox_6.setMaximumRowCount(9);
 		frame.getContentPane().add(comboBox_6, "cell 7 13,growx");
 		
 		JComboBox comboBox_7 = new JComboBox();
+		comboBox_7.setMaximumRowCount(9);
 		frame.getContentPane().add(comboBox_7, "cell 8 13,growx");
 		
 		JComboBox comboBox_8 = new JComboBox();
+		comboBox_8.setMaximumRowCount(9);
 		frame.getContentPane().add(comboBox_8, "cell 9 13,growx");
 	}
 
