@@ -60,6 +60,12 @@ public class MainWindow {
 		txtVulHierJe.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Spelregels");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame = new HelpScherm();
+				frame.setVisible(true);
+			}
+		});
 		frame.getContentPane().add(btnNewButton, "cell 2 2,growx");
 		
 		JButton btnNewButton_3 = new JButton("Start");
