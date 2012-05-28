@@ -31,14 +31,14 @@ public class WijzigAntwoordPanel extends JPanel {
 		    add(lblHalloWereld, "cell 2 0");
 		    
 		    JPanel panel = new JPanel();
-		    add(panel, "cell 3 0,grow");
+		    add(panel, "cell 3 0,alignx right,growy");
 		    panel.setLayout(new MigLayout("", "[grow,right]", "[18.00][60.00,fill][]"));
 		    
 		    JButton btnNewButton = new JButton("Wijzig");
 		    panel.add(btnNewButton, "cell 0 1,aligny center");
 		    
 		    JPanel panel_1 = new JPanel();
-		    add(panel_1, "cell 4 0,grow");
+		    add(panel_1, "cell 4 0,alignx right,growy");
 		    
 		    JButton button = new JButton("Zet Joker In");
 		    panel_1.add(button);
