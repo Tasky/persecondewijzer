@@ -14,8 +14,28 @@ import java.awt.Font;
 
 import javax.swing.JScrollPane;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class KiesOnderwerp extends JPanel {
 
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					JFrame frame = new JFrame();
+					frame.setBounds(100, 100, 800, 600);
+					frame.setVisible(true);
+					KiesOnderwerp ko = new KiesOnderwerp();
+					frame.setContentPane(ko);
+					ko.updateUI();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -41,7 +61,12 @@ public class KiesOnderwerp extends JPanel {
 
 	    for(int i=0;i<10;i++)
 	    {
-	    	views.panels.Onderwerp onderwerp = new views.panels.Onderwerp();
+	    	views.panels.Onderwerp onderwerp = new views.panels.Onderwerp(new ActionListener() {
+		    	public void actionPerformed(ActionEvent arg0) {
+		    		
+		    	}
+		    });
+	    	
 		    columnpanel.add(onderwerp);
 		}
 	}

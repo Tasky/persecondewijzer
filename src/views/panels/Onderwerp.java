@@ -12,13 +12,14 @@ import views.components.ImagePanel;
 
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
 
 public class Onderwerp extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public Onderwerp() {
+	public Onderwerp(ActionListener action) {
 		setBorder(null);
 		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][grow]", "[135.00,grow,fill]"));
 	    try {
@@ -35,6 +36,7 @@ public class Onderwerp extends JPanel {
 		    panel.setLayout(new MigLayout("", "[grow]", "[18.00][60.00,fill][]"));
 		    
 		    JButton btnNewButton = new JButton("Kiezen...");
+		    btnNewButton.addActionListener(action);
 		    panel.add(btnNewButton, "cell 0 1,aligny center");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
