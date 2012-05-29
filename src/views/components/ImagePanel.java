@@ -6,18 +6,22 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ImagePanel extends JPanel{
 
     private BufferedImage image;
+    private JLabel label;
 
-    public ImagePanel(String path) throws IOException {
+    public ImagePanel(String path) throws IOException 
+    {    	
         image = ImageIO.read(new File(path));
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) 
+    {
         g.drawImage(image, 0, 0, null);
     }
 
