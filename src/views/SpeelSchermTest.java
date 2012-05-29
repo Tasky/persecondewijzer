@@ -18,6 +18,8 @@ import java.awt.SystemColor;
 import views.panels.Timer;
 import javax.swing.DefaultComboBoxModel;
 import logic.Antwoord.Steden;
+import javax.swing.JLabel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class SpeelSchermTest {
 
@@ -54,125 +56,123 @@ public class SpeelSchermTest {
 	private void initialize() throws IOException {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.info);
-		frame.setBounds(300, 300, 1250, 900);
+		frame.setBounds(300, 300, 1024, 768);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[150][250][250][250][250][250][250][250][250][250][150,grow]", "[156.50,grow][200][grow][][][][][][][][][56.50][126.00,grow,fill][56.50]"));
-		
-		JTextPane txtpnWelkeStadIs = new JTextPane();
-		txtpnWelkeStadIs.setBackground(SystemColor.info);
-		txtpnWelkeStadIs.setText("Welke stad is te zien op de afbeelding?");
-		txtpnWelkeStadIs.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
-		frame.getContentPane().add(txtpnWelkeStadIs, "cell 8 0 3 1,grow");
-		
-		JButton btnAthene = new JButton("Athene");
-		frame.getContentPane().add(btnAthene, "cell 0 2,growx");
-	//	try {
-	//	} catch (IOException e) {
-			// TODO Auto-generated catch block
-	//		e.printStackTrace();
-	//	}
-		
-		ImagePanel imagePanel_big = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_big, "cell 3 2 5 9,grow");
-		
-		JButton btnBerlijn = new JButton("Berlijn");
-		frame.getContentPane().add(btnBerlijn, "cell 0 3,growx");
-		
-		JButton btnBrussel = new JButton("Brussel");
-		frame.getContentPane().add(btnBrussel, "cell 0 4,growx");
-		
-		JButton btnDublin = new JButton("Dublin");
-		frame.getContentPane().add(btnDublin, "cell 0 5,growx");
-		
-		JButton btnKopenhagen = new JButton("Kopenhagen");
-		frame.getContentPane().add(btnKopenhagen, "cell 0 6,growx");
-		
-		JButton btnMonaco = new JButton("Monaco");
-		frame.getContentPane().add(btnMonaco, "cell 0 7,growx");
-		
-		JButton btnOslo = new JButton("Oslo");
-		frame.getContentPane().add(btnOslo, "cell 0 8,growx");
-		
-		JButton btnParijs = new JButton("Parijs");
-		frame.getContentPane().add(btnParijs, "cell 0 9,growx");
-		
-		JButton btnRome = new JButton("Rome");
-		frame.getContentPane().add(btnRome, "cell 0 10,growx");
-		
-		ImagePanel imagePanel = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel, "cell 1 12,grow");
-		
-		ImagePanel imagePanel_1 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_1, "cell 2 12,grow");
-		
-		ImagePanel imagePanel_2 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_2, "cell 3 12,grow");
-		
-		ImagePanel imagePanel_3 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_3, "cell 4 12,grow");
-		
-		ImagePanel imagePanel_4 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_4, "cell 5 12,grow");
-		
-		ImagePanel imagePanel_5 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_5, "cell 6 12,grow");
-		
-		ImagePanel imagePanel_6 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_6, "cell 7 12,grow");
-		
-		ImagePanel imagePanel_7 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_7, "cell 8 12,grow");
-		
-		ImagePanel imagePanel_8 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_8, "cell 9 12,grow");
+		frame.getContentPane().setLayout(new MigLayout("", "[124][124][124][124][124][124][124][124][124][124]", "[226.00,grow][24.00,grow][][][][][][][][][56.50][126.00,grow,fill][56.50]"));
 		
 		Timer timer = new Timer();
-		frame.getContentPane().add(timer, "cell 10 12,grow");
+		frame.getContentPane().add(timer, "cell 0 0,grow");
+		
+		JLabel lblWelkeStadIs = DefaultComponentFactory.getInstance().createTitle("Welke stad is te zien op de afbeelding?");
+		lblWelkeStadIs.setFont(new Font("Tahoma", Font.PLAIN, 47));
+		frame.getContentPane().add(lblWelkeStadIs, "cell 1 0 8 1");
+		
+		JButton btnAthene = new JButton("Athene");
+		frame.getContentPane().add(btnAthene, "cell 0 1,growx");
+		//	try {
+		//	} catch (IOException e) {
+				// TODO Auto-generated catch block
+		//		e.printStackTrace();
+		//	}
+			
+			ImagePanel imagePanel_big = new ImagePanel("images/stad.jpg");
+			frame.getContentPane().add(imagePanel_big, "cell 2 1 6 9,grow");
+		
+		JButton btnBerlijn = new JButton("Berlijn");
+		frame.getContentPane().add(btnBerlijn, "cell 0 2,growx");
+		
+		JButton btnBrussel = new JButton("Brussel");
+		frame.getContentPane().add(btnBrussel, "cell 0 3,growx");
+		
+		JButton btnDublin = new JButton("Dublin");
+		frame.getContentPane().add(btnDublin, "cell 0 4,growx");
+		
+		JButton btnKopenhagen = new JButton("Kopenhagen");
+		frame.getContentPane().add(btnKopenhagen, "cell 0 5,growx");
+		
+		JButton btnMonaco = new JButton("Monaco");
+		frame.getContentPane().add(btnMonaco, "cell 0 6,growx");
+		
+		JButton btnOslo = new JButton("Oslo");
+		frame.getContentPane().add(btnOslo, "cell 0 7,growx");
+		
+		JButton btnParijs = new JButton("Parijs");
+		frame.getContentPane().add(btnParijs, "cell 0 8,growx");
+		
+		JButton btnRome = new JButton("Rome");
+		frame.getContentPane().add(btnRome, "cell 0 9,growx");
+		
+		ImagePanel imagePanel = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel, "cell 0 11,grow");
+		
+		ImagePanel imagePanel_1 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_1, "cell 1 11,grow");
+		
+		ImagePanel imagePanel_2 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_2, "cell 2 11,grow");
+		
+		ImagePanel imagePanel_3 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_3, "cell 3 11,grow");
+		
+		ImagePanel imagePanel_4 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_4, "cell 4 11,grow");
+		
+		ImagePanel imagePanel_5 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_5, "cell 5 11,grow");
+		
+		ImagePanel imagePanel_6 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_6, "cell 6 11,grow");
+		
+		ImagePanel imagePanel_7 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_7, "cell 7 11,grow");
+		
+		ImagePanel imagePanel_8 = new ImagePanel("images/stad.jpg");
+		frame.getContentPane().add(imagePanel_8, "cell 8 11,grow");
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setMaximumRowCount(9);
 		comboBox.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox, "cell 1 13,growx");
+		frame.getContentPane().add(comboBox, "cell 0 12,growx");
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setMaximumRowCount(9);
 		comboBox_1.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_1, "cell 2 13,growx");
+		frame.getContentPane().add(comboBox_1, "cell 1 12,growx");
 		
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setMaximumRowCount(9);
 		comboBox_2.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_2, "cell 3 13,growx");
+		frame.getContentPane().add(comboBox_2, "cell 2 12,growx");
 		
 		JComboBox comboBox_3 = new JComboBox();
 		comboBox_3.setMaximumRowCount(9);
 		comboBox_3.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_3, "cell 4 13,growx");
+		frame.getContentPane().add(comboBox_3, "cell 3 12,growx");
 		
 		JComboBox comboBox_4 = new JComboBox();
 		comboBox_4.setMaximumRowCount(9);
 		comboBox_4.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_4, "cell 5 13,growx");
+		frame.getContentPane().add(comboBox_4, "cell 4 12,growx");
 		
 		JComboBox comboBox_5 = new JComboBox();
 		comboBox_5.setMaximumRowCount(9);
 		comboBox_5.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_5, "cell 6 13,growx");
+		frame.getContentPane().add(comboBox_5, "cell 5 12,growx");
 		
 		JComboBox comboBox_6 = new JComboBox();
-		comboBox_6.setMaximumRowCount(9);
 		comboBox_6.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_6, "cell 7 13,growx");
+		comboBox_6.setMaximumRowCount(9);
+		frame.getContentPane().add(comboBox_6, "cell 6 12,growx");
 		
 		JComboBox comboBox_7 = new JComboBox();
-		comboBox_7.setMaximumRowCount(9);
 		comboBox_7.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_7, "cell 8 13,growx");
+		comboBox_7.setMaximumRowCount(9);
+		frame.getContentPane().add(comboBox_7, "cell 7 12,growx");
 		
 		JComboBox comboBox_8 = new JComboBox();
-		comboBox_8.setMaximumRowCount(9);
 		comboBox_8.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_8, "cell 9 13,growx");
+		comboBox_8.setMaximumRowCount(9);
+		frame.getContentPane().add(comboBox_8, "cell 8 12,growx");
 	}
 
 }
