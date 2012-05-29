@@ -62,8 +62,9 @@ public class MainWindow {
 		JButton btnNewButton = new JButton("Spelregels");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame = new HelpScherm();
-				frame.setVisible(true);
+				HelpScherm helpScherm = new HelpScherm();
+				frame.setContentPane(helpScherm);
+				helpScherm.updateUI();
 			}
 		});
 		frame.getContentPane().add(btnNewButton, "cell 2 2,growx");

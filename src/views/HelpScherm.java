@@ -17,10 +17,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JEditorPane;
 
-public class HelpScherm extends JFrame {
-
-	private JPanel contentPane;
-
+public class HelpScherm extends JPanel {
 	/**
 	 * Launch the application.
 	 */
@@ -41,23 +38,20 @@ public class HelpScherm extends JFrame {
 	 * Create the frame.
 	 */
 	public HelpScherm() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		setBounds(0, 0, 800, 600);
+		setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		JButton btnNewButton = new JButton("Terug");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
+//				dispose();
 			}
 		});
 		
 		JEditorPane dtrpnHierKomtDe = new JEditorPane();
 		dtrpnHierKomtDe.setText("Hier komt de uitleg van het spel;\r\n\r\nSpelverloop, jokers ect");
 		dtrpnHierKomtDe.setEditable(false);
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		GroupLayout gl_contentPane = new GroupLayout(this);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
@@ -76,6 +70,6 @@ public class HelpScherm extends JFrame {
 					.addComponent(btnNewButton)
 					.addContainerGap())
 		);
-		contentPane.setLayout(gl_contentPane);
+		setLayout(gl_contentPane);
 	}
 }
