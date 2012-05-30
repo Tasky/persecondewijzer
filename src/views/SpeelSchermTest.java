@@ -20,6 +20,8 @@ import javax.swing.DefaultComboBoxModel;
 import logic.Antwoord.Steden;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SpeelSchermTest {
 
@@ -68,6 +70,24 @@ public class SpeelSchermTest {
 		frame.getContentPane().add(lblWelkeStadIs, "cell 1 0 8 1");
 		
 		JButton btnAthene = new JButton("Athene");
+		btnAthene.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel = null;
+				try {
+					imagePanel = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel, "cell 0 11,grow");
+				
+				JComboBox comboBox = new JComboBox();
+				comboBox.setMaximumRowCount(9);
+				comboBox.setModel(new DefaultComboBoxModel(Steden.values()));
+				frame.getContentPane().add(comboBox, "cell 0 12,growx");
+			}
+			
+		});
 		frame.getContentPane().add(btnAthene, "cell 0 1,growx");
 		//	try {
 		//	} catch (IOException e) {
@@ -79,6 +99,25 @@ public class SpeelSchermTest {
 			frame.getContentPane().add(imagePanel_big, "cell 2 1 6 9,grow");
 		
 		JButton btnBerlijn = new JButton("Berlijn");
+		btnBerlijn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_1 = null;
+				try {
+					imagePanel_1 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_1, "cell 1 11,grow");
+				
+				JComboBox comboBox_1 = new JComboBox();
+				comboBox_1.setMaximumRowCount(9);
+				comboBox_1.setModel(new DefaultComboBoxModel(Steden.values()));
+				frame.getContentPane().add(comboBox_1, "cell 1 12,growx");
+				
+				
+			}
+		});
 		frame.getContentPane().add(btnBerlijn, "cell 0 2,growx");
 		
 		JButton btnBrussel = new JButton("Brussel");
@@ -101,13 +140,7 @@ public class SpeelSchermTest {
 		
 		JButton btnRome = new JButton("Rome");
 		frame.getContentPane().add(btnRome, "cell 0 9,growx");
-		
-		ImagePanel imagePanel = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel, "cell 0 11,grow");
-		
-		ImagePanel imagePanel_1 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_1, "cell 1 11,grow");
-		
+						
 		ImagePanel imagePanel_2 = new ImagePanel("images/stad.jpg");
 		frame.getContentPane().add(imagePanel_2, "cell 2 11,grow");
 		
@@ -128,17 +161,7 @@ public class SpeelSchermTest {
 		
 		ImagePanel imagePanel_8 = new ImagePanel("images/stad.jpg");
 		frame.getContentPane().add(imagePanel_8, "cell 8 11,grow");
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setMaximumRowCount(9);
-		comboBox.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox, "cell 0 12,growx");
-		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setMaximumRowCount(9);
-		comboBox_1.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_1, "cell 1 12,growx");
-		
+				
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setMaximumRowCount(9);
 		comboBox_2.setModel(new DefaultComboBoxModel(Steden.values()));
