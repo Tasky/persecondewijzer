@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-public class ResultatenScherm extends JPanel {
+import views.components.NicePanel;
+
+public class ResultatenScherm extends NicePanel {
 	private JTextField txtAthene;
 	private JTextField txtAthene_1;
 	private JTextField txtAthene_2;
@@ -31,8 +33,9 @@ public class ResultatenScherm extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @param mainWindow 
 	 */
-	public ResultatenScherm() {
+	public ResultatenScherm(MainWindow mainWindow) {
 		
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {

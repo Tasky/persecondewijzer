@@ -21,7 +21,7 @@ public class JokerScherm extends NicePanel {
 	 * Create the panel.
 	 * @param mainWindow 
 	 */
-	public JokerScherm(MainWindow mainWindow) {
+	public JokerScherm(final MainWindow mainWindow) {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[200.00,grow][][130.00][200.00,grow]", "[200.00,grow][][][][-92.00][200.00,grow]"));
 		
@@ -52,6 +52,7 @@ public class JokerScherm extends NicePanel {
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				mainWindow.openPanel(new ResultatenScherm(mainWindow));
 			}
 		});
 		add(btnNewButton, "cell 1 4 2 1,growx");
