@@ -74,7 +74,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel = null;
 				try {
-					imagePanel = new ImagePanel("images/stad.jpg");
+					imagePanel = new ImagePanel("images/Steden/athene.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -104,7 +104,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_1 = null;
 				try {
-					imagePanel_1 = new ImagePanel("images/stad.jpg");
+					imagePanel_1 = new ImagePanel("images/Steden/berlijn.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -126,7 +126,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_2 = null;
 				try {
-					imagePanel_2 = new ImagePanel("images/stad.jpg");
+					imagePanel_2 = new ImagePanel("images/Steden/Brussel.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -147,7 +147,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_3 = null;
 				try {
-					imagePanel_3 = new ImagePanel("images/stad.jpg");
+					imagePanel_3 = new ImagePanel("images/Steden/Dublin.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -168,7 +168,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_4 = null;
 				try {
-					imagePanel_4 = new ImagePanel("images/stad.jpg");
+					imagePanel_4 = new ImagePanel("images/Steden/Kopenhagen.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -189,7 +189,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_5 = null;
 				try {
-					imagePanel_5 = new ImagePanel("images/stad.jpg");
+					imagePanel_5 = new ImagePanel("images/Steden/Monaco.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -210,7 +210,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_6 = null;
 				try {
-					imagePanel_6 = new ImagePanel("images/stad.jpg");
+					imagePanel_6 = new ImagePanel("images/Steden/Oslo.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -231,7 +231,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_7 = null;
 				try {
-					imagePanel_7 = new ImagePanel("images/stad.jpg");
+					imagePanel_7 = new ImagePanel("images/Steden/Parijs.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -252,7 +252,7 @@ public class SpeelSchermTest {
 			public void actionPerformed(ActionEvent e) {
 				ImagePanel imagePanel_8 = null;
 				try {
-					imagePanel_8 = new ImagePanel("images/stad.jpg");
+					imagePanel_8 = new ImagePanel("images/Steden/Rome.jpg");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
