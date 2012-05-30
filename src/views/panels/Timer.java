@@ -7,6 +7,7 @@ import views.components.Icon;
 
 import java.awt.Font;
 import java.io.IOException;
+import net.miginfocom.swing.MigLayout;
 
 public class Timer extends JPanel {
 
@@ -14,12 +15,11 @@ public class Timer extends JPanel {
 	 * Create the panel.
 	 */
 	public Timer() {
-		setLayout(null);
+		setLayout(new MigLayout("", "[75px:75px,grow,center]", "[55px:55px][48px]"));
 		
 		JLabel lblTime = new JLabel("211");
 		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
-		lblTime.setBounds(29, 70, 75, 48);
-		add(lblTime);
+		add(lblTime, "cell 0 1,alignx left,aligny top");
 		
 		Icon panel = null;
 		try {
@@ -28,8 +28,7 @@ public class Timer extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		panel.setBounds(36, 6, 54, 55);
-		add(panel);
+		add(panel, "cell 0 0,grow");
 
 	}
 }

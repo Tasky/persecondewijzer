@@ -63,24 +63,21 @@ public class SpeelScherm {
 		frame.getContentPane().setBackground(SystemColor.info);
 		frame.setBounds(300, 300, 1024, 768);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[124][][124,grow][124][][124]", "[110.00][350px:24.00,growprio 90,grow][56.50][126.00,grow,fill]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][126.00,grow,fill]"));
 		
 		JLabel lblWelkeStadIs = DefaultComponentFactory.getInstance().createTitle("Welke stad is te zien op de afbeelding?");
 		lblWelkeStadIs.setFont(new Font("Tahoma", Font.PLAIN, 47));
-		frame.getContentPane().add(lblWelkeStadIs, "cell 0 0 3 1");
+		frame.getContentPane().add(lblWelkeStadIs, "cell 0 0 2 1");
 		
 		JPanel buttonsPanel = new JPanel();
 		frame.getContentPane().add(buttonsPanel, "cell 0 1,grow");
 		buttonsPanel.setLayout(new MigLayout("", "[grow]", "[][][][][][][][][]"));
 		
-		JButton btnStoppen = new JButton("Stop de tijd");
-		frame.getContentPane().add(btnStoppen, "cell 3 2 2 1");
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		final JPanel panel = new JPanel();
-		frame.getContentPane().add(scrollPane, "cell 0 3 6 1,grow");
+		frame.getContentPane().add(scrollPane, "cell 0 2 2 1,grow");
 		panel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow][]"));
 		scrollPane.setViewportView(panel);
 		
@@ -99,8 +96,18 @@ public class SpeelScherm {
 		int cell = 0;
 		
 		final ImagePanel plaatje = new ImagePanel("images/Steden/Brussel.jpg");
-		frame.getContentPane().add(plaatje, "cell 2 1 2 1,grow");
+		frame.getContentPane().add(plaatje, "cell 1 1 2 1,grow");
 		plaatje.setAutoResize(true);
+		
+		JPanel panel_1 = new JPanel();
+		frame.getContentPane().add(panel_1, "cell 2 2,grow");
+		panel_1.setLayout(new MigLayout("", "[116px,grow]", "[grow][154px]"));
+		
+		views.panels.Timer timer = new views.panels.Timer();
+		panel_1.add(timer, "cell 0 0,grow");
+		
+		JButton btnStoppen = new JButton("Stop de tijd");
+		panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 		
 		for (final String optie : opties) {			
 			//antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
