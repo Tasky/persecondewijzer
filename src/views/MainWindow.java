@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import views.components.ImagePanel;
+import views.components.NicePanel;
 
 import java.awt.Panel;
 import java.awt.Color;
@@ -50,20 +51,22 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.BLACK);
+		frame.setContentPane(new NicePanel());
+		//frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][30.00,grow][100.00,grow][100.00,grow][30.00,grow][300.00,grow]", "[100.00,grow][][][][][100.00,grow]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow][100.00,grow][300.00,grow]", "[][100.00,grow][][][][][100.00,grow]"));
 		
-		Panel panel = new Panel();
-		panel.setBackground(Color.BLACK);
-		frame.getContentPane().add(panel, "cell 1 0 4 1,grow");
+		//Panel panel = new Panel();
+		//panel.;
+		//frame.getContentPane().add(panel, "cell 1 0 4 1,grow");
 		
 		ImagePanel hoofdmenuPlaatje;
 		try {
-			panel.setLayout(new MigLayout("", "[1.00,grow][176.00px][1.00,grow]", "[grow][135.00px][grow]"));
-			hoofdmenuPlaatje = new ImagePanel("images/PSWTitel.jpg");
-			panel.add(hoofdmenuPlaatje, "cell 1 1,grow");
+			//panel.setLayout(new MigLayout("", "[1.00,grow][176.00px][1.00,grow]", "[grow][135.00px][grow]"));
+			hoofdmenuPlaatje = new ImagePanel("images/PSWTitel.png");
+			//panel.add(hoofdmenuPlaatje, "cell 1 0 4 1,grow");
+			frame.getContentPane().add(hoofdmenuPlaatje, "cell 1 1 2 1,grow");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,7 +74,7 @@ public class MainWindow {
 		
 		txtVulHierJe = new JTextField();
 		txtVulHierJe.setText("Vul hier je naam in");
-		frame.getContentPane().add(txtVulHierJe, "cell 2 1 2 1,growx");
+		frame.getContentPane().add(txtVulHierJe, "cell 1 2 2 1,growx");
 		txtVulHierJe.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Spelregels");
@@ -82,7 +85,7 @@ public class MainWindow {
 				helpScherm.updateUI();
 			}
 		});
-		frame.getContentPane().add(btnNewButton, "cell 2 2,growx");
+		frame.getContentPane().add(btnNewButton, "cell 1 3,growx");
 		
 		JButton btnNewButton_3 = new JButton("Start");
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -102,13 +105,13 @@ public class MainWindow {
 				}
 			}
 		});
-		frame.getContentPane().add(btnNewButton_3, "cell 3 2 1 3,grow");
+		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 3,grow");
 		
 		JButton btnNewButton_1 = new JButton("Beheer");
-		frame.getContentPane().add(btnNewButton_1, "cell 2 3,growx");
+		frame.getContentPane().add(btnNewButton_1, "cell 1 4,growx");
 		
 		JButton btnNewButton_2 = new JButton("Highscores");
-		frame.getContentPane().add(btnNewButton_2, "cell 2 4,growx");
+		frame.getContentPane().add(btnNewButton_2, "cell 1 5,growx");
 	}
 
 }
