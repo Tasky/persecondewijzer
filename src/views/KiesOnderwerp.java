@@ -14,10 +14,12 @@ import java.awt.Font;
 
 import javax.swing.JScrollPane;
 
+import views.components.NicePanel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class KiesOnderwerp extends JPanel {
+public class KiesOnderwerp extends NicePanel {
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -44,6 +46,7 @@ public class KiesOnderwerp extends JPanel {
 		setLayout(new MigLayout("", "[grow]", "[84.00][111.00,grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Kies een onderwerp.");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
 		add(lblNewLabel, "cell 0 0");
 		
