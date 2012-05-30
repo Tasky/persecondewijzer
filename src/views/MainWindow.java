@@ -6,11 +6,15 @@ import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import views.components.ImagePanel;
+
 import java.awt.Panel;
 import java.awt.Color;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 
 public class MainWindow {
@@ -46,13 +50,24 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][30.00][100.00][100.00][30.00][300.00,grow]", "[200.00][][][][]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][30.00,grow][100.00,grow][100.00,grow][30.00,grow][300.00,grow]", "[100.00,grow][][][][][100.00,grow]"));
 		
 		Panel panel = new Panel();
-		panel.setBackground(Color.GREEN);
+		panel.setBackground(Color.BLACK);
 		frame.getContentPane().add(panel, "cell 1 0 4 1,grow");
+		
+		ImagePanel hoofdmenuPlaatje;
+		try {
+			panel.setLayout(new MigLayout("", "[1.00,grow][176.00px][1.00,grow]", "[grow][135.00px][grow]"));
+			hoofdmenuPlaatje = new ImagePanel("images/PSWTitel.jpg");
+			panel.add(hoofdmenuPlaatje, "cell 1 1,grow");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		txtVulHierJe = new JTextField();
 		txtVulHierJe.setText("Vul hier je naam in");
