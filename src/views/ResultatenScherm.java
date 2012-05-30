@@ -51,10 +51,6 @@ public class ResultatenScherm extends NicePanel {
 		txtAthene_1.setText("Athene");
 		txtAthene_1.setColumns(10);
 		
-		JEditorPane dtrpnScore = new JEditorPane();
-		dtrpnScore.setEditable(false);
-		dtrpnScore.setText("Aantal goed: 5 \r\n Aantal fout: 4 \r\n Aantal joker gebruikt: 0     \r\n \r\n Score: 1500 \r\n \r\n Tijd: 90 sec");
-		
 		txtAthene_2 = new JTextField();
 		txtAthene_2.setText("Athene");
 		txtAthene_2.setColumns(10);
@@ -108,101 +104,34 @@ public class ResultatenScherm extends NicePanel {
 		txtFout_2.setColumns(10);
 		
 		txtFout_3 = new JTextField();
-		txtFout_3.setText("fout");
+		txtFout_3.setText("Fout");
 		txtFout_3.setColumns(10);
 		
 		JButton btnStoppen = new JButton(" Stoppen");
-		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(115)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(txtAthene_5, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(txtAthene_4, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(txtFout_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-									.addComponent(txtAthene, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(txtAthene_7, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtAthene_2, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtAthene_3, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-										.addComponent(txtAthene_1, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-									.addComponent(txtGoed, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(txtFout, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addComponent(txtFout_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(txtAthene_6, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addComponent(txtFout_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-							.addComponent(dtrpnScore, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(31)
-							.addComponent(btnStoppen, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)))
-					.addGap(70))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(dtrpnScore, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE)
-							.addGap(106)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnStoppen, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtGoed, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtAthene, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(29)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtAthene_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtFout, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(27)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtAthene_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(33)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtAthene_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(20)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtAthene_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtFout_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(13)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtAthene_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtAthene_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtFout_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(16)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtAthene_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(txtFout_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-					.addGap(140))
-		);
-		setLayout(groupLayout);
+		setLayout(new MigLayout("", "[grow][77px][86px][][95px][6px][90px][grow]", "[grow][20px][20px][20px][20.00px][20px][20px][20px][20.00px][grow]"));
+		
+		JEditorPane dtrpnScore = new JEditorPane();
+		dtrpnScore.setEditable(false);
+		dtrpnScore.setText("Aantal goed: 5 \r\n Aantal fout: 4 \r\n Aantal joker gebruikt: 0     \r\n \r\n Score: 1500 \r\n \r\n Tijd: 90 sec");
+		add(dtrpnScore, "cell 4 1 3 5,grow");
+		add(txtAthene_5, "cell 1 6,grow");
+		add(textField_4, "cell 2 6,grow");
+		add(txtAthene_4, "cell 1 5,grow");
+		add(txtFout_1, "cell 2 5,grow");
+		add(txtAthene, "cell 1 1,grow");
+		add(txtAthene_7, "cell 1 8,grow");
+		add(txtAthene_2, "cell 1 3,grow");
+		add(txtAthene_3, "cell 1 4,grow");
+		add(txtAthene_1, "cell 1 2,grow");
+		add(txtGoed, "cell 2 1,grow");
+		add(txtFout, "cell 2 2,grow");
+		add(textField_1, "cell 2 3,grow");
+		add(textField_2, "cell 2 4,grow");
+		add(txtFout_3, "cell 2 8,grow");
+		add(txtAthene_6, "cell 1 7,grow");
+		add(txtFout_2, "cell 2 7,grow");
+		add(btnStoppen, "cell 4 7 1 2,grow");
+		add(btnNewButton, "cell 6 7 1 2,grow");
 
 	}
 }
