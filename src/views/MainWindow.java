@@ -53,7 +53,7 @@ public class MainWindow {
 		frame = new JFrame();
 		frame.setContentPane(new NicePanel());
 		//frame.getContentPane().setBackground(Color.BLACK);
-		frame.setBounds(100, 100, 800, 600);
+		frame.setBounds(100, 100, 1024, 768);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[grow,fill][150px:150px:150px,fill][][][][][][100.00,grow]"));
 		

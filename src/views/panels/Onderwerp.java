@@ -21,7 +21,7 @@ public class Onderwerp extends JPanel {
 	 */
 	public Onderwerp(ActionListener action) {
 		setBorder(null);
-		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][grow]", "[135.00,grow,fill]"));
+		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][]", "[135.00,grow,fill]"));
 	    try {
 		    ImagePanel image = new ImagePanel("images/stad.jpg");
 		    //image.setBounds(5, 5, 100, 100);
