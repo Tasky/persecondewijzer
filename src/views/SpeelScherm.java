@@ -42,7 +42,7 @@ public class SpeelScherm extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 1024, 768);
 					frame.setVisible(true);
-					SpeelScherm ko = new SpeelScherm();
+					SpeelScherm ko = new SpeelScherm(new MainWindow());
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -54,9 +54,10 @@ public class SpeelScherm extends NicePanel {
 
 	/**
 	 * Create the application.
+	 * @param mainWindow 
 	 * @throws IOException 
 	 */
-	public SpeelScherm() {
+	public SpeelScherm(MainWindow mainWindow) {
 		try {
 			initialize();
 		} catch (IOException e) {

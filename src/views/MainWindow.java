@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
+
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -46,6 +48,10 @@ public class MainWindow {
 		initialize();
 	}
 
+	public void openPanel(JPanel panel) {
+		frame.setContentPane(panel);
+		panel.updateUI();
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -83,13 +89,13 @@ public class MainWindow {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HelpScherm helpScherm = new HelpScherm();
-				frame.setContentPane(helpScherm);
-				helpScherm.updateUI();
+				openPanel(helpScherm);
 			}
 		});
 		frame.getContentPane().add(btnNewButton, "cell 1 3,growx");
 		
 		JButton btnNewButton_3 = new JButton("Start");
+		final KiesOnderwerp kiesOnderwerp = new KiesOnderwerp(this);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String naamNo = txtVulHierJe.getText();
@@ -101,9 +107,7 @@ public class MainWindow {
 				else
 				{
 					String naam = txtVulHierJe.getText();
-					KiesOnderwerp kiesOnderwerp = new KiesOnderwerp();
-					frame.setContentPane(kiesOnderwerp);
-					kiesOnderwerp.updateUI();
+					openPanel(kiesOnderwerp);
 				}
 			}
 		});

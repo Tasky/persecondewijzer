@@ -28,7 +28,7 @@ public class KiesOnderwerp extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 800, 600);
 					frame.setVisible(true);
-					KiesOnderwerp ko = new KiesOnderwerp();
+					KiesOnderwerp ko = new KiesOnderwerp(new MainWindow());
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -41,7 +41,7 @@ public class KiesOnderwerp extends NicePanel {
 	/**
 	 * Create the frame.
 	 */
-	public KiesOnderwerp() {
+	public KiesOnderwerp(final MainWindow mainWindow) {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[grow]", "[84.00][111.00,grow]"));
 		
@@ -66,7 +66,7 @@ public class KiesOnderwerp extends NicePanel {
 	    {
 	    	views.panels.Onderwerp onderwerp = new views.panels.Onderwerp(new ActionListener() {
 		    	public void actionPerformed(ActionEvent arg0) {
-		    		
+		    		mainWindow.openPanel(new SpeelScherm(mainWindow));
 		    	}
 		    });
 	    	
