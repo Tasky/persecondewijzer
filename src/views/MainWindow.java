@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import views.components.ImagePanel;
 import views.components.NicePanel;
 
+import java.awt.Container;
 import java.awt.Panel;
 import java.awt.Color;
 import java.awt.Window;
@@ -24,6 +25,7 @@ public class MainWindow {
 
 	private JFrame frame;
 	private JTextField txtVulHierJe;
+	private Container ownPanel;
 
 	/**
 	 * Launch the application.
@@ -47,6 +49,12 @@ public class MainWindow {
 	public MainWindow() {
 		initialize();
 	}
+	
+	public void reset()
+	{
+		frame.setContentPane(ownPanel);
+		((JPanel) ownPanel).updateUI();
+	}
 
 	public void openPanel(JPanel panel) {
 		frame.setContentPane(panel);
@@ -57,7 +65,8 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setContentPane(new NicePanel());
+		ownPanel = new NicePanel();
+		frame.setContentPane(ownPanel);
 		//frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 1024, 768);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,6 +126,12 @@ public class MainWindow {
 		frame.getContentPane().add(btnNewButton_1, "cell 1 4,growx");
 		
 		JButton btnNewButton_2 = new JButton("Highscores");
+		final Highscore highscore = new Highscore(this);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openPanel(highscore);
+			}
+		});
 		frame.getContentPane().add(btnNewButton_2, "cell 1 5,growx");
 	}
 
