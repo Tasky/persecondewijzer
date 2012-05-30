@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import views.components.ImagePanel;
+import views.components.NicePanel;
+
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
 import views.panels.Timer;
@@ -24,11 +26,12 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ScrollPaneConstants;
+import java.awt.Color;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EtchedBorder;
 
-public class SpeelScherm {
-
-	private JFrame frame;
-
+public class SpeelScherm extends NicePanel {
 	/**
 	 * Launch the application.
 	 */
@@ -36,8 +39,12 @@ public class SpeelScherm {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SpeelScherm window = new SpeelScherm();
-					window.frame.setVisible(true);
+					JFrame frame = new JFrame();
+					frame.setBounds(100, 100, 1024, 768);
+					frame.setVisible(true);
+					SpeelScherm ko = new SpeelScherm();
+					frame.setContentPane(ko);
+					ko.updateUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,8 +56,13 @@ public class SpeelScherm {
 	 * Create the application.
 	 * @throws IOException 
 	 */
-	public SpeelScherm() throws IOException {
-		initialize();
+	public SpeelScherm() {
+		try {
+			initialize();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	int currentCell = 0;
@@ -59,25 +71,26 @@ public class SpeelScherm {
 	 * @throws IOException 
 	 */
 	private void initialize() throws IOException {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(SystemColor.info);
-		frame.setBounds(300, 300, 1024, 768);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][126.00,grow,fill]"));
+		//setBackground(SystemColor.info);
+		setBounds(0, 0, 1024, 768);
+		
+		setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][126.00,grow,fill]"));
 		
 		JLabel lblWelkeStadIs = DefaultComponentFactory.getInstance().createTitle("Welke stad is te zien op de afbeelding?");
+		lblWelkeStadIs.setForeground(Color.WHITE);
 		lblWelkeStadIs.setFont(new Font("Tahoma", Font.PLAIN, 47));
-		frame.getContentPane().add(lblWelkeStadIs, "cell 0 0 2 1");
+		add(lblWelkeStadIs, "cell 0 0 2 1");
 		
 		JPanel buttonsPanel = new JPanel();
-		frame.getContentPane().add(buttonsPanel, "cell 0 1,grow");
+		buttonsPanel.setOpaque(false);
+		add(buttonsPanel, "cell 0 1,grow");
 		buttonsPanel.setLayout(new MigLayout("", "[grow]", "[][][][][][][][][]"));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		final JPanel panel = new JPanel();
-		frame.getContentPane().add(scrollPane, "cell 0 2 2 1,grow");
+		add(scrollPane, "cell 0 2 2 1,grow");
 		panel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow][]"));
 		scrollPane.setViewportView(panel);
 		
@@ -96,11 +109,12 @@ public class SpeelScherm {
 		int cell = 0;
 		
 		final ImagePanel plaatje = new ImagePanel("images/Steden/Brussel.jpg");
-		frame.getContentPane().add(plaatje, "cell 1 1 2 1,grow");
+		plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		add(plaatje, "cell 1 1 2 1,grow");
 		plaatje.setAutoResize(true);
 		
 		JPanel panel_1 = new JPanel();
-		frame.getContentPane().add(panel_1, "cell 2 2,grow");
+		add(panel_1, "cell 2 2,grow");
 		panel_1.setLayout(new MigLayout("", "[116px,grow]", "[grow][154px]"));
 		
 		views.panels.Timer timer = new views.panels.Timer();
@@ -123,7 +137,6 @@ public class SpeelScherm {
 					combobox.setModel(model);
 					combobox.setMaximumRowCount(9);
 					panel.add(combobox, "cell "+currentCell+" 1,growx");
-					frame.validate();
 					
 					ImagePanel imagePanel = null;
 					try {
@@ -135,10 +148,9 @@ public class SpeelScherm {
 					panel.add(imagePanel, "cell "+currentCell+" 0,grow");
 					imagePanel.setAutoResize(true);
 					
-					frame.validate();
-					
 					currentCell++;
 					button.setEnabled(false);
+					panel.getParent().validate();
 				}
 			});
 			buttonsPanel.add(button, "cell 0 "+(cell)+",growx");
