@@ -55,7 +55,7 @@ public class MainWindow {
 		//frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow][100.00,grow][300.00,grow]", "[][100.00,grow][][][][][100.00,grow]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[grow,fill][150px:150px:150px,fill][][][][][][100.00,grow]"));
 		
 		//Panel panel = new Panel();
 		//panel.;
@@ -65,8 +65,10 @@ public class MainWindow {
 		try {
 			//panel.setLayout(new MigLayout("", "[1.00,grow][176.00px][1.00,grow]", "[grow][135.00px][grow]"));
 			hoofdmenuPlaatje = new ImagePanel("images/PSWTitel.png");
+			hoofdmenuPlaatje.setSize(176, 204);
+			
 			//panel.add(hoofdmenuPlaatje, "cell 1 0 4 1,grow");
-			frame.getContentPane().add(hoofdmenuPlaatje, "cell 1 1 2 1,grow");
+			frame.getContentPane().add(hoofdmenuPlaatje, "cell 1 1 2 1,alignx left,aligny baseline");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
