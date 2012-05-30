@@ -35,14 +35,8 @@ public class ResultatenScherm extends NicePanel {
 	 * Create the panel.
 	 * @param mainWindow 
 	 */
-	public ResultatenScherm(MainWindow mainWindow) {
-		
-		JButton btnNewButton = new JButton("Verder");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
+	public ResultatenScherm(final MainWindow mainWindow) {
+				
 		txtAthene = new JTextField();
 		txtAthene.setText("Athene");
 		txtAthene.setColumns(10);
@@ -107,12 +101,24 @@ public class ResultatenScherm extends NicePanel {
 		txtFout_3.setText("Fout");
 		txtFout_3.setColumns(10);
 		
-		JButton btnStoppen = new JButton(" Stoppen");
+		JButton btnStoppen = new JButton("Stoppen");
+		btnStoppen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+		JButton btnNewButton = new JButton("Verder");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mainWindow.openPanel(new SpeelScherm(mainWindow));
+			}
+		});
+		
 		setLayout(new MigLayout("", "[grow][77px][86px][][95px][6px][90px][grow]", "[grow][20px][20px][20px][20.00px][20px][20px][20px][20.00px][grow]"));
 		
 		JEditorPane dtrpnScore = new JEditorPane();
 		dtrpnScore.setEditable(false);
-		dtrpnScore.setText("Aantal goed: 5 \r\n Aantal fout: 4 \r\n Aantal joker gebruikt: 0     \r\n \r\n Score: 1500 \r\n \r\n Tijd: 90 sec");
+		dtrpnScore.setText("Aantal goed: 5 \r\nAantal fout: 4 \r\nAantal joker gebruikt: 0     \r\n \r\nScore: 1500 \r\n \r\nTijd: 90 sec");
 		add(dtrpnScore, "cell 4 1 3 5,grow");
 		add(txtAthene_5, "cell 1 6,grow");
 		add(textField_4, "cell 2 6,grow");
