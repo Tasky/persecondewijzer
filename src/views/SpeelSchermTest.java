@@ -60,7 +60,7 @@ public class SpeelSchermTest {
 		frame.getContentPane().setBackground(SystemColor.info);
 		frame.setBounds(300, 300, 1024, 768);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[124][124][124][124][124][124][124][124][124][124]", "[226.00,grow][24.00,grow][][][][][][][][][56.50][126.00,grow,fill][56.50]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[124,grow][124][124][124][124][124][124][124][124][124]", "[226.00,grow][24.00,grow][][][][][][][][][56.50][126.00,grow,fill][56.50]"));
 		
 		Timer timer = new Timer();
 		frame.getContentPane().add(timer, "cell 0 0,grow");
@@ -80,6 +80,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel, "cell 0 11,grow");
+				imagePanel.setAutoResize(true);
 				
 				JComboBox comboBox = new JComboBox();
 				comboBox.setMaximumRowCount(9);
@@ -110,6 +111,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 									}
 				frame.getContentPane().add(imagePanel_1, "cell 1 11,grow");
+				imagePanel_1.setAutoResize(true);
 				
 				JComboBox comboBox_1 = new JComboBox();
 				comboBox_1.setMaximumRowCount(9);
@@ -132,6 +134,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel_2, "cell 2 11,grow");
+				imagePanel_2.setAutoResize(true);
 				
 				JComboBox comboBox_2 = new JComboBox();
 				comboBox_2.setMaximumRowCount(9);
@@ -153,6 +156,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel_3, "cell 3 11,grow");
+				imagePanel_3.setAutoResize(true);
 				
 				JComboBox comboBox_3 = new JComboBox();
 				comboBox_3.setMaximumRowCount(9);
@@ -174,6 +178,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel_4, "cell 4 11,grow");
+				imagePanel_4.setAutoResize(true);
 				
 				JComboBox comboBox_4 = new JComboBox();
 				comboBox_4.setMaximumRowCount(9);
@@ -195,6 +200,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel_5, "cell 5 11,grow");
+				imagePanel_5.setAutoResize(true);
 				
 				JComboBox comboBox_5 = new JComboBox();
 				comboBox_5.setMaximumRowCount(9);
@@ -216,6 +222,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel_6, "cell 6 11,grow");
+				imagePanel_6.setAutoResize(true);
 				
 				JComboBox comboBox_6 = new JComboBox();
 				comboBox_6.setModel(new DefaultComboBoxModel(Steden.values()));
@@ -237,6 +244,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel_7, "cell 7 11,grow");
+				imagePanel_7.setAutoResize(true);
 				
 				JComboBox comboBox_7 = new JComboBox();
 				comboBox_7.setModel(new DefaultComboBoxModel(Steden.values()));
@@ -258,6 +266,7 @@ public class SpeelSchermTest {
 					e1.printStackTrace();
 				}
 				frame.getContentPane().add(imagePanel_8, "cell 8 11,grow");
+				imagePanel_8.setAutoResize(true);
 				
 				JComboBox comboBox_8 = new JComboBox();
 				comboBox_8.setModel(new DefaultComboBoxModel(Steden.values()));
@@ -267,6 +276,10 @@ public class SpeelSchermTest {
 			}
 		});
 		frame.getContentPane().add(btnRome, "cell 0 9,growx");
+		
+		JPanel antwoordenPanel = new JPanel();
+		frame.getContentPane().add(antwoordenPanel, "cell 0 11 9 2,grow");
+		antwoordenPanel.setLayout(new MigLayout("", "[]", "[]"));
 																																		
 	}
 
