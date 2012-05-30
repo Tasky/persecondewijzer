@@ -85,6 +85,7 @@ public class SpeelSchermTest {
 				comboBox.setMaximumRowCount(9);
 				comboBox.setModel(new DefaultComboBoxModel(Steden.values()));
 				frame.getContentPane().add(comboBox, "cell 0 12,growx");
+				frame.validate();
 			}
 			
 		});
@@ -107,95 +108,166 @@ public class SpeelSchermTest {
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}
+									}
 				frame.getContentPane().add(imagePanel_1, "cell 1 11,grow");
 				
 				JComboBox comboBox_1 = new JComboBox();
 				comboBox_1.setMaximumRowCount(9);
 				comboBox_1.setModel(new DefaultComboBoxModel(Steden.values()));
 				frame.getContentPane().add(comboBox_1, "cell 1 12,growx");
-				
+				frame.validate();
 				
 			}
 		});
 		frame.getContentPane().add(btnBerlijn, "cell 0 2,growx");
 		
 		JButton btnBrussel = new JButton("Brussel");
+		btnBrussel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_2 = null;
+				try {
+					imagePanel_2 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_2, "cell 2 11,grow");
+				
+				JComboBox comboBox_2 = new JComboBox();
+				comboBox_2.setMaximumRowCount(9);
+				comboBox_2.setModel(new DefaultComboBoxModel(Steden.values()));
+				frame.getContentPane().add(comboBox_2, "cell 2 12,growx");
+				frame.validate();
+			}
+		});
 		frame.getContentPane().add(btnBrussel, "cell 0 3,growx");
 		
 		JButton btnDublin = new JButton("Dublin");
+		btnDublin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_3 = null;
+				try {
+					imagePanel_3 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_3, "cell 3 11,grow");
+				
+				JComboBox comboBox_3 = new JComboBox();
+				comboBox_3.setMaximumRowCount(9);
+				comboBox_3.setModel(new DefaultComboBoxModel(Steden.values()));
+				frame.getContentPane().add(comboBox_3, "cell 3 12,growx");
+				frame.validate();
+			}
+		});
 		frame.getContentPane().add(btnDublin, "cell 0 4,growx");
 		
 		JButton btnKopenhagen = new JButton("Kopenhagen");
+		btnKopenhagen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_4 = null;
+				try {
+					imagePanel_4 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_4, "cell 4 11,grow");
+				
+				JComboBox comboBox_4 = new JComboBox();
+				comboBox_4.setMaximumRowCount(9);
+				comboBox_4.setModel(new DefaultComboBoxModel(Steden.values()));
+				frame.getContentPane().add(comboBox_4, "cell 4 12,growx");
+				frame.validate();
+			}
+		});
 		frame.getContentPane().add(btnKopenhagen, "cell 0 5,growx");
 		
 		JButton btnMonaco = new JButton("Monaco");
+		btnMonaco.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_5 = null;
+				try {
+					imagePanel_5 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_5, "cell 5 11,grow");
+				
+				JComboBox comboBox_5 = new JComboBox();
+				comboBox_5.setMaximumRowCount(9);
+				comboBox_5.setModel(new DefaultComboBoxModel(Steden.values()));
+				frame.getContentPane().add(comboBox_5, "cell 5 12,growx");
+				frame.validate();
+			}
+		});
 		frame.getContentPane().add(btnMonaco, "cell 0 6,growx");
 		
 		JButton btnOslo = new JButton("Oslo");
+		btnOslo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_6 = null;
+				try {
+					imagePanel_6 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_6, "cell 6 11,grow");
+				
+				JComboBox comboBox_6 = new JComboBox();
+				comboBox_6.setModel(new DefaultComboBoxModel(Steden.values()));
+				comboBox_6.setMaximumRowCount(9);
+				frame.getContentPane().add(comboBox_6, "cell 6 12,growx");
+				frame.validate();
+			}
+		});
 		frame.getContentPane().add(btnOslo, "cell 0 7,growx");
 		
 		JButton btnParijs = new JButton("Parijs");
+		btnParijs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_7 = null;
+				try {
+					imagePanel_7 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_7, "cell 7 11,grow");
+				
+				JComboBox comboBox_7 = new JComboBox();
+				comboBox_7.setModel(new DefaultComboBoxModel(Steden.values()));
+				comboBox_7.setMaximumRowCount(9);
+				frame.getContentPane().add(comboBox_7, "cell 7 12,growx");
+				frame.validate();				
+			}
+		});
 		frame.getContentPane().add(btnParijs, "cell 0 8,growx");
 		
 		JButton btnRome = new JButton("Rome");
-		frame.getContentPane().add(btnRome, "cell 0 9,growx");
-						
-		ImagePanel imagePanel_2 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_2, "cell 2 11,grow");
-		
-		ImagePanel imagePanel_3 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_3, "cell 3 11,grow");
-		
-		ImagePanel imagePanel_4 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_4, "cell 4 11,grow");
-		
-		ImagePanel imagePanel_5 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_5, "cell 5 11,grow");
-		
-		ImagePanel imagePanel_6 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_6, "cell 6 11,grow");
-		
-		ImagePanel imagePanel_7 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_7, "cell 7 11,grow");
-		
-		ImagePanel imagePanel_8 = new ImagePanel("images/stad.jpg");
-		frame.getContentPane().add(imagePanel_8, "cell 8 11,grow");
+		btnRome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ImagePanel imagePanel_8 = null;
+				try {
+					imagePanel_8 = new ImagePanel("images/stad.jpg");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.getContentPane().add(imagePanel_8, "cell 8 11,grow");
 				
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setMaximumRowCount(9);
-		comboBox_2.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_2, "cell 2 12,growx");
-		
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setMaximumRowCount(9);
-		comboBox_3.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_3, "cell 3 12,growx");
-		
-		JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setMaximumRowCount(9);
-		comboBox_4.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_4, "cell 4 12,growx");
-		
-		JComboBox comboBox_5 = new JComboBox();
-		comboBox_5.setMaximumRowCount(9);
-		comboBox_5.setModel(new DefaultComboBoxModel(Steden.values()));
-		frame.getContentPane().add(comboBox_5, "cell 5 12,growx");
-		
-		JComboBox comboBox_6 = new JComboBox();
-		comboBox_6.setModel(new DefaultComboBoxModel(Steden.values()));
-		comboBox_6.setMaximumRowCount(9);
-		frame.getContentPane().add(comboBox_6, "cell 6 12,growx");
-		
-		JComboBox comboBox_7 = new JComboBox();
-		comboBox_7.setModel(new DefaultComboBoxModel(Steden.values()));
-		comboBox_7.setMaximumRowCount(9);
-		frame.getContentPane().add(comboBox_7, "cell 7 12,growx");
-		
-		JComboBox comboBox_8 = new JComboBox();
-		comboBox_8.setModel(new DefaultComboBoxModel(Steden.values()));
-		comboBox_8.setMaximumRowCount(9);
-		frame.getContentPane().add(comboBox_8, "cell 8 12,growx");
+				JComboBox comboBox_8 = new JComboBox();
+				comboBox_8.setModel(new DefaultComboBoxModel(Steden.values()));
+				comboBox_8.setMaximumRowCount(9);
+				frame.getContentPane().add(comboBox_8, "cell 8 12,growx");
+				frame.validate();	
+			}
+		});
+		frame.getContentPane().add(btnRome, "cell 0 9,growx");
+																																		
 	}
 
 }
