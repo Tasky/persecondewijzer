@@ -62,12 +62,9 @@ public class SpeelSchermTest {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[124,grow][124][124][124][124][124][124][124][124][124]", "[226.00,grow][24.00,grow][][][][][][][][][56.50][126.00,grow,fill][56.50]"));
 		
-		Timer timer = new Timer();
-		frame.getContentPane().add(timer, "cell 0 0,grow");
-		
 		JLabel lblWelkeStadIs = DefaultComponentFactory.getInstance().createTitle("Welke stad is te zien op de afbeelding?");
 		lblWelkeStadIs.setFont(new Font("Tahoma", Font.PLAIN, 47));
-		frame.getContentPane().add(lblWelkeStadIs, "cell 1 0 8 1");
+		frame.getContentPane().add(lblWelkeStadIs, "cell 0 0 8 1");
 		
 		JButton btnAthene = new JButton("Athene");
 		btnAthene.addActionListener(new ActionListener() {
@@ -90,6 +87,9 @@ public class SpeelSchermTest {
 			}
 			
 		});
+		
+		Timer timer = new Timer();
+		frame.getContentPane().add(timer, "cell 8 0,grow");
 		frame.getContentPane().add(btnAthene, "cell 0 1,growx");
 		//	try {
 		//	} catch (IOException e) {
@@ -121,6 +121,10 @@ public class SpeelSchermTest {
 				
 			}
 		});
+		
+		JLabel lblSteden = DefaultComponentFactory.getInstance().createTitle("Steden");
+		lblSteden.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		frame.getContentPane().add(lblSteden, "cell 8 1");
 		frame.getContentPane().add(btnBerlijn, "cell 0 2,growx");
 		
 		JButton btnBrussel = new JButton("Brussel");
@@ -277,9 +281,8 @@ public class SpeelSchermTest {
 		});
 		frame.getContentPane().add(btnRome, "cell 0 9,growx");
 		
-		JPanel antwoordenPanel = new JPanel();
-		frame.getContentPane().add(antwoordenPanel, "cell 0 11 9 2,grow");
-		antwoordenPanel.setLayout(new MigLayout("", "[]", "[]"));
+		JButton btnStopDeTijd = new JButton("Stop de Tijd");
+		frame.getContentPane().add(btnStopDeTijd, "cell 8 10");
 																																		
 	}
 
