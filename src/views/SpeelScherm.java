@@ -59,7 +59,7 @@ public class SpeelScherm extends NicePanel {
 	 */
 	public SpeelScherm(MainWindow mainWindow) {
 		try {
-			initialize();
+			initialize(mainWindow);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,9 +69,10 @@ public class SpeelScherm extends NicePanel {
 	int currentCell = 0;
 	/**
 	 * Initialize the contents of the frame.
+	 * @param mainWindow 
 	 * @throws IOException 
 	 */
-	private void initialize() throws IOException {
+	private void initialize(final MainWindow mainWindow) throws IOException {
 		//setBackground(SystemColor.info);
 		setBounds(0, 0, 1024, 768);
 		
@@ -122,6 +123,11 @@ public class SpeelScherm extends NicePanel {
 		panel_1.add(timer, "cell 0 0,grow");
 		
 		JButton btnStoppen = new JButton("Stop de tijd");
+		btnStoppen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mainWindow.openPanel(new JokerScherm(mainWindow));
+			}
+		});
 		panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 		
 		for (final String optie : opties) {			

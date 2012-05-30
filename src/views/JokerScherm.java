@@ -13,16 +13,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 
-public class JokerScherm extends JPanel {
+import views.components.NicePanel;
+
+public class JokerScherm extends NicePanel {
 
 	/**
 	 * Create the panel.
+	 * @param mainWindow 
 	 */
-	public JokerScherm() {
+	public JokerScherm(MainWindow mainWindow) {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[200.00,grow][][130.00][200.00,grow]", "[200.00,grow][][][][-92.00][200.00,grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Hoeveel jokers wil je inzetten?");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 22));
 		add(lblNewLabel, "cell 1 1 2 1");
 		
@@ -31,14 +35,17 @@ public class JokerScherm extends JPanel {
 		add(spinner, "cell 1 2,grow");
 		
 		JLabel lblJokers = new JLabel("Jokers");
+		lblJokers.setForeground(Color.WHITE);
 		lblJokers.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblJokers, "cell 2 2,alignx left,growy");
 		
 		JLabel lblJ = new JLabel("Je hebt nog 5 jokers");
+		lblJ.setForeground(Color.WHITE);
 		lblJ.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblJ, "cell 1 3");
 		
 		JLabel lblEenJokerKost = new JLabel("Een Joker kost 15 seconden");
+		lblEenJokerKost.setForeground(Color.WHITE);
 		lblEenJokerKost.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblEenJokerKost, "cell 2 3");
 		
