@@ -19,6 +19,8 @@ import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class MainWindow {
@@ -104,20 +106,20 @@ public class MainWindow {
 		frame.getContentPane().add(btnNewButton, "cell 1 3,growx");
 		
 		JButton btnNewButton_3 = new JButton("Start");
-		final KiesOnderwerp kiesOnderwerp = new KiesOnderwerp(this);
+		
+		txtVulHierJe.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				if(arg0.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					startGame();
+				}
+			}
+		});
+		
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String naamNo = txtVulHierJe.getText();
-						
-				if (naamNo.equals("Vul hier je naam in") || naamNo.equals(""))
-				{
-					txtVulHierJe.setBackground(Color.red);
-				}
-				else
-				{
-					String naam = txtVulHierJe.getText();
-					openPanel(kiesOnderwerp);
-				}
+				startGame();
 			}
 		});
 		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 3,grow");
@@ -134,5 +136,19 @@ public class MainWindow {
 		});
 		frame.getContentPane().add(btnNewButton_2, "cell 1 5,growx");
 	}
-
+	private void startGame()
+	{
+		KiesOnderwerp kiesOnderwerp = new KiesOnderwerp(this);
+		String naamNo = txtVulHierJe.getText();
+		
+		if (naamNo.equals("Vul hier je naam in") || naamNo.isEmpty())
+		{
+			txtVulHierJe.setBackground(Color.red);
+			txtVulHierJe.selectAll();
+		}
+		else
+		{
+			openPanel(kiesOnderwerp);
+		}
+	}
 }
