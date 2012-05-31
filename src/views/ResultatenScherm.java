@@ -38,66 +38,82 @@ public class ResultatenScherm extends NicePanel {
 	public ResultatenScherm(final MainWindow mainWindow) {
 				
 		txtAthene = new JTextField();
+		txtAthene.setEditable(false);
 		txtAthene.setText("Athene");
 		txtAthene.setColumns(10);
 		
 		txtAthene_1 = new JTextField();
+		txtAthene_1.setEditable(false);
 		txtAthene_1.setText("Athene");
 		txtAthene_1.setColumns(10);
 		
 		txtAthene_2 = new JTextField();
+		txtAthene_2.setEditable(false);
 		txtAthene_2.setText("Athene");
 		txtAthene_2.setColumns(10);
 		
 		txtAthene_3 = new JTextField();
+		txtAthene_3.setEditable(false);
 		txtAthene_3.setText("Athene");
 		txtAthene_3.setColumns(10);
 		
 		txtAthene_4 = new JTextField();
+		txtAthene_4.setEditable(false);
 		txtAthene_4.setText("Athene");
 		txtAthene_4.setColumns(10);
 		
 		txtAthene_5 = new JTextField();
+		txtAthene_5.setEditable(false);
 		txtAthene_5.setText("Athene");
 		txtAthene_5.setColumns(10);
 		
 		txtAthene_6 = new JTextField();
+		txtAthene_6.setEditable(false);
 		txtAthene_6.setText("athene");
 		txtAthene_6.setColumns(10);
 		
 		txtAthene_7 = new JTextField();
+		txtAthene_7.setEditable(false);
 		txtAthene_7.setText("athene");
 		txtAthene_7.setColumns(10);
 		
 		txtGoed = new JTextField();
+		txtGoed.setEditable(false);
 		txtGoed.setText("Goed");
 		txtGoed.setColumns(10);
 		
 		txtFout = new JTextField();
+		txtFout.setEditable(false);
 		txtFout.setText("Fout");
 		txtFout.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setEditable(false);
 		textField_1.setText("Goed");
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
+		textField_2.setEditable(false);
 		textField_2.setText("Goed");
 		textField_2.setColumns(10);
 		
 		txtFout_1 = new JTextField();
+		txtFout_1.setEditable(false);
 		txtFout_1.setText("Fout");
 		txtFout_1.setColumns(10);
 		
 		textField_4 = new JTextField();
+		textField_4.setEditable(false);
 		textField_4.setText("Goed");
 		textField_4.setColumns(10);
 		
 		txtFout_2 = new JTextField();
+		txtFout_2.setEditable(false);
 		txtFout_2.setText("Fout");
 		txtFout_2.setColumns(10);
 		
 		txtFout_3 = new JTextField();
+		txtFout_3.setEditable(false);
 		txtFout_3.setText("Fout");
 		txtFout_3.setColumns(10);
 		
@@ -110,7 +126,7 @@ public class ResultatenScherm extends NicePanel {
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				mainWindow.openPanel(new SpeelScherm(mainWindow));
+				mainWindow.openPanel(new SpeelScherm(MainWindow));
 			}
 		});
 		
