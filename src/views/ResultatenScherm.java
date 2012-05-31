@@ -126,7 +126,7 @@ public class ResultatenScherm extends NicePanel {
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				mainWindow.openPanel(new SpeelScherm(MainWindow));
+				mainWindow.openPanel(new SpeelScherm(mainWindow));
 			}
 		});
 		
