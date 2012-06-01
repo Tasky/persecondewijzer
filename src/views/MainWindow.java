@@ -18,6 +18,8 @@ import java.awt.Color;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -28,6 +30,11 @@ public class MainWindow {
 	private JFrame frame;
 	private JTextField txtVulHierJe;
 	private Container ownPanel;
+	
+	/**
+	 * static variables
+	 */
+	private static final String TXT_PLACEH_NAAM_INPUT = "Vul hier je naam in";
 
 	/**
 	 * Launch the application.
@@ -92,9 +99,43 @@ public class MainWindow {
 		}
 		
 		txtVulHierJe = new JTextField();
-		txtVulHierJe.setText("Vul hier je naam in");
+		txtVulHierJe.setText(TXT_PLACEH_NAAM_INPUT);
 		frame.getContentPane().add(txtVulHierJe, "cell 1 2 2 1,growx");
 		txtVulHierJe.setColumns(10);
+		
+		txtVulHierJe.addMouseListener( new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if ( arg0.getButton() == MouseEvent.BUTTON1 ) {
+					txtVulHierJe.setText("");
+				}
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}  } );
 		
 		JButton btnNewButton = new JButton("Spelregels");
 		btnNewButton.addActionListener(new ActionListener() {
