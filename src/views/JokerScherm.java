@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+
 import javax.swing.JRadioButton;
 
 import views.components.NicePanel;
@@ -52,7 +54,11 @@ public class JokerScherm extends NicePanel {
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				mainWindow.openPanel(new ResultatenScherm(mainWindow));
+				try {
+					mainWindow.openPanel(new ResultatenScherm(mainWindow));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		add(btnNewButton, "cell 1 4 2 1,growx");
