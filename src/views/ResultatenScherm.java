@@ -1,5 +1,6 @@
 package views;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.GroupLayout;
@@ -11,12 +12,34 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
+import views.components.ImagePanel;
 import views.components.NicePanel;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
+import java.io.IOException;
 
 public class ResultatenScherm extends NicePanel {
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					JFrame frame = new JFrame();
+					frame.setBounds(100, 100, 1024, 768);
+					frame.setVisible(true);
+					ResultatenScherm ko = new ResultatenScherm(new MainWindow());
+					frame.setContentPane(ko);
+					ko.updateUI();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	private JLabel txtAthene;
 	private JLabel txtAthene_1;
 	private JLabel txtAthene_2;
@@ -33,12 +56,14 @@ public class ResultatenScherm extends NicePanel {
 	private JLabel textField_4;
 	private JLabel txtFout_2;
 	private JLabel txtFout_3;
+	private ImagePanel plaatje;
 
 	/**
 	 * Create the panel.
 	 * @param mainWindow 
+	 * @throws IOException 
 	 */
-	public ResultatenScherm(final MainWindow mainWindow) {
+	public ResultatenScherm(final MainWindow mainWindow) throws IOException {
 				
 		txtAthene = new JLabel();
 		txtAthene.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -133,7 +158,16 @@ public class ResultatenScherm extends NicePanel {
 			}
 		});
 		
-		setLayout(new MigLayout("", "[grow][77px][86px][][95px][6px][90px][grow]", "[grow][20px][20px][20px][20.00px][20px][20px][20px][20.00px][grow]"));
+		setLayout(new MigLayout("", "[grow][77px][86px][][95px][6px][90px][grow]", "[grow][20px,grow][20px][20px][20.00px][20px][20px][20px][20.00px][grow]"));
+		
+		try{
+			plaatje = new ImagePanel("images/Steden/Brussel.jpg");
+			add(plaatje, "cell 0 1,grow");
+			plaatje.setAutoResize(true);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			System.out.println("blaat");
+		}
 		
 		JEditorPane dtrpnScore = new JEditorPane();
 		dtrpnScore.setBackground(new Color(0,0,0,0));
@@ -161,4 +195,5 @@ public class ResultatenScherm extends NicePanel {
 		add(btnNewButton, "cell 6 7 1 2,grow");
 
 	}
+	
 }
