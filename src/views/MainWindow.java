@@ -104,11 +104,17 @@ public class MainWindow {
 		
 		//Als er met de mouse geklikt wordt zal de placeholder text verwijderd worden
 		txtVulHierJe.addMouseListener( new MouseAdapter() {
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if ( arg0.getButton() == MouseEvent.BUTTON1 ) {
+				if ( arg0.getButton() == 0x1 && txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT) )
 					txtVulHierJe.setText("");
-				}	
+			}
+		} );
+		//Placeholder wijzgen d.m.v. een keypress
+		txtVulHierJe.addKeyListener( new KeyAdapter() { 
+			public void keyPressed( KeyEvent e ) {
+				if ( txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT) ) {
+						txtVulHierJe.setText("");
+				}
 			}
 		} );
 		
