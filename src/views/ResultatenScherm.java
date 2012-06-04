@@ -1,17 +1,11 @@
 package views;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JButton;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JEditorPane;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-
 import views.components.ImagePanel;
 import views.components.NicePanel;
 import javax.swing.JLabel;
