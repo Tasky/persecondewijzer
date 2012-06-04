@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import logic.Speler;
+
 
 public class MainWindow {
 
@@ -170,6 +172,7 @@ public class MainWindow {
 		else
 		{
 			openPanel(kiesOnderwerp);
+			Speler speler = new Speler(naamNo);
 		}
 	}
 }
