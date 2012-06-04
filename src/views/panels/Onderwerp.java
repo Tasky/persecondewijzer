@@ -39,7 +39,6 @@ public class Onderwerp extends JPanel {
 		    btnNewButton.addActionListener(action);
 		    panel.add(btnNewButton, "cell 0 1,aligny center");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

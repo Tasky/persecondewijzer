@@ -92,7 +92,6 @@ public class MainWindow {
 			//panel.add(hoofdmenuPlaatje, "cell 1 0 4 1,grow");
 			frame.getContentPane().add(hoofdmenuPlaatje, "cell 1 1 2 1,alignx left,aligny baseline");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

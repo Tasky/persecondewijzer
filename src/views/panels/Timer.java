@@ -25,7 +25,6 @@ public class Timer extends JPanel {
 		try {
 			panel = new Icon("clock");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		add(panel, "cell 0 0,grow");

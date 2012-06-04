@@ -45,7 +45,6 @@ public class WijzigAntwoordPanel extends JPanel {
 		    panel.setLayout(new MigLayout("", "[grow,right]", "[18.00][60.00,fill][]"));
 		    
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
