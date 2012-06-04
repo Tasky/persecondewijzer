@@ -163,7 +163,7 @@ public class MainWindow {
 		KiesOnderwerp kiesOnderwerp = new KiesOnderwerp(this);
 		String naamNo = txtVulHierJe.getText();
 		
-		if (naamNo.equals("Vul hier je naam in") || naamNo.isEmpty())
+		if (naamNo.equals(TXT_PLACEH_NAAM_INPUT) || naamNo.isEmpty())
 		{
 			txtVulHierJe.setBackground(Color.red);
 			txtVulHierJe.selectAll();
