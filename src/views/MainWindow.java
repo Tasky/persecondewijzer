@@ -18,6 +18,9 @@ import java.awt.Color;
 import java.awt.Window;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -102,40 +105,17 @@ public class MainWindow {
 		txtVulHierJe.setText(TXT_PLACEH_NAAM_INPUT);
 		frame.getContentPane().add(txtVulHierJe, "cell 1 2 2 1,growx");
 		txtVulHierJe.setColumns(10);
-		
-		txtVulHierJe.addMouseListener( new MouseListener() {
 
+		
+		//Als er met de mouse geklikt wordt zal de placeholder text verwijderd worden
+		txtVulHierJe.addMouseListener( new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if ( arg0.getButton() == MouseEvent.BUTTON1 ) {
 					txtVulHierJe.setText("");
-				}
-				
+				}	
 			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}  } );
+		} );
 		
 		JButton btnNewButton = new JButton("Spelregels");
 		btnNewButton.addActionListener(new ActionListener() {
