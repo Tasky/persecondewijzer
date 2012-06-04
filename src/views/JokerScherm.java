@@ -44,7 +44,7 @@ public class JokerScherm extends NicePanel {
 		lblJ.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblJ, "cell 1 3");
 		
-		JLabel lblEenJokerKost = new JLabel("Een Joker kost 15 seconden");
+		JLabel lblEenJokerKost = new JLabel("Een Joker kost 16 seconden");
 		lblEenJokerKost.setForeground(Color.WHITE);
 		lblEenJokerKost.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblEenJokerKost, "cell 2 3");
