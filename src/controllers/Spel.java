@@ -65,5 +65,7 @@ public class Spel {
 		joker.addJoker();
 	}
 	
-	public 
+	public void verwijderJokers( int aantal ) {
+		joker.verwijderJokers(aantal);
+	}
 }
