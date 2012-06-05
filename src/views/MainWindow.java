@@ -25,6 +25,8 @@ import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import logic.Speler;
+
 public class MainWindow {
 
 	private JFrame frame;
@@ -80,7 +82,6 @@ public class MainWindow {
 			//panel.add(hoofdmenuPlaatje, "cell 1 0 4 1,grow");
 			frame.getContentPane().add(hoofdmenuPlaatje, "cell 1 1 2 1,alignx left,aligny baseline");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -159,6 +160,7 @@ public class MainWindow {
 		else
 		{
 			openPanel(kiesOnderwerp);
+			Speler speler = new Speler(naamNo);
 		}
 	}
 }

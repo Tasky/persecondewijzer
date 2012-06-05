@@ -41,4 +41,14 @@ public class Speler {
 		
 	}
 	
+	/**
+	 * Handig maar geeft het zelfde resultaat als getNaam()
+	 * @return Naam van de huidige speler
+	 */
+	public String toString() {
+		
+		return getNaam();
+		
+	}
+	
 }

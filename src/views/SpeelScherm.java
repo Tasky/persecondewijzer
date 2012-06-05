@@ -61,7 +61,6 @@ public class SpeelScherm extends NicePanel {
 		try {
 			initialize(mainWindow);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -149,7 +148,6 @@ public class SpeelScherm extends NicePanel {
 					try {
 						imagePanel = new ImagePanel("images/Steden/"+optie+".jpg");
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					panel.add(imagePanel, "cell "+currentCell+" 0,grow");
