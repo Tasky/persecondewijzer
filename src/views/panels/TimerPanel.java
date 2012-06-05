@@ -1,5 +1,7 @@
 package views.panels;
 
+import javax.swing.Timer;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
@@ -9,12 +11,12 @@ import java.awt.Font;
 import java.io.IOException;
 import net.miginfocom.swing.MigLayout;
 
-public class Timer extends JPanel {
+public class TimerPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public Timer() {
+	public TimerPanel() {
 		setLayout(new MigLayout("", "[75px:75px,grow,center]", "[55px:55px][48px]"));
 		
 		JLabel lblTime = new JLabel("211");
