@@ -73,4 +73,10 @@ public class TimerPanel extends JPanel {
 		timer.stop();
 		
 	}
+	
+	public int getTime() {
+		
+		return seconds;
+		
+	}
 }

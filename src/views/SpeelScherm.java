@@ -118,12 +118,14 @@ public class SpeelScherm extends NicePanel {
 		add(panel_1, "cell 2 2,grow");
 		panel_1.setLayout(new MigLayout("", "[116px,grow]", "[grow][154px]"));
 		
-		views.panels.TimerPanel timer = new views.panels.TimerPanel();
+		final views.panels.TimerPanel timer = new views.panels.TimerPanel();
 		panel_1.add(timer, "cell 0 0,grow");
 		
 		JButton btnStoppen = new JButton("Stop de tijd");
 		btnStoppen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Tijd stoppen
+				timer.stopTimer();
 				mainWindow.openPanel(new JokerScherm(mainWindow));
 			}
 		});
