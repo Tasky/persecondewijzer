@@ -1,12 +1,15 @@
 package controllers;
 
 import java.awt.EventQueue;
+
+import logic.Joker;
 import logic.Speler;
 
 
 public class Spel {
 	
 	private Speler speler;
+	private Joker joker;
 
 	
 	/**
@@ -33,6 +36,7 @@ public class Spel {
 	 */
 	public Spel() {
 		speler = new Speler();
+		joker = new Joker();
 		
 		views.MainWindow window = new views.MainWindow(this);
 	}
