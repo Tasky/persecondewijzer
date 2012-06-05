@@ -50,7 +50,7 @@ public class Spel {
 	}
 	
 	public String getSpelerNaam() {
-		speler.getNaam();
+		return speler.getNaam();
 	}
 	
 	/**
