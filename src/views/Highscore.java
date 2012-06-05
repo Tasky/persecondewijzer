@@ -34,7 +34,7 @@ public class Highscore extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 800, 600);
 					frame.setVisible(true);
-					Highscore ko = new Highscore(new MainWindow());
+					Highscore ko = new Highscore(new MainWindow(null));
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -66,9 +66,9 @@ public class Highscore extends NicePanel {
 		
 		
 		DefaultTableModel model = new DefaultTableModel(new Object[][]{
-				{ "1.", "Nanne", "Û 7500,-", "100sec over" },
-				{ "2.", "Bas", "Û 7300,-", "30sec over" },
-				{ "3.", "Jodi", "Û 7100,-", "10sec over" },
+				{ "1.", "Nanne", "ï¿½ 7500,-", "100sec over" },
+				{ "2.", "Bas", "ï¿½ 7300,-", "30sec over" },
+				{ "3.", "Jodi", "ï¿½ 7100,-", "10sec over" },
 			},
 			new Object[] { "Plek", "Naam", "Prijs", "Tijd" });
 		table = new JTable(model);

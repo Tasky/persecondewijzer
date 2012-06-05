@@ -28,7 +28,7 @@ public class KiesOnderwerp extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 800, 600);
 					frame.setVisible(true);
-					KiesOnderwerp ko = new KiesOnderwerp(new MainWindow());
+					KiesOnderwerp ko = new KiesOnderwerp(new MainWindow(null));
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {

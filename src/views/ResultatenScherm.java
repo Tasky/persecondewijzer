@@ -25,7 +25,7 @@ public class ResultatenScherm extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 1024, 768);
 					frame.setVisible(true);
-					ResultatenScherm ko = new ResultatenScherm(new MainWindow());
+					ResultatenScherm ko = new ResultatenScherm(new MainWindow(null));
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
