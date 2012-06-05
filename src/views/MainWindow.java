@@ -1,16 +1,11 @@
 package views;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-
-import controllers.Spel;
-
 
 import views.components.ImagePanel;
 import views.components.NicePanel;
