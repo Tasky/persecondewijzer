@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import controllers.Spel;
+
 import views.components.ImagePanel;
 import views.components.NicePanel;
 
@@ -20,13 +22,14 @@ import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import logic.Speler;
 
 public class MainWindow {
 
 	private JFrame frame;
 	private JTextField txtVulHierJe;
 	private Container ownPanel;
+	
+	private Spel spel;
 	
 	/**
 	 * static variables
@@ -40,6 +43,8 @@ public class MainWindow {
 	public MainWindow(controllers.Spel spel) {
 		initialize();
 		frame.setVisible(true);
+
+		this.spel = spel;
 	}
 	
 	public void reset()
@@ -142,6 +147,8 @@ public class MainWindow {
 		});
 		frame.getContentPane().add(btnNewButton_2, "cell 1 5,growx");
 	}
+	
+	
 	private void startGame()
 	{
 		KiesOnderwerp kiesOnderwerp = new KiesOnderwerp(this);
@@ -155,7 +162,7 @@ public class MainWindow {
 		else
 		{
 			openPanel(kiesOnderwerp);
-			Speler speler = new Speler(naamNo);
+			spel.setSpelerNaam( naamNo );
 		}
 	}
 }
