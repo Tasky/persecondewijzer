@@ -21,6 +21,8 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 
 public class MainWindow {
@@ -68,22 +70,11 @@ public class MainWindow {
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[grow,fill][150px:150px:150px,fill][][][][][][100.00,grow]"));
-		
-		//Panel panel = new Panel();
-		//panel.;
-		//frame.getContentPane().add(panel, "cell 1 0 4 1,grow");
-		
-		ImagePanel hoofdmenuPlaatje;
-		try {
-			//panel.setLayout(new MigLayout("", "[1.00,grow][176.00px][1.00,grow]", "[grow][135.00px][grow]"));
-			hoofdmenuPlaatje = new ImagePanel("images/PSWTitel.png");
-			hoofdmenuPlaatje.setSize(176, 204);
-			
-			//panel.add(hoofdmenuPlaatje, "cell 1 0 4 1,grow");
-			frame.getContentPane().add(hoofdmenuPlaatje, "cell 1 1 2 1,alignx left,aligny baseline");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
+		JLabel lblNewLabel = new JLabel("<html>PER<br />\nSECONDE<br />\nWIJZER</html>");
+		lblNewLabel.setFont(new Font("Gill Sans", Font.BOLD, 35));
+		lblNewLabel.setForeground(Color.WHITE);
+		ownPanel.add(lblNewLabel, "cell 1 1 2 1");
 		
 		txtVulHierJe = new JTextField();
 		txtVulHierJe.setText(TXT_PLACEH_NAAM_INPUT);
