@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import controllers.Spel;
+
+
 import views.components.ImagePanel;
 import views.components.NicePanel;
 
@@ -22,7 +25,6 @@ import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-
 public class MainWindow {
 
 	private JFrame frame;
@@ -35,26 +37,12 @@ public class MainWindow {
 	private static final String TXT_PLACEH_NAAM_INPUT = "Vul hier je naam in";
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
+	 * @param spel 
 	 */
-	public MainWindow() {
+	public MainWindow(controllers.Spel spel) {
 		initialize();
+		frame.setVisible(true);
 	}
 	
 	public void reset()
