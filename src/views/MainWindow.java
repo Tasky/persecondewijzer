@@ -142,7 +142,7 @@ public class MainWindow {
 	
 	private void startGame()
 	{
-		KiesOnderwerp kiesOnderwerp = new KiesOnderwerp(this);
+		KiesOnderwerp kiesOnderwerp = new KiesOnderwerp(this, spel);
 		String naamNo = txtVulHierJe.getText();
 		
 		if (naamNo.equals(TXT_PLACEH_NAAM_INPUT) || naamNo.isEmpty())
