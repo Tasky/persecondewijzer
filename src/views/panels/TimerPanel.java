@@ -26,7 +26,7 @@ public class TimerPanel extends JPanel {
 	public TimerPanel() {
 		setLayout(new MigLayout("", "[75px:75px,grow,center]", "[55px:55px][48px]"));
 		
-		this.lblTime = new JLabel("211");
+		this.lblTime = new JLabel();
 		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
 		add(lblTime, "cell 0 1,alignx left,aligny top");
 		
