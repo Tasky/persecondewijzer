@@ -41,7 +41,29 @@ public class Spel {
 		views.MainWindow window = new views.MainWindow(this);
 	}
 	
+	/**
+	 * Speler methodes
+	 */
+	
 	public void setSpelerNaam( String naam ) {
 		speler.setNaam(naam);
 	}
+	
+	public String getSpelerNaam() {
+		speler.getNaam();
+	}
+	
+	/**
+	 * Joker methodes
+	 */
+
+	public int getJokerAantal() {
+		return joker.getAantal();
+	}
+	
+	public void addJoker() {
+		joker.addJoker();
+	}
+	
+	public 
 }
