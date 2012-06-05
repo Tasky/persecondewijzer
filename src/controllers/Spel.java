@@ -6,7 +6,7 @@ import logic.Speler;
 
 public class Spel {
 	
-	private static Speler speler;
+	private Speler speler;
 
 	
 	/**
@@ -14,7 +14,7 @@ public class Spel {
 	 */
 	public static void main(String[] args) {
 		
-		speler = new Speler();
+		
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -32,13 +32,12 @@ public class Spel {
 	 * Contructor
 	 */
 	public Spel() {
+		speler = new Speler();
+		
 		views.MainWindow window = new views.MainWindow(this);
 	}
 	
 	public void setSpelerNaam( String naam ) {
-		
 		speler.setNaam(naam);
-		
 	}
-
 }
