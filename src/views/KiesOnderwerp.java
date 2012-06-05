@@ -14,6 +14,8 @@ import java.awt.Font;
 
 import javax.swing.JScrollPane;
 
+import controllers.Spel;
+
 import views.components.NicePanel;
 
 import java.awt.event.ActionListener;
