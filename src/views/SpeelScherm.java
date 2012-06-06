@@ -19,7 +19,7 @@ import views.components.NicePanel;
 
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
-import views.panels.Timer;
+import views.panels.TimerPanel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
@@ -121,13 +121,15 @@ public class SpeelScherm extends NicePanel {
 		add(panel_1, "cell 2 2,grow");
 		panel_1.setLayout(new MigLayout("", "[116px,grow]", "[grow][154px]"));
 		
-		views.panels.Timer timer = new views.panels.Timer();
+		final views.panels.TimerPanel timer = new views.panels.TimerPanel();
 		panel_1.add(timer, "cell 0 0,grow");
 		
 		JButton btnStoppen = new JButton("Stop de tijd");
 		btnStoppen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				spel.openPanel(new JokerScherm(spel));
+				// Tijd stoppen
+				timer.stopTimer();
 			}
 		});
 		panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");

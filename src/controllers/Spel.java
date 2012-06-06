@@ -48,15 +48,22 @@ public class Spel {
 	public void openPanel(JPanel panel) { window.openPanel(panel); }
 	
 	/**
-	 * Stel de spelernaam in.
+	 * Spelermethodes
 	 * @param naam
 	 */
 	public void setSpelerNaam( String naam ) { speler.setNaam(naam); }
-	
+	public String getSpelerNaam() { return speler.getNaam(); }
+		
 	/**
 	 * Stel het ontwerp in.
 	 * @param onderwerp
 	 */
 	public void setOnderwerp( Onderwerp onderwerp ) { this.onderwerp = onderwerp; }
 	
+	/**
+	 * Joker methodes
+	 */
+	public int getJokerAantal() { return joker.getAantal(); }
+	public void addJoker() { joker.addJoker(); }
+	public void verwijderJokers( int aantal ) {	joker.verwijderJokers(aantal); }
 }
