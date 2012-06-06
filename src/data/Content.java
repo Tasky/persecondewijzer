@@ -6,21 +6,43 @@ import java.io.File;
 public class Content {
 	
 	private Document doc;
+	private String fileName;
 	private File file;
 	private static final String XML_LOCATION = "etc/XML/";
 
-	public Content ( String file ) {
+	public Content ( String fileName ) {
 		
-		createXMLFile(file);
+		setFile( fileName );
+		createXMLFile();
 		
 	}
 	
-	public boolean createXMLFile( String fileName ) {
+	private void setFile( String fileName ) {
+		
+		this.fileName = XML_LOCATION + file + ".xml";
+		this.file = new File( this.fileName );
+		
+	}
+	
+	public boolean createXMLFile() {
 		
 		try{
-			this.file = new File( XML_LOCATION + fileName);
 			file.createNewFile();
 		}catch(Exception e) {
+			System.err.println(e);
+			return false;
+		}
+		
+		return true;
+		
+	}
+	
+	private boolean isFile() {
+		
+		try{
+			file.canRead();
+			file.canWrite();
+		}catch(Exception e){
 			System.err.println(e);
 			return false;
 		}
