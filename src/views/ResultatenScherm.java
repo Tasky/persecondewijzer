@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import views.components.ImagePanel;
 import views.components.NicePanel;
 import javax.swing.JLabel;
+
+import controllers.Spel;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -25,7 +28,7 @@ public class ResultatenScherm extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 1024, 768);
 					frame.setVisible(true);
-					ResultatenScherm ko = new ResultatenScherm(new MainWindow(null));
+					ResultatenScherm ko = new ResultatenScherm(null);
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -54,10 +57,10 @@ public class ResultatenScherm extends NicePanel {
 
 	/**
 	 * Create the panel.
-	 * @param mainWindow 
+	 * @param spel 
 	 * @throws IOException 
 	 */
-	public ResultatenScherm(final MainWindow mainWindow) throws IOException {
+	public ResultatenScherm(final Spel spel) throws IOException {
 				
 		txtAthene = new JLabel();
 		txtAthene.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -148,7 +151,7 @@ public class ResultatenScherm extends NicePanel {
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				mainWindow.openPanel(new SpeelScherm(mainWindow));
+				spel.openPanel(new SpeelScherm(spel));
 			}
 		});
 		

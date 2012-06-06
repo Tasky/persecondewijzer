@@ -14,6 +14,8 @@ import java.awt.Font;
 
 import javax.swing.JScrollPane;
 
+import controllers.Spel;
+
 import views.components.NicePanel;
 
 import java.awt.event.ActionListener;
@@ -28,7 +30,7 @@ public class KiesOnderwerp extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 800, 600);
 					frame.setVisible(true);
-					KiesOnderwerp ko = new KiesOnderwerp(new MainWindow(null));
+					KiesOnderwerp ko = new KiesOnderwerp(null);
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -41,7 +43,7 @@ public class KiesOnderwerp extends NicePanel {
 	/**
 	 * Create the frame.
 	 */
-	public KiesOnderwerp(final MainWindow mainWindow) {
+	public KiesOnderwerp(final Spel spel) {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[grow]", "[84.00][111.00,grow]"));
 		
@@ -66,7 +68,7 @@ public class KiesOnderwerp extends NicePanel {
 	    {
 	    	views.panels.Onderwerp onderwerp = new views.panels.Onderwerp(new ActionListener() {
 		    	public void actionPerformed(ActionEvent arg0) {
-		    		mainWindow.openPanel(new SpeelScherm(mainWindow));
+		    		spel.openPanel(new SpeelScherm(spel));
 		    	}
 		    });
 	    	

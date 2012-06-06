@@ -2,23 +2,28 @@ package controllers;
 
 import java.awt.EventQueue;
 
-import logic.Joker;
+import javax.swing.JPanel;
+
+import views.MainWindow;
+
+import logic.JokerUitrekenaar;
+import logic.Onderwerp;
 import logic.Speler;
 
 
 public class Spel {
 	
 	private Speler speler;
-	private Joker joker;
+	private JokerUitrekenaar joker;
+	private Onderwerp onderwerp;
+	private MainWindow window;
 
+	private int huidigeRonde = 1;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		
-		
-		
+	public static void main(String[] args) {		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -30,18 +35,28 @@ public class Spel {
 		});
 	}
 	
-	
 	/**
 	 * Contructor
 	 */
 	public Spel() {
 		speler = new Speler();
-		joker = new Joker();
+		joker = new JokerUitrekenaar();
 		
-		views.MainWindow window = new views.MainWindow(this);
+		window = new MainWindow(this);
 	}
 	
-	public void setSpelerNaam( String naam ) {
-		speler.setNaam(naam);
-	}
+	public void openPanel(JPanel panel) { window.openPanel(panel); }
+	
+	/**
+	 * Stel de spelernaam in.
+	 * @param naam
+	 */
+	public void setSpelerNaam( String naam ) { speler.setNaam(naam); }
+	
+	/**
+	 * Stel het ontwerp in.
+	 * @param onderwerp
+	 */
+	public void setOnderwerp( Onderwerp onderwerp ) { this.onderwerp = onderwerp; }
+	
 }

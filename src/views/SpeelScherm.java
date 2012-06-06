@@ -23,6 +23,9 @@ import views.panels.Timer;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import controllers.Spel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ScrollPaneConstants;
@@ -42,7 +45,7 @@ public class SpeelScherm extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 1024, 768);
 					frame.setVisible(true);
-					SpeelScherm ko = new SpeelScherm(new MainWindow());
+					SpeelScherm ko = new SpeelScherm(null);
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -54,12 +57,12 @@ public class SpeelScherm extends NicePanel {
 
 	/**
 	 * Create the application.
-	 * @param mainWindow 
+	 * @param spel 
 	 * @throws IOException 
 	 */
-	public SpeelScherm(MainWindow mainWindow) {
+	public SpeelScherm(Spel spel) {
 		try {
-			initialize(mainWindow);
+			initialize(spel);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -71,7 +74,7 @@ public class SpeelScherm extends NicePanel {
 	 * @param mainWindow 
 	 * @throws IOException 
 	 */
-	private void initialize(final MainWindow mainWindow) throws IOException {
+	private void initialize(final Spel spel) throws IOException {
 		//setBackground(SystemColor.info);
 		setBounds(0, 0, 1024, 768);
 		
@@ -124,7 +127,7 @@ public class SpeelScherm extends NicePanel {
 		JButton btnStoppen = new JButton("Stop de tijd");
 		btnStoppen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainWindow.openPanel(new JokerScherm(mainWindow));
+				spel.openPanel(new JokerScherm(spel));
 			}
 		});
 		panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");

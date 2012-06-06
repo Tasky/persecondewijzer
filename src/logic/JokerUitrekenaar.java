@@ -1,10 +1,10 @@
 package logic;
 
-public class Joker {
+public class JokerUitrekenaar {
 
 	private int aantalJokers;
 	
-	public Joker() {
+	public JokerUitrekenaar() {
 		
 		setAantal(2);
 		

@@ -15,15 +15,17 @@ import java.io.IOException;
 
 import javax.swing.JRadioButton;
 
+import controllers.Spel;
+
 import views.components.NicePanel;
 
 public class JokerScherm extends NicePanel {
 
 	/**
 	 * Create the panel.
-	 * @param mainWindow 
+	 * @param spel 
 	 */
-	public JokerScherm(final MainWindow mainWindow) {
+	public JokerScherm(final Spel spel) {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[200.00,grow][][130.00][200.00,grow]", "[200.00,grow][][][][-92.00][200.00,grow]"));
 		
@@ -55,7 +57,7 @@ public class JokerScherm extends NicePanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					mainWindow.openPanel(new ResultatenScherm(mainWindow));
+					spel.openPanel(new ResultatenScherm(spel));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
