@@ -42,6 +42,7 @@ public class Content {
 		try{
 			file.canRead();
 			file.canWrite();
+			file.isFile();
 		}catch(Exception e){
 			System.err.println(e);
 			return false;
