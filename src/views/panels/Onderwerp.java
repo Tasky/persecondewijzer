@@ -24,17 +24,16 @@ public class Onderwerp extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Onderwerp(ActionListener action) {
+	public Onderwerp(logic.Onderwerp onderwerp, ActionListener action) {
 		setBorder(null);
 		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][]", "[][100px:135.00:100px,grow,fill][50.00px]"));
 	    try {
-		    
-		    JLabel lblSteden = new JLabel("Steden");
+		    JLabel lblSteden = new JLabel(onderwerp.getNaam());
 		    lblSteden.setFont(new Font("Dialog", Font.PLAIN, 24));
 		    add(lblSteden, "cell 0 0");
 		    
 		    
-		    ImagePanel image = new ImagePanel("images/stad.jpg");
+		    ImagePanel image = new ImagePanel(onderwerp.getPlaatje());
 		    //image.setBounds(5, 5, 100, 100);
 		    add(image, "cell 0 1");
 		    image.setAutoResize(true);
@@ -48,6 +47,7 @@ public class Onderwerp extends JPanel {
 		    btnNewButton.addActionListener(action);
 		} catch (IOException e) {
 			e.printStackTrace();
+			//TODO doet iets hiermee
 		}
 	}
 

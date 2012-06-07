@@ -1,8 +1,11 @@
 package controllers;
 
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.JPanel;
+
+import data.Content;
 
 import views.MainWindow;
 
@@ -19,6 +22,7 @@ public class Spel {
 	private MainWindow window;
 
 	private int huidigeRonde = 1;
+	private Content content;
 	
 	/**
 	 * Launch the application.
@@ -41,6 +45,8 @@ public class Spel {
 	public Spel() {
 		speler = new Speler();
 		joker = new JokerUitrekenaar();
+		
+		content = new Content();
 		
 		window = new MainWindow(this);
 	}
@@ -66,4 +72,8 @@ public class Spel {
 	public int getJokerAantal() { return joker.getAantal(); }
 	public void addJoker() { joker.addJoker(); }
 	public void verwijderJokers( int aantal ) {	joker.verwijderJokers(aantal); }
+
+	public List<Onderwerp> getOnderwerpen() {
+		return content.getOnderwerpen();
+	}
 }

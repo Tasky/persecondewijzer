@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Regeltjes:
+- Plaatjes beginnen altijd met een hoofdletter
+- Onderwerp voor plaatje.
+ -->
+<onderwerpen>
+	<onderwerp name="Steden" image="Steden.jpg">
+		<vraag>
+			<tekst>Welk stad is dit?</tekst>
+			<opties>
+				<optie image="Steden_Athene.jpg">Athene</optie>
+				<optie image="Steden_Berlijn.jpg">Berlijn</optie>
+				<optie image="Steden_Brussel.jpg">Brussel</optie>
+				<optie image="Steden_Dublin.jpg">Dublin</optie>
+				<optie image="Steden_Kopenhagen.jpg">Kopenhagen</optie>
+				<optie image="Steden_Monaco.jpg">Monaco</optie>
+				<optie image="Steden_Parijs.jpg">Parijs</optie>
+				<optie image="Steden_Rome.jpg">Rome</optie>
+			</opties>
+		</vraag>
+<!-- 		<vraag>
+			<tekst>Waar ligt deze rivier?</tekst>
+			<opties>
+				<optie image="fotoke.jpg">België</optie>
+				<optie image="fotoke.jpg">Egypte</optie>
+				<optie image="fotoke.jpg">Japan</optie>
+			</opties>
+		</vraag> -->
+	</onderwerp>
+<!-- <onderwerp name="Alcohol" image="bier.jpg">
+		<vraag>
+			<tekst>Welk land is dit?</tekst>
+			<opties>
+				<optie image="fotoke.jpg">Egypte</optie>
+				<optie image="fotoke.jpg">Japan</optie>
+				<optie image="fotoke.jpg">België</optie>
+			</opties>
+		</vraag>
+		<vraag>
+			<tekst>Waar ligt deze rivier?</tekst>
+			<opties>
+				<optie image="fotoke.jpg">België</optie>
+				<optie image="fotoke.jpg">Egypte</optie>
+				<optie image="fotoke.jpg">Japan</optie>
+			</opties>
+		</vraag>
+	</onderwerp> -->
+</onderwerpen>

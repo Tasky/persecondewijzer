@@ -23,7 +23,11 @@ public class ImagePanel extends JPanel{
         image = ImageIO.read(new File(path));
     }
 
-    @Override
+    public ImagePanel(File plaatje) throws IOException {
+    	image = ImageIO.read(plaatje);
+	}
+
+	@Override
     public void paintComponent(Graphics g) 
     {
     	if(autoResize){
