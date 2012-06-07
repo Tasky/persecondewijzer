@@ -3,6 +3,8 @@ package data;
 import org.w3c.dom.*;
 
 import java.io.File;
+import java.io.IOException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -16,49 +18,24 @@ public class Parser {
 	private DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	private DocumentBuilder dBuilder;
 
-	public Parser ( String fileName ) {
-		
-		setFile( fileName );
-		
+	public Parser(String fileName) {
+		setFile(fileName);
 	}
 	
-	private void setFile( String fileName ) {
-		
+	private void setFile(String fileName) {
 		this.fileName = XML_LOCATION + fileName + ".xml";
-		this.file = new File( this.fileName );
-		
+		file = new File( this.fileName );
 	}
 	
-	public boolean createXMLFile() {
-		
-		try{
-			file.createNewFile();
-		}catch(Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		
-		return true;
-		
+	public void createXMLFile() throws IOException {
+		file.createNewFile();
 	}
 	
 	private boolean isFile() {
-		
-		try{
-			file.canRead();
-			file.canWrite();
-			file.isFile();
-		}catch(Exception e){
-			e.printStackTrace();
-			return false;
-		}
-		
-		return true;
-		
+		return file.isFile() && file.canRead() && file.canWrite();
 	}
 	
 	public void readFile() {
-		
 		try{
 			dBuilder = dbFactory.newDocumentBuilder();
 			doc = dBuilder.parse(fileName);
