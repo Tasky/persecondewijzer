@@ -99,9 +99,9 @@ public class MainWindow {
 		} );
 		
 		JButton btnNewButton = new JButton("Spelregels");
+		final HelpScherm helpScherm = new HelpScherm(this);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HelpScherm helpScherm = new HelpScherm();
 				openPanel(helpScherm);
 			}
 		});

@@ -42,10 +42,10 @@ import views.components.NicePanel;
 			});
 		}
 
-	
-	/**
+/*	
+	*//**
 	 * Launch the application.
-	 */
+	 *//*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -57,12 +57,12 @@ import views.components.NicePanel;
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public HelpScherm() {
+	public HelpScherm(final MainWindow mainWindow) {
 		setBounds(0, 0, 800, 600);
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		
@@ -70,7 +70,7 @@ import views.components.NicePanel;
 		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
 		btnTerug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//mainWindow.reset();
+				mainWindow.reset();
 			}
 		});
 		
@@ -83,7 +83,7 @@ import views.components.NicePanel;
 				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnNewButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+						.addComponent(btnTerug, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
 						.addComponent(dtrpnHierKomtDe, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE))
 					.addContainerGap())
 		);
@@ -93,7 +93,7 @@ import views.components.NicePanel;
 					.addContainerGap()
 					.addComponent(dtrpnHierKomtDe, GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton)
+					.addComponent(btnTerug)
 					.addContainerGap())
 		);
 		setLayout(gl_contentPane);
