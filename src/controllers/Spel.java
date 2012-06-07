@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.JPanel;
 
 import data.Content;
+import exceptions.DataException;
 
 import views.MainWindow;
 
@@ -73,7 +74,7 @@ public class Spel {
 	public void addJoker() { joker.addJoker(); }
 	public void verwijderJokers( int aantal ) {	joker.verwijderJokers(aantal); }
 
-	public List<Onderwerp> getOnderwerpen() {
+	public List<Onderwerp> getOnderwerpen() throws DataException {
 		return content.getOnderwerpen();
 	}
 }

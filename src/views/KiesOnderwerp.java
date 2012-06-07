@@ -15,6 +15,7 @@ import java.awt.Font;
 import javax.swing.JScrollPane;
 
 import controllers.Spel;
+import exceptions.DataException;
 
 import views.components.NicePanel;
 
@@ -67,14 +68,20 @@ public class KiesOnderwerp extends NicePanel {
 	    columnpanel.setLayout(new GridLayout(0, 1, 0, 1));
 	    columnpanel.setBackground(Color.gray);
 
-	    List<Onderwerp> onderwerpen = spel.getOnderwerpen();
-	    for (final Onderwerp onderwerp : onderwerpen) {
-	    	columnpanel.add(new views.panels.Onderwerp(onderwerp, new ActionListener() {
-		    	public void actionPerformed(ActionEvent arg0) {
-		    		spel.openPanel(new SpeelScherm(spel));
-		    		
-		    	}
-		    }));
+		try {
+			List<Onderwerp> onderwerpen;
+			onderwerpen = spel.getOnderwerpen();
+			for (final Onderwerp onderwerp : onderwerpen) {
+				columnpanel.add(new views.panels.Onderwerp(onderwerp, new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						spel.openPanel(new SpeelScherm(spel));
+					}
+		    	}));
+			}
+		} catch (DataException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	    
 	}
 }
