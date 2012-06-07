@@ -14,6 +14,7 @@ import views.components.NicePanel;
 
 import java.awt.Container;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -68,6 +69,8 @@ public class MainWindow {
 		frame.setContentPane(ownPanel);
 		//frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 1280, 720);
+		frame.setLocationRelativeTo(null);
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][][157.00,grow]"));
 
@@ -98,6 +101,7 @@ public class MainWindow {
 				}
 			}
 		} );
+		
 		
 		JButton btnNewButton = new JButton("Spelregels");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
