@@ -44,10 +44,10 @@ public class KiesOnderwerp extends NicePanel {
 	 * Create the frame.
 	 */
 	public KiesOnderwerp(final Spel spel) {
-		setBounds(0, 0, 800, 600);
+		setBounds(0, 0, 798, 319);
 		setLayout(new MigLayout("", "[grow]", "[84.00][111.00,grow]"));
 		
-		JLabel lblNewLabel = new JLabel("Kies een onderwerp.");
+		JLabel lblNewLabel = new JLabel("Kies een onderwerp");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
 		add(lblNewLabel, "cell 0 0");
