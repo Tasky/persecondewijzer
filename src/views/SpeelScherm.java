@@ -152,6 +152,7 @@ public class SpeelScherm extends NicePanel {
 					ImagePanel imagePanel = null;
 					try {
 						imagePanel = new ImagePanel("images/Steden/"+optie+".jpg");
+						imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.GREEN));
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
