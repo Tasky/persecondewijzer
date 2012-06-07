@@ -2,6 +2,7 @@ package views;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,10 +15,34 @@ import javax.swing.JTextField;
 import java.awt.GridBagLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JEditorPane;
 
-public class HelpScherm extends JPanel {
+import views.components.NicePanel;
+
+	
+	public class HelpScherm extends NicePanel {
+		private JTable table;
+
+		public static void main1(String[] args) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						JFrame frame = new JFrame();
+						frame.setBounds(100, 100, 800, 600);
+						frame.setVisible(true);
+						Highscore ko = new Highscore(new MainWindow(null));
+						frame.setContentPane(ko);
+						ko.updateUI();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+
+	
 	/**
 	 * Launch the application.
 	 */
@@ -41,10 +66,11 @@ public class HelpScherm extends JPanel {
 		setBounds(0, 0, 800, 600);
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		JButton btnNewButton = new JButton("Terug");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnTerug = new JButton("Terug");
+		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
+		btnTerug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				dispose();
+				//mainWindow.reset();
 			}
 		});
 		
