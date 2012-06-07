@@ -24,6 +24,8 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controllers.Spel;
+
 public class Highscore extends NicePanel {
 	private JTable table;
 
@@ -34,7 +36,7 @@ public class Highscore extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 800, 600);
 					frame.setVisible(true);
-					Highscore ko = new Highscore(new MainWindow(null));
+					Highscore ko = new Highscore(new MainWindow(null), null);
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -47,7 +49,7 @@ public class Highscore extends NicePanel {
 	/**
 	 * Create the frame.
 	 */
-	public Highscore(final MainWindow mainWindow) {
+	public Highscore(final MainWindow mainWindow, final Spel spel) {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[grow]", "[84.00][111.00,grow][]"));
 		
@@ -61,6 +63,7 @@ public class Highscore extends NicePanel {
 		btnTerug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mainWindow.reset();
+				spel.openPanel(new JokerScherm(spel));
 			}
 		});
 		

@@ -130,7 +130,7 @@ public class MainWindow {
 		frame.getContentPane().add(btnNewButton_1, "cell 1 4,growx");
 		
 		JButton btnNewButton_2 = new JButton("Highscores");
-		final Highscore highscore = new Highscore(this);
+		final Highscore highscore = new Highscore(this, null);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openPanel(highscore);
