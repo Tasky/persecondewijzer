@@ -69,7 +69,7 @@ public class MainWindow {
 		//frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][][100.00,grow]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][][157.00,grow]"));
 
 		JLabel lblNewLabel = new JLabel("<html>PER<br />\nSECONDE<br />\nWIJZER</html>");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 42));
