@@ -20,6 +20,9 @@ import views.components.NicePanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.List;
+
+import logic.Onderwerp;
 
 public class KiesOnderwerp extends NicePanel {
 
@@ -64,15 +67,14 @@ public class KiesOnderwerp extends NicePanel {
 	    columnpanel.setLayout(new GridLayout(0, 1, 0, 1));
 	    columnpanel.setBackground(Color.gray);
 
-	    for(int i=0;i<10;i++)
-	    {
-	    	views.panels.Onderwerp onderwerp = new views.panels.Onderwerp(new ActionListener() {
+	    List<Onderwerp> onderwerpen = spel.getOnderwerpen();
+	    for (final Onderwerp onderwerp : onderwerpen) {
+	    	columnpanel.add(new views.panels.Onderwerp(onderwerp, new ActionListener() {
 		    	public void actionPerformed(ActionEvent arg0) {
 		    		spel.openPanel(new SpeelScherm(spel));
+		    		
 		    	}
-		    });
-	    	
-		    columnpanel.add(onderwerp);
+		    }));
 		}
 	}
 }
