@@ -18,4 +18,22 @@
 			</opties>
 		</vraag>
 	</onderwerp>
+	<onderwerp name="Alcohol" image="bier.jpg">
+		<vraag>
+			<tekst>Welk land is dit?</tekst>
+			<opties>
+				<optie image="fotoke.jpg">Egypte</optie>
+				<optie image="fotoke.jpg">Japan</optie>
+				<optie image="fotoke.jpg">België</optie>
+			</opties>
+		</vraag>
+		<vraag>
+			<tekst>Waar ligt deze rivier?</tekst>
+			<opties>
+				<optie image="fotoke.jpg">België</optie>
+				<optie image="fotoke.jpg">Egypte</optie>
+				<optie image="fotoke.jpg">Japan</optie>
+			</opties>
+		</vraag>
+	</onderwerp>
 </onderwerpen>
