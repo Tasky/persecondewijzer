@@ -69,14 +69,15 @@ public class MainWindow {
 		//frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[grow,fill][150px:150px:150px,fill][][][][][][100.00,grow]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][][157.00,grow]"));
 
 		JLabel lblNewLabel = new JLabel("<html>PER<br />\nSECONDE<br />\nWIJZER</html>");
-		lblNewLabel.setFont(new Font("Gill Sans", Font.BOLD, 35));
+		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 42));
 		lblNewLabel.setForeground(Color.WHITE);
 		ownPanel.add(lblNewLabel, "cell 1 1 2 1");
 		
 		txtVulHierJe = new JTextField();
+		txtVulHierJe.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtVulHierJe.setText(TXT_PLACEH_NAAM_INPUT);
 		frame.getContentPane().add(txtVulHierJe, "cell 1 2 2 1,growx");
 		txtVulHierJe.setColumns(10);
@@ -99,6 +100,7 @@ public class MainWindow {
 		} );
 		
 		JButton btnNewButton = new JButton("Spelregels");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		final HelpScherm helpScherm = new HelpScherm(this);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,6 +110,7 @@ public class MainWindow {
 		frame.getContentPane().add(btnNewButton, "cell 1 3,growx");
 		
 		JButton btnNewButton_3 = new JButton("Start");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
 		txtVulHierJe.addKeyListener(new KeyAdapter() {
 			@Override
@@ -127,9 +130,11 @@ public class MainWindow {
 		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 3,grow");
 		
 		JButton btnNewButton_1 = new JButton("Beheer");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		frame.getContentPane().add(btnNewButton_1, "cell 1 4,growx");
 		
 		JButton btnNewButton_2 = new JButton("Highscores");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		final Highscore highscore = new Highscore(this, null);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
