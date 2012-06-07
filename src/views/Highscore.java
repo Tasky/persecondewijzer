@@ -51,12 +51,12 @@ public class Highscore extends NicePanel {
 	 */
 	public Highscore(final MainWindow mainWindow, final Spel spel) {
 		setBounds(0, 0, 800, 600);
-		setLayout(new MigLayout("", "[grow]", "[84.00][111.00,grow][]"));
+		setLayout(new MigLayout("", "[grow]", "[80.00][111.00,grow][40.00]"));
 		
 		JLabel lblNewLabel = new JLabel("Highscores");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
-		add(lblNewLabel, "cell 0 0");
+		add(lblNewLabel, "cell 0 0,alignx center,aligny center");
 		
 		JButton btnTerug = new JButton("Terug");
 		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
@@ -66,17 +66,23 @@ public class Highscore extends NicePanel {
 				spel.openPanel(new JokerScherm(spel));
 			}
 		});
-		
-		
-		DefaultTableModel model = new DefaultTableModel(new Object[][]{
-				{ "1.", "Nanne", "� 7500,-", "100sec over" },
-				{ "2.", "Bas", "� 7300,-", "30sec over" },
-				{ "3.", "Jodi", "� 7100,-", "10sec over" },
+
+		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"1.", "Jodi", "7500", "5:00"},
+				{"2.", "Nanne", "300", "0:10"},
+				{"3.", "Bas", "1", "0:01"},
+				{null, null, null, null},
+				{null, null, null, null},
 			},
-			new Object[] { "Plek", "Naam", "Prijs", "Tijd" });
-		table = new JTable(model);
+			new String[] {
+				"Rang", "Naam", "Prijzengeld", "Tijd over"
+			}
+		));
 		add(table, "cell 0 1,grow");
-		add(btnTerug, "cell 0 2,alignx right");
+		add(btnTerug, "cell 0 2,grow");
 
 	}
 }
