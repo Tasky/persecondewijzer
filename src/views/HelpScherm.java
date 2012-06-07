@@ -32,7 +32,7 @@ import views.components.NicePanel;
 						JFrame frame = new JFrame();
 						frame.setBounds(100, 100, 800, 600);
 						frame.setVisible(true);
-						Highscore ko = new Highscore(new MainWindow(null));
+						HelpScherm ko = new HelpScherm(new MainWindow(null));
 						frame.setContentPane(ko);
 						ko.updateUI();
 					} catch (Exception e) {
@@ -41,23 +41,6 @@ import views.components.NicePanel;
 				}
 			});
 		}
-
-/*	
-	*//**
-	 * Launch the application.
-	 *//*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HelpScherm frame = new HelpScherm();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
 	/**
 	 * Create the frame.
