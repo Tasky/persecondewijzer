@@ -5,8 +5,6 @@ import javax.swing.Timer;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-import views.components.Icon;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
