@@ -16,11 +16,13 @@ import logic.Onderwerp;
 import logic.Onderdeel;
 import logic.Speler;
 import logic.Vraag;
+import logic.Timer;
 
 
 public class Spel {
 	
 	private Speler speler;
+	private Timer timer;
 	private JokerUitrekenaar joker;
 	private Onderwerp _onderwerp;
 	private MainWindow window;
@@ -49,6 +51,7 @@ public class Spel {
 	 */
 	public Spel() {
 		speler = new Speler();
+		timer = new Timer();
 		joker = new JokerUitrekenaar();
 		
 		content = new Content();
