@@ -30,14 +30,6 @@ public class TimerPanel extends JPanel {
 		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
 		add(lblTime, "cell 0 1,alignx left,aligny top");
 		
-		Icon panel = null;
-		try {
-			panel = new Icon("clock");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		add(panel, "cell 0 0,grow");
-		
 		this.initTimer(1000);
 		this.startTimer();
 
