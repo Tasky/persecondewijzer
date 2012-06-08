@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import net.miginfocom.swing.MigLayout;
@@ -33,6 +34,8 @@ import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
+
+import logic.Onderdeel;
 
 public class SpeelScherm extends NicePanel {
 	/**
@@ -99,20 +102,14 @@ public class SpeelScherm extends NicePanel {
 		scrollPane.setViewportView(panel);
 		
 		
-		final ArrayList<String> opties = new ArrayList<String>();
-		opties.add("Brussel");
-		opties.add("Kopenhagen");
-		opties.add("Berlijn");
-		opties.add("Parijs");
-		opties.add("Dublin");
-		opties.add("Rome");
-		opties.add("Athene");
-		opties.add("Oslo");
-		opties.add("Monaco");
+		
+		final List<Onderdeel> onderdelen = spel.getOnderdelen();
 		
 		int cell = 0;
 		
-		final ImagePanel plaatje = new ImagePanel("images/Steden/Brussel.jpg");
+		Onderdeel huidigeOnderdeel = onderdelen.get(0);
+		
+		final ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
 		plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		add(plaatje, "cell 1 1 2 1,grow");
 		plaatje.setAutoResize(true);
@@ -134,15 +131,15 @@ public class SpeelScherm extends NicePanel {
 		});
 		panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 		
-		for (final String optie : opties) {			
+		for (final Onderdeel optie : onderdelen) {			
 			//antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
-			final JButton button = new JButton(optie);
+			final JButton button = new JButton(optie.getAntwoord());
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					JComboBox combobox = new JComboBox();
 					DefaultComboBoxModel model = new DefaultComboBoxModel();
-					for(String comboOptie : opties) {
-						model.addElement(comboOptie);
+					for(Onderdeel comboOptie : onderdelen) {
+						model.addElement(comboOptie.getAntwoord());
 					}
 					model.setSelectedItem(optie);
 					combobox.setModel(model);
@@ -151,7 +148,7 @@ public class SpeelScherm extends NicePanel {
 					
 					ImagePanel imagePanel = null;
 					try {
-						imagePanel = new ImagePanel("images/Steden/"+optie+".jpg");
+						imagePanel = new ImagePanel(optie.getPlaatje());
 						imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.GREEN));
 					} catch (IOException e1) {
 						e1.printStackTrace();

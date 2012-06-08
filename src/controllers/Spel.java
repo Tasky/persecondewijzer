@@ -9,26 +9,30 @@ import data.Content;
 import exceptions.DataException;
 
 import views.MainWindow;
+import views.SpeelScherm;
 
 import logic.JokerUitrekenaar;
 import logic.Onderwerp;
+import logic.Onderdeel;
 import logic.Speler;
+import logic.Vraag;
 
 
 public class Spel {
 	
 	private Speler speler;
 	private JokerUitrekenaar joker;
-	private Onderwerp onderwerp;
+	private Onderwerp _onderwerp;
 	private MainWindow window;
 
-	private int huidigeRonde = 1;
+	private int huidigeRonde = 0;
 	private Content content;
+	private List<Vraag> vragen;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -65,7 +69,15 @@ public class Spel {
 	 * Stel het ontwerp in.
 	 * @param onderwerp
 	 */
-	public void setOnderwerp( Onderwerp onderwerp ) { this.onderwerp = onderwerp; }
+	public void setOnderwerp( Onderwerp onderwerp ) {
+		this._onderwerp = onderwerp;
+		try {
+			vragen = content.getVragen(_onderwerp.getNaam());
+		} catch (DataException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Joker methodes
@@ -76,5 +88,11 @@ public class Spel {
 
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		return content.getOnderwerpen();
+	}
+
+	public List<logic.Onderdeel> getOnderdelen() {
+		// TODO Auto-generated method stub
+		
+		return vragen.get(huidigeRonde).getOnderdelen();
 	}
 }

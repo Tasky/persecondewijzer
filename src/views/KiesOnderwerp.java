@@ -74,6 +74,7 @@ public class KiesOnderwerp extends NicePanel {
 			for (final Onderwerp onderwerp : onderwerpen) {
 				columnpanel.add(new views.panels.Onderwerp(onderwerp, new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						spel.setOnderwerp(onderwerp);
 						spel.openPanel(new SpeelScherm(spel));
 					}
 		    	}));
