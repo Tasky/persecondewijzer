@@ -8,42 +8,43 @@ Regeltjes:
 	<onderwerp name="Steden" image="Steden.jpg">
 		<vraag>
 			<tekst>Welk stad is dit?</tekst>
-			<opties>
-				<optie image="Steden_Athene.jpg">Athene</optie>
-				<optie image="Steden_Berlijn.jpg">Berlijn</optie>
-				<optie image="Steden_Brussel.jpg">Brussel</optie>
-				<optie image="Steden_Dublin.jpg">Dublin</optie>
-				<optie image="Steden_Kopenhagen.jpg">Kopenhagen</optie>
-				<optie image="Steden_Monaco.jpg">Monaco</optie>
-				<optie image="Steden_Parijs.jpg">Parijs</optie>
-				<optie image="Steden_Rome.jpg">Rome</optie>
-			</opties>
+			<onderdelen>
+				<onderdeel image="Steden_Athene.jpg">Athene</onderdeel>
+				<onderdeel image="Steden_Berlijn.jpg">Berlijn</onderdeel>
+				<onderdeel image="Steden_Brussel.jpg">Brussel</onderdeel>
+				<onderdeel image="Steden_Dublin.jpg">Dublin</onderdeel>
+				<onderdeel image="Steden_Kopenhagen.jpg">Kopenhagen</onderdeel>
+				<onderdeel image="Steden_Monaco.jpg">Monaco</onderdeel>
+				<onderdeel image="Steden_Oslo.jpg">Oslo</onderdeel>
+				<onderdeel image="Steden_Parijs.jpg">Parijs</onderdeel>
+				<onderdeel image="Steden_Rome.jpg">Rome</onderdeel>
+			</onderdelen>
 		</vraag>
 <!-- 		<vraag>
 			<tekst>Waar ligt deze rivier?</tekst>
-			<opties>
-				<optie image="fotoke.jpg">België</optie>
-				<optie image="fotoke.jpg">Egypte</optie>
-				<optie image="fotoke.jpg">Japan</optie>
-			</opties>
+			<onderdelen>
+				<onderdeel image="fotoke.jpg">België</onderdeel>
+				<onderdeel image="fotoke.jpg">Egypte</onderdeel>
+				<onderdeel image="fotoke.jpg">Japan</onderdeel>
+			</onderdelen>
 		</vraag> -->
 	</onderwerp>
 <!-- <onderwerp name="Alcohol" image="bier.jpg">
 		<vraag>
 			<tekst>Welk land is dit?</tekst>
-			<opties>
-				<optie image="fotoke.jpg">Egypte</optie>
-				<optie image="fotoke.jpg">Japan</optie>
-				<optie image="fotoke.jpg">België</optie>
-			</opties>
+			<onderdelen>
+				<onderdeel image="fotoke.jpg">Egypte</onderdeel>
+				<onderdeel image="fotoke.jpg">Japan</onderdeel>
+				<onderdeel image="fotoke.jpg">België</onderdeel>
+			</onderdelen>
 		</vraag>
 		<vraag>
 			<tekst>Waar ligt deze rivier?</tekst>
-			<opties>
-				<optie image="fotoke.jpg">België</optie>
-				<optie image="fotoke.jpg">Egypte</optie>
-				<optie image="fotoke.jpg">Japan</optie>
-			</opties>
+			<onderdelen>
+				<onderdeel image="fotoke.jpg">België</onderdeel>
+				<onderdeel image="fotoke.jpg">Egypte</onderdeel>
+				<onderdeel image="fotoke.jpg">Japan</onderdeel>
+			</onderdelen>
 		</vraag>
 	</onderwerp> -->
 </onderwerpen>
