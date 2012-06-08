@@ -10,6 +10,10 @@ public class Timer {
 		huidigeTijd = BEGIN_TIJD;
 	}
 	
+	public String toString() {
+		return Integer.toString(huidigeTijd);
+	}
+	
 	public boolean hasLost() {
 		return ( huidigeTijd > 0 ) ? true : false;
 	}
