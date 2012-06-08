@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import logic.Onderdeel;
 import logic.Onderwerp;
 import logic.Vraag;
 
@@ -100,9 +101,25 @@ public class Content {
         for (int i = 0; i < hoeveel; i++) {
         	Element node = (Element) nodes.item(vragenKeys.get(i));
         	String tekst = node.getElementsByTagName("tekst").item(0).getTextContent();
-        	Vraag vraag = new Vraag(tekst);
+        	List<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
         	
-        	vragen.add(vraag);
+        	NodeList nodesOnderdelen = ((Element)node.getElementsByTagName("onderdelen").item(0)).getElementsByTagName("onderdeel");
+        	for (int j = 0; j < nodesOnderdelen.getLength(); j++) {
+        		Element nodeOnderdeel = (Element) nodesOnderdelen.item(j);
+        		String antwoord = nodeOnderdeel.getTextContent();
+        		String path = nodeOnderdeel.getAttribute("image");
+        		File plaatje = null;
+    			try {
+    				plaatje = new File(getClass().getResource("/resource/images/"+path).toURI());
+    			} catch (URISyntaxException e) {
+    				throw new DataException("Fout in filepath van plaatje van onderdeel \""+antwoord+"\"");
+    			}
+    			
+        		Onderdeel o = new Onderdeel(antwoord, plaatje);
+        		
+        		onderdelen.add(o);	
+			}
+        	vragen.add(new Vraag(tekst, onderdelen));
 		}
         
 		return vragen;

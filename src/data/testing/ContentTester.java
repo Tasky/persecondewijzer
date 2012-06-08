@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import logic.Onderdeel;
 import logic.Onderwerp;
 import logic.Vraag;
 
@@ -40,7 +41,12 @@ public class ContentTester {
 					"Er moeten vragen zijn bij onderwerp \""+onderwerp.getNaam()+"\".",
 					vragen.size() > 0);
 			
-			
+			for (Vraag vraag : vragen) {
+				List<Onderdeel> onderdelen = vraag.getOnderdelen();
+				assertTrue(
+						"Er moeten 9 onderdelen zijn bij vraag \""+vraag.getVraag()+"\".",
+						onderdelen.size() == 9);
+			}
 		}
 	}
 }

@@ -1,29 +1,39 @@
 package logic;
 
 // TODO: Automatisch een stel vragen en onderwerpen selecteren.
+import java.util.List;
 import java.util.Random;
 import javax.xml.*;
 
+import exceptions.DataException;
+
 public class Vraag {
 	
-	public String vraag;
+	private String _vraag;
+	private List<logic.Onderdeel> _onderdelen;
 	
-	public Vraag( String vraag ) {
-		
+	public Vraag( String vraag, List<logic.Onderdeel>onderdelen ) throws DataException {
 		setVraag(vraag);
-		
+		setOnderdelen(onderdelen);
 	}
 	
+	private void setOnderdelen(List<logic.Onderdeel> onderdelen) throws DataException {
+		if(onderdelen.size() != 9) {
+			throw new DataException("De hoeveelheid vragen klopt niet.");
+		}
+		_onderdelen = onderdelen;
+	}
+
 	public void setVraag ( String vraag ){
-		
-		this.vraag = vraag;
-		
+		this._vraag = vraag;
 	}
 	
 	public String getVraag() {
-		
-		return this.vraag;
-		
+		return this._vraag;
 	}
 
+	public List<Onderdeel> getOnderdelen() {
+		// TODO Auto-generated method stub
+		return _onderdelen;
+	}
 }
