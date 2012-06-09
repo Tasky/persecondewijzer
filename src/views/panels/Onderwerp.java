@@ -38,7 +38,7 @@ public class Onderwerp extends JPanel {
 		    add(image, "cell 0 1");
 		    image.setAutoResize(true);
 		    image.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-			//image.addActionListener(action);
+			
 		    
 		    
 		    JButton btnNewButton = new JButton("Kiezen...");
