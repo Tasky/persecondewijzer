@@ -31,8 +31,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Color;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 
 import logic.Onderdeel;
@@ -102,7 +100,6 @@ public class SpeelScherm extends NicePanel {
 		scrollPane.setViewportView(panel);
 		
 		
-		
 		final List<Onderdeel> onderdelen = spel.getOnderdelen();
 		
 		int cell = 0;
@@ -113,6 +110,8 @@ public class SpeelScherm extends NicePanel {
 		plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		add(plaatje, "cell 1 1 2 1,grow");
 		plaatje.setAutoResize(true);
+		final SpeelScherm GroteAfbeelding = this;
+
 		
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "cell 2 2,grow");
@@ -123,8 +122,14 @@ public class SpeelScherm extends NicePanel {
 		
 		JButton btnStoppen = new JButton("Stop de tijd");
 		btnStoppen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				spel.openPanel(new JokerScherm(spel));
+			public void actionPerformed(ActionEvent e) 
+			{
+				//spel.openPanel(new JokerScherm(spel));
+				GroteAfbeelding.remove(plaatje);
+				GroteAfbeelding.add(new JokerScherm(spel), "cell 1 1 2 1,grow"); 
+				GroteAfbeelding.revalidate(); 
+				GroteAfbeelding.repaint();
+				
 				// Tijd stoppen
 				timer.stopTimer();
 			}
