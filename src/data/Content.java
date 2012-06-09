@@ -23,7 +23,11 @@ import exceptions.DataException;
 public class Content {
 	// verkrijg vragen (met onderwerp)
 	private Document doc = null;
-	public Content() {
+	/**
+	 * Maak de contentparser aan en bereidt voor op inlezen vragen bestand.
+	 * @throws DataException Als de vragen niet gevonden kunnen worden.
+	 */
+	public Content() throws DataException {
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = null;
 		try {
@@ -40,8 +44,7 @@ public class Content {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,7 +52,11 @@ public class Content {
 		doc.getDocumentElement().normalize();
 	}
 	
-	// verkrijg onderwerpen
+	/**
+	 * Haal alle onderwerpen uit resource/Vragen.xml.
+	 * @return Lijst met onderwerpen.
+	 * @throws DataException Wanneer het path van het plaatje verkeerd is.
+	 */
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		List<Onderwerp> onderwerpen = new ArrayList<Onderwerp>();
 		
@@ -61,6 +68,9 @@ public class Content {
         	File plaatje = null;
 			try {
 				plaatje = new File(getClass().getResource("/resource/images/"+path).toURI());
+				if(!plaatje.canRead()){
+					throw new DataException("Plaatje \""+plaatje.getAbsolutePath()+"\" is onvindbaar.");
+				}
 			} catch (URISyntaxException e) {
 				throw new DataException("Fout in filepath van plaatje bij onderwerp \""+naam+"\"");
 			}
@@ -69,7 +79,12 @@ public class Content {
         }
 		return onderwerpen;
 	}
-	
+	/**
+	 * 
+	 * @param onderwerpNaam
+	 * @return
+	 * @throws DataException
+	 */
 	public List<Vraag> getVragen(String onderwerpNaam) throws DataException {
 		return getVragen(onderwerpNaam, 4);
 	}

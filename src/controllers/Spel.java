@@ -54,7 +54,12 @@ public class Spel {
 		timer = new Timer();
 		joker = new JokerUitrekenaar();
 		
-		content = new Content();
+		try {
+			content = new Content();
+		} catch (DataException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		window = new MainWindow(this);
 	}
