@@ -20,7 +20,7 @@ import controllers.Spel;
 import views.components.NicePanel;
 
 public class JokerScherm extends NicePanel {
-
+public int vragen = 6;
 	/**
 	 * Create the panel.
 	 * @param spel 
@@ -52,19 +52,20 @@ public class JokerScherm extends NicePanel {
 		lblEenJokerKost.setForeground(Color.WHITE);
 		lblEenJokerKost.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblEenJokerKost, "cell 2 3");
-		
+
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					spel.openPanel(new ResultatenScherm(spel));
+					vragen += 1;
+					spel.openPanel(new ResultatenScherm(spel));	
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		});
 		
-		JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde x vragen goed hebben");
+		JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde " + vragen + " vragen goed hebben");
 		lblJeMoetDeze.setForeground(Color.WHITE);
 		lblJeMoetDeze.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblJeMoetDeze, "cell 1 4");
