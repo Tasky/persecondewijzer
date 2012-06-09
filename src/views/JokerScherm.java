@@ -27,7 +27,7 @@ public class JokerScherm extends NicePanel {
 	 */
 	public JokerScherm(final Spel spel) {
 		setBounds(0, 0, 800, 600);
-		setLayout(new MigLayout("", "[200.00,grow][][130.00][200.00,grow]", "[200.00,grow][][][][-92.00][200.00,grow]"));
+		setLayout(new MigLayout("", "[100.00][300][300][100]", "[200.00,grow][][][][][][][200.00,grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Hoeveel jokers wil je inzetten?");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -63,7 +63,17 @@ public class JokerScherm extends NicePanel {
 				}
 			}
 		});
-		add(btnNewButton, "cell 1 4 2 1,growx");
+		
+		JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde x vragen goed hebben");
+		lblJeMoetDeze.setForeground(Color.WHITE);
+		lblJeMoetDeze.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		add(lblJeMoetDeze, "cell 1 4");
+		
+		JLabel lblJeHuidigeScore = new JLabel("Je huidige score is: ");
+		lblJeHuidigeScore.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		lblJeHuidigeScore.setForeground(Color.WHITE);
+		add(lblJeHuidigeScore, "cell 1 5");
+		add(btnNewButton, "cell 1 6 2 1,growx");
 	}
 
 }
