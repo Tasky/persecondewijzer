@@ -17,10 +17,12 @@ import javax.swing.JScrollPane;
 import controllers.Spel;
 import exceptions.DataException;
 
+import views.components.ImagePanel;
 import views.components.NicePanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.List;
 
 import logic.Onderwerp;
@@ -47,14 +49,14 @@ public class KiesOnderwerp extends NicePanel {
 	/**
 	 * Create the frame.
 	 */
-	public KiesOnderwerp(final Spel spel) {
+	public KiesOnderwerp(Spel spel) {
 		setBounds(0, 0, 798, 319);
-		setLayout(new MigLayout("", "[grow]", "[84.00][111.00,grow]"));
+		setLayout(new MigLayout("", "[784px]", "[60px][217px]"));
 		
 		JLabel lblNewLabel = new JLabel("Kies een onderwerp");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
-		add(lblNewLabel, "cell 0 0");
+		add(lblNewLabel, "cell 0 0,alignx left,aligny top");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane, "cell 0 1,grow");
@@ -66,23 +68,17 @@ public class KiesOnderwerp extends NicePanel {
 	    JPanel columnpanel = new JPanel();
 	    borderlayoutpanel.add(columnpanel, BorderLayout.NORTH);
 	    columnpanel.setLayout(new GridLayout(0, 1, 0, 1));
-	    columnpanel.setBackground(Color.gray);
+	    columnpanel.setBackground(Color.RED);
 
 		try {
 			List<Onderwerp> onderwerpen;
 			onderwerpen = spel.getOnderwerpen();
-			for (final Onderwerp onderwerp : onderwerpen) {
-				columnpanel.add(new views.panels.Onderwerp(onderwerp, new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						spel.setOnderwerp(onderwerp);
-						spel.openPanel(new SpeelScherm(spel));
-					}
-		    	}));
+			for (Onderwerp onderwerp : onderwerpen) {
+				columnpanel.add(new views.panels.Onderwerp(onderwerp, spel));
 			}
 		} catch (DataException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
 	}
 }
