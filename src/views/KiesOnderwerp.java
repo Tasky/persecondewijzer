@@ -27,6 +27,7 @@ import java.util.List;
 
 import logic.Onderwerp;
 import javax.swing.ScrollPaneConstants;
+import java.awt.FlowLayout;
 
 public class KiesOnderwerp extends NicePanel {
 
@@ -49,39 +50,33 @@ public class KiesOnderwerp extends NicePanel {
 	 * Create the frame.
 	 */
 	public KiesOnderwerp(Spel spel) {
-		setBounds(0, 0, 798, 319);
-		setLayout(new MigLayout("", "[784px,grow]", "[60px][248.00px]"));
+		setBounds(0, 0, 557, 318);
+		setLayout(new MigLayout("", "[784px,grow]", "[60px][248.00px,grow]"));
 		
-		//De titel "Kies een onderwerp"
+		/**
+		 * De titel "Kies een onderwerp"
+		 */
 		JLabel lblNewLabel = new JLabel("Kies een onderwerp");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
 		add(lblNewLabel, "flowx,cell 0 0,alignx left,aligny top");
-	    	    	    	    
-	    
 		
-		JPanel panel = new JPanel();
-	    add(panel, "cell 0 1,grow");
-	    
-	    
-	    JPanel borderlayoutpanel = new JPanel();
-	    panel.add(borderlayoutpanel);
-	    borderlayoutpanel.setLayout(new BorderLayout(0, 0));
-	    
-	    
-	    //De streep tussen Steden en plaatje
-	    JPanel columnpanel = new JPanel();
-	    panel.add(columnpanel);
-	    columnpanel.setLayout(new GridLayout(0, 1, 0, 1));
-	    columnpanel.setBackground(Color.red);
+		/**
+		 * Hier worden de onderwerpen op getoont
+		 */
+		JPanel panel_1 = new JPanel();
+		add(panel_1, "cell 0 1,grow");
+		FlowLayout fl_panel_1 = new FlowLayout(FlowLayout.LEFT, 5, 5);
+		panel_1.setLayout(fl_panel_1);
 
 		
 	    try {
 			List<Onderwerp> onderwerpen;
 			onderwerpen = spel.getOnderwerpen();
 			for (Onderwerp onderwerp : onderwerpen) {
-				columnpanel.add(new views.panels.Onderwerp(onderwerp, spel));
+					panel_1.add(new views.panels.Onderwerp(onderwerp, spel));
 			}
+			
 		} catch (DataException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

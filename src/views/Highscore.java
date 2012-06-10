@@ -51,12 +51,12 @@ public class Highscore extends NicePanel {
 	 */
 	public Highscore(final MainWindow mainWindow, final Spel spel) {
 		setBounds(0, 0, 800, 600);
-		setLayout(new MigLayout("", "[grow]", "[80.00][111.00,grow][40.00]"));
+		setLayout(new MigLayout("", "[grow][][grow]", "[80.00][10.00,grow][450.00,grow][40.00][10.00,grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Highscores");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
-		add(lblNewLabel, "cell 0 0,alignx center,aligny center");
+		add(lblNewLabel, "cell 1 0,alignx center,aligny center");
 		
 		JButton btnTerug = new JButton("Terug");
 		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
@@ -74,15 +74,13 @@ public class Highscore extends NicePanel {
 				{"1.", "Jodi", "7500", "5:00"},
 				{"2.", "Nanne", "300", "0:10"},
 				{"3.", "Bas", "1", "0:01"},
-				{null, null, null, null},
-				{null, null, null, null},
 			},
 			new String[] {
 				"Rang", "Naam", "Prijzengeld", "Tijd over"
 			}
 		));
-		add(table, "cell 0 1,grow");
-		add(btnTerug, "cell 0 2,grow");
+		add(table, "cell 1 2,grow");
+		add(btnTerug, "cell 1 3,grow");
 
 	}
 }
