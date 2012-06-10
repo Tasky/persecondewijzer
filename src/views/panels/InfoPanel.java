@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import net.miginfocom.swing.MigLayout;
 
-public class TimerPanel extends JPanel {
+public class InfoPanel extends JPanel {
 
 	private Timer timer;
 	private JLabel lblTime;
@@ -27,7 +27,7 @@ public class TimerPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public TimerPanel(Spel spel) {
+	public InfoPanel(Spel spel) {
 		this.spel = spel;
 
 		setLayout(new MigLayout("", "[75px:75px,grow,center]", "[55px:55px][48px]"));
