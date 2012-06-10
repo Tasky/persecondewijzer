@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.List;
 
 import logic.Onderwerp;
+import javax.swing.ScrollPaneConstants;
 
 public class KiesOnderwerp extends NicePanel {
 
@@ -51,26 +52,33 @@ public class KiesOnderwerp extends NicePanel {
 	 */
 	public KiesOnderwerp(Spel spel) {
 		setBounds(0, 0, 798, 319);
-		setLayout(new MigLayout("", "[784px]", "[60px][217px]"));
+		setLayout(new MigLayout("", "[784px,grow]", "[60px][248.00px]"));
 		
+		//De titel "Kies een onderwerp"
 		JLabel lblNewLabel = new JLabel("Kies een onderwerp");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
-		add(lblNewLabel, "cell 0 0,alignx left,aligny top");
+		add(lblNewLabel, "flowx,cell 0 0,alignx left,aligny top");
+	    	    	    	    
+	    
 		
-		JScrollPane scrollPane = new JScrollPane();
-		add(scrollPane, "cell 0 1,grow");
-		
+		JPanel panel = new JPanel();
+	    add(panel, "cell 0 1,grow");
+	    
+	    
 	    JPanel borderlayoutpanel = new JPanel();
-	    scrollPane.setViewportView(borderlayoutpanel);
+	    panel.add(borderlayoutpanel);
 	    borderlayoutpanel.setLayout(new BorderLayout(0, 0));
-
+	    
+	    
+	    //De streep tussen Steden en plaatje
 	    JPanel columnpanel = new JPanel();
-	    borderlayoutpanel.add(columnpanel, BorderLayout.NORTH);
+	    panel.add(columnpanel);
 	    columnpanel.setLayout(new GridLayout(0, 1, 0, 1));
-	    columnpanel.setBackground(Color.RED);
+	    columnpanel.setBackground(Color.red);
 
-		try {
+		
+	    try {
 			List<Onderwerp> onderwerpen;
 			onderwerpen = spel.getOnderwerpen();
 			for (Onderwerp onderwerp : onderwerpen) {

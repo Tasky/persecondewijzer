@@ -23,6 +23,7 @@ import controllers.Spel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.border.CompoundBorder;
 
 public class Onderwerp extends JPanel {
 
@@ -31,38 +32,27 @@ public class Onderwerp extends JPanel {
 	 */
 	public Onderwerp(final logic.Onderwerp onderwerp, final Spel spel) {
 		setBorder(null);
-		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][]", "[][100px:135.00:100px,grow,fill][50.00px]"));
+		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][]", "[][100px:149.00:100px,grow,fill]"));
 	    try {
 		    JLabel lblSteden = new JLabel(onderwerp.getNaam());
 		    lblSteden.setFont(new Font("Dialog", Font.PLAIN, 24));
 		    add(lblSteden, "cell 0 0");
 		    
-		    
+		    //Dat je op het plaatje kan klikken
 		    ImagePanel image = new ImagePanel(onderwerp.getPlaatje());
-		    image.addMouseListener(new MouseAdapter() {
-		    	@Override
-		    	public void mouseClicked(MouseEvent arg0) {
+		    image.addMouseListener(new MouseAdapter() 
+		    	{	@Override
+		    		public void mouseClicked(MouseEvent arg0)
+		    		{
 		    		  spel.setOnderwerp(onderwerp);
 		    	      spel.openPanel(new SpeelScherm(spel));
+		    		}
 		    	}
-		    });
+		    );
+		    
 		    add(image, "cell 0 1");
 		    image.setAutoResize(true);
-		    image.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-			
-		    
-		    
-		    JButton btnNewButton = new JButton("Kiezen...");
-		    btnNewButton.addMouseListener(new MouseAdapter() {
-		    	@Override
-		    	public void mouseClicked(MouseEvent e) {
-		    		spel.setOnderwerp(onderwerp);
-		    	      spel.openPanel(new SpeelScherm(spel));
-		    	}
-		    });
-		    btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		    add(btnNewButton, "cell 0 2");
-		  //  btnNewButton.addActionListener(action);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			//TODO doet iets hiermee
