@@ -37,26 +37,6 @@ import logic.Onderdeel;
 
 public class SpeelScherm extends NicePanel {
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JFrame frame = new JFrame();
-					frame.setBounds(100, 100, 1024, 768);
-					frame.setVisible(true);
-					SpeelScherm ko = new SpeelScherm(null);
-					frame.setContentPane(ko);
-					ko.updateUI();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 * @param spel 
 	 * @throws IOException 
@@ -78,7 +58,6 @@ public class SpeelScherm extends NicePanel {
 	private void initialize(final Spel spel) throws IOException {
 		//setBackground(SystemColor.info);
 		setBounds(0, 0, 1024, 768);
-		
 		setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][126.00,grow,fill]"));
 		
 		JLabel lblWelkeStadIs = DefaultComponentFactory.getInstance().createTitle("Welke stad is te zien op de afbeelding?");
@@ -146,7 +125,7 @@ public class SpeelScherm extends NicePanel {
 					for(Onderdeel comboOptie : onderdelen) {
 						model.addElement(comboOptie.getAntwoord());
 					}
-					model.setSelectedItem(optie);
+					model.setSelectedItem(optie.getAntwoord());
 					combobox.setModel(model);
 					combobox.setMaximumRowCount(9);
 					panel.add(combobox, "cell "+currentCell+" 1,growx");
