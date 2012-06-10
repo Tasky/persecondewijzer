@@ -2,6 +2,7 @@ package data;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,13 +67,13 @@ public class Content {
         	String naam = node.getAttribute("name");
         	String path = node.getAttribute("image");
         	File plaatje = null;
-			try {
-				plaatje = new File(getClass().getResource("/resource/images/"+path).toURI());
-				if(!plaatje.canRead()){
-					throw new DataException("Plaatje \""+plaatje.getAbsolutePath()+"\" is onvindbaar.");
-				}
-			} catch (URISyntaxException e) {
-				throw new DataException("Fout in filepath van plaatje bij onderwerp \""+naam+"\"");
+        	try {
+        		plaatje = new File(getClass().getResource("/resource/images/"+path).toURI());
+        	}catch(Exception e) {
+        		throw new DataException("Plaatje \""+path+"\" is onvindbaar.");
+        	}
+			if(!plaatje.canRead()){
+				throw new DataException("Plaatje \""+plaatje.getAbsolutePath()+"\" is onvindbaar.");
 			}
         	Onderwerp onderwerp = new Onderwerp(naam, plaatje);
         	onderwerpen.add(onderwerp);
