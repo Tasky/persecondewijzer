@@ -29,27 +29,27 @@ public class Content {
 	 * @throws DataException Als de vragen niet gevonden kunnen worden.
 	 */
 	public Content() throws DataException {
-        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder docBuilder = null;
+		File file;
 		try {
-			docBuilder = docBuilderFactory.newDocumentBuilder();
+			file = new File(getClass().getResource("/resource/Vragen.xml").toURI());
+		} catch (URISyntaxException e1) {
+			throw new DataException("Het vragenbestand kan niet worden gevonden.");
+		}
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db;
+		try {
+			db = dbf.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return;
+			throw new DataException("Het vragenbestand kan niet gelezen worden.");
 		}
 		try {
-			File file = new File(getClass().getResource("/resource/Vragen.xml").toURI());
-			doc = docBuilder.parse(file);
+			doc = db.parse(file);
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new DataException("Het vragenbestand kan niet gelezen worden.");
 		} catch (IOException e) {
 			throw new DataException("Het vragenbestand kan niet worden gevonden.");
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		//throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		doc.getDocumentElement().normalize();
 	}
 	
