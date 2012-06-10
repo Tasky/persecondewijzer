@@ -3,6 +3,8 @@ package controllers;
 import java.awt.EventQueue;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import data.Content;
@@ -59,8 +61,10 @@ public class Spel {
 		} catch (DataException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
+			System.exit(0);
+			return;
 		}
-		
 		window = new MainWindow(this);
 	}
 	
