@@ -28,7 +28,7 @@ public class Content {
 		File file;
 		try {
 			file = new File(getClass().getResource("/resource/Vragen.xml").toURI());
-		} catch (URISyntaxException e1) {
+		} catch (Exception e1) {
 			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		}
 
@@ -61,7 +61,7 @@ public class Content {
         	File plaatje;
         	try {
         		plaatje = new File(getClass().getResource("/resource/images/"+path).toURI());
-        	}catch(Exception e) {
+        	} catch(Exception e) {
         		throw new DataException("Plaatje \""+path+"\" is onvindbaar.");
         	}
 			if(!plaatje.canRead()){
