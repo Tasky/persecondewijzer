@@ -32,7 +32,6 @@ public class Content {
 			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		}
 
-		
 		try {
 			doc = new Builder().build(file);
 		} catch (ValidityException e) {
@@ -42,8 +41,6 @@ public class Content {
 		} catch (IOException e) {
 			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		}
-		//throw new DataException("Het vragenbestand kan niet worden gevonden.");
-		//doc.getDocumentElement().normalize();
 	}
 	
 	/**
