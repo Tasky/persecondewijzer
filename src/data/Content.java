@@ -8,16 +8,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import logic.Onderdeel;
 import logic.Onderwerp;
 import logic.Vraag;
 
-import org.w3c.dom.*;
-import org.xml.sax.SAXException;
+import nu.xom.*;
 
 import exceptions.DataException;
 
@@ -35,22 +31,19 @@ public class Content {
 		} catch (URISyntaxException e1) {
 			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		}
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		DocumentBuilder db;
+
+		
 		try {
-			db = dbf.newDocumentBuilder();
-		} catch (ParserConfigurationException e) {
-			throw new DataException("Het vragenbestand kan niet gelezen worden.");
-		}
-		try {
-			doc = db.parse(file);
-		} catch (SAXException e) {
-			throw new DataException("Het vragenbestand kan niet gelezen worden.");
+			doc = new Builder().build(file);
+		} catch (ValidityException e) {
+			throw new DataException("Fout bij validatie van vragenbestand.\r\n"+e.getMessage());
+		} catch (ParsingException e) {
+			throw new DataException("Fout bij parsen van vragenbestand.\r\n"+e.getMessage());
 		} catch (IOException e) {
 			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		}
 		//throw new DataException("Het vragenbestand kan niet worden gevonden.");
-		doc.getDocumentElement().normalize();
+		//doc.getDocumentElement().normalize();
 	}
 	
 	/**
@@ -60,13 +53,15 @@ public class Content {
 	 */
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		List<Onderwerp> onderwerpen = new ArrayList<Onderwerp>();
+		Elements elements = doc.getRootElement().getChildElements();
 		
-        NodeList nodes = doc.getElementsByTagName("onderwerp");
-        for(int i=0; i< nodes.getLength(); i++){
-        	Element node = (Element) nodes.item(i);
-        	String naam = node.getAttribute("name");
-        	String path = node.getAttribute("image");
-        	File plaatje = null;
+		for (int i = 0; i < elements.size(); i++) {
+			Element node = elements.get(i);
+			
+			String naam = node.getAttribute("name").getValue();
+        	String path = node.getAttribute("image").getValue();
+        	
+        	File plaatje;
         	try {
         		plaatje = new File(getClass().getResource("/resource/images/"+path).toURI());
         	}catch(Exception e) {
@@ -75,9 +70,9 @@ public class Content {
 			if(!plaatje.canRead()){
 				throw new DataException("Plaatje \""+plaatje.getAbsolutePath()+"\" is onvindbaar.");
 			}
-        	Onderwerp onderwerp = new Onderwerp(naam, plaatje);
+			Onderwerp onderwerp = new Onderwerp(naam, plaatje);
         	onderwerpen.add(onderwerp);
-        }
+		}
 		return onderwerpen;
 	}
 	/**
@@ -90,11 +85,12 @@ public class Content {
 		return getVragen(onderwerpNaam, 4);
 	}
 	public List<Vraag> getVragen(String onderwerpNaam, int hoeveel) throws DataException {
-        NodeList nodes = doc.getElementsByTagName("onderwerp");
         Element onderwerp = null;
-        for(int i=0; i< nodes.getLength(); i++){
-        	Element node = (Element) nodes.item(i);
-        	if(node.getAttribute("name") == onderwerpNaam)
+		Elements elements = doc.getRootElement().getChildElements();
+		
+		for (int i = 0; i < elements.size(); i++) {
+			Element node = (Element) elements.get(i);
+        	if(node.getAttribute("name").getValue() == onderwerpNaam)
         	{
         		onderwerp = node;
         	}
@@ -105,39 +101,37 @@ public class Content {
         }
         
         List<Vraag> vragen = new ArrayList<Vraag>();
-        nodes = onderwerp.getElementsByTagName("vraag");
+        Elements nodes = onderwerp.getChildElements();
         ArrayList<Integer> vragenKeys = new ArrayList<Integer>();
-        for (int i = 0; i < nodes.getLength(); i++) {
+        
+		for (int i = 0; i < nodes.size(); i++) {
 			vragenKeys.add(i);
-		}
+        }
+        
         Collections.shuffle(vragenKeys);
-        if(hoeveel > nodes.getLength()) {
-        	hoeveel = nodes.getLength();
+        if(hoeveel > nodes.size()) {
+        	hoeveel = nodes.size();
         }
         for (int i = 0; i < hoeveel; i++) {
-        	Element node = (Element) nodes.item(vragenKeys.get(i));
-        	String tekst = node.getElementsByTagName("tekst").item(0).getTextContent();
+        	Element node = nodes.get(vragenKeys.get(i));
+        	String tekst = node.getFirstChildElement("tekst").getValue();
         	List<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
-        	
-        	NodeList nodesOnderdelen = ((Element)node.getElementsByTagName("onderdelen").item(0)).getElementsByTagName("onderdeel");
-        	for (int j = 0; j < nodesOnderdelen.getLength(); j++) {
-        		Element nodeOnderdeel = (Element) nodesOnderdelen.item(j);
-        		String antwoord = nodeOnderdeel.getTextContent();
-        		String path = nodeOnderdeel.getAttribute("image");
+        	Elements nOnderdelen = node.getFirstChildElement("onderdelen").getChildElements();
+        	for (int j = 0; j < nOnderdelen.size(); j++) {
+        		Element nodeOnderdeel = nOnderdelen.get(j);
+        		String antwoord = nodeOnderdeel.getValue();
+        		String path = nodeOnderdeel.getAttribute("image").getValue();
         		File plaatje = null;
     			try {
     				plaatje = new File(getClass().getResource("/resource/images/"+path).toURI());
     			} catch (URISyntaxException e) {
     				throw new DataException("Fout in filepath van plaatje van onderdeel \""+antwoord+"\"");
     			}
-    			
-        		Onderdeel o = new Onderdeel(antwoord, plaatje);
-        		
-        		onderdelen.add(o);	
+
+        		onderdelen.add(new Onderdeel(antwoord, plaatje));	
 			}
         	vragen.add(new Vraag(tekst, onderdelen));
 		}
-        
 		return vragen;
 	}
 }

@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Regeltjes:
-- Plaatjes beginnen altijd met een hoofdletter
-- Onderwerp voor plaatje.
- -->
 <onderwerpen>
 	<onderwerp name="Steden" image="Steden.jpg">
 		<vraag>
