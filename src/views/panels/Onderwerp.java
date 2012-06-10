@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import views.SpeelScherm;
 import views.components.ImagePanel;
 
+import java.awt.Button;
+import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.border.EtchedBorder;
@@ -45,7 +48,9 @@ public class Onderwerp extends JPanel {
 		    		  spel.setOnderwerp(onderwerp);
 		    	      spel.openPanel(new SpeelScherm(spel));
 		    	}
+		    
 		    });
+		    
 		    add(image, "cell 0 1");
 		    image.setAutoResize(true);
 		    image.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));

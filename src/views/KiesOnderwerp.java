@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.List;
 
 import logic.Onderwerp;
+import javax.swing.ScrollPaneConstants;
 
 public class KiesOnderwerp extends NicePanel {
 
@@ -50,8 +51,8 @@ public class KiesOnderwerp extends NicePanel {
 	 * Create the frame.
 	 */
 	public KiesOnderwerp(Spel spel) {
-		setBounds(0, 0, 798, 319);
-		setLayout(new MigLayout("", "[784px]", "[60px][217px]"));
+		setBounds(0, 0, 844, 434);
+		setLayout(new MigLayout("", "[1024]", "[60px][217px]"));
 		
 		JLabel lblNewLabel = new JLabel("Kies een onderwerp");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -68,7 +69,7 @@ public class KiesOnderwerp extends NicePanel {
 	    JPanel columnpanel = new JPanel();
 	    borderlayoutpanel.add(columnpanel, BorderLayout.NORTH);
 	    columnpanel.setLayout(new GridLayout(0, 1, 0, 1));
-	    columnpanel.setBackground(Color.RED);
+	    columnpanel.setBackground(Color.gray);
 
 		try {
 			List<Onderwerp> onderwerpen;

@@ -14,4 +14,51 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/resource/images/Bier_Amstel.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Amstel.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Bavaria.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Bavaria.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Dommelsch.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Dommelsch.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Duvel.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Duvel.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Grolsch.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Grolsch.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Heineken.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Heineken.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Hogaarde.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Hogaarde.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Jupiler.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Jupiler.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/resource/images/Bier_Palm.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/Plaatjes/Bier_Palm.jpg</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -21,20 +21,22 @@ Regeltjes:
 			</onderdelen>
 		</vraag>
 	</onderwerp>
+	
 	<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welk land is dit?</tekst>
-			<onderdelen>
-				<onderdeel image="Steden_Athene.jpg">Athene</onderdeel>
-				<onderdeel image="Steden_Berlijn.jpg">Berlijn</onderdeel>
-				<onderdeel image="Steden_Brussel.jpg">Brussel</onderdeel>
-				<onderdeel image="Steden_Dublin.jpg">Dublin</onderdeel>
-				<onderdeel image="Steden_Kopenhagen.jpg">Kopenhagen</onderdeel>
-				<onderdeel image="Steden_Monaco.jpg">Monaco</onderdeel>
-				<onderdeel image="Steden_Oslo.jpg">Oslo</onderdeel>
-				<onderdeel image="Steden_Parijs.jpg">Parijs</onderdeel>
-				<onderdeel image="Steden_Rome.jpg">Rome</onderdeel>
-			</onderdelen>
+			<tekst>Welke bierfles ziet u hier?</tekst>
+ 			<onderdelen>
+-				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
+-				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
+-				<onderdeel image="Bier_Dommelsch.jpg">Dommelsch</onderdeel>
+-				<onderdeel image="Bier_Duvel.jpg">Duvel</onderdeel>
+-				<onderdeel image="Bier_Grolsch.jpg">Grolsch</onderdeel>
+-				<onderdeel image="Bier_Heineken.jpg">Heineken</onderdeel>
+-				<onderdeel image="Bier_Hogaarde.jpg">Hogaarde</onderdeel>
+-				<onderdeel image="Bier_Jupiler.jpg">Jupiler</onderdeel>
+-				<onderdeel image="Bier_Palm.jpg">Palm</onderdeel>
+-			</onderdelen>
+
 		</vraag>
 	</onderwerp>
 </onderwerpen>
