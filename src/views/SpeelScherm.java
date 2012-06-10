@@ -39,6 +39,24 @@ import logic.Onderdeel;
 
 public class SpeelScherm extends NicePanel {
 	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Spel spel = new Spel();
+					List<logic.Onderwerp> onderwerpen = spel.getOnderwerpen();
+					spel.setOnderwerp(onderwerpen.get(0));
+					spel.openPanel(new SpeelScherm(spel));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	/**
 	 * Create the application.
 	 * @param spel 
 	 * @throws IOException 
