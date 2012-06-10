@@ -30,10 +30,9 @@ public class TimerPanel extends JPanel {
 	public TimerPanel(Spel spel) {
 		this.spel = spel;
 
-		setLayout(new MigLayout("", "[75px:75px,grow,center]",
-				"[55px:55px][48px]"));
+		setLayout(new MigLayout("", "[75px:75px,grow,center]", "[55px:55px][48px]"));
 
-		this.lblTime = new JLabel();
+		this.lblTime = new JLabel("200");
 		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
 		add(lblTime, "cell 0 1,alignx left,aligny top");
 

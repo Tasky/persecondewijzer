@@ -31,6 +31,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Color;
+import java.beans.Visibility;
+
 import javax.swing.border.EtchedBorder;
 
 import logic.Onderdeel;
@@ -63,7 +65,7 @@ public class SpeelScherm extends NicePanel {
 		JLabel lblWelkeStadIs = DefaultComponentFactory.getInstance().createTitle(spel.getVraag());
 		lblWelkeStadIs.setForeground(Color.WHITE);
 		lblWelkeStadIs.setFont(new Font("Tahoma", Font.PLAIN, 47));
-		add(lblWelkeStadIs, "cell 0 0 2 1");
+		add(lblWelkeStadIs, "cell 1 0 2 1");
 		
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setOpaque(false);
@@ -129,16 +131,22 @@ public class SpeelScherm extends NicePanel {
 					combobox.setModel(model);
 					combobox.setMaximumRowCount(9);
 					panel.add(combobox, "cell "+currentCell+" 1,growx");
-					
+									
 					ImagePanel imagePanel = null;
 					try {
 						imagePanel = new ImagePanel(optie.getPlaatje());
-						imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.GREEN));
+						imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
 					panel.add(imagePanel, "cell "+currentCell+" 0,grow");
 					imagePanel.setAutoResize(true);
+					
+					if (optie.isGoed()) {
+						imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
+					} else {
+						imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
+				}
 					
 					currentCell++;
 					button.setEnabled(false);
@@ -147,8 +155,7 @@ public class SpeelScherm extends NicePanel {
 			});
 			buttonsPanel.add(button, "cell 0 "+(cell)+",growx");
 			cell++;
+			}
 		}
 																																		
 	}
-
-}

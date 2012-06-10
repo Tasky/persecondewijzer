@@ -50,7 +50,7 @@ public class KiesOnderwerp extends NicePanel {
 	 * Create the frame.
 	 */
 	public KiesOnderwerp(Spel spel) {
-		setBounds(0, 0, 798, 319);
+		setBounds(0, 0, 557, 318);
 		setLayout(new MigLayout("", "[784px,grow]", "[60px][248.00px,grow]"));
 		
 		/**
@@ -66,14 +66,17 @@ public class KiesOnderwerp extends NicePanel {
 		 */
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "cell 0 1,grow");
+		FlowLayout fl_panel_1 = new FlowLayout(FlowLayout.LEFT, 5, 5);
+		panel_1.setLayout(fl_panel_1);
 
 		
 	    try {
 			List<Onderwerp> onderwerpen;
 			onderwerpen = spel.getOnderwerpen();
 			for (Onderwerp onderwerp : onderwerpen) {
-				panel_1.add(new views.panels.Onderwerp(onderwerp, spel));
+					panel_1.add(new views.panels.Onderwerp(onderwerp, spel));
 			}
+			
 		} catch (DataException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
