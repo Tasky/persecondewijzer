@@ -4,13 +4,11 @@ import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ImagePanel extends JPanel{
@@ -31,28 +29,31 @@ public class ImagePanel extends JPanel{
     public void paintComponent(Graphics g) 
     {
     	if(autoResize){
-    		boolean preserveAlpha = false;
-	        
+			boolean preserveAlpha = false;
+
 			float imageWidth = image.getWidth();
 			float imageHeight = image.getHeight();
-			
+
 			float maxWidth = this.getWidth();
 			float maxHeight = this.getHeight();
-			
+
 			float widthRatio = imageWidth / maxWidth;
 			float heightRatio = imageHeight / maxHeight;
-			
+
 			float scaleFactor = Math.max(widthRatio, heightRatio);
-			
+
 			float scaledWidth = imageWidth / scaleFactor;
 			float scaledHeight = imageHeight / scaleFactor;
-	        
-	        int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
-	        BufferedImage scaledBI = new BufferedImage(Math.round(scaledWidth), Math.round(scaledHeight), imageType);
-    		
-	        Graphics2D g2 = scaledBI.createGraphics();
-	        if(preserveAlpha) g2.setComposite(AlphaComposite.Src);
-	        
+
+			int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB
+					: BufferedImage.TYPE_INT_ARGB;
+			BufferedImage scaledBI = new BufferedImage(Math.round(scaledWidth),
+					Math.round(scaledHeight), imageType);
+
+			Graphics2D g2 = scaledBI.createGraphics();
+			if (preserveAlpha)
+				g2.setComposite(AlphaComposite.Src);
+
 	        g2.drawImage(image, 0, 0, Math.round(scaledWidth), Math.round(scaledHeight), null);
 	        g2.dispose();
 	        
