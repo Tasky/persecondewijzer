@@ -34,11 +34,9 @@ public class KiesOnderwerp extends NicePanel {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JFrame frame = new JFrame();
-					frame.setBounds(100, 100, 800, 600);
-					frame.setVisible(true);
-					KiesOnderwerp ko = new KiesOnderwerp(null);
-					frame.setContentPane(ko);
+					Spel spel = new Spel();
+					KiesOnderwerp ko = new KiesOnderwerp(spel);
+					spel.openPanel(ko);
 					ko.updateUI();
 				} catch (Exception e) {
 					e.printStackTrace();
