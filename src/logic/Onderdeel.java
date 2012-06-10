@@ -24,4 +24,9 @@ public class Onderdeel {
 	public void setAntwoord(String antwoord) {
 		_antwoord = antwoord;
 	}
+
+	public boolean isGoed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
