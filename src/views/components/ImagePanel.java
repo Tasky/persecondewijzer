@@ -11,24 +11,22 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class ImagePanel extends JPanel{
+public class ImagePanel extends JPanel {
 
-    private BufferedImage image;
-    private boolean autoResize = false;
+	private BufferedImage image;
+	private boolean autoResize = false;
 
-    public ImagePanel(String path) throws IOException 
-    {    	
-        image = ImageIO.read(new File(path));
-    }
-
-    public ImagePanel(File plaatje) throws IOException {
-    	image = ImageIO.read(plaatje);
+	public ImagePanel(String path) throws IOException {
+		image = ImageIO.read(new File(path));
 	}
-    
+
+	public ImagePanel(File plaatje) throws IOException {
+		image = ImageIO.read(plaatje);
+	}
+
 	@Override
-    public void paintComponent(Graphics g) 
-    {
-    	if(autoResize){
+	public void paintComponent(Graphics g) {
+		if (autoResize) {
 			boolean preserveAlpha = false;
 
 			float imageWidth = image.getWidth();
@@ -54,29 +52,33 @@ public class ImagePanel extends JPanel{
 			if (preserveAlpha)
 				g2.setComposite(AlphaComposite.Src);
 
-	        g2.drawImage(image, 0, 0, Math.round(scaledWidth), Math.round(scaledHeight), null);
-	        g2.dispose();
-	        
-	        // Zet achtergrond op wit
-	        g.setColor(Color.WHITE);
-	        g.fillRect(0, 0, Math.round(maxWidth), Math.round(maxHeight));
-	        
-	        // Gooi plaatje erop
-	        int left = 0;
-	        int top = 0;
-	        if(scaledWidth < maxWidth) left = (Math.round(maxWidth) - Math.round(scaledWidth)) / 2; 
-	        if(scaledHeight < maxHeight) top = (Math.round(maxHeight) - Math.round(scaledHeight)) / 2; 
-	        
-	        g.drawImage(scaledBI, left, top, null);
-    	} else {
-    		g.drawImage(image, 0, 0, null);
-    	}
-    }
+			g2.drawImage(image, 0, 0, Math.round(scaledWidth),
+					Math.round(scaledHeight), null);
+			g2.dispose();
+
+			// Zet achtergrond op wit
+			g.setColor(Color.WHITE);
+			g.fillRect(0, 0, Math.round(maxWidth), Math.round(maxHeight));
+
+			// Gooi plaatje erop
+			int left = 0;
+			int top = 0;
+			if (scaledWidth < maxWidth)
+				left = (Math.round(maxWidth) - Math.round(scaledWidth)) / 2;
+			if (scaledHeight < maxHeight)
+				top = (Math.round(maxHeight) - Math.round(scaledHeight)) / 2;
+
+			g.drawImage(scaledBI, left, top, null);
+		} else {
+			g.drawImage(image, 0, 0, null);
+		}
+	}
 
 	public void setAutoResize(boolean autoResize) {
 		this.autoResize = autoResize;
 	}
+
 	public boolean getAutoResize() {
-		return(autoResize);
+		return (autoResize);
 	}
 }
