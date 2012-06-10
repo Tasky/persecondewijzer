@@ -107,4 +107,8 @@ public class Spel {
 		
 		return vragen.get(huidigeRonde).getOnderdelen();
 	}
+
+	public String getVraag() {
+		return vragen.get(huidigeRonde).getVraag();
+	}
 }
