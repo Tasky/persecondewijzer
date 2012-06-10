@@ -20,14 +20,14 @@ import controllers.Spel;
 import views.components.NicePanel;
 
 public class JokerScherm extends NicePanel {
-
+public int vragen = 6;
 	/**
 	 * Create the panel.
 	 * @param spel 
 	 */
 	public JokerScherm(final Spel spel) {
 		setBounds(0, 0, 800, 600);
-		setLayout(new MigLayout("", "[200.00,grow][][130.00][200.00,grow]", "[200.00,grow][][][][-92.00][200.00,grow]"));
+		setLayout(new MigLayout("", "[100.00][300][300][100]", "[200.00,grow][][][][][][][200.00,grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Hoeveel jokers wil je inzetten?");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -52,18 +52,29 @@ public class JokerScherm extends NicePanel {
 		lblEenJokerKost.setForeground(Color.WHITE);
 		lblEenJokerKost.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		add(lblEenJokerKost, "cell 2 3");
-		
+
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					spel.openPanel(new ResultatenScherm(spel));
+					vragen += 1;
+					spel.openPanel(new ResultatenScherm(spel));	
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		add(btnNewButton, "cell 1 4 2 1,growx");
+		
+		JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde " + vragen + " vragen goed hebben");
+		lblJeMoetDeze.setForeground(Color.WHITE);
+		lblJeMoetDeze.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		add(lblJeMoetDeze, "cell 1 4");
+		
+		JLabel lblJeHuidigeScore = new JLabel("Je huidige score is: ");
+		lblJeHuidigeScore.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		lblJeHuidigeScore.setForeground(Color.WHITE);
+		add(lblJeHuidigeScore, "cell 1 5");
+		add(btnNewButton, "cell 1 6 2 1,growx");
 	}
 
 }
