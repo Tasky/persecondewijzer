@@ -72,7 +72,7 @@ public class MainWindow {
 		frame.setLocationRelativeTo(null);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][][157.00,grow]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][157.00,grow]"));
 
 		JLabel lblNewLabel = new JLabel("<html>PER<br />\nSECONDE<br />\nWIJZER</html>");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 42));
@@ -131,11 +131,7 @@ public class MainWindow {
 				startGame();
 			}
 		});
-		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 3,grow");
-		
-		JButton btnNewButton_1 = new JButton("Beheer");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		frame.getContentPane().add(btnNewButton_1, "cell 1 4,growx");
+		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 2,grow");
 		
 		JButton btnNewButton_2 = new JButton("Highscores");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -145,7 +141,7 @@ public class MainWindow {
 				openPanel(highscore);
 			}
 		});
-		frame.getContentPane().add(btnNewButton_2, "cell 1 5,growx");
+		frame.getContentPane().add(btnNewButton_2, "cell 1 4,growx");
 	}
 	
 	
