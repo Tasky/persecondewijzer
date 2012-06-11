@@ -1,31 +1,15 @@
 package views;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Font;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import java.awt.GridBagLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTable;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JEditorPane;
-
-import views.components.NicePanel;
-import net.miginfocom.swing.MigLayout;
-import javax.swing.JLabel;
-
 import controllers.Spel;
-
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.border.EmptyBorder;
+import net.miginfocom.swing.MigLayout;
+import views.components.NicePanel;
 
 public class GameOver extends NicePanel {
 

@@ -1,20 +1,14 @@
 package views;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-import javax.swing.JScrollPane;
-
-import views.components.NicePanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

@@ -1,29 +1,13 @@
 package views;
 
-import javax.swing.JFrame;
-import net.miginfocom.swing.MigLayout;
-
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-
 import controllers.Spel;
-
-import views.components.ImagePanel;
-import views.components.NicePanel;
-
-import java.awt.Container;
 import java.awt.Color;
-import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import javax.swing.JLabel;
+import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.*;
+import javax.swing.*;
+import net.miginfocom.swing.MigLayout;
+import views.components.NicePanel;
 
 
 public class MainWindow {
@@ -88,6 +72,7 @@ public class MainWindow {
 		
 		//Als er met de mouse geklikt wordt zal de placeholder text verwijderd worden
 		txtVulHierJe.addMouseListener( new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if ( arg0.getButton() == 0x1 && txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT) )
 					txtVulHierJe.setText("");
@@ -95,6 +80,7 @@ public class MainWindow {
 		} );
 		//Placeholder wijzgen d.m.v. een keypress
 		txtVulHierJe.addKeyListener( new KeyAdapter() { 
+                        @Override
 			public void keyPressed( KeyEvent e ) {
 				if ( txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT) ) {
 						txtVulHierJe.setText("");
