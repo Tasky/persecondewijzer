@@ -1,0 +1,30 @@
+@startuml img/1_sequence.png
+title Systeem laadt een vraag
+actor Gebruiker
+autonumber "<b>##</b>."
+' The only difference between actor and participant is the drawing
+
+Gebruiker -> Speelscherm : laat vraag zien
+activate Speelscherm
+Speelscherm -> Spel : getVraag()
+activate Spel
+Spel -> Vraag : getVraag(): void
+activate Vraag
+loop alle onderdelen
+	create Onderdeel
+	
+	Vraag -> Onderdeel: <<create>>
+	activate Onderdeel
+	
+	Onderdeel -> Content: krijgContent?
+	
+	Onderdeel ==> Vraag: onderdeel
+	deactivate Onderdeel
+end
+Vraag ==> Spel: onderdelen
+deactivate Vraag
+Spel ==> Speelscherm: onderdelen
+deactivate Spel
+deactivate Speelscherm
+
+@enduml
