@@ -2,7 +2,6 @@
 title Systeem laadt een vraag
 actor Gebruiker
 autonumber "<b>##</b>."
-' The only difference between actor and participant is the drawing
 
 Gebruiker -> Speelscherm : laat vraag zien
 activate Speelscherm
@@ -10,21 +9,23 @@ Speelscherm -> Spel : getVraag()
 activate Spel
 Spel -> Vraag : getVraag(): void
 activate Vraag
+
+Vraag -> Vraag: Haal onderdelen op
+activate Vraag #DarkSalmon
 loop alle onderdelen
 	create Onderdeel
 	
 	Vraag -> Onderdeel: <<create>>
 	activate Onderdeel
 	
-	Onderdeel -> Content: krijgContent?
-	
 	Onderdeel ==> Vraag: onderdeel
 	deactivate Onderdeel
 end
-Vraag ==> Spel: onderdelen
 deactivate Vraag
-Spel ==> Speelscherm: onderdelen
+Vraag ==> Spel: vraag
+deactivate Vraag
+Spel ==> Speelscherm: vraag
 deactivate Spel
+Speelscherm ==> Gebruiker : vraag
 deactivate Speelscherm
-
 @enduml
