@@ -87,7 +87,7 @@ public class Content {
 		
 		for (int i = 0; i < elements.size(); i++) {
 			Element node = (Element) elements.get(i);
-        	if(node.getAttribute("name").getValue() == onderwerpNaam)
+        	if(node.getAttribute("name").getValue().equals(onderwerpNaam))
         	{
         		onderwerp = node;
         	}
