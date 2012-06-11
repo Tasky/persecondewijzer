@@ -1,0 +1,24 @@
+@startuml img/4_sequence.png
+title De actor wisselt een gegeven antwoord met een ander eerder gegeven antwoord.
+actor Gebruiker
+autonumber "<b>##</b>."
+
+Gebruiker -> Speelscherm : wijzigAntwoord(van, naar)
+activate Speelscherm
+Speelscherm -> Spel : wijzigAntwoord(van, naar)
+activate Spel
+
+Spel -> "van : GekozenAntwoord" : setGekozenAntwoord(naar)
+"van : GekozenAntwoord" ==> Spel 
+
+alt is "naar" al ingevuld?
+Spel -> "naar : GekozenAntwoord" : setGekozenAntwoord(van)
+"naar : GekozenAntwoord" ==> Spel
+end
+
+Spel ==> Speelscherm 
+deactivate Spel
+Speelscherm ==> Gebruiker
+deactivate Speelscherm
+
+@enduml
