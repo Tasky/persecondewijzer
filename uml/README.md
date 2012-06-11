@@ -13,8 +13,13 @@ Voeg de volgende mirror toe:
 
 ### Openen
 Om het venster te openen ga je naar *Window/Show View/Other...*
+
 ![eclipse](http://plantuml.sourceforge.net/img/eclipse10.png "Eclipse")
+
 Daarna selecteer je PlantUML in het volgende venster:
+
 ![eclipse](http://plantuml.sourceforge.net/img/eclipse20.png "Eclipse")
+
 En voila het werkt! Nog een voorbeeldje van hoe het eruit moet zien:
+
 ![eclipse](http://mycel.nl/plantuml.png "Eclipse")
