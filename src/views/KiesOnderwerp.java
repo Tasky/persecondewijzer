@@ -50,8 +50,8 @@ public class KiesOnderwerp extends NicePanel {
 	 * Create the frame.
 	 */
 	public KiesOnderwerp(Spel spel) {
-		setBounds(0, 0, 557, 318);
-		setLayout(new MigLayout("", "[784px,grow]", "[60px][248.00px,grow]"));
+		setBounds(0, 0, 773, 318);
+		setLayout(new MigLayout("", "[100px:100px:100px,grow][700px,grow][100px:100px:100px]", "[60px][248.00px,grow]"));
 		
 		/**
 		 * De titel "Kies een onderwerp"
@@ -61,20 +61,15 @@ public class KiesOnderwerp extends NicePanel {
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
 		add(lblNewLabel, "flowx,cell 0 0,alignx left,aligny top");
 		
-		/**
-		 * Hier worden de onderwerpen op getoont
-		 */
-		JPanel panel_1 = new JPanel();
-		add(panel_1, "cell 0 1,grow");
-		FlowLayout fl_panel_1 = new FlowLayout(FlowLayout.LEFT, 5, 5);
-		panel_1.setLayout(fl_panel_1);
+		JPanel panel = new JPanel();
+		add(panel, "cell 1 1,grow");
 
 		
 	    try {
 			List<Onderwerp> onderwerpen;
 			onderwerpen = spel.getOnderwerpen();
 			for (Onderwerp onderwerp : onderwerpen) {
-					panel_1.add(new views.panels.Onderwerp(onderwerp, spel));
+					panel.add(new views.panels.Onderwerp(onderwerp, spel));
 			}
 			
 		} catch (DataException e) {
