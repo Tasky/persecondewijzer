@@ -2,7 +2,7 @@ package logic;
 
 // TODO: Automatisch een stel vragen en onderwerpen selecteren.
 import java.util.List;
-import java.util.Random;
+import java.util.Collections;
 import javax.xml.*;
 
 import exceptions.DataException;
@@ -21,6 +21,7 @@ public class Vraag {
 		if(onderdelen.size() != 9) {
 			throw new DataException("De hoeveelheid vragen klopt niet.");
 		}
+		Collections.shuffle(onderdelen);
 		_onderdelen = onderdelen;
 	}
 
