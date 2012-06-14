@@ -1,31 +1,31 @@
+' PlantUML
 @startuml img/1_sequence.png
-title Systeem laadt een vraag
+title Het systeem laadt een vraag en toont de vraag op het scherm.
 actor Gebruiker
 autonumber "<b>##</b>."
 
+
+
 Gebruiker -> Speelscherm : laat vraag zien
 activate Speelscherm
-Speelscherm -> Spel : getVraag()
 activate Spel
-Spel -> Vraag : getVraag(): void
-activate Vraag
 
-Vraag -> Vraag: Haal onderdelen op
-activate Vraag #DarkSalmon
-loop alle onderdelen
-	create Onderdeel
-	
-	Vraag -> Onderdeel: <<create>>
-	activate Onderdeel
-	
-	Onderdeel ==> Vraag: onderdeel
-	deactivate Onderdeel
-end
-deactivate Vraag
-Vraag ==> Spel: vraag
-deactivate Vraag
-Spel ==> Speelscherm: vraag
+
+Speelscherm -> Spel : getVraagTekst()
+
+Spel -> "getHuidigeVraag() : Vraag" as Vraag : getTekst()
+Vraag ==> Spel: vraagTekst
+
+Spel ==> Speelscherm: vraagTekst
+
+Speelscherm -> Spel : getOnderdelen()
+
+Spel -> Vraag : getOnderdelen()
+Vraag ==> Spel: onderdelen
+
+Spel ==> Speelscherm: onderdelen
+
 deactivate Spel
-Speelscherm ==> Gebruiker : vraag
+
 deactivate Speelscherm
 @enduml

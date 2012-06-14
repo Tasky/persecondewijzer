@@ -9,11 +9,11 @@ import exceptions.DataException;
 
 public class Vraag {
 	
-	private String _vraag;
+	private String _tekst;
 	private List<logic.Onderdeel> _onderdelen;
 	
 	public Vraag( String vraag, List<logic.Onderdeel>onderdelen ) throws DataException {
-		setVraag(vraag);
+		setTekst(vraag);
 		setOnderdelen(onderdelen);
 	}
 	
@@ -25,16 +25,15 @@ public class Vraag {
 		_onderdelen = onderdelen;
 	}
 
-	public void setVraag ( String vraag ){
-		this._vraag = vraag;
+	public void setTekst( String tekst ){
+		this._tekst = tekst;
 	}
 	
-	public String getVraag() {
-		return this._vraag;
+	public String getTekst() {
+		return this._tekst;
 	}
 
 	public List<Onderdeel> getOnderdelen() {
-		// TODO Auto-generated method stub
 		return _onderdelen;
 	}
 }

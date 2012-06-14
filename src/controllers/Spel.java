@@ -68,6 +68,11 @@ public class Spel {
 		window = new MainWindow(this);
 	}
 	
+	private Vraag getHuidigeVraag()
+	{
+		return vragen.get(huidigeRonde);
+	}
+	
 	public void openPanel(JPanel panel) { window.openPanel(panel); }
 	
 	/**
@@ -97,7 +102,7 @@ public class Spel {
 	public int getJokerAantal() { return joker.getAantal(); }
 	public void addJoker() { joker.addJoker(); }
 	public void verwijderJokers( int aantal ) {	joker.verwijderJokers(aantal); }
-
+	
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		return content.getOnderwerpen();
 	}
@@ -105,11 +110,11 @@ public class Spel {
 	public List<logic.Onderdeel> getOnderdelen() {
 		// TODO Auto-generated method stub
 		
-		return vragen.get(huidigeRonde).getOnderdelen();
+		return getHuidigeVraag().getOnderdelen();
 	}
 
-	public String getVraag() {
-		return vragen.get(huidigeRonde).getVraag();
+	public String getVraagTekst() {
+		return getHuidigeVraag().getTekst();
 	}
 	
 	public void backToMainMenu() { 

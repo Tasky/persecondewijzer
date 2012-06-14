@@ -44,7 +44,7 @@ public class ContentTester {
 			for (Vraag vraag : vragen) {
 				List<Onderdeel> onderdelen = vraag.getOnderdelen();
 				assertTrue(
-						"Er moeten 9 onderdelen zijn bij vraag \""+vraag.getVraag()+"\".",
+						"Er moeten 9 onderdelen zijn bij vraag \""+vraag.getTekst()+"\".",
 						onderdelen.size() == 9);
 			}
 		}

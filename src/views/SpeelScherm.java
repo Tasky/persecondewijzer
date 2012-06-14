@@ -17,26 +17,28 @@ import views.components.ImagePanel;
 import views.components.NicePanel;
 
 public class SpeelScherm extends NicePanel {
+	private int currentCell = 0;
+	
     /**
-     * Launch the application.
+     * Opstarten speelscherm, handig voor debuggen of snel testen.
      */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    try {
-                        Spel spel = new Spel();
-                        List<logic.Onderwerp> onderwerpen = spel.getOnderwerpen();
-                        spel.setOnderwerp(onderwerpen.get(0));
-                        spel.openPanel(new SpeelScherm(spel));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+            public void run() {
+                try {
+                    Spel spel = new Spel();
+                    List<logic.Onderwerp> onderwerpen = spel.getOnderwerpen();
+                    spel.setOnderwerp(onderwerpen.get(0));
+                    spel.openPanel(new SpeelScherm(spel));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            });
+            }
+        });
     }
 
     /**
-     * Create the application.
+     * Opstarten van speelscherm
      * @param spel 
      * @throws IOException 
      */
@@ -44,22 +46,22 @@ public class SpeelScherm extends NicePanel {
         try {
             initialize(spel);
         } catch (IOException e) {
-            e.printStackTrace();
+        	JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
         }
     }
-
-    int currentCell = 0;
+    
     /**
      * Initialize the contents of the frame.
      * @param mainWindow 
      * @throws IOException 
      */
     private void initialize(final Spel spel) throws IOException {
+    	String vraag = spel.getVraagTekst();
         //setBackground(SystemColor.info);
         setBounds(0, 0, 1024, 768);
         setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][126.00,grow,fill]"));
 
-        JLabel lblTitle = DefaultComponentFactory.getInstance().createTitle(spel.getVraag());
+        JLabel lblTitle = DefaultComponentFactory.getInstance().createTitle(vraag);
         lblTitle.setForeground(Color.WHITE);
         lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 47));
         add(lblTitle, "cell 1 0 2 1");
