@@ -42,7 +42,7 @@ public class KiesOnderwerp extends NicePanel {
 	 */
 	public KiesOnderwerp(Spel spel) {
 		setBounds(0, 0, 773, 318);
-		setLayout(new MigLayout("", "[100px:100px:100px,grow][700px,grow][100px:100px:100px]", "[173.00px][10.00][150px][173.00px,grow]"));
+		setLayout(new MigLayout("", "[100px:100px:100px,grow][700px,grow][100px:100px:100px]", "[173.00px][150.00][150px][173.00px,grow]"));
 		
 		/**
 		 * De titel "Kies een onderwerp"
