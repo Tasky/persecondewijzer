@@ -15,9 +15,11 @@ import logic.Onderdeel;
 import net.miginfocom.swing.MigLayout;
 import views.components.ImagePanel;
 import views.components.NicePanel;
+import java.awt.GridLayout;
 
 public class SpeelScherm extends NicePanel {
 	private int currentCell = 0;
+	private final JPanel middenvlak = new JPanel();
 	
     /**
      * Opstarten speelscherm, handig voor debuggen of snel testen.
@@ -59,7 +61,10 @@ public class SpeelScherm extends NicePanel {
     	String vraag = spel.getVraagTekst();
         //setBackground(SystemColor.info);
         setBounds(0, 0, 1024, 768);
-        setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][126.00,grow,fill]"));
+        setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
+        
+        middenvlak.setLayout(new GridLayout(1, 0, 0, 0));
+        add(middenvlak, "cell 1 1 2 1,grow");
 
         JLabel lblTitle = DefaultComponentFactory.getInstance().createTitle(vraag);
         lblTitle.setForeground(Color.WHITE);
@@ -68,26 +73,26 @@ public class SpeelScherm extends NicePanel {
 
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setOpaque(false);
-        add(buttonsPanel, "cell 0 1,grow");
         buttonsPanel.setLayout(new MigLayout("", "[grow]", "[][][][][][][][][]"));
-
+        add(buttonsPanel, "cell 0 1,grow");
+        
+        final JPanel panel = new JPanel();
+        panel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow][]"));
+        
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        final JPanel panel = new JPanel();
-        add(scrollPane, "cell 0 2 2 1,grow");
-        panel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow][]"));
         scrollPane.setViewportView(panel);
+        add(scrollPane, "cell 0 2 2 1,grow");
 
         final List<Onderdeel> onderdelen = spel.getOnderdelen();
-        int cell = 0;
-        Onderdeel huidigeOnderdeel = onderdelen.get(0);
-        final ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
-        plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-        add(plaatje, "cell 1 1 2 1,grow");
-        plaatje.setAutoResize(true);
-        final SpeelScherm GroteAfbeelding = this;
         
+        Onderdeel huidigeOnderdeel = onderdelen.get(0);
+        
+        ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
+        plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+        plaatje.setAutoResize(true);
+        middenvlak.add(plaatje);
 
         JPanel panel_1 = new JPanel();
         add(panel_1, "cell 2 2,grow");
@@ -97,32 +102,31 @@ public class SpeelScherm extends NicePanel {
         panel_1.add(timer, "cell 0 0,grow");
 
         JButton btnStoppen = new JButton("Stop de tijd");
-        initStopButton(spel, plaatje, GroteAfbeelding, timer, btnStoppen);
+        initStopButton(spel, timer, btnStoppen);
         panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 
-        cell = iterateChoices(buttonsPanel, panel, onderdelen, cell);
+        iterateChoices(buttonsPanel, panel, onderdelen);
     }
 
-	private void initStopButton(final Spel spel, final ImagePanel plaatje,
-			final SpeelScherm GroteAfbeelding,
-			final views.panels.InfoPanel timer, JButton btnStoppen) {
+	private void initStopButton(final Spel spel,
+			final views.panels.InfoPanel timer, final JButton btnStoppen) {
 		btnStoppen.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) 
                 {
-                    //spel.openPanel(new JokerScherm(spel));
-                    GroteAfbeelding.remove(plaatje);
-                    GroteAfbeelding.add(new JokerScherm(spel), "cell 1 1 2 1,grow"); 
-                    GroteAfbeelding.revalidate(); 
-                    GroteAfbeelding.repaint();
-
+                    middenvlak.removeAll();
+                    middenvlak.add(new JokerScherm(spel));
+                    middenvlak.revalidate(); 
+                    middenvlak.repaint();
+                    btnStoppen.setEnabled(false);
                     // Tijd stoppen
                     timer.stopTimer();
                 }
             });
 	}
 
-	private int iterateChoices(JPanel buttonsPanel, final JPanel panel,
-			final List<Onderdeel> onderdelen, int cell) {
+	private void iterateChoices(JPanel buttonsPanel, final JPanel panel,
+			final List<Onderdeel> onderdelen) {
+		int cell = 0;
 		for (final Onderdeel optie : onderdelen) {			
             //antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
             final JButton button = new JButton(optie.getAntwoord());
@@ -162,7 +166,6 @@ public class SpeelScherm extends NicePanel {
             buttonsPanel.add(button, "cell 0 "+(cell)+",growx");
             cell++;
         }
-		return cell;
 	}
 
 }
