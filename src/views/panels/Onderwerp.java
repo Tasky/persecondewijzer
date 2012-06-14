@@ -24,6 +24,8 @@ import controllers.Spel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class Onderwerp extends JPanel {
 
@@ -40,6 +42,7 @@ public class Onderwerp extends JPanel {
 		    
 		    //Dat je op het plaatje kan klikken
 		    ImagePanel image = new ImagePanel(onderwerp.getPlaatje());
+		    image.setBorder(new LineBorder(new Color(0, 0, 0)));
 		    image.addMouseListener(new MouseAdapter() 
 		    	{	@Override
 		    		public void mouseClicked(MouseEvent arg0)
@@ -50,7 +53,7 @@ public class Onderwerp extends JPanel {
 		    	}
 		    );
 		    
-		    add(image, "cell 0 1");
+		    add(image, "cell 0 1,alignx center,aligny center");
 		    image.setAutoResize(true);
 
 		} catch (IOException e) {

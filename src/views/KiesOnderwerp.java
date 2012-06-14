@@ -18,6 +18,7 @@ import java.util.List;
 
 import logic.Onderwerp;
 import java.awt.FlowLayout;
+import javax.swing.JButton;
 
 public class KiesOnderwerp extends NicePanel {
 
@@ -41,7 +42,7 @@ public class KiesOnderwerp extends NicePanel {
 	 */
 	public KiesOnderwerp(Spel spel) {
 		setBounds(0, 0, 773, 318);
-		setLayout(new MigLayout("", "[100px:100px:100px,grow][700px,grow][100px:100px:100px]", "[60px][248.00px,grow]"));
+		setLayout(new MigLayout("", "[100px:100px:100px,grow][700px,grow][100px:100px:100px]", "[173.00px][10.00][150px][173.00px,grow]"));
 		
 		/**
 		 * De titel "Kies een onderwerp"
@@ -49,10 +50,12 @@ public class KiesOnderwerp extends NicePanel {
 		JLabel lblNewLabel = new JLabel("Kies een onderwerp");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
-		add(lblNewLabel, "flowx,cell 0 0,alignx left,aligny top");
+		add(lblNewLabel, "flowx,cell 1 1,alignx center,aligny center");
 		
 		JPanel panel = new JPanel();
-		add(panel, "cell 1 1,grow");
+		add(panel, "cell 1 2,alignx center,aligny center");
+		panel.setLayout(new MigLayout("", "[40px,grow][40px,grow][40px,grow][40px,grow][40px,grow]", "[]"));
+		
 
 		
 	    try {
