@@ -111,4 +111,8 @@ public class Spel {
 	public String getVraag() {
 		return vragen.get(huidigeRonde).getVraag();
 	}
+	
+	public void backToMainMenu() { 
+		window.reset(); 
+	}
 }

@@ -1,6 +1,5 @@
 package views;
 
-import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
@@ -13,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-import javax.swing.JRadioButton;
 
 import controllers.Spel;
 

@@ -1,20 +1,14 @@
 package views;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-import javax.swing.JScrollPane;
-
-import views.components.NicePanel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -51,7 +45,7 @@ public class Highscore extends NicePanel {
 	 */
 	public Highscore(final MainWindow mainWindow, final Spel spel) {
 		setBounds(0, 0, 800, 600);
-		setLayout(new MigLayout("", "[grow][][grow]", "[80.00][10.00,grow][450.00,grow][40.00][10.00,grow]"));
+		setLayout(new MigLayout("", "[grow][][grow]", "[80.00][10.00,grow][][450.00,grow][40.00][10.00,grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Highscores");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -66,6 +60,11 @@ public class Highscore extends NicePanel {
 				spel.openPanel(new JokerScherm(spel));
 			}
 		});
+		
+		JLabel lblNewLabel_1 = new JLabel("Rang         Naam        Punten      Tijd");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setForeground(Color.WHITE);
+		add(lblNewLabel_1, "cell 1 2");
 
 		table = new JTable();
 		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -79,8 +78,8 @@ public class Highscore extends NicePanel {
 				"Rang", "Naam", "Prijzengeld", "Tijd over"
 			}
 		));
-		add(table, "cell 1 2,grow");
-		add(btnTerug, "cell 1 3,grow");
+		add(table, "cell 1 3,grow");
+		add(btnTerug, "cell 1 4,grow");
 
 	}
 }

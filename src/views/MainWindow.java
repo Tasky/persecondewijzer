@@ -1,29 +1,13 @@
 package views;
 
-import javax.swing.JFrame;
-import net.miginfocom.swing.MigLayout;
-
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-
 import controllers.Spel;
-
-import views.components.ImagePanel;
-import views.components.NicePanel;
-
-import java.awt.Container;
 import java.awt.Color;
-import java.awt.Toolkit;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import javax.swing.JLabel;
+import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.*;
+import javax.swing.*;
+import net.miginfocom.swing.MigLayout;
+import views.components.NicePanel;
 
 
 public class MainWindow {
@@ -72,7 +56,7 @@ public class MainWindow {
 		frame.setLocationRelativeTo(null);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][][157.00,grow]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]", "[157.00,grow,fill][160px:172.00px:180px,fill][][][][][157.00,grow]"));
 
 		JLabel lblNewLabel = new JLabel("<html>PER<br />\nSECONDE<br />\nWIJZER</html>");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 42));
@@ -88,6 +72,7 @@ public class MainWindow {
 		
 		//Als er met de mouse geklikt wordt zal de placeholder text verwijderd worden
 		txtVulHierJe.addMouseListener( new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if ( arg0.getButton() == 0x1 && txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT) )
 					txtVulHierJe.setText("");
@@ -95,6 +80,7 @@ public class MainWindow {
 		} );
 		//Placeholder wijzgen d.m.v. een keypress
 		txtVulHierJe.addKeyListener( new KeyAdapter() { 
+                        @Override
 			public void keyPressed( KeyEvent e ) {
 				if ( txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT) ) {
 						txtVulHierJe.setText("");
@@ -131,11 +117,7 @@ public class MainWindow {
 				startGame();
 			}
 		});
-		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 3,grow");
-		
-		JButton btnNewButton_1 = new JButton("Beheer");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		frame.getContentPane().add(btnNewButton_1, "cell 1 4,growx");
+		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 2,grow");
 		
 		JButton btnNewButton_2 = new JButton("Highscores");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
@@ -145,7 +127,7 @@ public class MainWindow {
 				openPanel(highscore);
 			}
 		});
-		frame.getContentPane().add(btnNewButton_2, "cell 1 5,growx");
+		frame.getContentPane().add(btnNewButton_2, "cell 1 4,growx");
 	}
 	
 	

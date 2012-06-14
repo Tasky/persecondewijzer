@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -42,7 +43,8 @@ public class Highscore {
 		}
 	}
 	
-	public void getHighscores(int hoeveel) {
+	public List<Highscore> getHighscores(int hoeveel) {
+		return null;
 		
 	}
 	

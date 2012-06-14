@@ -1,21 +1,19 @@
 package views;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JEditorPane;
-import net.miginfocom.swing.MigLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import views.components.ImagePanel;
-import views.components.NicePanel;
-import javax.swing.JLabel;
-
 import controllers.Spel;
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import net.miginfocom.swing.MigLayout;
+import views.components.ImagePanel;
+import views.components.NicePanel;
 
 public class ResultatenScherm extends NicePanel {
 	/**
