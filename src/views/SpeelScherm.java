@@ -95,7 +95,16 @@ public class SpeelScherm extends NicePanel {
         panel_1.add(timer, "cell 0 0,grow");
 
         JButton btnStoppen = new JButton("Stop de tijd");
-        btnStoppen.addActionListener(new ActionListener() {
+        initStopButton(spel, plaatje, GroteAfbeelding, timer, btnStoppen);
+        panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
+
+        cell = iterateChoices(buttonsPanel, panel, onderdelen, cell);
+    }
+
+	private void initStopButton(final Spel spel, final ImagePanel plaatje,
+			final SpeelScherm GroteAfbeelding,
+			final views.panels.InfoPanel timer, JButton btnStoppen) {
+		btnStoppen.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) 
                 {
                     //spel.openPanel(new JokerScherm(spel));
@@ -108,12 +117,9 @@ public class SpeelScherm extends NicePanel {
                     timer.stopTimer();
                 }
             });
-        panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
+	}
 
-        cell = iterateButtons(buttonsPanel, panel, onderdelen, cell);
-    }
-
-	private int iterateButtons(JPanel buttonsPanel, final JPanel panel,
+	private int iterateChoices(JPanel buttonsPanel, final JPanel panel,
 			final List<Onderdeel> onderdelen, int cell) {
 		for (final Onderdeel optie : onderdelen) {			
             //antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
