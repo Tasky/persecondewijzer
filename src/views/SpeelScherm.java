@@ -85,6 +85,7 @@ public class SpeelScherm extends NicePanel {
         add(plaatje, "cell 1 1 2 1,grow");
         plaatje.setAutoResize(true);
         final SpeelScherm GroteAfbeelding = this;
+        
 
         JPanel panel_1 = new JPanel();
         add(panel_1, "cell 2 2,grow");
@@ -109,7 +110,12 @@ public class SpeelScherm extends NicePanel {
             });
         panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 
-        for (final Onderdeel optie : onderdelen) {			
+        cell = iterateButtons(buttonsPanel, panel, onderdelen, cell);
+    }
+
+	private int iterateButtons(JPanel buttonsPanel, final JPanel panel,
+			final List<Onderdeel> onderdelen, int cell) {
+		for (final Onderdeel optie : onderdelen) {			
             //antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
             final JButton button = new JButton(optie.getAntwoord());
             button.addActionListener(new ActionListener() {
@@ -148,6 +154,7 @@ public class SpeelScherm extends NicePanel {
             buttonsPanel.add(button, "cell 0 "+(cell)+",growx");
             cell++;
         }
-    }
+		return cell;
+	}
 
 }
