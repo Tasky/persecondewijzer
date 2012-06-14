@@ -62,7 +62,7 @@ public class SpeelScherm extends NicePanel {
         JLabel lblTitle = DefaultComponentFactory.getInstance().createTitle(spel.getVraag());
         lblTitle.setForeground(Color.WHITE);
         lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 47));
-        //add(lblWelkeStadIs, "cell 1 0 2 1");
+        add(lblTitle, "cell 1 0 2 1");
 
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setOpaque(false);
