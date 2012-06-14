@@ -59,10 +59,10 @@ public class SpeelScherm extends NicePanel {
         setBounds(0, 0, 1024, 768);
         setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][126.00,grow,fill]"));
 
-        JLabel lblWelkeStadIs = DefaultComponentFactory.getInstance().createTitle(spel.getVraag());
-        lblWelkeStadIs.setForeground(Color.WHITE);
-        lblWelkeStadIs.setFont(new Font("Tahoma", Font.PLAIN, 47));
-        add(lblWelkeStadIs, "cell 1 0 2 1");
+        JLabel lblTitle = DefaultComponentFactory.getInstance().createTitle(spel.getVraag());
+        lblTitle.setForeground(Color.WHITE);
+        lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 47));
+        //add(lblWelkeStadIs, "cell 1 0 2 1");
 
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setOpaque(false);
