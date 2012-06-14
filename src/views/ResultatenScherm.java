@@ -143,14 +143,14 @@ public class ResultatenScherm extends NicePanel {
 		JButton btnStoppen = new JButton("Stoppen");
 		btnStoppen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				spel.openPanel(new SpeelScherm(spel));
+				System.exit(0);
 			}
 		});
 		
 		JButton btnNewButton = new JButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				spel.openPanel(new SpeelScherm(spel));
+				spel.openPanel(new KiesOnderwerp(spel));
 			}
 		});
 		
