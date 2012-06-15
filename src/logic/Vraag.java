@@ -71,16 +71,5 @@ public class Vraag {
 		if(gkVan != null) gkVan.setGekozenOnderdeel(naar);
 		if(gkNaar != null) gkNaar.setGekozenOnderdeel(van);
 	}
-	
-	public int getScore() {
-		int score = 0;
-		
-		for (GekozenAntwoord gk : _antwoorden) {
-			if ( gk.isGoed() )
-				score++;
-		}
-		
-		return score;
-	}
 
 }
