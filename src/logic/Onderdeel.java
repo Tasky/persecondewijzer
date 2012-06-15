@@ -25,8 +25,5 @@ public class Onderdeel {
 		_tekst = tekst;
 	}
 
-	public boolean isGoed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 }

@@ -144,7 +144,11 @@ public class SpeelScherm extends NicePanel {
         }
 	}
 	
-	private void kiesOnderdeel(Onderdeel optie){
+	/**
+	 * TODO: SD3: De actor geeft een antwoord en het systeem slaat dit antwoord op.
+	 * @param optie
+	 */
+	private void kiesOnderdeel(final Onderdeel optie){
         JComboBox combobox = new JComboBox();
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for(Onderdeel comboOptie : onderdelen) {
@@ -153,6 +157,16 @@ public class SpeelScherm extends NicePanel {
         model.setSelectedItem(optie.getTekst());
         combobox.setModel(model);
         combobox.setMaximumRowCount(9);
+        combobox.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO: S4: antwoord wijzigen
+				// JComboBox cb = (JComboBox)e.getSource();
+			    //cb.getSelectedItem();
+				
+			}
+		})
         gekozenAntwoordenPanel.add(combobox, "cell "+currentCell+" 1,growx");
 
         ImagePanel imagePanel = null;
@@ -165,7 +179,7 @@ public class SpeelScherm extends NicePanel {
         gekozenAntwoordenPanel.add(imagePanel, "cell "+currentCell+" 0,grow");
         imagePanel.setAutoResize(true);
 
-        if (optie.isGoed()) {
+        if (false){//optie.isGoed()) {
             imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
         } else {
             imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
@@ -175,7 +189,7 @@ public class SpeelScherm extends NicePanel {
         
         gekozenAntwoordenPanel.getParent().validate();
         
-        // TODO: laad volgende onderdeel, sequence diagram 2
+        // TODO: SD2: laad volgende onderdeel
 	}
 
 }
