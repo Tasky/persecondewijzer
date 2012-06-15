@@ -20,6 +20,9 @@ import java.awt.GridLayout;
 public class SpeelScherm extends NicePanel {
 	private int currentCell = 0;
 	private final JPanel middenvlak = new JPanel();
+	private List<Onderdeel>	onderdelen;
+	private Onderdeel	huidigeOnderdeel;
+	private JPanel	gekozenAntwoordenPanel;
 	
     /**
      * Opstarten speelscherm, handig voor debuggen of snel testen.
@@ -76,18 +79,18 @@ public class SpeelScherm extends NicePanel {
         buttonsPanel.setLayout(new MigLayout("", "[grow]", "[][][][][][][][][]"));
         add(buttonsPanel, "cell 0 1,grow");
         
-        final JPanel panel = new JPanel();
-        panel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow][]"));
+        gekozenAntwoordenPanel = new JPanel();
+        gekozenAntwoordenPanel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow][]"));
         
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scrollPane.setViewportView(panel);
+        scrollPane.setViewportView(gekozenAntwoordenPanel);
         add(scrollPane, "cell 0 2 2 1,grow");
 
-        final List<Onderdeel> onderdelen = spel.getOnderdelen();
+        onderdelen = spel.getOnderdelen();
         
-        Onderdeel huidigeOnderdeel = onderdelen.get(0);
+        huidigeOnderdeel = onderdelen.get(0);
         
         ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
         plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -105,7 +108,7 @@ public class SpeelScherm extends NicePanel {
         initStopButton(spel, timer, btnStoppen);
         panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 
-        iterateChoices(buttonsPanel, panel, onderdelen);
+        iterateChoices(buttonsPanel, onderdelen);
     }
 
 	private void initStopButton(final Spel spel,
@@ -124,48 +127,55 @@ public class SpeelScherm extends NicePanel {
             });
 	}
 
-	private void iterateChoices(JPanel buttonsPanel, final JPanel panel,
+	private void iterateChoices(JPanel buttonsPanel,
 			final List<Onderdeel> onderdelen) {
 		int cell = 0;
 		for (final Onderdeel optie : onderdelen) {			
             //antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
-            final JButton button = new JButton(optie.getAntwoord());
+            final JButton button = new JButton(optie.getTekst());
             button.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        JComboBox combobox = new JComboBox();
-                        DefaultComboBoxModel model = new DefaultComboBoxModel();
-                        for(Onderdeel comboOptie : onderdelen) {
-                            model.addElement(comboOptie.getAntwoord());
-                        }
-                        model.setSelectedItem(optie.getAntwoord());
-                        combobox.setModel(model);
-                        combobox.setMaximumRowCount(9);
-                        panel.add(combobox, "cell "+currentCell+" 1,growx");
-
-                        ImagePanel imagePanel = null;
-                        try {
-                            imagePanel = new ImagePanel(optie.getPlaatje());
-                            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-                        panel.add(imagePanel, "cell "+currentCell+" 0,grow");
-                        imagePanel.setAutoResize(true);
-
-                        if (optie.isGoed()) {
-                            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
-                        } else {
-                            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
-                        }
-
-                        currentCell++;
-                        button.setEnabled(false);
-                        panel.getParent().validate();
+                    	kiesOnderdeel(optie);
+                    	button.setEnabled(false);
                     }
                 });
             buttonsPanel.add(button, "cell 0 "+(cell)+",growx");
             cell++;
         }
+	}
+	
+	private void kiesOnderdeel(Onderdeel optie){
+        JComboBox combobox = new JComboBox();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for(Onderdeel comboOptie : onderdelen) {
+            model.addElement(comboOptie.getTekst());
+        }
+        model.setSelectedItem(optie.getTekst());
+        combobox.setModel(model);
+        combobox.setMaximumRowCount(9);
+        gekozenAntwoordenPanel.add(combobox, "cell "+currentCell+" 1,growx");
+
+        ImagePanel imagePanel = null;
+        try {
+            imagePanel = new ImagePanel(huidigeOnderdeel.getPlaatje());
+            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        gekozenAntwoordenPanel.add(imagePanel, "cell "+currentCell+" 0,grow");
+        imagePanel.setAutoResize(true);
+
+        if (optie.isGoed()) {
+            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
+        } else {
+            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
+        }
+
+        currentCell++;
+        
+        gekozenAntwoordenPanel.getParent().validate();
+        
+        // TODO: laad volgende onderdeel, sequence diagram 2
 	}
 
 }
