@@ -38,7 +38,7 @@ public class SpeelScherm extends NicePanel {
                 try {
                     Spel spel = new Spel();
                     List<logic.Onderwerp> onderwerpen = spel.getOnderwerpen();
-                    spel.setOnderwerp(onderwerpen.get(0));
+                    spel.setOnderwerp(onderwerpen.get(1));
                     spel.openPanel(new SpeelScherm(spel));
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -99,7 +99,6 @@ public class SpeelScherm extends NicePanel {
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollPane.setViewportView(gekozenAntwoordenPanel);
         add(scrollPane, "cell 0 2 2 1,grow");
-
         
         volgendeOnderdeel();
 
@@ -183,7 +182,6 @@ public class SpeelScherm extends NicePanel {
 				Onderdeel van = gk.getGekozenOnderdeel();
 				Onderdeel naar = (Onderdeel) onderdelenComboBoxModel.getSelectedItem();
 				spel.wijzigAntwoord(van, naar);
-				System.out.println("update(" + van + "," + naar + ");");
 			}
 
 			@Override
