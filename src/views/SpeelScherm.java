@@ -156,6 +156,8 @@ public class SpeelScherm extends NicePanel {
         plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
         plaatje.setAutoResize(true);
         middenvlak.add(plaatje);
+        middenvlak.revalidate(); 
+        middenvlak.repaint();
 	}
 	
 	/**
