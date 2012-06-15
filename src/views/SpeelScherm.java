@@ -19,6 +19,8 @@ import logic.Onderdeel;
 import net.miginfocom.swing.MigLayout;
 import views.components.ImagePanel;
 import views.components.NicePanel;
+import views.panels.OnderdeelButton;
+
 import java.awt.GridLayout;
 
 public class SpeelScherm extends NicePanel {
@@ -132,19 +134,25 @@ public class SpeelScherm extends NicePanel {
             });
 	}
     
+	private ArrayList<OnderdeelButton> buttons = new ArrayList<OnderdeelButton>();
 	private void toonOnderdelen(JPanel buttonsPanel,
 			final List<Onderdeel> onderdelen) {
 		int cell = 0;
 		for (final Onderdeel optie : onderdelen) {			
             //antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
-            final JButton button = new JButton(optie.getTekst());
+            final OnderdeelButton button = new OnderdeelButton(optie);
             button.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                    	kiesOnderdeel(optie);
-                    	button.setEnabled(false);
+                    	GekozenAntwoord gk = kiesOnderdeel(optie);
+                    	for(OnderdeelButton obs : buttons) {
+                    		gk.addObserver(obs);
+                    	}
+                    	
+                    	button.clicked(gk);
                     }
                 });
             buttonsPanel.add(button, "cell 0 "+(cell)+",growx");
+            buttons.add(button);
             cell++;
         }
 	}
@@ -161,14 +169,15 @@ public class SpeelScherm extends NicePanel {
         plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
         plaatje.setAutoResize(true);
         middenvlak.add(plaatje);
-        middenvlak.revalidate(); 
+        middenvlak.revalidate();
         middenvlak.repaint();
 	}
 	
 	/**
 	 * @param optie
+	 * @return 
 	 */
-	private void kiesOnderdeel(final Onderdeel optie){
+	private GekozenAntwoord kiesOnderdeel(final Onderdeel optie){
 		final GekozenAntwoord gk = spel.kiesOnderdeel(optie);
 		
 		final DefaultComboBoxModel onderdelenComboBoxModel = new DefaultComboBoxModel();
@@ -206,6 +215,8 @@ public class SpeelScherm extends NicePanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
+        return gk;
 	}
 
 }
