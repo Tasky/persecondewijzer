@@ -64,12 +64,12 @@ public class Vraag {
 		GekozenAntwoord gkNaar = null;
 		
 		for (GekozenAntwoord gk : _antwoorden) {
-			if(gk.getHuidigeOnderdeel() == van) gkVan = gk;
+			if(gk.getGekozenOnderdeel() == van) gkVan = gk;
 				
-			if(gk.getHuidigeOnderdeel() == naar) gkNaar = gk;
+			if(gk.getGekozenOnderdeel() == naar) gkNaar = gk;
 		}
-		gkVan.setGekozenOnderdeel(naar);
-		gkNaar.setGekozenOnderdeel(van);
+		if(gkVan != null) gkVan.setGekozenOnderdeel(naar);
+		if(gkNaar != null) gkNaar.setGekozenOnderdeel(van);
 	}
 
 }

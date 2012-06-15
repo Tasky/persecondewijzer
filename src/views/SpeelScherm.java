@@ -169,7 +169,6 @@ public class SpeelScherm extends NicePanel {
 	/**
 	 * @param optie
 	 */
-	private ArrayList<views.panels.GekozenAntwoord> gekozenAntwoorden = new ArrayList<views.panels.GekozenAntwoord>();
 	private void kiesOnderdeel(final Onderdeel optie){
 		final GekozenAntwoord gk = spel.kiesOnderdeel(optie);
 		
@@ -180,33 +179,25 @@ public class SpeelScherm extends NicePanel {
         onderdelenComboBoxModel.setSelectedItem(gk.getGekozenOnderdeel());
         onderdelenComboBoxModel.addListDataListener(new ListDataListener() {
 			@Override
-			public void contentsChanged(ListDataEvent arg0) { }
+			public void contentsChanged(ListDataEvent e) {
+				Onderdeel van = gk.getGekozenOnderdeel();
+				Onderdeel naar = (Onderdeel) onderdelenComboBoxModel.getSelectedItem();
+				spel.wijzigAntwoord(van, naar);
+				System.out.println("update(" + van + "," + naar + ");");
+			}
 
 			@Override
 			public void intervalAdded(ListDataEvent e) { }
 
 			@Override
 			public void intervalRemoved(ListDataEvent e) {
-				spel.wijzigAntwoord(gk.getHuidigeOnderdeel(), (Onderdeel) onderdelenComboBoxModel.getSelectedItem());
-				
+
 			}
 		});
         
 		views.panels.GekozenAntwoord gkView = new views.panels.GekozenAntwoord(huidigeOnderdeel.getPlaatje(), onderdelenComboBoxModel);
-		gekozenAntwoorden.add(gkView);
-		gk.addObserver(gkView);
-        //JComboBox combobox = new JComboBox();
-        
-
-        /*combobox.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JComboBox cb = (JComboBox)e.getSource();
-				spel.wijzigAntwoord(optie, (Onderdeel)cb.getSelectedItem());
-			}
-		});*/
         gekozenAntwoordenPanel.add(gkView, "cell "+currentCell+" 0,grow");
-
+        gk.addObserver(gkView);
         currentCell++;
         
         gekozenAntwoordenPanel.getParent().validate();

@@ -27,8 +27,6 @@ public class GekozenAntwoord extends Observable {
 	 */
 	public void setHuidigeOnderdeel(Onderdeel huidigeOnderdeel) {
 		this.huidigeOnderdeel = huidigeOnderdeel;
-		setChanged();
-		notifyObservers();
 	}
 
 	/**
@@ -43,5 +41,7 @@ public class GekozenAntwoord extends Observable {
 	 */
 	public void setGekozenOnderdeel(Onderdeel gekozenOnderdeel) {
 		this.gekozenOnderdeel = gekozenOnderdeel;
+		setChanged();
+		notifyObservers();
 	}
 }
