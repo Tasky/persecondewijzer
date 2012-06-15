@@ -1,6 +1,7 @@
 package controllers;
 
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -90,7 +91,7 @@ public class Spel {
 		return joker.getAantal();
 	}
 
-	public List<logic.Onderdeel> getOnderdelen() {
+	public ArrayList<Onderdeel> getOnderdelen() {
 		return getHuidigeVraag().getOnderdelen();
 	}
 

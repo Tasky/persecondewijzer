@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -53,7 +54,7 @@ public class SpeelScherm extends NicePanel {
 
 	private int							currentCell	= 0;
 	private final JPanel				middenvlak	= new JPanel();
-	private List<Onderdeel>				onderdelen;
+	private ArrayList<Onderdeel>		onderdelen;
 	private Onderdeel					huidigeOnderdeel;
 	private JPanel						gekozenAntwoordenPanel;
 
@@ -203,9 +204,9 @@ public class SpeelScherm extends NicePanel {
 		return gk;
 	}
 
-	private void toonOnderdelen(JPanel buttonsPanel,
-			final List<Onderdeel> onderdelen) {
+	private void toonOnderdelen(JPanel buttonsPanel, ArrayList<Onderdeel> onderdelen) {
 		int cell = 0;
+		Collections.shuffle(onderdelen);
 		for (final Onderdeel optie : onderdelen) {
 			// antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
 			final OnderdeelButton button = new OnderdeelButton(optie);

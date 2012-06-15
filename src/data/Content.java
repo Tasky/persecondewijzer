@@ -128,7 +128,7 @@ public class Content {
 		for (int i = 0; i < hoeveel; i++) {
 			Element node = nodes.get(vragenKeys.get(i));
 			String tekst = node.getFirstChildElement("tekst").getValue();
-			List<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
+			ArrayList<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
 			Elements nOnderdelen = node.getFirstChildElement("onderdelen")
 					.getChildElements();
 			for (int j = 0; j < nOnderdelen.size(); j++) {

@@ -1,6 +1,5 @@
 package logic;
 
-// TODO: Automatisch een stel vragen en onderwerpen selecteren.
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,11 +9,11 @@ import exceptions.DataException;
 public class Vraag {
 
 	private String						_tekst;
-	private List<logic.Onderdeel>		_onderdelen;
+	private ArrayList<Onderdeel>		_onderdelen;
 	private List<logic.GekozenAntwoord>	_antwoorden		= new ArrayList<logic.GekozenAntwoord>();
 	private int							huidigOnderdeel	= -1;
 
-	public Vraag(String vraag, List<logic.Onderdeel> onderdelen)
+	public Vraag(String vraag, ArrayList<Onderdeel> onderdelen)
 			throws DataException {
 		setTekst(vraag);
 		setOnderdelen(onderdelen);
@@ -24,7 +23,7 @@ public class Vraag {
 		return _onderdelen.get(huidigOnderdeel);
 	}
 
-	public List<Onderdeel> getOnderdelen() {
+	public ArrayList<Onderdeel> getOnderdelen() {
 		return _onderdelen;
 	}
 
@@ -49,7 +48,7 @@ public class Vraag {
 		return gk;
 	}
 
-	private void setOnderdelen(List<logic.Onderdeel> onderdelen)
+	private void setOnderdelen(ArrayList<Onderdeel> onderdelen)
 			throws DataException {
 		if (onderdelen.size() != 9) {
 			throw new DataException("De hoeveelheid vragen klopt niet.");
