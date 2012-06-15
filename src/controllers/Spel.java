@@ -13,6 +13,7 @@ import exceptions.DataException;
 import views.MainWindow;
 import views.SpeelScherm;
 
+import logic.GekozenAntwoord;
 import logic.JokerUitrekenaar;
 import logic.Onderwerp;
 import logic.Onderdeel;
@@ -124,12 +125,15 @@ public class Spel {
 		window.reset(); 
 	}
 
-	public void kiesOnderdeel(Onderdeel optie) {
-		// TODO Auto-generated method stub
-		
+	public GekozenAntwoord kiesOnderdeel(Onderdeel optie) {
+		return getHuidigeVraag().kiesAntwoord(optie);
 	}
 	
 	public void volgendeOnderdeel() {
 		getHuidigeVraag().volgendeOnderdeel();
+	}
+
+	public void wijzigAntwoord(Onderdeel van, Onderdeel naar) {
+		getHuidigeVraag().wijzigAntwoord(van, naar);
 	}
 }

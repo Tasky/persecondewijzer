@@ -1,6 +1,8 @@
 package logic;
 
-public class GekozenAntwoord {
+import java.util.Observable;
+
+public class GekozenAntwoord extends Observable {
 	private Onderdeel huidigeOnderdeel;
 	private Onderdeel gekozenOnderdeel;
 	public GekozenAntwoord(Onderdeel huidigeOnderdeel,
@@ -25,6 +27,8 @@ public class GekozenAntwoord {
 	 */
 	public void setHuidigeOnderdeel(Onderdeel huidigeOnderdeel) {
 		this.huidigeOnderdeel = huidigeOnderdeel;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**

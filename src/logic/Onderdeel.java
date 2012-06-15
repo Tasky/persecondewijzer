@@ -25,5 +25,7 @@ public class Onderdeel {
 		_tekst = tekst;
 	}
 
-	
+	public String toString() {
+		return getTekst();
+	}	
 }

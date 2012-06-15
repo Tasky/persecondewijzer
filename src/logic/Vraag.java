@@ -1,6 +1,7 @@
 package logic;
 
 // TODO: Automatisch een stel vragen en onderwerpen selecteren.
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Observable;
@@ -13,7 +14,7 @@ public class Vraag {
 	
 	private String _tekst;
 	private List<logic.Onderdeel> _onderdelen;
-	private List<logic.GekozenAntwoord> _antwoorden;
+	private List<logic.GekozenAntwoord> _antwoorden = new ArrayList<logic.GekozenAntwoord>();
 	private int huidigOnderdeel = -1;
 	
 	public Vraag( String vraag, List<logic.Onderdeel>onderdelen ) throws DataException {
@@ -37,11 +38,13 @@ public class Vraag {
 		return _onderdelen;
 	}
 	
-	public void kiesAntwoord(logic.Onderdeel gekozenOnderdeel) {
-		_antwoorden.add(new GekozenAntwoord(
+	public GekozenAntwoord kiesAntwoord(logic.Onderdeel gekozenOnderdeel) {
+		GekozenAntwoord gk = new GekozenAntwoord(
 				getHuidigeOnderdeel(),
 				gekozenOnderdeel
-		));
+		);
+		_antwoorden.add(gk);
+		return gk;
 	}
 	
 	public void volgendeOnderdeel() {
@@ -54,6 +57,19 @@ public class Vraag {
 	
 	public String getTekst() {
 		return this._tekst;
+	}
+
+	public void wijzigAntwoord(Onderdeel van, Onderdeel naar) {
+		GekozenAntwoord gkVan = null;
+		GekozenAntwoord gkNaar = null;
+		
+		for (GekozenAntwoord gk : _antwoorden) {
+			if(gk.getHuidigeOnderdeel() == van) gkVan = gk;
+				
+			if(gk.getHuidigeOnderdeel() == naar) gkNaar = gk;
+		}
+		gkVan.setGekozenOnderdeel(naar);
+		gkNaar.setGekozenOnderdeel(van);
 	}
 
 }

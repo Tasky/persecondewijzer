@@ -7,9 +7,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
+
+import logic.GekozenAntwoord;
 import logic.Onderdeel;
 import net.miginfocom.swing.MigLayout;
 import views.components.ImagePanel;
@@ -87,7 +92,7 @@ public class SpeelScherm extends NicePanel {
         add(buttonsPanel, "cell 0 1,grow");
         
         gekozenAntwoordenPanel = new JPanel();
-        gekozenAntwoordenPanel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow][]"));
+        gekozenAntwoordenPanel.setLayout(new MigLayout("", "[][][][][][][][][][]", "[grow,fill]"));
         
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -110,6 +115,7 @@ public class SpeelScherm extends NicePanel {
         panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 
         toonOnderdelen(buttonsPanel, onderdelen);
+
     }
 
 	private void initStopButton(final views.panels.InfoPanel timer, final JButton btnStoppen) {
@@ -163,44 +169,43 @@ public class SpeelScherm extends NicePanel {
 	/**
 	 * @param optie
 	 */
+	private ArrayList<views.panels.GekozenAntwoord> gekozenAntwoorden = new ArrayList<views.panels.GekozenAntwoord>();
 	private void kiesOnderdeel(final Onderdeel optie){
-		spel.kiesOnderdeel(optie);
+		final GekozenAntwoord gk = spel.kiesOnderdeel(optie);
 		
-        JComboBox combobox = new JComboBox();
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
+		final DefaultComboBoxModel onderdelenComboBoxModel = new DefaultComboBoxModel();
         for(Onderdeel comboOptie : onderdelen) {
-            model.addElement(comboOptie.getTekst());
+        	onderdelenComboBoxModel.addElement(comboOptie);
         }
-        model.setSelectedItem(optie.getTekst());
-        combobox.setModel(model);
-        combobox.setMaximumRowCount(9);
-        combobox.addActionListener(new ActionListener() {
-			
+        onderdelenComboBoxModel.setSelectedItem(gk.getGekozenOnderdeel());
+        onderdelenComboBoxModel.addListDataListener(new ListDataListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO: S4: antwoord wijzigen
-				// JComboBox cb = (JComboBox)e.getSource();
-			    //cb.getSelectedItem();
+			public void contentsChanged(ListDataEvent arg0) { }
+
+			@Override
+			public void intervalAdded(ListDataEvent e) { }
+
+			@Override
+			public void intervalRemoved(ListDataEvent e) {
+				spel.wijzigAntwoord(gk.getHuidigeOnderdeel(), (Onderdeel) onderdelenComboBoxModel.getSelectedItem());
 				
 			}
 		});
-        gekozenAntwoordenPanel.add(combobox, "cell "+currentCell+" 1,growx");
+        
+		views.panels.GekozenAntwoord gkView = new views.panels.GekozenAntwoord(huidigeOnderdeel.getPlaatje(), onderdelenComboBoxModel);
+		gekozenAntwoorden.add(gkView);
+		gk.addObserver(gkView);
+        //JComboBox combobox = new JComboBox();
+        
 
-        ImagePanel imagePanel = null;
-        try {
-            imagePanel = new ImagePanel(huidigeOnderdeel.getPlaatje());
-            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        gekozenAntwoordenPanel.add(imagePanel, "cell "+currentCell+" 0,grow");
-        imagePanel.setAutoResize(true);
-
-        /*if (false){//optie.isGoed()) {
-            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
-        } else {
-            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
-        }*/
+        /*combobox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JComboBox cb = (JComboBox)e.getSource();
+				spel.wijzigAntwoord(optie, (Onderdeel)cb.getSelectedItem());
+			}
+		});*/
+        gekozenAntwoordenPanel.add(gkView, "cell "+currentCell+" 0,grow");
 
         currentCell++;
         
