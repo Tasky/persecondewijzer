@@ -17,13 +17,12 @@ public class PrijsBerekenaar {
 	
 	public void setVragen(List<Vraag> vragen) {
 		this.vragen = vragen;
+		parseVragen();
 	}
 	
 	public int getScore() {
 		int totalScore = 0;
-		
-		parseVragen();
-		
+				
 		for (int i=0; i<score.length; i++) {
 			totalScore += (score[i]*(i+1*5));
 		}
