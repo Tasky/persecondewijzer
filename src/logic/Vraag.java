@@ -3,14 +3,18 @@ package logic;
 // TODO: Automatisch een stel vragen en onderwerpen selecteren.
 import java.util.List;
 import java.util.Collections;
+import java.util.Observable;
+
 import javax.xml.*;
 
 import exceptions.DataException;
 
-public class Vraag {
+public class Vraag extends Observable {
 	
 	private String _tekst;
 	private List<logic.Onderdeel> _onderdelen;
+	private List<logic.GekozenAntwoord> _antwoorden;
+	private int huidigOnderdeel = 0;
 	
 	public Vraag( String vraag, List<logic.Onderdeel>onderdelen ) throws DataException {
 		setTekst(vraag);
@@ -23,6 +27,26 @@ public class Vraag {
 		}
 		Collections.shuffle(onderdelen);
 		_onderdelen = onderdelen;
+		huidigOnderdeel = 0;
+	}
+	
+	public Onderdeel getHuidigeOnderdeel() {
+		return _onderdelen.get(huidigOnderdeel);
+	}
+
+	public List<Onderdeel> getOnderdelen() {
+		return _onderdelen;
+	}
+	
+	public void kiesAntwoord(logic.Onderdeel gekozenOnderdeel) {
+		_antwoorden.add(new GekozenAntwoord(
+				getHuidigeOnderdeel(),
+				gekozenOnderdeel
+		));
+	}
+	
+	public void volgendeOnderdeel() {
+		
 	}
 
 	public void setTekst( String tekst ){
@@ -33,7 +57,4 @@ public class Vraag {
 		return this._tekst;
 	}
 
-	public List<Onderdeel> getOnderdelen() {
-		return _onderdelen;
-	}
 }
