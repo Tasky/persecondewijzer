@@ -1,6 +1,5 @@
 package views;
 
-import com.jgoodies.forms.factories.DefaultComponentFactory;
 import controllers.Spel;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -97,12 +96,7 @@ public class SpeelScherm extends NicePanel {
         add(scrollPane, "cell 0 2 2 1,grow");
 
         
-        huidigeOnderdeel = onderdelen.get(0);
-        
-        ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
-        plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-        plaatje.setAutoResize(true);
-        middenvlak.add(plaatje);
+        volgendeOnderdeel();
 
         JPanel panel_1 = new JPanel();
         add(panel_1, "cell 2 2,grow");
@@ -115,7 +109,7 @@ public class SpeelScherm extends NicePanel {
         initStopButton(timer, btnStoppen);
         panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 
-        iterateChoices(buttonsPanel, onderdelen);
+        toonOnderdelen(buttonsPanel, onderdelen);
     }
 
 	private void initStopButton(final views.panels.InfoPanel timer, final JButton btnStoppen) {
@@ -132,8 +126,8 @@ public class SpeelScherm extends NicePanel {
                 }
             });
 	}
-
-	private void iterateChoices(JPanel buttonsPanel,
+    
+	private void toonOnderdelen(JPanel buttonsPanel,
 			final List<Onderdeel> onderdelen) {
 		int cell = 0;
 		for (final Onderdeel optie : onderdelen) {			
@@ -151,10 +145,25 @@ public class SpeelScherm extends NicePanel {
 	}
 	
 	/**
-	 * TODO: SD3: De actor geeft een antwoord en het systeem slaat dit antwoord op.
+	 * @throws IOException
+	 */
+	private void volgendeOnderdeel() throws IOException {
+		spel.volgendeOnderdeel();
+		huidigeOnderdeel = spel.getHuidigeOnderdeel();
+		
+        middenvlak.removeAll();
+        ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
+        plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+        plaatje.setAutoResize(true);
+        middenvlak.add(plaatje);
+	}
+	
+	/**
 	 * @param optie
 	 */
 	private void kiesOnderdeel(final Onderdeel optie){
+		spel.kiesOnderdeel(optie);
+		
         JComboBox combobox = new JComboBox();
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for(Onderdeel comboOptie : onderdelen) {
@@ -185,17 +194,22 @@ public class SpeelScherm extends NicePanel {
         gekozenAntwoordenPanel.add(imagePanel, "cell "+currentCell+" 0,grow");
         imagePanel.setAutoResize(true);
 
-        if (false){//optie.isGoed()) {
+        /*if (false){//optie.isGoed()) {
             imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
         } else {
             imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
-        }
+        }*/
 
         currentCell++;
         
         gekozenAntwoordenPanel.getParent().validate();
         
-        // TODO: SD2: laad volgende onderdeel
+        try {
+			volgendeOnderdeel();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

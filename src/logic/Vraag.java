@@ -9,12 +9,12 @@ import javax.xml.*;
 
 import exceptions.DataException;
 
-public class Vraag extends Observable {
+public class Vraag {
 	
 	private String _tekst;
 	private List<logic.Onderdeel> _onderdelen;
 	private List<logic.GekozenAntwoord> _antwoorden;
-	private int huidigOnderdeel = 0;
+	private int huidigOnderdeel = -1;
 	
 	public Vraag( String vraag, List<logic.Onderdeel>onderdelen ) throws DataException {
 		setTekst(vraag);
@@ -27,7 +27,6 @@ public class Vraag extends Observable {
 		}
 		Collections.shuffle(onderdelen);
 		_onderdelen = onderdelen;
-		huidigOnderdeel = 0;
 	}
 	
 	public Onderdeel getHuidigeOnderdeel() {
@@ -46,7 +45,7 @@ public class Vraag extends Observable {
 	}
 	
 	public void volgendeOnderdeel() {
-		
+		huidigOnderdeel++;
 	}
 
 	public void setTekst( String tekst ){

@@ -111,11 +111,25 @@ public class Spel {
 		return getHuidigeVraag().getOnderdelen();
 	}
 
+	public logic.Onderdeel getHuidigeOnderdeel()
+	{
+		return getHuidigeVraag().getHuidigeOnderdeel();
+	}
+	
 	public String getVraagTekst() {
 		return getHuidigeVraag().getTekst();
 	}
 	
 	public void backToMainMenu() { 
 		window.reset(); 
+	}
+
+	public void kiesOnderdeel(Onderdeel optie) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void volgendeOnderdeel() {
+		getHuidigeVraag().volgendeOnderdeel();
 	}
 }
