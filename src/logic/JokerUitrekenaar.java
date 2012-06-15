@@ -14,7 +14,7 @@ public class JokerUitrekenaar {
 	 * Functie voor het toevoegen van een enkele joker. Deze functie haalt de
 	 * huidige aantal jokers op en voegt daar er 1 aan toe.
 	 */
-	public void addJoker() {
+	public void zetJokerIn() {
 
 		int huidig = getAantal();
 
@@ -28,10 +28,10 @@ public class JokerUitrekenaar {
 	 * 
 	 * @param aantal
 	 */
-	public void addJokers(int aantal) {
+	public void zetJokersIn(int aantal) {
 
 		for (int i = 0; i < aantal; i++) {
-			addJoker();
+			zetJokerIn();
 		}
 
 	}

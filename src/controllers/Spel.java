@@ -67,8 +67,8 @@ public class Spel {
 		window = new MainWindow(this);
 	}
 
-	public void addJoker() {
-		joker.addJoker();
+	public void zetJokersIn(int jokers) {
+		joker.zetJokersIn(jokers);
 	}
 
 	public void backToMainMenu() {
@@ -144,6 +144,10 @@ public class Spel {
 
 	public void volgendeOnderdeel() {
 		getHuidigeVraag().volgendeOnderdeel();
+	}
+	
+	public void volgendeVraag() {
+		huidigeRonde++;
 	}
 
 	public void wijzigAntwoord(Onderdeel van, Onderdeel naar) {
