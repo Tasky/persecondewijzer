@@ -23,6 +23,7 @@ public class SpeelScherm extends NicePanel {
 	private List<Onderdeel>	onderdelen;
 	private Onderdeel	huidigeOnderdeel;
 	private JPanel	gekozenAntwoordenPanel;
+	private Spel spel;
 	
     /**
      * Opstarten speelscherm, handig voor debuggen of snel testen.
@@ -61,16 +62,23 @@ public class SpeelScherm extends NicePanel {
      * @throws IOException 
      */
     private void initialize(final Spel spel) throws IOException {
+    	this.spel = spel;
+    	
+    	// Haal informatie uit de controller
     	String vraag = spel.getVraagTekst();
-        //setBackground(SystemColor.info);
+    	onderdelen = spel.getOnderdelen();
+    	
+        // Layout instellingen
         setBounds(0, 0, 1024, 768);
         setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
         
+        // Middenvlak toevoegen
         middenvlak.setLayout(new GridLayout(1, 0, 0, 0));
         add(middenvlak, "cell 1 1 2 1,grow");
 
-        JLabel lblTitle = DefaultComponentFactory.getInstance().createTitle(vraag);
+        JLabel lblTitle = new JLabel(vraag);
         lblTitle.setForeground(Color.WHITE);
+        lblTitle.setVerticalAlignment(SwingConstants.CENTER);
         lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 47));
         add(lblTitle, "cell 1 0 2 1");
 
@@ -88,7 +96,6 @@ public class SpeelScherm extends NicePanel {
         scrollPane.setViewportView(gekozenAntwoordenPanel);
         add(scrollPane, "cell 0 2 2 1,grow");
 
-        onderdelen = spel.getOnderdelen();
         
         huidigeOnderdeel = onderdelen.get(0);
         
@@ -105,14 +112,13 @@ public class SpeelScherm extends NicePanel {
         panel_1.add(timer, "cell 0 0,grow");
 
         JButton btnStoppen = new JButton("Stop de tijd");
-        initStopButton(spel, timer, btnStoppen);
+        initStopButton(timer, btnStoppen);
         panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 
         iterateChoices(buttonsPanel, onderdelen);
     }
 
-	private void initStopButton(final Spel spel,
-			final views.panels.InfoPanel timer, final JButton btnStoppen) {
+	private void initStopButton(final views.panels.InfoPanel timer, final JButton btnStoppen) {
 		btnStoppen.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) 
                 {
@@ -120,8 +126,8 @@ public class SpeelScherm extends NicePanel {
                     middenvlak.add(new JokerScherm(spel));
                     middenvlak.revalidate(); 
                     middenvlak.repaint();
+                    
                     btnStoppen.setEnabled(false);
-                    // Tijd stoppen
                     timer.stopTimer();
                 }
             });
@@ -166,7 +172,7 @@ public class SpeelScherm extends NicePanel {
 			    //cb.getSelectedItem();
 				
 			}
-		})
+		});
         gekozenAntwoordenPanel.add(combobox, "cell "+currentCell+" 1,growx");
 
         ImagePanel imagePanel = null;

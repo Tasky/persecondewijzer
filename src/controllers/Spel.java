@@ -108,8 +108,6 @@ public class Spel {
 	}
 
 	public List<logic.Onderdeel> getOnderdelen() {
-		// TODO Auto-generated method stub
-		
 		return getHuidigeVraag().getOnderdelen();
 	}
 
