@@ -225,7 +225,7 @@ public class SpeelScherm extends NicePanel {
 			cell++;
 		}
 	}
-
+	
 	/**
 	 * @throws IOException
 	 */
@@ -241,5 +241,11 @@ public class SpeelScherm extends NicePanel {
 		middenvlak.revalidate();
 		middenvlak.repaint();
 	}
-
+	
+	/**
+	 * Ga alle antwoorden af
+	 */
+	private void geefJuisteAntwoordenWeer() {
+		// TODO: nog niet af :(
+	}
 }
