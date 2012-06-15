@@ -42,7 +42,7 @@ public class PrijsBerekenaar {
 				bedrag += score[i]*GELD_PER_RONDE[i];
 		}
 		
-		//Betaal belasting uit indien nodig
+		//Betaal belasting indien nodig
 		if (bedrag > MAX_BELASTINGVRIJ)
 			bedrag = (bedrag/100)*75;
 		
