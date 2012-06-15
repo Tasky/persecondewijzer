@@ -3,10 +3,10 @@ package logic;
 import java.io.File;
 
 public class Onderdeel {
-	private String _tekst;
+	private String _antwoord;
 	private File _plaatje;
 	public Onderdeel(String antwoord, File plaatje) {
-		setTekst(antwoord);
+		setAntwoord(antwoord);
 		setPlaatje(plaatje);
 	}
 	
@@ -18,14 +18,15 @@ public class Onderdeel {
 		_plaatje = plaatje;
 	}
 
-	public String getTekst() {
-		return _tekst;
+	public String getAntwoord() {
+		return _antwoord;
 	}
-	public void setTekst(String tekst) {
-		_tekst = tekst;
+	public void setAntwoord(String antwoord) {
+		_antwoord = antwoord;
 	}
 
-	public String toString() {
-		return getTekst();
-	}	
+	public boolean isGoed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
