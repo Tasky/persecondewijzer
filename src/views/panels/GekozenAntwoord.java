@@ -12,39 +12,47 @@ import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
 import logic.Onderdeel;
-
-import views.components.ImagePanel;
-
 import net.miginfocom.swing.MigLayout;
+import views.components.ImagePanel;
 
 public class GekozenAntwoord extends JPanel implements Observer {
 
-	private JComboBox	combobox;
-	private ImagePanel	imagePanel = null;
+	private JComboBox			combobox;
+	private ImagePanel			imagePanel	= null;
 	private final ComboBoxModel	comboBoxModel;
 
 	/**
 	 * Create the panel.
 	 */
 	public GekozenAntwoord(File file, ComboBoxModel comboBoxModel) {
-        this.comboBoxModel = comboBoxModel;
+		this.comboBoxModel = comboBoxModel;
 		try {
-            imagePanel = new ImagePanel(file);
-            imagePanel.setAutoResize(true);
-            imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        add(imagePanel, "grow");
-		
-		
+			imagePanel = new ImagePanel(file);
+			imagePanel.setAutoResize(true);
+			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null,
+					null));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		add(imagePanel, "grow");
+
 		setLayout(new MigLayout("", "[grow,fill]", "[grow,fill][]"));
 		combobox = new JComboBox();
 		combobox.setMaximumRowCount(9);
 		combobox.setModel(comboBoxModel);
 		add(combobox, "cell 0 1,growx");
 	}
-	
+
+	public void geefLijntje(boolean goed) {
+		if (goed) {
+			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED,
+					Color.GREEN, Color.GREEN));
+		} else {
+			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED,
+					Color.RED, Color.RED));
+		}
+	}
+
 	/**
 	 * @return the comboBoxModel
 	 */
@@ -52,17 +60,10 @@ public class GekozenAntwoord extends JPanel implements Observer {
 		return comboBoxModel;
 	}
 
-	public void geefLijntje(boolean goed) {
-		if (goed) {
-			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
-    	} else {
-        	imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
-    	}
-	}
-
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		Onderdeel onderdeel = ((logic.GekozenAntwoord) arg0).getGekozenOnderdeel();
+		Onderdeel onderdeel = ((logic.GekozenAntwoord) arg0)
+				.getGekozenOnderdeel();
 		comboBoxModel.setSelectedItem(onderdeel);
 		revalidate();
 		repaint();

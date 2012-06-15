@@ -1,15 +1,17 @@
 package views;
 
-import controllers.Spel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
+
 import net.miginfocom.swing.MigLayout;
 import views.components.NicePanel;
+import controllers.Spel;
 
 public class GameOver extends NicePanel {
 
@@ -24,6 +26,7 @@ public class GameOver extends NicePanel {
 		JButton btnTerug = new JButton("Terug");
 		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
 		btnTerug.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				spel.backToMainMenu();
 			}
@@ -36,8 +39,9 @@ public class GameOver extends NicePanel {
 		lblNewLabel.setForeground(Color.WHITE);
 		add(lblNewLabel, "flowy,cell 1 2,alignx center");
 		add(btnTerug, "cell 1 3,grow");
-		
-		JLabel lblDeTijdIs = new JLabel("De tijd is op / je had teveel vragen fout");
+
+		JLabel lblDeTijdIs = new JLabel(
+				"De tijd is op / je had teveel vragen fout");
 		lblDeTijdIs.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblDeTijdIs.setForeground(Color.WHITE);
 		add(lblDeTijdIs, "cell 1 2,alignx center");

@@ -7,38 +7,25 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import logic.GekozenAntwoord;
+import logic.JokerUitrekenaar;
+import logic.Onderdeel;
+import logic.Onderwerp;
+import logic.Speler;
+import logic.Timer;
+import logic.Vraag;
+import views.MainWindow;
 import data.Content;
 import exceptions.DataException;
 
-import views.MainWindow;
-import views.SpeelScherm;
-
-import logic.GekozenAntwoord;
-import logic.JokerUitrekenaar;
-import logic.Onderwerp;
-import logic.Onderdeel;
-import logic.Speler;
-import logic.Vraag;
-import logic.Timer;
-
-
 public class Spel {
-	
-	private Speler speler;
-	private Timer timer;
-	private JokerUitrekenaar joker;
-	private Onderwerp _onderwerp;
-	private MainWindow window;
 
-	private int huidigeRonde = 0;
-	private Content content;
-	private List<Vraag> vragen;
-	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					new Spel();
@@ -48,7 +35,18 @@ public class Spel {
 			}
 		});
 	}
-	
+
+	private Speler				speler;
+	private Timer				timer;
+	private JokerUitrekenaar	joker;
+	private Onderwerp			_onderwerp;
+
+	private MainWindow			window;
+	private int					huidigeRonde	= 0;
+	private Content				content;
+
+	private List<Vraag>			vragen;
+
 	/**
 	 * Contructor
 	 */
@@ -56,7 +54,7 @@ public class Spel {
 		speler = new Speler();
 		timer = new Timer();
 		joker = new JokerUitrekenaar();
-		
+
 		try {
 			content = new Content();
 		} catch (DataException e) {
@@ -68,27 +66,61 @@ public class Spel {
 		}
 		window = new MainWindow(this);
 	}
-	
-	private Vraag getHuidigeVraag()
-	{
+
+	public void addJoker() {
+		joker.addJoker();
+	}
+
+	public void backToMainMenu() {
+		window.reset();
+	}
+
+	public logic.Onderdeel getHuidigeOnderdeel() {
+		return getHuidigeVraag().getHuidigeOnderdeel();
+	}
+
+	private Vraag getHuidigeVraag() {
 		return vragen.get(huidigeRonde);
 	}
-	
-	public void openPanel(JPanel panel) { window.openPanel(panel); }
-	
+
 	/**
-	 * Spelermethodes
-	 * @param naam
+	 * Joker methodes
 	 */
-	public void setSpelerNaam( String naam ) { speler.setNaam(naam); }
-	public String getSpelerNaam() { return speler.getNaam(); }
-		
+	public int getJokerAantal() {
+		return joker.getAantal();
+	}
+
+	public List<logic.Onderdeel> getOnderdelen() {
+		return getHuidigeVraag().getOnderdelen();
+	}
+
+	public List<Onderwerp> getOnderwerpen() throws DataException {
+		return content.getOnderwerpen();
+	}
+
+	public String getSpelerNaam() {
+		return speler.getNaam();
+	}
+
+	public String getVraagTekst() {
+		return getHuidigeVraag().getTekst();
+	}
+
+	public GekozenAntwoord kiesOnderdeel(Onderdeel optie) {
+		return getHuidigeVraag().kiesAntwoord(optie);
+	}
+
+	public void openPanel(JPanel panel) {
+		window.openPanel(panel);
+	}
+
 	/**
 	 * Stel het ontwerp in.
+	 * 
 	 * @param onderwerp
 	 */
-	public void setOnderwerp( Onderwerp onderwerp ) {
-		this._onderwerp = onderwerp;
+	public void setOnderwerp(Onderwerp onderwerp) {
+		_onderwerp = onderwerp;
 		try {
 			vragen = content.getVragen(_onderwerp.getNaam());
 		} catch (DataException e) {
@@ -96,39 +128,20 @@ public class Spel {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Joker methodes
+	 * Spelermethodes
+	 * 
+	 * @param naam
 	 */
-	public int getJokerAantal() { return joker.getAantal(); }
-	public void addJoker() { joker.addJoker(); }
-	public void verwijderJokers( int aantal ) {	joker.verwijderJokers(aantal); }
-	
-	public List<Onderwerp> getOnderwerpen() throws DataException {
-		return content.getOnderwerpen();
+	public void setSpelerNaam(String naam) {
+		speler.setNaam(naam);
 	}
 
-	public List<logic.Onderdeel> getOnderdelen() {
-		return getHuidigeVraag().getOnderdelen();
+	public void verwijderJokers(int aantal) {
+		joker.verwijderJokers(aantal);
 	}
 
-	public logic.Onderdeel getHuidigeOnderdeel()
-	{
-		return getHuidigeVraag().getHuidigeOnderdeel();
-	}
-	
-	public String getVraagTekst() {
-		return getHuidigeVraag().getTekst();
-	}
-	
-	public void backToMainMenu() { 
-		window.reset(); 
-	}
-
-	public GekozenAntwoord kiesOnderdeel(Onderdeel optie) {
-		return getHuidigeVraag().kiesAntwoord(optie);
-	}
-	
 	public void volgendeOnderdeel() {
 		getHuidigeVraag().volgendeOnderdeel();
 	}

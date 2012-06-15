@@ -5,7 +5,7 @@ package exceptions;
 
 /**
  * @author nanne
- *
+ * 
  */
 public class DataException extends Exception {
 

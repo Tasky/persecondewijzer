@@ -3,9 +3,6 @@
  */
 package data.testing;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,11 +10,11 @@ import data.Highscore;
 
 /**
  * @author nanne
- *
+ * 
  */
 public class HighscoreTester {
 
-	private Highscore highscore;
+	private Highscore	highscore;
 
 	/**
 	 * @throws java.lang.Exception
@@ -28,20 +25,22 @@ public class HighscoreTester {
 	}
 
 	/**
-	 * Test method for {@link data.Highscore#getHighscores(int)}.
-	 */
-	@Test
-	public void testGetHighscores() {
-		//fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link data.Highscore#addHighscore(java.lang.String, java.lang.String, java.lang.String)}.
+	 * Test method for
+	 * {@link data.Highscore#addHighscore(java.lang.String, java.lang.String, java.lang.String)}
+	 * .
 	 */
 	@Test
 	public void testAddHighscore() {
 		highscore.addHighscore("Nanne", "10ZILJOEN", "20s");
-//		fail("Not yet implemented"); // TODO
+		// fail("Not yet implemented"); // TODO
+	}
+
+	/**
+	 * Test method for {@link data.Highscore#getHighscores(int)}.
+	 */
+	@Test
+	public void testGetHighscores() {
+		// fail("Not yet implemented"); // TODO
 	}
 
 }

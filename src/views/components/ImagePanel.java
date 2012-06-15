@@ -13,15 +13,19 @@ import javax.swing.JPanel;
 
 public class ImagePanel extends JPanel {
 
-	private BufferedImage image;
-	private boolean autoResize = false;
+	private BufferedImage	image;
+	private boolean			autoResize	= false;
+
+	public ImagePanel(File plaatje) throws IOException {
+		image = ImageIO.read(plaatje);
+	}
 
 	public ImagePanel(String path) throws IOException {
 		image = ImageIO.read(new File(path));
 	}
 
-	public ImagePanel(File plaatje) throws IOException {
-		image = ImageIO.read(plaatje);
+	public boolean getAutoResize() {
+		return autoResize;
 	}
 
 	@Override
@@ -32,8 +36,8 @@ public class ImagePanel extends JPanel {
 			float imageWidth = image.getWidth();
 			float imageHeight = image.getHeight();
 
-			float maxWidth = this.getWidth();
-			float maxHeight = this.getHeight();
+			float maxWidth = getWidth();
+			float maxHeight = getHeight();
 
 			float widthRatio = imageWidth / maxWidth;
 			float heightRatio = imageHeight / maxHeight;
@@ -76,9 +80,5 @@ public class ImagePanel extends JPanel {
 
 	public void setAutoResize(boolean autoResize) {
 		this.autoResize = autoResize;
-	}
-
-	public boolean getAutoResize() {
-		return (autoResize);
 	}
 }

@@ -3,29 +3,32 @@ package logic;
 import java.io.File;
 
 public class Onderdeel {
-	private String _tekst;
-	private File _plaatje;
+	private String	_tekst;
+	private File	_plaatje;
+
 	public Onderdeel(String antwoord, File plaatje) {
 		setTekst(antwoord);
 		setPlaatje(plaatje);
 	}
-	
-	public File getPlaatje(){
+
+	public File getPlaatje() {
 		return _plaatje;
-	}
-	
-	public void setPlaatje(File plaatje) {
-		_plaatje = plaatje;
 	}
 
 	public String getTekst() {
 		return _tekst;
 	}
+
+	public void setPlaatje(File plaatje) {
+		_plaatje = plaatje;
+	}
+
 	public void setTekst(String tekst) {
 		_tekst = tekst;
 	}
 
+	@Override
 	public String toString() {
 		return getTekst();
-	}	
+	}
 }

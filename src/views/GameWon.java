@@ -1,15 +1,17 @@
 package views;
 
-import controllers.Spel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
+
 import net.miginfocom.swing.MigLayout;
 import views.components.NicePanel;
+import controllers.Spel;
 
 public class GameWon extends NicePanel {
 
@@ -24,6 +26,7 @@ public class GameWon extends NicePanel {
 		JButton btnTerug = new JButton("Terug");
 		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
 		btnTerug.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				spel.backToMainMenu();
 			}
@@ -36,7 +39,7 @@ public class GameWon extends NicePanel {
 		lblNewLabel.setForeground(Color.WHITE);
 		add(lblNewLabel, "flowy,cell 1 2,alignx center");
 		add(btnTerug, "cell 1 3,grow");
-		
+
 		JLabel lblDeTijdIs = new JLabel("Je hebt 9001 euro gewonnen.");
 		lblDeTijdIs.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblDeTijdIs.setForeground(Color.WHITE);
