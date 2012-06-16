@@ -26,12 +26,11 @@ public class InfoPanel extends JPanel {
 	public InfoPanel(Spel spel) {
 		this.spel = spel;
 
-		setLayout(new MigLayout("", "[75px:75px,grow,center]",
-				"[55px:55px][48px]"));
+		setLayout(new MigLayout("", "[75px:75px,grow,center]", "[48px,grow]"));
 
 		lblTime = new JLabel("200");
 		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
-		add(lblTime, "cell 0 1,alignx left,aligny top");
+		add(lblTime, "cell 0 0,alignx center,aligny center");
 
 		initTimer(1000);
 		startTimer();

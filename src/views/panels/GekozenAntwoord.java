@@ -36,7 +36,7 @@ public class GekozenAntwoord extends JPanel implements Observer {
 		}
 		add(imagePanel, "grow");
 
-		setLayout(new MigLayout("", "[grow,fill]", "[grow,fill][]"));
+		setLayout(new MigLayout("ins 0", "[grow,fill]", "[grow,fill][]"));
 		combobox = new JComboBox();
 		combobox.setMaximumRowCount(9);
 		combobox.setModel(comboBoxModel);

@@ -111,8 +111,7 @@ public class SpeelScherm extends NicePanel {
 		add(buttonsPanel, "cell 0 1,grow");
 
 		gekozenAntwoordenPanel = new JPanel();
-		gekozenAntwoordenPanel.setLayout(new MigLayout("",
-				"[][][][][][][][][][]", "[grow,fill]"));
+		gekozenAntwoordenPanel.setLayout(new MigLayout("gap 0", "[][][][][][][][][][]", "[grow,fill]"));
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane
@@ -126,7 +125,7 @@ public class SpeelScherm extends NicePanel {
 
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "cell 2 2,grow");
-		panel_1.setLayout(new MigLayout("", "[116px,grow]", "[grow][154px]"));
+		panel_1.setLayout(new MigLayout("", "[116px,grow]", "[grow,fill][154px]"));
 
 		final views.panels.InfoPanel timer = new views.panels.InfoPanel(spel);
 		panel_1.add(timer, "cell 0 0,grow");
