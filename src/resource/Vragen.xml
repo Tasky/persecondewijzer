@@ -15,6 +15,20 @@
 				<onderdeel image="Steden_Rome.jpg">Rome</onderdeel>
 			</onderdelen>
 		</vraag>
+		<vraag>
+			<tekst>Welk stad is dit?</tekst>
+			<onderdelen>
+				<onderdeel image="GoogleMaps_Alkmaar.png">Alkmaar</onderdeel>
+				<onderdeel image="GoogleMaps_Almere.png">Almere</onderdeel>
+				<onderdeel image="GoogleMaps_Amsterdam.png">Amsterdam</onderdeel>
+				<onderdeel image="GoogleMaps_Apeldoorn.png">Apeldoorn</onderdeel>
+				<onderdeel image="GoogleMaps_Breda.png">Breda</onderdeel>
+				<onderdeel image="GoogleMaps_Denhaag.png">Den Haag</onderdeel>
+				<onderdeel image="GoogleMaps_Groningen.png">Groningen</onderdeel>
+				<onderdeel image="GoogleMaps_Lelystad.png">Lelystad</onderdeel>
+				<onderdeel image="GoogleMaps_Zwolle.png">Zwolle</onderdeel>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
 	
 	<onderwerp name="Alcohol" image="Bier.jpg">
