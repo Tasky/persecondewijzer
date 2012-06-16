@@ -2,7 +2,7 @@
 <onderwerpen>
 	<onderwerp name="Steden" image="Steden.jpg">
 		<vraag>
-			<tekst>Welk stad is dit?</tekst>
+			<tekst>Welke stad is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Steden_Athene.jpg">Athene</onderdeel>
 				<onderdeel image="Steden_Berlijn.jpg">Berlijn</onderdeel>
@@ -16,7 +16,7 @@
 			</onderdelen>
 		</vraag>
 		<vraag>
-			<tekst>Welk stad is dit?</tekst>
+			<tekst>Welke stad is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="GoogleMaps_Alkmaar.png">Alkmaar</onderdeel>
 				<onderdeel image="GoogleMaps_Almere.png">Almere</onderdeel>
@@ -33,7 +33,7 @@
 	
 	<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welke bierfles is dit?</tekst>
+			<tekst>Welk bierfles is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
@@ -50,7 +50,7 @@
 	</onderwerp>
 	<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welke bierfles is dit?</tekst>
+			<tekst>Welk bierfles is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
@@ -67,7 +67,7 @@
 	
 	<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welke bierfles is dit?</tekst>
+			<tekst>Welk bierfles is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
@@ -83,7 +83,7 @@
 	</onderwerp>
 		<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welke bierfles is dit?</tekst>
+			<tekst>Welk bierfles is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
