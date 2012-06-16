@@ -31,6 +31,8 @@ import net.miginfocom.swing.MigLayout;
 import views.components.ImagePanel;
 import views.components.NiceButton;
 import views.components.NicePanel;
+import views.factories.JLabelFactory;
+import views.factories.JPanelFactory;
 import views.panels.OnderdeelButton;
 import controllers.Spel;
 
@@ -55,7 +57,7 @@ public class SpeelScherm extends NicePanel {
 	}
 
 	private int							currentCell	= 0;
-	private final JPanel				middenvlak	= new JPanel();
+	private final JPanel				middenvlak	= JPanelFactory.createTransparentJPanel();
 	private ArrayList<Onderdeel>		onderdelen;
 	private Onderdeel					huidigeOnderdeel;
 	private JPanel						gekozenAntwoordenPanel;
@@ -95,51 +97,53 @@ public class SpeelScherm extends NicePanel {
 		setLayout(new MigLayout("ins 0 10px 10px 10px", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
 
 		// Middenvlak toevoegen
-		middenvlak.setBackground(new Color(0,0,0,0));
 		middenvlak.setLayout(new GridLayout(1, 0, 0, 0));
 		add(middenvlak, "cell 1 1 2 1,grow");
+		
+		// Vraag toevoegen
+		add(JLabelFactory.createJLabel(vraag), "cell 1 0 2 1");
 
-		JLabel lblTitle = new JLabel(vraag);
-		lblTitle.setForeground(Color.WHITE);
-		lblTitle.setVerticalAlignment(SwingConstants.CENTER);
-		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 47));
-		add(lblTitle, "cell 1 0 2 1");
-
-		JPanel buttonsPanel = new JPanel();
-		buttonsPanel.setOpaque(false);
+		// Toon kiesbare onderdelen
+		JPanel buttonsPanel = JPanelFactory.createTransparentJPanel();
 		buttonsPanel.setLayout(new MigLayout("ins 10px 10px 0 10px", "[grow]", "[grow][grow][grow][grow][grow][grow][grow][grow][grow][grow]"));
 		add(buttonsPanel, "cell 0 1,grow");
+		toonOnderdelen(buttonsPanel, onderdelen);
 
-		gekozenAntwoordenPanel = new JPanel();
+		gekozenAntwoordenPanel = JPanelFactory.createTransparentJPanel();
 		gekozenAntwoordenPanel.setBackground(new Color(0, 0, 0, 0));
 		gekozenAntwoordenPanel.setLayout(new MigLayout("ins 0", "[][][][][][][][][][]", "[grow,fill]"));
 
-		JScrollPane scrollPane = new JScrollPane();
+		JScrollPane scrollPane = JPanelFactory.createJScrollPane(gekozenAntwoordenPanel);
 		scrollPane.setBorder(BorderFactory.createLineBorder(Color.white));
-		scrollPane.setBackground(new Color(0, 0, 0, 0));
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setViewportView(gekozenAntwoordenPanel);
 		add(scrollPane, "cell 0 2 2 1,grow");
 
 		volgendeOnderdeel();
-
-		JPanel panel_1 = new JPanel();
-		add(panel_1, "cell 2 2,grow");
-		panel_1.setLayout(new MigLayout("", "[116px,grow]", "[grow,fill][154px]"));
-
-		final views.panels.InfoPanel timer = new views.panels.InfoPanel(spel);
-		panel_1.add(timer, "cell 0 0,grow");
-
-		NiceButton btnStoppen = new NiceButton("Stop de tijd");
-		initStopButton(timer, btnStoppen);
-		panel_1.add(btnStoppen, "cell 0 1,grow");
-
-		toonOnderdelen(buttonsPanel, onderdelen);
-
+		toonInfoPanel(spel);
 	}
 
-	private void initStopButton(final views.panels.InfoPanel timer, final JButton btnStoppen) {
+	/**
+	 * @param spel
+	 */
+	private void toonInfoPanel(final Spel spel) {
+		JPanel infoPanel = JPanelFactory.createTransparentJPanel();
+		add(infoPanel, "cell 2 2,grow");
+		infoPanel.setLayout(new MigLayout("", "[116px,grow]", "[grow,fill][154px]"));
+		
+		final views.panels.InfoPanel timer = new views.panels.InfoPanel(spel);
+		infoPanel.add(timer, "cell 0 0,grow");
+
+		NiceButton btnStoppen = new NiceButton("Stop de tijd");
+		infoPanel.add(btnStoppen, "cell 0 1,grow");
+		
+		luisterNaarStoppen(timer, btnStoppen);
+	}
+
+	/**
+	 * 
+	 * @param timer
+	 * @param btnStoppen
+	 */
+	private void luisterNaarStoppen(final views.panels.InfoPanel timer, final JButton btnStoppen) {
 		final SpeelScherm speelscherm = this;
 		btnStoppen.addActionListener(new ActionListener() {
 			@Override
