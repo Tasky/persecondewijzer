@@ -9,8 +9,10 @@ package exceptions;
  */
 public class DataException extends Exception {
 
+	/**
+	 * @param string
+	 */
 	public DataException(String string) {
-		// TODO Auto-generated constructor stub
 		super(string);
 	}
 

@@ -18,6 +18,10 @@ import nu.xom.ParsingException;
 import nu.xom.ValidityException;
 import exceptions.DataException;
 
+/**
+ * @author nanne
+ *
+ */
 public class Content {
 	// verkrijg vragen (met onderwerp)
 	private Document	doc	= null;
@@ -25,8 +29,7 @@ public class Content {
 	/**
 	 * Maak de contentparser aan en bereidt voor op inlezen vragen bestand.
 	 * 
-	 * @throws DataException
-	 *             Als de vragen niet gevonden kunnen worden.
+	 * @throws DataException Als de vragen niet gevonden kunnen worden.
 	 */
 	public Content() throws DataException {
 		File file;
@@ -51,8 +54,7 @@ public class Content {
 	 * Haal alle onderwerpen uit resource/Vragen.xml.
 	 * 
 	 * @return Lijst met onderwerpen.
-	 * @throws DataException
-	 *             Wanneer het path van het plaatje verkeerd is.
+	 * @throws DataException Wanneer het path van het plaatje verkeerd is.
 	 */
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		List<Onderwerp> onderwerpen = new ArrayList<Onderwerp>();
@@ -79,15 +81,22 @@ public class Content {
 	}
 
 	/**
-	 * 
-	 * @param onderwerpNaam
-	 * @return
-	 * @throws DataException
+	 * Krijg 4 vragen terug.
+	 * @param onderwerpNaam onderwerpfilter
+	 * @return Lijst met vragen
+	 * @throws DataException wanneer Vragen.xml niet gelezen kan worden
 	 */
 	public List<Vraag> getVragen(String onderwerpNaam) throws DataException {
 		return getVragen(onderwerpNaam, 4);
 	}
 
+	/**
+	 * Krijg N vragen terug.
+	 * @param onderwerpNaam onderwerpfilter
+	 * @param hoeveel hoeveelheid vragen dat je terug wilt krijgen
+	 * @return Lijst met vragen
+	 * @throws DataException wanneer Vragen.xml niet gelezen kan worden
+	 */
 	public List<Vraag> getVragen(String onderwerpNaam, int hoeveel) throws DataException {
 		Element onderwerp = null;
 		Elements elements = doc.getRootElement().getChildElements();

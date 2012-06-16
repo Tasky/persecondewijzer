@@ -13,14 +13,24 @@ import org.junit.Test;
 
 import exceptions.DataException;
 
+/**
+ * @author nanne
+ *
+ */
 public class ContentTester {
 	private data.Content	content;
 
+	/**
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		content = new data.Content();
 	}
 
+	/**
+	 * @throws DataException
+	 */
 	@Test
 	public void testOnderwerpen() throws DataException {
 		// fail("Not yet implemented"); // TODO
@@ -29,6 +39,9 @@ public class ContentTester {
 		assertTrue("Er moeten onderwerpen zijn.", onderwerpen.size() > 0);
 	}
 
+	/**
+	 * @throws DataException
+	 */
 	@Test
 	public void testVragen() throws DataException {
 		// fail("Not yet implemented"); // TODO
