@@ -28,6 +28,7 @@ import logic.GekozenAntwoord;
 import logic.Onderdeel;
 import net.miginfocom.swing.MigLayout;
 import views.components.ImagePanel;
+import views.components.NiceButton;
 import views.components.NicePanel;
 import views.panels.OnderdeelButton;
 import controllers.Spel;
@@ -126,7 +127,7 @@ public class SpeelScherm extends NicePanel {
 		final views.panels.InfoPanel timer = new views.panels.InfoPanel(spel);
 		panel_1.add(timer, "cell 0 0,grow");
 
-		JButton btnStoppen = new JButton("Stop de tijd");
+		NiceButton btnStoppen = new NiceButton("Stop de tijd");
 		initStopButton(timer, btnStoppen);
 		panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
 

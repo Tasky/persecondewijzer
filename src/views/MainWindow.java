@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
+import views.components.NiceButton;
 import views.components.NicePanel;
 import controllers.Spel;
 
@@ -89,8 +90,7 @@ public class MainWindow {
 			}
 		});
 
-		JButton btnNewButton = new JButton("Spelregels");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		NiceButton btnNewButton = new NiceButton("Spelregels");
 		final HelpScherm helpScherm = new HelpScherm(this);
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
@@ -100,7 +100,7 @@ public class MainWindow {
 		});
 		frame.getContentPane().add(btnNewButton, "cell 1 3,growx");
 
-		JButton btnNewButton_3 = new JButton("Start");
+		NiceButton btnNewButton_3 = new NiceButton("Start");
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 30));
 
 		txtVulHierJe.addKeyListener(new KeyAdapter() {
@@ -118,8 +118,7 @@ public class MainWindow {
 		});
 		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 2,grow");
 
-		JButton btnNewButton_2 = new JButton("Highscores");
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		NiceButton btnNewButton_2 = new NiceButton("Highscores");
 		final Highscore highscore = new Highscore(spel);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override

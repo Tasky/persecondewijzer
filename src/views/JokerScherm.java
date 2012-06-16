@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
+import views.components.NiceButton;
+
 import net.miginfocom.swing.MigLayout;
 import controllers.Spel;
 
@@ -60,17 +62,17 @@ public class JokerScherm extends JPanel {
 		lblEenJokerKost.setForeground(Color.BLACK);
 		lblEenJokerKost.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 		
-				JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde " + vragen + " vragen goed hebben");
-				panel.add(lblJeMoetDeze, "cell 0 3");
-				lblJeMoetDeze.setForeground(Color.BLACK);
-				lblJeMoetDeze.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-				
-						JLabel lblJeHuidigeScore = new JLabel("Je huidige score is: ");
-						panel.add(lblJeHuidigeScore, "cell 0 4");
-						lblJeHuidigeScore.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-						lblJeHuidigeScore.setForeground(Color.BLACK);
-
-		JButton btnNewButton = new JButton("Verder");
+		JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde " + vragen + " vragen goed hebben");
+		panel.add(lblJeMoetDeze, "cell 0 3");
+		lblJeMoetDeze.setForeground(Color.BLACK);
+		lblJeMoetDeze.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		
+		JLabel lblJeHuidigeScore = new JLabel("Je huidige score is: ");
+		panel.add(lblJeHuidigeScore, "cell 0 4");
+		lblJeHuidigeScore.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		lblJeHuidigeScore.setForeground(Color.BLACK);
+		
+		NiceButton btnNewButton = new NiceButton("Verder");
 		panel.add(btnNewButton, "cell 0 5 2 1,growx");
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override

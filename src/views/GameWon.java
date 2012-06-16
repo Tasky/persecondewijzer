@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
+import views.components.NiceButton;
 import views.components.NicePanel;
 import controllers.Spel;
 
@@ -23,8 +24,7 @@ public class GameWon extends NicePanel {
 		setBounds(0, 0, 800, 543);
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		JButton btnTerug = new JButton("Terug");
-		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
+		NiceButton btnTerug = new NiceButton("Terug");
 		btnTerug.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

@@ -13,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
+import views.components.NiceButton;
 import views.components.NicePanel;
 import controllers.Spel;
 
@@ -49,8 +50,7 @@ public class Highscore extends NicePanel {
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
 		add(lblNewLabel, "cell 1 0,alignx center,aligny center");
 
-		JButton btnTerug = new JButton("Terug");
-		btnTerug.setFont(new Font("Lucida Grande", Font.PLAIN, 21));
+		NiceButton btnTerug = new NiceButton("Terug");
 		btnTerug.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

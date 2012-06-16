@@ -5,9 +5,11 @@ import java.util.Observer;
 
 import javax.swing.JButton;
 
+import views.components.NiceButton;
+
 import logic.Onderdeel;
 
-public class OnderdeelButton extends JButton implements Observer {
+public class OnderdeelButton extends NiceButton implements Observer {
 
 	private Onderdeel				onderdeel;
 	private logic.GekozenAntwoord	gk;
