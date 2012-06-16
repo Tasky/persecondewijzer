@@ -93,6 +93,7 @@ public class SpeelScherm extends NicePanel {
 		setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
 
 		// Middenvlak toevoegen
+		middenvlak.setBackground(new Color(0,0,0,0));
 		middenvlak.setLayout(new GridLayout(1, 0, 0, 0));
 		add(middenvlak, "cell 1 1 2 1,grow");
 

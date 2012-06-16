@@ -8,14 +8,18 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 import net.miginfocom.swing.MigLayout;
-import views.components.NicePanel;
 import controllers.Spel;
 
-public class JokerScherm extends NicePanel {
+/**
+ * @author ?
+ *
+ */
+public class JokerScherm extends JPanel {
 	public int	vragen	= 6;
 
 	/**
@@ -24,34 +28,50 @@ public class JokerScherm extends NicePanel {
 	 * @param spel
 	 */
 	public JokerScherm(final Spel spel) {
+		setBackground(new Color(0,0,0,150));
 		setBounds(0, 0, 800, 600);
-		setLayout(new MigLayout("", "[100.00][300][300][100]", "[200.00,grow][][][][][][][200.00,grow]"));
+		setLayout(new MigLayout("", "[grow][300,center][grow]", "[grow][center][grow]"));
+		
+		JPanel panel = new JPanel();
+		add(panel, "cell 1 1,grow");
+		panel.setLayout(new MigLayout("", "[300][300]", "[][][][][][]"));
 
 		JLabel lblNewLabel = new JLabel("Hoeveel jokers wil je inzetten?");
-		lblNewLabel.setForeground(Color.WHITE);
+		panel.add(lblNewLabel, "cell 0 0 2 1");
+		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 22));
-		add(lblNewLabel, "cell 1 1 2 1");
 
 		JSpinner spinner = new JSpinner();
+		panel.add(spinner, "cell 0 1,grow");
 		spinner.setModel(new SpinnerNumberModel(0, 0, 5, 1));
-		add(spinner, "cell 1 2,grow");
 
 		JLabel lblJokers = new JLabel("Jokers");
-		lblJokers.setForeground(Color.WHITE);
+		panel.add(lblJokers, "cell 1 1,alignx left,growy");
+		lblJokers.setForeground(Color.BLACK);
 		lblJokers.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		add(lblJokers, "cell 2 2,alignx left,growy");
 
 		JLabel lblJ = new JLabel("Je hebt nog 5 jokers");
-		lblJ.setForeground(Color.WHITE);
+		panel.add(lblJ, "cell 0 2");
+		lblJ.setForeground(Color.BLACK);
 		lblJ.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		add(lblJ, "cell 1 3");
 
-		JLabel lblEenJokerKost = new JLabel("Een Joker kost 16 seconden");
-		lblEenJokerKost.setForeground(Color.WHITE);
+		JLabel lblEenJokerKost = new JLabel("Een joker kost "+ spel.getJokerKosten() +" seconden");
+		panel.add(lblEenJokerKost, "cell 1 2");
+		lblEenJokerKost.setForeground(Color.BLACK);
 		lblEenJokerKost.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		add(lblEenJokerKost, "cell 2 3");
+		
+				JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde " + vragen + " vragen goed hebben");
+				panel.add(lblJeMoetDeze, "cell 0 3");
+				lblJeMoetDeze.setForeground(Color.BLACK);
+				lblJeMoetDeze.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+				
+						JLabel lblJeHuidigeScore = new JLabel("Je huidige score is: ");
+						panel.add(lblJeHuidigeScore, "cell 0 4");
+						lblJeHuidigeScore.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+						lblJeHuidigeScore.setForeground(Color.BLACK);
 
 		JButton btnNewButton = new JButton("Verder");
+		panel.add(btnNewButton, "cell 0 5 2 1,growx");
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -63,17 +83,6 @@ public class JokerScherm extends NicePanel {
 				}
 			}
 		});
-
-		JLabel lblJeMoetDeze = new JLabel("Je moet deze ronde " + vragen + " vragen goed hebben");
-		lblJeMoetDeze.setForeground(Color.WHITE);
-		lblJeMoetDeze.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		add(lblJeMoetDeze, "cell 1 4");
-
-		JLabel lblJeHuidigeScore = new JLabel("Je huidige score is: ");
-		lblJeHuidigeScore.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		lblJeHuidigeScore.setForeground(Color.WHITE);
-		add(lblJeHuidigeScore, "cell 1 5");
-		add(btnNewButton, "cell 1 6 2 1,growx");
 	}
 
 }
