@@ -52,6 +52,7 @@ public class MainWindow {
 	private void initialize() {
 		frame = new JFrame();
 		ownPanel = new NicePanel();
+		frame.setTitle("Per Seconde Wijzer");
 		frame.setContentPane(ownPanel);
 		// frame.getContentPane().setBackground(Color.BLACK);
 		frame.setBounds(100, 100, 1280, 720);
