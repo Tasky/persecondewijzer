@@ -91,7 +91,7 @@ public class SpeelScherm extends NicePanel {
 
 		// Layout instellingen
 		setBounds(0, 0, 1024, 768);
-		setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
+		setLayout(new MigLayout("ins 0 10px 10px 10px", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
 
 		// Middenvlak toevoegen
 		middenvlak.setBackground(new Color(0,0,0,0));
@@ -106,11 +106,11 @@ public class SpeelScherm extends NicePanel {
 
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setOpaque(false);
-		buttonsPanel.setLayout(new MigLayout("", "[grow]", "[][][][][][][][][]"));
+		buttonsPanel.setLayout(new MigLayout("ins 10px 10px 0 10px", "[grow]", "[grow][grow][grow][grow][grow][grow][grow][grow][grow][grow]"));
 		add(buttonsPanel, "cell 0 1,grow");
 
 		gekozenAntwoordenPanel = new JPanel();
-		gekozenAntwoordenPanel.setLayout(new MigLayout("gap 0", "[][][][][][][][][][]", "[grow,fill]"));
+		gekozenAntwoordenPanel.setLayout(new MigLayout("ins 0", "[][][][][][][][][][]", "[grow,fill]"));
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -129,7 +129,7 @@ public class SpeelScherm extends NicePanel {
 
 		NiceButton btnStoppen = new NiceButton("Stop de tijd");
 		initStopButton(timer, btnStoppen);
-		panel_1.add(btnStoppen, "cell 0 1,alignx left,growy");
+		panel_1.add(btnStoppen, "cell 0 1,grow");
 
 		toonOnderdelen(buttonsPanel, onderdelen);
 
