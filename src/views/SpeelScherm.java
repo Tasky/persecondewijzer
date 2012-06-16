@@ -66,7 +66,6 @@ public class SpeelScherm extends NicePanel {
 	 * Opstarten van speelscherm
 	 * 
 	 * @param spel
-	 * @throws IOException
 	 */
 	public SpeelScherm(Spel spel) {
 		try {
@@ -225,10 +224,12 @@ public class SpeelScherm extends NicePanel {
 		huidigeOnderdeel = spel.getHuidigeOnderdeel();
 
 		middenvlak.removeAll();
-		ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
-		plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		plaatje.setAutoResize(true);
-		middenvlak.add(plaatje);
+		if(huidigeOnderdeel != null) {
+			ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
+			plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+			plaatje.setAutoResize(true);
+			middenvlak.add(plaatje);
+		}
 		middenvlak.revalidate();
 		middenvlak.repaint();
 	}

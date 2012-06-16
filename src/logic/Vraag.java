@@ -19,6 +19,8 @@ public class Vraag {
 	}
 
 	public Onderdeel getHuidigeOnderdeel() {
+		if(huidigOnderdeel > (_onderdelen.size()-1)) return null;
+		
 		return _onderdelen.get(huidigOnderdeel);
 	}
 
