@@ -25,7 +25,7 @@ public class Highscore extends NicePanel {
 					JFrame frame = new JFrame();
 					frame.setBounds(100, 100, 800, 600);
 					frame.setVisible(true);
-					Highscore ko = new Highscore(new MainWindow(null), null);
+					Highscore ko = new Highscore(null);
 					frame.setContentPane(ko);
 					ko.updateUI();
 				} catch (Exception e) {
@@ -40,7 +40,7 @@ public class Highscore extends NicePanel {
 	/**
 	 * Create the frame.
 	 */
-	public Highscore(final MainWindow mainWindow, final Spel spel) {
+	public Highscore(final Spel spel) {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[grow][][grow]", "[80.00][10.00,grow][][450.00,grow][40.00][10.00,grow]"));
 
@@ -54,7 +54,7 @@ public class Highscore extends NicePanel {
 		btnTerug.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				mainWindow.reset();
+				spel.backToMainMenu();
 				spel.openPanel(new JokerScherm(spel));
 			}
 		});

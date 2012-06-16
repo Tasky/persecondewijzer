@@ -120,7 +120,7 @@ public class MainWindow {
 
 		JButton btnNewButton_2 = new JButton("Highscores");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		final Highscore highscore = new Highscore(this, null);
+		final Highscore highscore = new Highscore(spel);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
