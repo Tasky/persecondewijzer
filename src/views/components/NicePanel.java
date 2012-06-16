@@ -26,8 +26,8 @@ public class NicePanel extends GradientPanel {
 		});
 	}
 	
-	private static final Color	UPPER	= new Color(41, 117, 200);
-	private static final Color	LOWER	= new Color(2, 47, 106);
+	private static final Color	UPPER	= new Color(0, 42, 100);
+	private static final Color	LOWER	= new Color(0, 63, 151);
 	
 	public NicePanel() {
 		super(UPPER, LOWER);
