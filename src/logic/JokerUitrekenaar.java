@@ -1,13 +1,18 @@
 package logic;
 
+/**
+ * @author tim
+ *
+ */
 public class JokerUitrekenaar {
-
+	private final int jokerKosten = 16;
 	private int	aantalJokers;
 
+	/**
+	 * JokerUitrekenaar aanmaken, standaard 2 jokers.
+	 */
 	public JokerUitrekenaar() {
-
 		setAantal(2);
-
 	}
 
 	/**
@@ -16,9 +21,15 @@ public class JokerUitrekenaar {
 	 * @return aantal jokers
 	 */
 	public int getAantal() {
-
 		return aantalJokers;
+	}
 
+	/**
+	 * Krijg de kosten van een joker terug.
+	 * @return joker kosten
+	 */
+	public int getKosten() {
+		return jokerKosten;
 	}
 
 	/**

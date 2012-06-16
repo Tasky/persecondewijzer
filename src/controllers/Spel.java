@@ -215,4 +215,8 @@ public class Spel {
 	public void zetJokersIn(int jokers) {
 		joker.zetJokersIn(jokers);
 	}
+
+	public int getJokerKosten() {
+		return joker.getKosten();
+	}
 }
