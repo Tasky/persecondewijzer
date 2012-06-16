@@ -202,8 +202,14 @@ public class SpeelScherm extends NicePanel {
 
 	private void toonOnderdelen(JPanel buttonsPanel, ArrayList<Onderdeel> onderdelen) {
 		int cell = 0;
-		Collections.shuffle(onderdelen);
-		for (final Onderdeel optie : onderdelen) {
+		
+		ArrayList<Onderdeel> buttonOnderdelen = new ArrayList<Onderdeel>();
+		for (Onderdeel optie : onderdelen)
+			buttonOnderdelen.add(optie);
+		
+		Collections.shuffle(buttonOnderdelen);
+		
+		for (final Onderdeel optie : buttonOnderdelen) {
 			// antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
 			final OnderdeelButton button = new OnderdeelButton(optie);
 			button.addActionListener(new ActionListener() {
