@@ -6,8 +6,7 @@ public class GekozenAntwoord extends Observable {
 	private Onderdeel	huidigeOnderdeel;
 	private Onderdeel	gekozenOnderdeel;
 
-	public GekozenAntwoord(Onderdeel huidigeOnderdeel,
-			Onderdeel gekozenOnderdeel) {
+	public GekozenAntwoord(Onderdeel huidigeOnderdeel, Onderdeel gekozenOnderdeel) {
 		setHuidigeOnderdeel(huidigeOnderdeel);
 		setGekozenOnderdeel(gekozenOnderdeel);
 	}

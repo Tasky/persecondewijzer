@@ -68,10 +68,6 @@ public class Spel {
 		window = new MainWindow(this);
 	}
 
-	public void zetJokersIn(int jokers) {
-		joker.zetJokersIn(jokers);
-	}
-
 	public void backToMainMenu() {
 		window.reset();
 	}
@@ -146,12 +142,16 @@ public class Spel {
 	public void volgendeOnderdeel() {
 		getHuidigeVraag().volgendeOnderdeel();
 	}
-	
+
 	public void volgendeVraag() {
 		huidigeRonde++;
 	}
 
 	public void wijzigAntwoord(Onderdeel van, Onderdeel naar) {
 		getHuidigeVraag().wijzigAntwoord(van, naar);
+	}
+
+	public void zetJokersIn(int jokers) {
+		joker.zetJokersIn(jokers);
 	}
 }

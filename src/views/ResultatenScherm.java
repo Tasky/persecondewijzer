@@ -161,8 +161,7 @@ public class ResultatenScherm extends NicePanel {
 			}
 		});
 
-		setLayout(new MigLayout("",
-				"[grow][77px][86px][][95px][6px][90px][grow]",
+		setLayout(new MigLayout("", "[grow][77px][86px][][95px][6px][90px][grow]",
 				"[grow][20px,grow][20px][20px][20.00px][20px][20px][20px][20.00px][grow]"));
 
 		try {

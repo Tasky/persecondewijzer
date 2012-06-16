@@ -54,8 +54,7 @@ public class HelpScherm extends NicePanel {
 		dtrpnHierKomtDe
 				.setText("Ieder spel bestaat uit vier vragen en elke vraag uit negen onderdelen waarvoor een \r\nantwoord moet worden gekozen. Eventueel kan je je antwoorden verbeteren. Je mag niet \r\ntwee keer hetzelfde antwoord geven. Doet Je dat toch, dan geldt het eerste onderdeel als \r\nonbeantwoord (tenzij je alsnog een ander antwoord kiest).\r\n\r\nAls speler heb je een jokersaldo. Bij het begin van de aflevering krijgt je twee jokers. \r\nWorden alle onderdelen van een vraag goed beantwoord \r\n(eventueel door het inzetten van jokers), dan krijgt je er een joker bij.\r\n\r\nNadat de onderdelen beantwoord zijn, kan je jokers inzetten om gemiste of foute \r\nantwoorden af te kopen. Het inzetten van een joker kost 16 seconden speeltijd per stuk. \r\nBovendien moet er wel voldoende jokersaldo zijn.\r\n\r\nJe moet minimaal 5 van de 9 onderdelen goed hebben om door te gaan naar de volgende ronde. Het totaalbedrag dat gewonnen kan worden varieert afhankelijk van het spelverloop. Je ontvangt een bedrag zodra je na een ronde stopt.");
 		dtrpnHierKomtDe.setEditable(false);
-		setLayout(new MigLayout("", "[grow][500.00px][grow]",
-				"[80.00][10.00][450.00px,grow][40.00px][11.00,grow]"));
+		setLayout(new MigLayout("", "[grow][500.00px][grow]", "[80.00][10.00][450.00px,grow][40.00px][11.00,grow]"));
 
 		JLabel lblHelp = new JLabel("Spelregels");
 		lblHelp.setForeground(Color.WHITE);

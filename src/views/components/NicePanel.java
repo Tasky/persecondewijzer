@@ -42,8 +42,7 @@ public class NicePanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		GradientPaint gradPaint = new GradientPaint(0, 0, LIGHT_BLUE, 0,
-				getHeight(), DARK_BLUE);
+		GradientPaint gradPaint = new GradientPaint(0, 0, LIGHT_BLUE, 0, getHeight(), DARK_BLUE);
 		g2.setPaint(gradPaint);
 		g2.fillRect(0, 0, getWidth(), getHeight());
 	}

@@ -36,15 +36,11 @@ public class ContentTester {
 
 		for (Onderwerp onderwerp : onderwerpen) {
 			List<Vraag> vragen = content.getVragen(onderwerp.getNaam());
-			assertTrue(
-					"Er moeten vragen zijn bij onderwerp \""
-							+ onderwerp.getNaam() + "\".", vragen.size() > 0);
+			assertTrue("Er moeten vragen zijn bij onderwerp \"" + onderwerp.getNaam() + "\".", vragen.size() > 0);
 
 			for (Vraag vraag : vragen) {
 				List<Onderdeel> onderdelen = vraag.getOnderdelen();
-				assertTrue(
-						"Er moeten 9 onderdelen zijn bij vraag \""
-								+ vraag.getTekst() + "\".",
+				assertTrue("Er moeten 9 onderdelen zijn bij vraag \"" + vraag.getTekst() + "\".",
 						onderdelen.size() == 9);
 			}
 		}

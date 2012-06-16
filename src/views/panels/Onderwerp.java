@@ -22,8 +22,7 @@ public class Onderwerp extends JPanel {
 	 */
 	public Onderwerp(final logic.Onderwerp onderwerp, final Spel spel) {
 		setBorder(null);
-		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][]",
-				"[][100px:149.00:100px,grow,fill]"));
+		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][]", "[][100px:149.00:100px,grow,fill]"));
 		try {
 			JLabel lblSteden = new JLabel(onderwerp.getNaam());
 			lblSteden.setFont(new Font("Dialog", Font.PLAIN, 24));

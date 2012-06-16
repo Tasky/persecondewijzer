@@ -47,17 +47,13 @@ public class ImagePanel extends JPanel {
 			float scaledWidth = imageWidth / scaleFactor;
 			float scaledHeight = imageHeight / scaleFactor;
 
-			int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB
-					: BufferedImage.TYPE_INT_ARGB;
-			BufferedImage scaledBI = new BufferedImage(Math.round(scaledWidth),
-					Math.round(scaledHeight), imageType);
+			int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
+			BufferedImage scaledBI = new BufferedImage(Math.round(scaledWidth), Math.round(scaledHeight), imageType);
 
 			Graphics2D g2 = scaledBI.createGraphics();
-			if (preserveAlpha)
-				g2.setComposite(AlphaComposite.Src);
+			if (preserveAlpha) g2.setComposite(AlphaComposite.Src);
 
-			g2.drawImage(image, 0, 0, Math.round(scaledWidth),
-					Math.round(scaledHeight), null);
+			g2.drawImage(image, 0, 0, Math.round(scaledWidth), Math.round(scaledHeight), null);
 			g2.dispose();
 
 			// Zet achtergrond op wit
@@ -67,15 +63,11 @@ public class ImagePanel extends JPanel {
 			// Gooi plaatje erop
 			int left = 0;
 			int top = 0;
-			if (scaledWidth < maxWidth)
-				left = (Math.round(maxWidth) - Math.round(scaledWidth)) / 2;
-			if (scaledHeight < maxHeight)
-				top = (Math.round(maxHeight) - Math.round(scaledHeight)) / 2;
+			if (scaledWidth < maxWidth) left = (Math.round(maxWidth) - Math.round(scaledWidth)) / 2;
+			if (scaledHeight < maxHeight) top = (Math.round(maxHeight) - Math.round(scaledHeight)) / 2;
 
 			g.drawImage(scaledBI, left, top, null);
-		} else {
-			g.drawImage(image, 0, 0, null);
-		}
+		} else g.drawImage(image, 0, 0, null);
 	}
 
 	public void setAutoResize(boolean autoResize) {

@@ -37,8 +37,7 @@ public class KiesOnderwerp extends NicePanel {
 	 */
 	public KiesOnderwerp(Spel spel) {
 		setBounds(0, 0, 773, 318);
-		setLayout(new MigLayout("",
-				"[100px:100px:100px,grow][700px,grow][100px:100px:100px]",
+		setLayout(new MigLayout("", "[100px:100px:100px,grow][700px,grow][100px:100px:100px]",
 				"[173.00px][150.00][150px][173.00px,grow]"));
 
 		/**
@@ -51,15 +50,13 @@ public class KiesOnderwerp extends NicePanel {
 
 		JPanel panel = new JPanel();
 		add(panel, "cell 1 2,alignx center,aligny center");
-		panel.setLayout(new MigLayout("",
-				"[40px,grow][40px,grow][40px,grow][40px,grow][40px,grow]", "[]"));
+		panel.setLayout(new MigLayout("", "[40px,grow][40px,grow][40px,grow][40px,grow][40px,grow]", "[]"));
 
 		try {
 			List<Onderwerp> onderwerpen;
 			onderwerpen = spel.getOnderwerpen();
-			for (Onderwerp onderwerp : onderwerpen) {
+			for (Onderwerp onderwerp : onderwerpen)
 				panel.add(new views.panels.Onderwerp(onderwerp, spel));
-			}
 
 		} catch (DataException e) {
 			// TODO Auto-generated catch block

@@ -31,8 +31,7 @@ public class GameWon extends NicePanel {
 				spel.backToMainMenu();
 			}
 		});
-		setLayout(new MigLayout("", "[grow][500.00px][grow]",
-				"[80.00][10.00][450.00px,grow][40.00px][11.00,grow]"));
+		setLayout(new MigLayout("", "[grow][500.00px][grow]", "[80.00][10.00][450.00px,grow][40.00px][11.00,grow]"));
 
 		JLabel lblNewLabel = new JLabel("Gewonnen!!");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 56));

@@ -21,25 +21,19 @@ public class Highscore {
 
 	public Highscore() throws DataException {
 		try {
-			file = new File(getClass().getResource("/resource/Highscores.xml")
-					.toURI());
+			file = new File(getClass().getResource("/resource/Highscores.xml").toURI());
 		} catch (URISyntaxException e1) {
-			throw new DataException(
-					"Het highscorebestand kan niet worden gevonden.");
+			throw new DataException("Het highscorebestand kan niet worden gevonden.");
 		}
 
 		try {
 			doc = new Builder().build(file);
 		} catch (ValidityException e) {
-			throw new DataException(
-					"Fout bij validatie van highscorebestand.\r\n"
-							+ e.getMessage());
+			throw new DataException("Fout bij validatie van highscorebestand.\r\n" + e.getMessage());
 		} catch (ParsingException e) {
-			throw new DataException("Fout bij parsen van highscorebestand.\r\n"
-					+ e.getMessage());
+			throw new DataException("Fout bij parsen van highscorebestand.\r\n" + e.getMessage());
 		} catch (IOException e) {
-			throw new DataException(
-					"Het highscorebestand kan niet worden gevonden.");
+			throw new DataException("Het highscorebestand kan niet worden gevonden.");
 		}
 	}
 

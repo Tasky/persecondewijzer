@@ -26,9 +26,7 @@ public class OnderdeelButton extends JButton implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		logic.GekozenAntwoord updatedGk = (logic.GekozenAntwoord) arg0;
 		Onderdeel updatedOnderdeel = updatedGk.getGekozenOnderdeel();
-		if (gk == updatedGk) {
-			setEnabled(true);
-		}
+		if (gk == updatedGk) setEnabled(true);
 		if (updatedOnderdeel == onderdeel) {
 			gk = updatedGk;
 			setEnabled(false);

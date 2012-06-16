@@ -91,8 +91,7 @@ public class SpeelScherm extends NicePanel {
 
 		// Layout instellingen
 		setBounds(0, 0, 1024, 768);
-		setLayout(new MigLayout("", "[124][grow][]",
-				"[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
+		setLayout(new MigLayout("", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
 
 		// Middenvlak toevoegen
 		middenvlak.setLayout(new GridLayout(1, 0, 0, 0));
@@ -106,18 +105,15 @@ public class SpeelScherm extends NicePanel {
 
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.setOpaque(false);
-		buttonsPanel
-				.setLayout(new MigLayout("", "[grow]", "[][][][][][][][][]"));
+		buttonsPanel.setLayout(new MigLayout("", "[grow]", "[][][][][][][][][]"));
 		add(buttonsPanel, "cell 0 1,grow");
 
 		gekozenAntwoordenPanel = new JPanel();
 		gekozenAntwoordenPanel.setLayout(new MigLayout("gap 0", "[][][][][][][][][][]", "[grow,fill]"));
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane
-				.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane
-				.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setViewportView(gekozenAntwoordenPanel);
 		add(scrollPane, "cell 0 2 2 1,grow");
 
@@ -138,8 +134,7 @@ public class SpeelScherm extends NicePanel {
 
 	}
 
-	private void initStopButton(final views.panels.InfoPanel timer,
-			final JButton btnStoppen) {
+	private void initStopButton(final views.panels.InfoPanel timer, final JButton btnStoppen) {
 		btnStoppen.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -162,22 +157,19 @@ public class SpeelScherm extends NicePanel {
 		final GekozenAntwoord gk = spel.kiesOnderdeel(optie);
 
 		final DefaultComboBoxModel onderdelenComboBoxModel = new DefaultComboBoxModel();
-		for (Onderdeel comboOptie : onderdelen) {
+		for (Onderdeel comboOptie : onderdelen)
 			onderdelenComboBoxModel.addElement(comboOptie);
-		}
 		onderdelenComboBoxModel.setSelectedItem(gk.getGekozenOnderdeel());
 		onderdelenComboBoxModel.addListDataListener(new ListDataListener() {
 			@Override
 			public void contentsChanged(ListDataEvent e) {
 				Onderdeel van = gk.getGekozenOnderdeel();
-				Onderdeel naar = (Onderdeel) onderdelenComboBoxModel
-						.getSelectedItem();
+				Onderdeel naar = (Onderdeel) onderdelenComboBoxModel.getSelectedItem();
 				spel.wijzigAntwoord(van, naar);
 			}
 
 			@Override
-			public void intervalAdded(ListDataEvent e) {
-			}
+			public void intervalAdded(ListDataEvent e) {}
 
 			@Override
 			public void intervalRemoved(ListDataEvent e) {
@@ -185,8 +177,8 @@ public class SpeelScherm extends NicePanel {
 			}
 		});
 
-		views.panels.GekozenAntwoord gkView = new views.panels.GekozenAntwoord(
-				huidigeOnderdeel.getPlaatje(), onderdelenComboBoxModel);
+		views.panels.GekozenAntwoord gkView = new views.panels.GekozenAntwoord(huidigeOnderdeel.getPlaatje(),
+				onderdelenComboBoxModel);
 		gekozenAntwoordenPanel.add(gkView, "cell " + currentCell + " 0,grow");
 		gk.addObserver(gkView);
 		currentCell++;
@@ -213,9 +205,8 @@ public class SpeelScherm extends NicePanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					GekozenAntwoord gk = kiesOnderdeel(optie);
-					for (OnderdeelButton obs : buttons) {
+					for (OnderdeelButton obs : buttons)
 						gk.addObserver(obs);
-					}
 
 					button.clicked(gk);
 				}
@@ -225,7 +216,7 @@ public class SpeelScherm extends NicePanel {
 			cell++;
 		}
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -240,12 +231,5 @@ public class SpeelScherm extends NicePanel {
 		middenvlak.add(plaatje);
 		middenvlak.revalidate();
 		middenvlak.repaint();
-	}
-	
-	/**
-	 * Ga alle antwoorden af
-	 */
-	private void geefJuisteAntwoordenWeer() {
-		// TODO: nog niet af :(
 	}
 }

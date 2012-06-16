@@ -13,8 +13,7 @@ public class Vraag {
 	private List<logic.GekozenAntwoord>	_antwoorden		= new ArrayList<logic.GekozenAntwoord>();
 	private int							huidigOnderdeel	= -1;
 
-	public Vraag(String vraag, ArrayList<Onderdeel> onderdelen)
-			throws DataException {
+	public Vraag(String vraag, ArrayList<Onderdeel> onderdelen) throws DataException {
 		setTekst(vraag);
 		setOnderdelen(onderdelen);
 	}
@@ -31,8 +30,7 @@ public class Vraag {
 		int score = 0;
 
 		for (GekozenAntwoord gk : _antwoorden)
-			if (gk.isGoed())
-				score++;
+			if (gk.isGoed()) score++;
 
 		return score;
 	}
@@ -42,17 +40,13 @@ public class Vraag {
 	}
 
 	public GekozenAntwoord kiesAntwoord(logic.Onderdeel gekozenOnderdeel) {
-		GekozenAntwoord gk = new GekozenAntwoord(getHuidigeOnderdeel(),
-				gekozenOnderdeel);
+		GekozenAntwoord gk = new GekozenAntwoord(getHuidigeOnderdeel(), gekozenOnderdeel);
 		_antwoorden.add(gk);
 		return gk;
 	}
 
-	private void setOnderdelen(ArrayList<Onderdeel> onderdelen)
-			throws DataException {
-		if (onderdelen.size() != 9) {
-			throw new DataException("De hoeveelheid vragen klopt niet.");
-		}
+	private void setOnderdelen(ArrayList<Onderdeel> onderdelen) throws DataException {
+		if (onderdelen.size() != 9) throw new DataException("De hoeveelheid vragen klopt niet.");
 		Collections.shuffle(onderdelen);
 		_onderdelen = onderdelen;
 	}
@@ -70,16 +64,12 @@ public class Vraag {
 		GekozenAntwoord gkNaar = null;
 
 		for (GekozenAntwoord gk : _antwoorden) {
-			if (gk.getGekozenOnderdeel() == van)
-				gkVan = gk;
+			if (gk.getGekozenOnderdeel() == van) gkVan = gk;
 
-			if (gk.getGekozenOnderdeel() == naar)
-				gkNaar = gk;
+			if (gk.getGekozenOnderdeel() == naar) gkNaar = gk;
 		}
-		if (gkVan != null)
-			gkVan.setGekozenOnderdeel(naar);
-		if (gkNaar != null)
-			gkNaar.setGekozenOnderdeel(van);
+		if (gkVan != null) gkVan.setGekozenOnderdeel(naar);
+		if (gkNaar != null) gkNaar.setGekozenOnderdeel(van);
 	}
 
 }

@@ -31,24 +31,19 @@ public class Content {
 	public Content() throws DataException {
 		File file;
 		try {
-			file = new File(getClass().getResource("/resource/Vragen.xml")
-					.toURI());
+			file = new File(getClass().getResource("/resource/Vragen.xml").toURI());
 		} catch (Exception e1) {
-			throw new DataException(
-					"Het vragenbestand kan niet worden gevonden.");
+			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		}
 
 		try {
 			doc = new Builder().build(file);
 		} catch (ValidityException e) {
-			throw new DataException("Fout bij validatie van vragenbestand.\r\n"
-					+ e.getMessage());
+			throw new DataException("Fout bij validatie van vragenbestand.\r\n" + e.getMessage());
 		} catch (ParsingException e) {
-			throw new DataException("Fout bij parsen van vragenbestand.\r\n"
-					+ e.getMessage());
+			throw new DataException("Fout bij parsen van vragenbestand.\r\n" + e.getMessage());
 		} catch (IOException e) {
-			throw new DataException(
-					"Het vragenbestand kan niet worden gevonden.");
+			throw new DataException("Het vragenbestand kan niet worden gevonden.");
 		}
 	}
 
@@ -71,16 +66,12 @@ public class Content {
 
 			File plaatje;
 			try {
-				plaatje = new File(getClass().getResource(
-						"/resource/images/" + path).toURI());
+				plaatje = new File(getClass().getResource("/resource/images/" + path).toURI());
 			} catch (Exception e) {
-				throw new DataException("Plaatje \"" + path
-						+ "\" is onvindbaar.");
+				throw new DataException("Plaatje \"" + path + "\" is onvindbaar.");
 			}
-			if (!plaatje.canRead()) {
-				throw new DataException("Plaatje \""
-						+ plaatje.getAbsolutePath() + "\" is onvindbaar.");
-			}
+			if (!plaatje.canRead())
+				throw new DataException("Plaatje \"" + plaatje.getAbsolutePath() + "\" is onvindbaar.");
 			Onderwerp onderwerp = new Onderwerp(naam, plaatje);
 			onderwerpen.add(onderwerp);
 		}
@@ -97,52 +88,40 @@ public class Content {
 		return getVragen(onderwerpNaam, 4);
 	}
 
-	public List<Vraag> getVragen(String onderwerpNaam, int hoeveel)
-			throws DataException {
+	public List<Vraag> getVragen(String onderwerpNaam, int hoeveel) throws DataException {
 		Element onderwerp = null;
 		Elements elements = doc.getRootElement().getChildElements();
 
 		for (int i = 0; i < elements.size(); i++) {
 			Element node = elements.get(i);
-			if (node.getAttribute("name").getValue().equals(onderwerpNaam)) {
-				onderwerp = node;
-			}
+			if (node.getAttribute("name").getValue().equals(onderwerpNaam)) onderwerp = node;
 		}
 
-		if (onderwerp == null) {
-			throw new DataException("Onderwerp bestaat niet");
-		}
+		if (onderwerp == null) throw new DataException("Onderwerp bestaat niet");
 
 		List<Vraag> vragen = new ArrayList<Vraag>();
 		Elements nodes = onderwerp.getChildElements();
 		ArrayList<Integer> vragenKeys = new ArrayList<Integer>();
 
-		for (int i = 0; i < nodes.size(); i++) {
+		for (int i = 0; i < nodes.size(); i++)
 			vragenKeys.add(i);
-		}
 
 		Collections.shuffle(vragenKeys);
-		if (hoeveel > nodes.size()) {
-			hoeveel = nodes.size();
-		}
+		if (hoeveel > nodes.size()) hoeveel = nodes.size();
 		for (int i = 0; i < hoeveel; i++) {
 			Element node = nodes.get(vragenKeys.get(i));
 			String tekst = node.getFirstChildElement("tekst").getValue();
 			ArrayList<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
-			Elements nOnderdelen = node.getFirstChildElement("onderdelen")
-					.getChildElements();
+			Elements nOnderdelen = node.getFirstChildElement("onderdelen").getChildElements();
 			for (int j = 0; j < nOnderdelen.size(); j++) {
 				Element nodeOnderdeel = nOnderdelen.get(j);
 				String antwoord = nodeOnderdeel.getValue();
 				String path = nodeOnderdeel.getAttribute("image").getValue();
 				File plaatje = null;
 				try {
-					plaatje = new File(getClass().getResource(
-							"/resource/images/" + path).toURI());
+					plaatje = new File(getClass().getResource("/resource/images/" + path).toURI());
 				} catch (URISyntaxException e) {
-					throw new DataException(
-							"Fout in filepath van plaatje van onderdeel \""
-									+ antwoord + "\"");
+					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord + "\"");
 				}
 
 				onderdelen.add(new Onderdeel(antwoord, plaatje));

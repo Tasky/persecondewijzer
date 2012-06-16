@@ -57,15 +57,11 @@ public class MainWindow {
 		frame.setLocationRelativeTo(null);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane()
-				.setLayout(
-						new MigLayout(
-								"",
-								"[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]",
-								"[157.00,grow,fill][160px:172.00px:180px,fill][][][][][157.00,grow]"));
+		frame.getContentPane().setLayout(
+				new MigLayout("", "[300.00,grow,left][100.00,grow,fill][100.00,grow][300.00,grow]",
+						"[157.00,grow,fill][160px:172.00px:180px,fill][][][][][157.00,grow]"));
 
-		JLabel lblNewLabel = new JLabel(
-				"<html>PER<br />\nSECONDE<br />\nWIJZER</html>");
+		JLabel lblNewLabel = new JLabel("<html>PER<br />\nSECONDE<br />\nWIJZER</html>");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 42));
 		lblNewLabel.setForeground(Color.WHITE);
 		ownPanel.add(lblNewLabel, "cell 1 1 2 1");
@@ -81,8 +77,7 @@ public class MainWindow {
 		txtVulHierJe.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if (arg0.getButton() == 0x1
-						&& txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT))
+				if (arg0.getButton() == 0x1 && txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT))
 					txtVulHierJe.setText("");
 			}
 		});
@@ -90,9 +85,7 @@ public class MainWindow {
 		txtVulHierJe.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if (txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT)) {
-					txtVulHierJe.setText("");
-				}
+				if (txtVulHierJe.getText().equals(TXT_PLACEH_NAAM_INPUT)) txtVulHierJe.setText("");
 			}
 		});
 
@@ -113,9 +106,7 @@ public class MainWindow {
 		txtVulHierJe.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
-					startGame();
-				}
+				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) startGame();
 			}
 		});
 

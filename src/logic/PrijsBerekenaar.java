@@ -18,18 +18,15 @@ public class PrijsBerekenaar {
 	public int getGeld() {
 		int bedrag = 0;
 
-		for (int i = 0; i < score.length; i++) {
+		for (int i = 0; i < score.length; i++)
 			// Als er in ronde 4 een fout gemaakt is verliest de gebuiker al
 			// zijn geld
 			if (i == 3 && score[i] < AANTAL_VRAGEN_PER_RONDE)
 				return 0;
-			else
-				bedrag += score[i] * GELD_PER_RONDE[i];
-		}
+			else bedrag += score[i] * GELD_PER_RONDE[i];
 
 		// Betaal belasting indien nodig
-		if (bedrag > MAX_BELASTINGVRIJ)
-			bedrag = bedrag / 100 * 75;
+		if (bedrag > MAX_BELASTINGVRIJ) bedrag = bedrag / 100 * 75;
 
 		return bedrag;
 	}
@@ -37,9 +34,8 @@ public class PrijsBerekenaar {
 	public int getScore() {
 		int totalScore = 0;
 
-		for (int i = 0; i < score.length; i++) {
+		for (int i = 0; i < score.length; i++)
 			totalScore += score[i] * (i + 1 * 5);
-		}
 
 		return totalScore;
 	}

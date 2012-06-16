@@ -29,8 +29,7 @@ public class GekozenAntwoord extends JPanel implements Observer {
 		try {
 			imagePanel = new ImagePanel(file);
 			imagePanel.setAutoResize(true);
-			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null,
-					null));
+			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -44,13 +43,9 @@ public class GekozenAntwoord extends JPanel implements Observer {
 	}
 
 	public void geefLijntje(boolean goed) {
-		if (goed) {
-			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED,
-					Color.GREEN, Color.GREEN));
-		} else {
-			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED,
-					Color.RED, Color.RED));
-		}
+		if (goed)
+			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
+		else imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
 	}
 
 	/**
@@ -62,8 +57,7 @@ public class GekozenAntwoord extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		Onderdeel onderdeel = ((logic.GekozenAntwoord) arg0)
-				.getGekozenOnderdeel();
+		Onderdeel onderdeel = ((logic.GekozenAntwoord) arg0).getGekozenOnderdeel();
 		comboBoxModel.setSelectedItem(onderdeel);
 		revalidate();
 		repaint();
