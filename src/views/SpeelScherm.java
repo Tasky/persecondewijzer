@@ -229,8 +229,8 @@ public class SpeelScherm extends NicePanel {
 		spel.volgendeOnderdeel();
 		huidigeOnderdeel = spel.getHuidigeOnderdeel();
 
-		middenvlak.removeAll();
 		if(huidigeOnderdeel != null) {
+			middenvlak.removeAll();
 			ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
 			plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 			plaatje.setAutoResize(true);
