@@ -33,7 +33,7 @@
 	
 	<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welk bierfles is dit?</tekst>
+			<tekst>Van welk biermerk is dit bierflesje?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
@@ -50,7 +50,7 @@
 	</onderwerp>
 	<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welk bierfles is dit?</tekst>
+			<tekst>Van welk biermerk is dit bierflesje?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
@@ -67,7 +67,7 @@
 	
 	<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welk bierfles is dit?</tekst>
+			<tekst>Van welk biermerk is dit bierflesje?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
@@ -83,7 +83,7 @@
 	</onderwerp>
 		<onderwerp name="Alcohol" image="Bier.jpg">
 		<vraag>
-			<tekst>Welk bierfles is dit?</tekst>
+			<tekst>Van welk biermerk is dit bierflesje?</tekst>
 			<onderdelen>
 				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
 				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
