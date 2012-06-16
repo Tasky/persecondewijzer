@@ -55,7 +55,6 @@ public class Highscore extends NicePanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				spel.backToMainMenu();
-				spel.openPanel(new JokerScherm(spel));
 			}
 		});
 
