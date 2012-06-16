@@ -19,6 +19,10 @@ import views.MainWindow;
 import data.Content;
 import exceptions.DataException;
 
+/**
+ * @author tim, nanne
+ *
+ */
 public class Spel {
 
 	/**
@@ -48,8 +52,9 @@ public class Spel {
 
 	private List<Vraag>			vragen;
 
+	
 	/**
-	 * Contructor
+	 * Start spel op.
 	 */
 	public Spel() {
 		speler = new Speler();
@@ -68,45 +73,80 @@ public class Spel {
 		window = new MainWindow(this);
 	}
 
+	/**
+	 * Ga terug naar het hoofdmenu.
+	 */
 	public void backToMainMenu() {
 		window.reset();
 	}
 
+	/**
+	 * Geef het huidige onderdeel terug
+	 * @return huidige onderdeel
+	 */
 	public logic.Onderdeel getHuidigeOnderdeel() {
 		return getHuidigeVraag().getHuidigeOnderdeel();
 	}
 
+	/**
+	 * Geef de huidige vraag terug
+	 * @return huidige vraag
+	 */
 	private Vraag getHuidigeVraag() {
 		return vragen.get(huidigeRonde);
 	}
-
+	
 	/**
-	 * Joker methodes
+	 * @return hoeveel jokers
 	 */
 	public int getJokerAantal() {
 		return joker.getAantal();
 	}
 
+	/**
+	 * Verkrijg onderdelen van huidige vraag
+	 * @return alle onderdelen
+	 */
 	public ArrayList<Onderdeel> getOnderdelen() {
 		return getHuidigeVraag().getOnderdelen();
 	}
 
+	/**
+	 * Verkrijg alle onderwerpen
+	 * @return Lijst met onderwerpen
+	 * @throws DataException wanneer onderwerpen niet ingelezen kunnen worden 
+	 */
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		return content.getOnderwerpen();
 	}
 
+	/**
+	 * @return Spelernaam
+	 */
 	public String getSpelerNaam() {
 		return speler.getNaam();
 	}
 
+	/**
+	 * @return vraag tekst
+	 */
 	public String getVraagTekst() {
 		return getHuidigeVraag().getTekst();
 	}
 
+	/**
+	 * Kies een onderdeel, hiermee wordt een GekozenAntwoord aangemaakt en teruggestuurd.
+	 * @param optie gekozen onderdeel
+	 * @return gekozenantwoord, hiermee kan ook gekeken worden of het goed is
+	 */
 	public GekozenAntwoord kiesOnderdeel(Onderdeel optie) {
 		return getHuidigeVraag().kiesAntwoord(optie);
 	}
 
+	/**
+	 * Open een scherm.
+	 * @param panel
+	 */
 	public void openPanel(JPanel panel) {
 		window.openPanel(panel);
 	}
@@ -135,22 +175,40 @@ public class Spel {
 		speler.setNaam(naam);
 	}
 
+	/**
+	 * @param aantal
+	 */
 	public void verwijderJokers(int aantal) {
 		joker.verwijderJokers(aantal);
 	}
 
+	/**
+	 * 
+	 */
 	public void volgendeOnderdeel() {
 		getHuidigeVraag().volgendeOnderdeel();
 	}
 
+	/**
+	 * Verhoog ronde.
+	 */
 	public void volgendeVraag() {
 		huidigeRonde++;
 	}
 
+	/**
+	 * Antwoord wijzigen
+	 * @param van
+	 * @param naar
+	 */
 	public void wijzigAntwoord(Onderdeel van, Onderdeel naar) {
 		getHuidigeVraag().wijzigAntwoord(van, naar);
 	}
 
+	/**
+	 * Jokers inzetten
+	 * @param jokers hoeveel jokers
+	 */
 	public void zetJokersIn(int jokers) {
 		joker.zetJokersIn(jokers);
 	}
