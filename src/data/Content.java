@@ -130,7 +130,9 @@ public class Content {
 				try {
 					plaatje = new File(getClass().getResource("/resource/images/" + path).toURI());
 				} catch (URISyntaxException e) {
-					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord + "\"");
+					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord + "\" met path \""+path+"\"");
+				} catch (java.lang.NullPointerException e) {
+					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord + "\" met path \""+path+"\"");
 				}
 
 				onderdelen.add(new Onderdeel(antwoord, plaatje));

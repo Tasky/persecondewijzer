@@ -27,6 +27,7 @@ public class Spel {
 
 	/**
 	 * Launch the application.
+	 * @param args 
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -161,8 +162,10 @@ public class Spel {
 		try {
 			vragen = content.getVragen(_onderwerp.getNaam());
 		} catch (DataException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
+			System.exit(0);
+			return;
 		}
 	}
 
