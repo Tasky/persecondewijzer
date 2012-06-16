@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -110,11 +111,14 @@ public class SpeelScherm extends NicePanel {
 		add(buttonsPanel, "cell 0 1,grow");
 
 		gekozenAntwoordenPanel = new JPanel();
+		gekozenAntwoordenPanel.setBackground(new Color(0, 0, 0, 0));
 		gekozenAntwoordenPanel.setLayout(new MigLayout("ins 0", "[][][][][][][][][][]", "[grow,fill]"));
 
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBorder(BorderFactory.createLineBorder(Color.white));
+		scrollPane.setBackground(new Color(0, 0, 0, 0));
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setViewportView(gekozenAntwoordenPanel);
 		add(scrollPane, "cell 0 2 2 1,grow");
 
