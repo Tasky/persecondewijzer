@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 
 import net.miginfocom.swing.MigLayout;
 import views.components.ImagePanel;
+import views.components.NiceButton;
 import views.components.NicePanel;
 import controllers.Spel;
 
@@ -63,7 +64,7 @@ public class ResultatenScherm extends NicePanel {
 	 * @param spel
 	 * @throws IOException
 	 */
-	public ResultatenScherm(final Spel spel) throws IOException {
+	public ResultatenScherm(final Spel spel) {
 
 		txtAthene = new JLabel();
 		txtAthene.setFont(new Font("Lucida Grande", Font.BOLD, 13));
@@ -145,33 +146,24 @@ public class ResultatenScherm extends NicePanel {
 		txtFout_3.setForeground(Color.RED);
 		txtFout_3.setText("Fout");
 
-		JButton btnStoppen = new JButton("Stoppen");
+		NiceButton btnStoppen = new NiceButton("Stoppen");
 		btnStoppen.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
+				spel.backToMainMenu();
 			}
 		});
 
-		JButton btnNewButton = new JButton("Verder");
+		NiceButton btnNewButton = new NiceButton("Verder");
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				spel.openPanel(new KiesOnderwerp(spel));
+				spel.volgendeVraag();
 			}
 		});
 
 		setLayout(new MigLayout("", "[grow][77px][86px][][95px][6px][90px][grow]",
 				"[grow][20px,grow][20px][20px][20.00px][20px][20px][20px][20.00px][grow]"));
-
-		try {
-			plaatje = new ImagePanel("images/Steden/Brussel.jpg");
-			add(plaatje, "cell 0 1,grow");
-			plaatje.setAutoResize(true);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-			System.out.println("blaat");
-		}
 
 		JEditorPane dtrpnScore = new JEditorPane();
 		dtrpnScore.setBackground(new Color(0, 0, 0, 0));

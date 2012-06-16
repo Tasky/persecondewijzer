@@ -140,11 +140,15 @@ public class SpeelScherm extends NicePanel {
 	}
 
 	private void initStopButton(final views.panels.InfoPanel timer, final JButton btnStoppen) {
+		final SpeelScherm speelscherm = this;
 		btnStoppen.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				middenvlak.removeAll();
-				middenvlak.add(new JokerScherm(spel));
+				for (JButton button : buttons) {
+					button.setEnabled(false);
+				}
+				middenvlak.add(new JokerScherm(speelscherm, spel));
 				middenvlak.revalidate();
 				middenvlak.repaint();
 
@@ -154,6 +158,7 @@ public class SpeelScherm extends NicePanel {
 		});
 	}
 
+	ArrayList<views.panels.GekozenAntwoord> gekozenAntwoorden = new ArrayList<views.panels.GekozenAntwoord>();
 	/**
 	 * @param optie
 	 * @return
@@ -177,14 +182,13 @@ public class SpeelScherm extends NicePanel {
 			public void intervalAdded(ListDataEvent e) {}
 
 			@Override
-			public void intervalRemoved(ListDataEvent e) {
-
-			}
+			public void intervalRemoved(ListDataEvent e) {}
 		});
 
 		views.panels.GekozenAntwoord gkView = new views.panels.GekozenAntwoord(huidigeOnderdeel.getPlaatje(),
 				onderdelenComboBoxModel);
 		gekozenAntwoordenPanel.add(gkView, "cell " + currentCell + " 0,grow");
+		gekozenAntwoorden.add(gkView);
 		gk.addObserver(gkView);
 		currentCell++;
 
@@ -210,7 +214,6 @@ public class SpeelScherm extends NicePanel {
 		Collections.shuffle(buttonOnderdelen);
 		
 		for (final Onderdeel optie : buttonOnderdelen) {
-			// antwoorden.add(label, "cell 0 "+cell+",alignx left,aligny top");
 			final OnderdeelButton button = new OnderdeelButton(optie);
 			button.addActionListener(new ActionListener() {
 				@Override
@@ -244,5 +247,22 @@ public class SpeelScherm extends NicePanel {
 		}
 		middenvlak.revalidate();
 		middenvlak.repaint();
+	}
+
+	/**
+	 * 
+	 */
+	public void openResultaten() {
+		for (views.panels.GekozenAntwoord gk : gekozenAntwoorden) {
+			gk.geefLijntje(true);
+		
+		}
+		middenvlak.removeAll();
+		for (JButton button : buttons) {
+			button.setEnabled(false);
+		}
+		middenvlak.revalidate();
+		middenvlak.repaint();
+		middenvlak.add(new ResultatenScherm(spel));
 	}
 }

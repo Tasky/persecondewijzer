@@ -26,10 +26,11 @@ public class JokerScherm extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @param speelscherm 
 	 * 
 	 * @param spel
 	 */
-	public JokerScherm(final Spel spel) {
+	public JokerScherm(final SpeelScherm speelscherm, final Spel spel) {
 		setBackground(new Color(0,0,0,150));
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[grow][300,center][grow]", "[grow][center][grow]"));
@@ -77,12 +78,7 @@ public class JokerScherm extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					vragen += 1;
-					spel.openPanel(new ResultatenScherm(spel));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				speelscherm.openResultaten();
 			}
 		});
 	}
