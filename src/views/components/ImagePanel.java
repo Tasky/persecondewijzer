@@ -4,6 +4,7 @@ import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class ImagePanel extends JPanel {
 
 	@Override
 	public void paintComponent(Graphics g) {
+		((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		if (autoResize) {
 			boolean preserveAlpha = false;
 
@@ -65,7 +67,7 @@ public class ImagePanel extends JPanel {
 			int top = 0;
 			if (scaledWidth < maxWidth) left = (Math.round(maxWidth) - Math.round(scaledWidth)) / 2;
 			if (scaledHeight < maxHeight) top = (Math.round(maxHeight) - Math.round(scaledHeight)) / 2;
-
+			
 			g.drawImage(scaledBI, left, top, null);
 		} else g.drawImage(image, 0, 0, null);
 	}
