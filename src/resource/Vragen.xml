@@ -2,7 +2,7 @@
 <onderwerpen>
 	<onderwerp name="Topografie" image="Land_Wereldkaart.gif">
 		<vraag>
-			<tekst>Steden</tekst>
+			<tekst>Welke stad is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Steden_Athene.jpg">Athene</onderdeel>
 				<onderdeel image="Steden_Berlijn.jpg">Berlijn</onderdeel>
@@ -41,6 +41,18 @@
 				<onderdeel image="Land_Peru.png">Peru</onderdeel>
 				<onderdeel image="Land_Somalie.png">Somalië</onderdeel>
 				<onderdeel image="Land_Suriname.png">Suriname</onderdeel></onderdelen></vraag>
+		<vraag>
+			
+			<tekst></tekst><onderdelen>
+	<onderdeel image="Gebouw_Atomium.jpg">Atomium</onderdeel>
+	<onderdeel image="Gebouw_Bigben.jpg">Big Ben</onderdeel>
+	<onderdeel image="Gebouw_Colosseum.jpg">Colosseum</onderdeel>
+	<onderdeel image="Gebouw_Eiffeltoren.jpg">Eiffeltoren</onderdeel>
+	<onderdeel image="Gebouw_Empire.jpg">Empire State Building</onderdeel>
+	<onderdeel image="Gebouw_Pisa.jpg">Toren van Pisa</onderdeel>
+	<onderdeel image="Gebouw_Sydney.jpg">Sydney Opera House</onderdeel>
+	<onderdeel image="Gebouw_Taj_Mahal.jpg">Taj Mahal</onderdeel>
+	<onderdeel image="Gebouw_Whitehouse.jpg">Witte Huis</onderdeel></onderdelen></vraag>
 	</onderwerp>
 	
 	<onderwerp name="Theater" image="theater.jpg">
