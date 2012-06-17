@@ -49,7 +49,6 @@ public class Vraag {
 
 	private void setOnderdelen(ArrayList<Onderdeel> onderdelen) throws DataException {
 		if (onderdelen.size() != 9) throw new DataException("De hoeveelheid vragen klopt niet.");
-		Collections.shuffle(onderdelen);
 		_onderdelen = onderdelen;
 	}
 
