@@ -131,6 +131,7 @@ public class SpeelScherm extends NicePanel {
 		final DefaultComboBoxModel onderdelenComboBoxModel = new DefaultComboBoxModel();
 		for (Onderdeel comboOptie : onderdelen)
 			onderdelenComboBoxModel.addElement(comboOptie);
+		
 		onderdelenComboBoxModel.setSelectedItem(gk.getGekozenOnderdeel());
 		onderdelenComboBoxModel.addListDataListener(new ListDataListener() {
 			@Override
@@ -147,8 +148,7 @@ public class SpeelScherm extends NicePanel {
 			public void intervalRemoved(ListDataEvent e) {}
 		});
 
-		views.panels.GekozenAntwoord gkView = new views.panels.GekozenAntwoord(huidigeOnderdeel.getPlaatje(),
-				onderdelenComboBoxModel);
+		views.panels.GekozenAntwoord gkView = new views.panels.GekozenAntwoord(gk, onderdelenComboBoxModel);
 		gekozenAntwoordenPanel.add(gkView, "cell " + currentCell + " 0,grow");
 		gekozenAntwoorden.add(gkView);
 		gk.addObserver(gkView);

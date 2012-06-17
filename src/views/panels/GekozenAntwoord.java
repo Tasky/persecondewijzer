@@ -20,11 +20,16 @@ public class GekozenAntwoord extends JPanel implements Observer {
 	private JComboBox			combobox;
 	private ImagePanel			imagePanel	= null;
 	private final ComboBoxModel	comboBoxModel;
+	private final logic.GekozenAntwoord	gekozenAntwoord;
 
 	/**
 	 * Create the panel.
+	 * @param gk 
+	 * @param comboBoxModel 
 	 */
-	public GekozenAntwoord(File file, ComboBoxModel comboBoxModel) {
+	public GekozenAntwoord(logic.GekozenAntwoord gk, ComboBoxModel comboBoxModel) {
+		this.gekozenAntwoord = gk;
+		File file = gk.getHuidigeOnderdeel().getPlaatje();
 		this.comboBoxModel = comboBoxModel;
 		try {
 			imagePanel = new ImagePanel(file);
@@ -43,7 +48,7 @@ public class GekozenAntwoord extends JPanel implements Observer {
 	}
 
 	public void geefLijntje(boolean goed) {
-		if (goed)
+		if (gekozenAntwoord.isGoed())
 			imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GREEN, Color.GREEN));
 		else imagePanel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.RED, Color.RED));
 	}
