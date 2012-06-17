@@ -128,6 +128,19 @@
 				<onderdeel image="Bal_Tennisbal.jpg">Tennisbal</onderdeel>
 				<onderdeel image="Bal_Volleybal.jpg">Volleybal</onderdeel>
 				</onderdelen></vraag>
+		<vraag>
+			<tekst>Welke sporter is op de afbeelding te zien?</tekst>
+			<onderdelen>
+				<onderdeel image="Sport_Armstrong.jpeg">Lance Armstrong</onderdeel>
+				<onderdeel image="Sport_Bolt.jpg">Usain Bolt</onderdeel>
+				<onderdeel image="Sport_Gelder.jpg">Yuri van Gelder</onderdeel>
+				<onderdeel image="Sport_Grunsven.jpg">Anky van Grunsven</onderdeel>
+				<onderdeel image="Sport_Hawk.jpg">Tony Hawk</onderdeel>
+				<onderdeel image="Sport_Hoogenband.jpg">Pieter van den Hoogenband</onderdeel>
+				<onderdeel image="Sport_Kasparov.jpg">Garri Kasparov</onderdeel>
+				<onderdeel image="Sport_Kramer.jpg">Sven Kramer</onderdeel>
+				<onderdeel image="Sport_Williams.jpg">Serena Williams</onderdeel>
+				</onderdelen></vraag>
 	</onderwerp>
 		<onderwerp name="Politiek" image="Politiek_Snor.jpg">
 		<vraag>
