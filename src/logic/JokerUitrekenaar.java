@@ -6,13 +6,14 @@ package logic;
  */
 public class JokerUitrekenaar {
 	private final int jokerKosten = 16;
-	private int	aantalJokers;
+	private int	jokersOver = 0;
+	private int jokersGebruikt = 0;
 
 	/**
 	 * JokerUitrekenaar aanmaken, standaard 2 jokers.
 	 */
 	public JokerUitrekenaar() {
-		setAantal(2);
+		setAantalOver(2);
 	}
 
 	/**
@@ -20,12 +21,13 @@ public class JokerUitrekenaar {
 	 * 
 	 * @return aantal jokers
 	 */
-	public int getAantal() {
-		return aantalJokers;
+	public int getAantalOver() {
+		return jokersOver;
 	}
 
 	/**
 	 * Krijg de kosten van een joker terug.
+	 * 
 	 * @return joker kosten
 	 */
 	public int getKosten() {
@@ -37,8 +39,8 @@ public class JokerUitrekenaar {
 	 * 
 	 * @param aantal
 	 */
-	public void setAantal(int aantal) {
-		aantalJokers = aantal;
+	public void setAantalOver(int aantal) {
+		jokersOver = aantal;
 	}
 
 	/**
@@ -47,9 +49,9 @@ public class JokerUitrekenaar {
 	 * @return true met succes
 	 */
 	public boolean verwijderJoker() {
-		int jokers = getAantal();
+		int jokers = getAantalOver();
 		if (jokers > 0) {
-			setAantal(jokers - 1);
+			setAantalOver(jokers - 1);
 			// TODO: timer verlagen met 16 seconde.
 			return true;
 		}
@@ -72,7 +74,7 @@ public class JokerUitrekenaar {
 	 * huidige aantal jokers op en voegt daar er 1 aan toe.
 	 */
 	public void zetJokerIn() {
-		setAantal(getAantal() + 1);
+		setAantalOver(getAantalOver() + 1);
 	}
 
 	/**
@@ -84,5 +86,14 @@ public class JokerUitrekenaar {
 	public void zetJokersIn(int aantal) {
 		for (int i = 0; i < aantal; i++)
 			zetJokerIn();
+	}
+
+	/**
+	 * 
+	 * @param timer
+	 * @return hoeveel jokers gebruikt kunnen worden
+	 */
+	public int getMaxJokers(Timer timer) {
+		return getAantalOver();
 	}
 }

@@ -99,7 +99,7 @@ public class Spel {
 	 * @return hoeveel jokers
 	 */
 	public int getJokerAantal() {
-		return joker.getAantal();
+		return joker.getAantalOver();
 	}
 
 	/**
@@ -220,5 +220,9 @@ public class Spel {
 
 	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
 		return getHuidigeVraag().getGekozenAntwoorden();
+	}
+
+	public int getMaxJokers() {
+		return joker.getMaxJokers(timer);
 	}
 }

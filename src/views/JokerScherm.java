@@ -44,16 +44,17 @@ public class JokerScherm extends JPanel {
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Segoe UI", Font.PLAIN, 22));
 
-		JSpinner spinner = new JSpinner();
+		final JSpinner spinner = new JSpinner();
 		panel.add(spinner, "cell 0 1,grow");
-		spinner.setModel(new SpinnerNumberModel(0, 0, 5, 1));
+		spinner.setModel(new SpinnerNumberModel(0, 0, spel.getMaxJokers(), 1));
+		
 
 		JLabel lblJokers = new JLabel("Jokers");
 		panel.add(lblJokers, "cell 1 1,alignx left,growy");
 		lblJokers.setForeground(Color.BLACK);
 		lblJokers.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 
-		JLabel lblJ = new JLabel("Je hebt nog 5 jokers");
+		JLabel lblJ = new JLabel("Je hebt nog "+spel.getMaxJokers()+" jokers");
 		panel.add(lblJ, "cell 0 2");
 		lblJ.setForeground(Color.BLACK);
 		lblJ.setFont(new Font("Segoe UI", Font.PLAIN, 15));
@@ -78,6 +79,7 @@ public class JokerScherm extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				spel.zetJokersIn((Integer) spinner.getValue());
 				speelscherm.openResultaten();
 			}
 		});
