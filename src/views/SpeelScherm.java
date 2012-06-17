@@ -119,6 +119,7 @@ public class SpeelScherm extends NicePanel {
 
 		volgendeOnderdeel();
 		toonInfoPanel(spel);
+		spel.getTimer().start();
 	}
 
 	/**
@@ -184,7 +185,7 @@ public class SpeelScherm extends NicePanel {
 				middenvlak.repaint();
 
 				btnStoppen.setEnabled(false);
-				timer.stopTimer();
+				spel.getTimer().stop();
 			}
 		});
 	}
@@ -212,12 +213,14 @@ public class SpeelScherm extends NicePanel {
 		infoPanel.setLayout(new MigLayout("", "[116px,grow]", "[grow,fill][154px]"));
 
 		final views.panels.InfoPanel timer = new views.panels.InfoPanel(spel);
+		spel.getTimer().addObserver(timer);
 		infoPanel.add(timer, "cell 0 0,grow");
 
 		NiceButton btnStoppen = new NiceButton("Stop de tijd");
 		infoPanel.add(btnStoppen, "cell 0 1,grow");
 
 		luisterNaarStoppen(timer, btnStoppen);
+		
 	}
 
 	private void toonOnderdelen(JPanel buttonsPanel, ArrayList<Onderdeel> onderdelen) {

@@ -23,7 +23,6 @@ import exceptions.DataException;
  * 
  */
 public class Spel {
-
 	private Speler				speler;
 	private Timer				timer;
 	private JokerUitrekenaar	joker;
@@ -42,11 +41,11 @@ public class Spel {
 	public Spel() {
 		startSpel();
 	}
+
 	/**
 	 * Start spel op, moet applicatie hebben voor het wissen van alle data.
 	 * @param applicatie
 	 */
-
 	public Spel(Applicatie applicatie) {
 		this.applicatie = applicatie;
 		startSpel();
@@ -62,14 +61,14 @@ public class Spel {
 		} else System.exit(0);
 	}
 
-	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
-		return getHuidigeVraag().getGekozenAntwoorden();
-	}
 	/**
 	 * Breng door de gebruiker gekozen antwoorden terug.
 	 * 
 	 * @return gekozen antwoorden
 	 */
+	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
+		return getHuidigeVraag().getGekozenAntwoorden();
+	}
 
 	/**
 	 * Geef het huidige onderdeel terug
@@ -95,27 +94,23 @@ public class Spel {
 	public int getJokerAantal() {
 		return joker.getAantalOver();
 	}
+
 	/**
 	 * Geef terug hoeveel een joker kost.
 	 * @return jokerkosten
 	 */
-
 	public int getJokerKosten() {
 		return joker.getKosten();
 	}
+
 	/**
 	 * Geef terug hoeveel jokers de gebuiker maximaal mag inzetten
 	 * @return jokeraantal
 	 */
-
 	public int getMaxJokers() {
 		return joker.getMaxJokers(timer);
 	}
 
-	/**
-	 * Geef terug hoeveel een joker kost.
-	 * @return jokerkosten
-	 */
 	/**
 	 * Verkrijg onderdelen van huidige vraag
 	 * 
@@ -124,10 +119,6 @@ public class Spel {
 	public ArrayList<Onderdeel> getOnderdelen() {
 		return getHuidigeVraag().getOnderdelen();
 	}
-	/**
-	 * Geef terug hoeveel jokers de gebuiker maximaal mag inzetten
-	 * @return jokeraantal
-	 */
 
 	/**
 	 * Verkrijg alle onderwerpen
@@ -256,5 +247,30 @@ public class Spel {
 	 */
 	public void zetJokersIn(int jokers) {
 		joker.zetJokersIn(jokers);
+	}
+	
+	/**
+	 * Mag de speler nog doorspelen?
+	 * @return antwoord hierop
+	 */
+	public boolean magDoorspelen() {
+		return true;
+	}
+	
+	/**
+	 * Moet de speler doorspelen?
+	 * @return antwoord hierop
+	 */
+	public boolean moetDoorspelen() {
+		return true;
+	}
+
+	/**
+	 * Geef timer terug.
+	 * @return timer
+	 */
+	public logic.Timer getTimer() {
+		// TODO Auto-generated method stub
+		return timer;
 	}
 }
