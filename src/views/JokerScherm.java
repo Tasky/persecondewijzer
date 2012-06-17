@@ -12,6 +12,7 @@ import javax.swing.SpinnerNumberModel;
 
 import net.miginfocom.swing.MigLayout;
 import views.components.NiceButton;
+import views.factories.JPanelFactory;
 import controllers.Spel;
 
 /**
@@ -33,7 +34,7 @@ public class JokerScherm extends JPanel {
 		setBounds(0, 0, 800, 600);
 		setLayout(new MigLayout("", "[grow][300,center][grow]", "[grow][center][grow]"));
 
-		JPanel panel = new JPanel();
+		JPanel panel = JPanelFactory.createBackgroundJPanel();
 		add(panel, "cell 1 1,grow");
 		panel.setLayout(new MigLayout("", "[300][300]", "[][][][][][]"));
 
@@ -81,5 +82,4 @@ public class JokerScherm extends JPanel {
 			}
 		});
 	}
-
 }
