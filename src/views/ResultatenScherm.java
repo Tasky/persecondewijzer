@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JEditorPane;
@@ -19,7 +20,7 @@ import views.factories.JLabelFactory;
 import views.factories.JPanelFactory;
 import controllers.Spel;
 
-public class ResultatenScherm extends NicePanel {
+public class ResultatenScherm extends JPanel {
 	/**
 	 * Launch the application.
 	 */
@@ -42,6 +43,8 @@ public class ResultatenScherm extends NicePanel {
 					SpeelScherm speelscherm = new SpeelScherm(spel);
 					spel.openPanel(speelscherm);
 					speelscherm.openResultaten();
+					
+					
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,8 +62,10 @@ public class ResultatenScherm extends NicePanel {
 	 * @param spel
 	 */
 	public ResultatenScherm(final Spel spel) {
+		ArrayList<GekozenAntwoord> gekozenAntwoorden = spel.getGekozenAntwoorden();
+		
+		setBackground(new Color(0,0,0,150));
 		setBorder(null);
-
 		setLayout(new MigLayout("", "[grow][77px][grow]", "[grow][20px,growprio 50,grow][grow]"));
 
 		JPanel panel =  JPanelFactory.createTransparentJPanel();
@@ -80,8 +85,22 @@ public class ResultatenScherm extends NicePanel {
 		panel_1.add(dtrpnScore, "cell 0 0 2 1,grow");
 		dtrpnScore.setBackground(new Color(0, 0, 0, 0));
 		dtrpnScore.setForeground(Color.WHITE);
-		dtrpnScore
-				.setText("<html>Aantal goed: 5<br/>Aantal fout: 4<br/>Aantal jokers gebruikt: 0<br/><br/>Score: 1500<br/><br/>Tijd: 90 sec</html>");
+		
+		int aantalGoed = 0;
+		int aantalFout = 0;
+		
+		for (GekozenAntwoord gk : gekozenAntwoorden)
+			if(gk.isGoed()) aantalGoed++;
+			else aantalFout++;
+		
+		
+		dtrpnScore.setText("<html>" +
+				"Aantal goed: "+ aantalGoed +"<br/>" +
+				"Aantal fout: "+ aantalFout +"<br/>" +
+				"Aantal jokers gebruikt: 0<br/><br/>" +
+				"Score: 1500<br/><br/>" +
+				"Tijd: 90 sec" +
+				"</html>");
 
 		NiceButton btnStoppen = new NiceButton("Stoppen");
 		panel_1.add(btnStoppen, "cell 0 1,grow");
@@ -102,7 +121,7 @@ public class ResultatenScherm extends NicePanel {
 		});
 
 		int i = 0;
-		for (GekozenAntwoord gk : spel.getGekozenAntwoorden()) {
+		for (GekozenAntwoord gk : gekozenAntwoorden) {
 			JLabel txt = JLabelFactory.createAntwoordJLabel(gk.getHuidigeOnderdeel().getTekst());
 			onderdelen.add(txt, "cell 0 " + i + ",grow");
 
