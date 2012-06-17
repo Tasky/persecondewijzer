@@ -55,7 +55,7 @@
 	<onderdeel image="Gebouw_Whitehouse.jpg">Witte Huis</onderdeel></onderdelen></vraag>
 	</onderwerp>
 	
-	<onderwerp name="Theater" image="theater.jpg">
+	<onderwerp name="Amusement" image="theater.jpg">
 		<vraag>
 			<tekst>Welke cabaretier hoort bij de afbeelding?</tekst>
 			<onderdelen>
@@ -72,7 +72,7 @@
 		</vraag>
 		
 	</onderwerp>
-	<onderwerp name="Alcohol" image="Bier.jpg">
+	<onderwerp name="Eten en Drank" image="Bier.jpg">
 		<vraag>
 			<tekst>Van welk biermerk is dit bierflesje?</tekst>
 			<onderdelen>
@@ -142,7 +142,7 @@
 				<onderdeel image="Sport_Williams.jpg">Serena Williams</onderdeel>
 				</onderdelen></vraag>
 	</onderwerp>
-		<onderwerp name="Politiek" image="Politiek_Snor.jpg">
+		<onderwerp name="Geschiedenis" image="Politiek_Snor.jpg">
 		<vraag>
 			<tekst>Wie hoort bij deze baard/snor?</tekst>
 			<onderdelen>
