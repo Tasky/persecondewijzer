@@ -2,6 +2,10 @@ package controllers;
 
 import java.awt.EventQueue;
 
+/**
+ * Applicatieklasse, deze wordt gebruikt voor het opstarten van alles.
+ *
+ */
 public class Applicatie {
 	/**
 	 * Launch the application.
@@ -22,8 +26,10 @@ public class Applicatie {
 		});
 	}
 
-	public Applicatie() {}
 
+	/**
+	 * Start een nieuw spel.
+	 */
 	public void nieuwSpel() {
 		new Spel(this);
 	}

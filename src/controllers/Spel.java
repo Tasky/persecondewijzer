@@ -42,6 +42,10 @@ public class Spel {
 	public Spel() {
 		startSpel();
 	}
+	/**
+	 * Start spel op, moet applicatie hebben voor het wissen van alle data.
+	 * @param applicatie
+	 */
 
 	public Spel(Applicatie applicatie) {
 		this.applicatie = applicatie;
@@ -61,6 +65,11 @@ public class Spel {
 	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
 		return getHuidigeVraag().getGekozenAntwoorden();
 	}
+	/**
+	 * Breng door de gebruiker gekozen antwoorden terug.
+	 * 
+	 * @return gekozen antwoorden
+	 */
 
 	/**
 	 * Geef het huidige onderdeel terug
@@ -86,15 +95,27 @@ public class Spel {
 	public int getJokerAantal() {
 		return joker.getAantalOver();
 	}
+	/**
+	 * Geef terug hoeveel een joker kost.
+	 * @return jokerkosten
+	 */
 
 	public int getJokerKosten() {
 		return joker.getKosten();
 	}
+	/**
+	 * Geef terug hoeveel jokers de gebuiker maximaal mag inzetten
+	 * @return jokeraantal
+	 */
 
 	public int getMaxJokers() {
 		return joker.getMaxJokers(timer);
 	}
 
+	/**
+	 * Geef terug hoeveel een joker kost.
+	 * @return jokerkosten
+	 */
 	/**
 	 * Verkrijg onderdelen van huidige vraag
 	 * 
@@ -103,6 +124,10 @@ public class Spel {
 	public ArrayList<Onderdeel> getOnderdelen() {
 		return getHuidigeVraag().getOnderdelen();
 	}
+	/**
+	 * Geef terug hoeveel jokers de gebuiker maximaal mag inzetten
+	 * @return jokeraantal
+	 */
 
 	/**
 	 * Verkrijg alle onderwerpen
