@@ -26,4 +26,15 @@ public final class JLabelFactory {
 		return label;
 	}
 
+	/**
+	 * @wbp.factory
+	 * @wbp.factory.parameter.source text "Athene"
+	 */
+	public static JLabel createAntwoordJLabel(String text) {
+		JLabel label = new JLabel();
+		label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		label.setForeground(Color.WHITE);
+		label.setText(text);
+		return label;
+	}
 }

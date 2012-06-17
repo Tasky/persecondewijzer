@@ -10,7 +10,7 @@ public class Vraag {
 
 	private String						_tekst;
 	private ArrayList<Onderdeel>		_onderdelen;
-	private List<logic.GekozenAntwoord>	_antwoorden		= new ArrayList<logic.GekozenAntwoord>();
+	private ArrayList<logic.GekozenAntwoord>	_antwoorden		= new ArrayList<logic.GekozenAntwoord>();
 	private int							huidigOnderdeel	= -1;
 
 	public Vraag(String vraag, ArrayList<Onderdeel> onderdelen) throws DataException {
@@ -72,6 +72,10 @@ public class Vraag {
 		}
 		if (gkVan != null) gkVan.setGekozenOnderdeel(naar);
 		if (gkNaar != null) gkNaar.setGekozenOnderdeel(van);
+	}
+
+	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
+		return _antwoorden;
 	}
 
 }

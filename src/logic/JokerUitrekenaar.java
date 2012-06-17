@@ -38,9 +38,7 @@ public class JokerUitrekenaar {
 	 * @param aantal
 	 */
 	public void setAantal(int aantal) {
-
 		aantalJokers = aantal;
-
 	}
 
 	/**
@@ -49,19 +47,13 @@ public class JokerUitrekenaar {
 	 * @return true met succes
 	 */
 	public boolean verwijderJoker() {
-
 		int jokers = getAantal();
-
 		if (jokers > 0) {
 			setAantal(jokers - 1);
-
 			// TODO: timer verlagen met 16 seconde.
-
 			return true;
 		}
-
 		return false;
-
 	}
 
 	/**
@@ -70,13 +62,9 @@ public class JokerUitrekenaar {
 	 * @param aantal
 	 */
 	public void verwijderJokers(int aantal) {
-
-		int verwijderd = 0;
-		while (aantal < verwijderd) {
+		for (int i = 0; i < aantal; i++) {
 			verwijderJoker();
-			verwijderd++;
 		}
-
 	}
 
 	/**
@@ -84,11 +72,7 @@ public class JokerUitrekenaar {
 	 * huidige aantal jokers op en voegt daar er 1 aan toe.
 	 */
 	public void zetJokerIn() {
-
-		int huidig = getAantal();
-
-		setAantal(huidig + 1);
-
+		setAantal(getAantal() + 1);
 	}
 
 	/**
@@ -98,10 +82,7 @@ public class JokerUitrekenaar {
 	 * @param aantal
 	 */
 	public void zetJokersIn(int aantal) {
-
 		for (int i = 0; i < aantal; i++)
 			zetJokerIn();
-
 	}
-
 }

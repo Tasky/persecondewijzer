@@ -219,4 +219,8 @@ public class Spel {
 	public int getJokerKosten() {
 		return joker.getKosten();
 	}
+
+	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
+		return getHuidigeVraag().getGekozenAntwoorden();
+	}
 }
