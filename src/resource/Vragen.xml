@@ -59,15 +59,15 @@
 		<vraag>
 			<tekst>Welke cabaretier hoort bij de afbeelding?</tekst>
 			<onderdelen>
-				<onderdeel image="Andre van duin.jpg">Andre van Duin</onderdeel>
-				<onderdeel image="Hans Teeuwen.jpg">Hans Teeuwen</onderdeel>
-				<onderdeel image="Herman Finkers.jpg">Herman Finkers</onderdeel>
-				<onderdeel image="Javier-Guzman.jpg">Javier Guzman</onderdeel>
-				<onderdeel image="Jochem Meijer.jpg">Jochem Meijer</onderdeel>
-				<onderdeel image="najib_amhali.jpg">Najib Amhali</onderdeel>
-				<onderdeel image="Theo maassen.jpg">Theo Maassen</onderdeel>
-				<onderdeel image="Tineke-Schouten.jpg">Tineke Schouten</onderdeel>
-				<onderdeel image="Yoep van het hek.jpg">Youp van 't Hek</onderdeel>
+								<onderdeel image="Theater_Andre.jpg">Andre van Duin</onderdeel>
+				<onderdeel image="Theater_Hans.jpg">Hans Teeuwen</onderdeel>
+				<onderdeel image="Theater_Herman.jpg">Herman Finkers</onderdeel>
+				<onderdeel image="Theater_Javier.jpg">Javier Guzman</onderdeel>
+				<onderdeel image="Theater_Jochem.jpg">Jochem Meijer</onderdeel>
+				<onderdeel image="Theater_Najib.jpg">Najib Amhali</onderdeel>
+				<onderdeel image="Theater_Theo.jpg">Theo Maassen</onderdeel>
+				<onderdeel image="Theater_Tineke.jpg">Tineke Schouten</onderdeel>
+				<onderdeel image="Theater_Yoep.jpg">Youp van 't Hek</onderdeel>
 			</onderdelen>
 		</vraag>
 		
