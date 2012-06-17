@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -120,6 +122,15 @@ public class SpeelScherm extends NicePanel {
 		volgendeOnderdeel();
 		toonInfoPanel(spel);
 		spel.getTimer().start();
+		spel.getTimer().addObserver(new Observer(){
+
+			@Override
+			public void update(Observable arg0, Object arg1) {
+				if(spel.getTimer().hasLost())
+					spel.openPanel(new GameOver(spel));
+			}
+			
+		});
 	}
 
 	/**
