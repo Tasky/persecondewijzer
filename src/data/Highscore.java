@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import logic.Highscore;
-
 import nu.xom.Attribute;
 import nu.xom.Builder;
 import nu.xom.Document;

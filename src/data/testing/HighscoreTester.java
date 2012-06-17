@@ -31,8 +31,11 @@ public class HighscoreTester {
 	 */
 	@Test
 	public void testAddHighscore() {
-		highscore.addHighscore("Nanne", "10ZILJOEN", "20s");
-		// fail("Not yet implemented"); // TODO
+		logic.Highscore score = new logic.Highscore();
+		score.setScore("10ZILJOEN");
+		score.setSpelerNaam("Nanne");
+		score.setTijdOver("20s");
+		highscore.addHighscore(score);
 	}
 
 	/**
