@@ -68,10 +68,6 @@ public class ResultatenScherm extends JPanel {
 		add(panel, "cell 1 1,grow");
 		panel.setLayout(new MigLayout("", "[300px:n,grow,fill][95px]", "[20px,growprio 50,grow]"));
 
-		onderdelen = JPanelFactory.createTransparentJPanel();
-		panel.add(onderdelen, "cell 0 0,alignx left,growy");
-		onderdelen.setLayout(new MigLayout("", "[fill][grow]", "[grow][20px][20px][20px][20.00px][20px][20px][20px][20.00px]"));
-
 		panel_1 = JPanelFactory.createTransparentJPanel();
 		panel.add(panel_1, "cell 1 0,grow");
 		panel_1.setLayout(new MigLayout("", "[95px][90px]", "[20px,growprio 50,grow][20px]"));
@@ -110,12 +106,18 @@ public class ResultatenScherm extends JPanel {
 			}
 		});
 
+		onderdelen = JPanelFactory.createTransparentJPanel();
+		panel.add(onderdelen, "cell 0 0,alignx left,growy");
+		onderdelen.setLayout(new MigLayout("", "[fill][10px][fill]", "[20px][20px][20px][20px][20px][20px][20px][20px][20px]"));
+		
 		int i = 0;
 		for (GekozenAntwoord gk : gekozenAntwoorden) {
 			JLabel txt = JLabelFactory.createAntwoordJLabel(gk.getHuidigeOnderdeel().getTekst());
 			onderdelen.add(txt, "cell 0 " + i + ",grow");
-
-			JLabel txtBoolean = new JLabel();
+			
+			onderdelen.add(JLabelFactory.createAntwoordJLabel("="), "cell 1 " + i + ",grow");
+			
+			JLabel txtBoolean =  JLabelFactory.createAntwoordJLabel(gk.getHuidigeOnderdeel().getTekst());
 
 			txtBoolean.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 			if (gk.isGoed())
@@ -124,7 +126,7 @@ public class ResultatenScherm extends JPanel {
 
 			txtBoolean.setText(gk.getGekozenOnderdeel().getTekst());
 
-			onderdelen.add(txtBoolean, "cell 1 " + i + ",grow");
+			onderdelen.add(txtBoolean, "cell 2 " + i + ",grow");
 
 			i++;
 		}
