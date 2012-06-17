@@ -7,7 +7,7 @@ import java.util.Observable;
 
 public class Timer extends Observable {
 
-	private static final int	BEGIN_TIJD	= 20;
+	private static final int	BEGIN_TIJD	= 200;
 	private static final int	JOKER_TIJD	= 16;
 	private int					huidigeTijd;
 	private javax.swing.Timer timer;
