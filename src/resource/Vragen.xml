@@ -55,7 +55,7 @@
 	<onderdeel image="Gebouw_Whitehouse.jpg">Witte Huis</onderdeel></onderdelen></vraag>
 	</onderwerp>
 	
-	<onderwerp name="Theater" image="theater.jpg">
+	<onderwerp name="Amusement" image="theater.jpg">
 		<vraag>
 			<tekst>Welke cabaretier hoort bij de afbeelding?</tekst>
 			<onderdelen>
@@ -70,9 +70,23 @@
 				<onderdeel image="Theater_Yoep.jpg">Youp van 't Hek</onderdeel>
 			</onderdelen>
 		</vraag>
+				<vraag>
+			<tekst>Wie is deze Actieheld?</tekst>
+			<onderdelen>
+								<onderdeel image="Acteur_Chan.jpg">Jackie Chan</onderdeel>
+				<onderdeel image="Acteur_Damme.jpg">Jean Claude Van Damme</onderdeel>
+				<onderdeel image="Acteur_Li.jpg">Jet Li</onderdeel>
+				<onderdeel image="Acteur_Norris.jpg">Chuck Norris</onderdeel>
+				<onderdeel image="Acteur_Schwarzenegger.jpg">Arnold Schwarzenegger</onderdeel>
+				<onderdeel image="Acteur_Smith.jpg">Will Smith</onderdeel>
+				<onderdeel image="Acteur_Stallone.jpg">Sylvester Stallone</onderdeel>
+				<onderdeel image="Acteur_Statham.jpg">Jason Statham</onderdeel>
+				<onderdeel image="Acteur_Willis.jpg">Bruce Willis</onderdeel>
+			</onderdelen>
+		</vraag>
 		
 	</onderwerp>
-	<onderwerp name="Alcohol" image="Bier.jpg">
+	<onderwerp name="Eten en Drank" image="Bier.jpg">
 		<vraag>
 			<tekst>Van welk biermerk is dit bierflesje?</tekst>
 			<onderdelen>
@@ -112,8 +126,9 @@
 	<onderdeel image="Voetbal_Cruijff.jpg">Johan Cruijff</onderdeel>
 	<onderdeel image="Voetbal_Maldini.jpg">Paolo Maldini</onderdeel>
 	<onderdeel image="Voetbal_Maradona.jpg">Diego Maradona
-	
-	</onderdeel><onderdeel image="Voetbal_Pele.jpg">Péle</onderdeel><onderdeel image="Voetbal_Zidane.jpg">Zinédine Zidane</onderdeel><onderdeel image="Voetbal_Ronaldo.JPG">Ronaldo</onderdeel>
+	</onderdeel><onderdeel image="Voetbal_Pele.jpg">Péle</onderdeel>
+	<onderdeel image="Voetbal_Zidane.jpg">Zinédine Zidane</onderdeel>
+	<onderdeel image="Voetbal_Ronaldo.JPG">Ronaldo</onderdeel>
 	<onderdeel image="Voetbal_Messi.jpg">Lionel Messi</onderdeel></onderdelen></vraag>
 		<vraag>
 			<tekst>Welke bal hoort bij de sport?</tekst>
@@ -142,7 +157,7 @@
 				<onderdeel image="Sport_Williams.jpg">Serena Williams</onderdeel>
 				</onderdelen></vraag>
 	</onderwerp>
-		<onderwerp name="Politiek" image="Politiek_Snor.jpg">
+		<onderwerp name="Geschiedenis" image="Politiek_Snor.jpg">
 		<vraag>
 			<tekst>Wie hoort bij deze baard/snor?</tekst>
 			<onderdelen>
