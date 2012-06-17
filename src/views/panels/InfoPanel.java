@@ -18,12 +18,13 @@ import views.components.GradientPanel;
 import views.components.NoisePanel;
 import controllers.Spel;
 
+/**
+ * @author nanne
+ *
+ */
 public class InfoPanel extends NoisePanel implements Observer {
 
-	private Timer			timer;
 	private JLabel			lblTime;
-	private ActionListener	task;
-	private int				seconds	= 200;
 	protected Spel			spel;
 
 	/**
@@ -42,10 +43,6 @@ public class InfoPanel extends NoisePanel implements Observer {
 		//lblTime.setBackground(new Color(0, 0, 0, 0));
 		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 40));
 		add(lblTime, "cell 0 0,alignx center,aligny center");
-	}
-
-	public int getTime() {
-		return seconds;
 	}
 
 	@Override
