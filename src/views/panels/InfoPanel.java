@@ -51,7 +51,11 @@ public class InfoPanel extends NoisePanel implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		Timer timer = (Timer)arg0;
-		lblTime.setText(timer.getTime() + "");
+		int s = timer.getTime();
+		if(s < 5) {
+			lblTime.setForeground(Color.red);
+		}
+		lblTime.setText(s + "");
 		validate();
 		repaint();	
 	}
