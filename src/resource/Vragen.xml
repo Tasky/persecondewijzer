@@ -115,6 +115,19 @@
 	
 	</onderdeel><onderdeel image="Voetbal_Pele.jpg">Péle</onderdeel><onderdeel image="Voetbal_Zidane.jpg">Zinédine Zidane</onderdeel><onderdeel image="Voetbal_Ronaldo.JPG">Ronaldo</onderdeel>
 	<onderdeel image="Voetbal_Messi.jpg">Lionel Messi</onderdeel></onderdelen></vraag>
+		<vraag>
+			<tekst>Welke bal hoort bij de sport?</tekst>
+			<onderdelen>
+				<onderdeel image="Bal_AmericanFootball.jpg">American Football</onderdeel>
+				<onderdeel image="Bal_Basketbal.jpg">Basketbal</onderdeel>
+				<onderdeel image="Bal_Biljartbal.jpg">Biljartbal</onderdeel>
+				<onderdeel image="Bal_Gehaktbal.jpg">Gehaktbal</onderdeel>
+				<onderdeel image="Bal_Golfbal.jpg">Golfbal</onderdeel>
+				<onderdeel image="Bal_Honkbal.jpg">Honkbal</onderdeel>
+				<onderdeel image="Bal_Bowlingbal.jpg">Bowlingbal</onderdeel>
+				<onderdeel image="Bal_Tennisbal.jpg">Tennisbal</onderdeel>
+				<onderdeel image="Bal_Volleybal.jpg">Volleybal</onderdeel>
+				</onderdelen></vraag>
 	</onderwerp>
 		<onderwerp name="Politiek" image="Politiek_Snor.jpg">
 		<vraag>
