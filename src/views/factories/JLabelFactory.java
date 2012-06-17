@@ -19,7 +19,7 @@ public final class JLabelFactory {
 	public static JLabel createAntwoordJLabel(String text) {
 		JLabel label = new JLabel();
 		label.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		label.setForeground(Color.WHITE);
+		label.setForeground(Color.BLACK);
 		label.setText(text);
 		return label;
 	}

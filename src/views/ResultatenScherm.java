@@ -60,18 +60,17 @@ public class ResultatenScherm extends JPanel {
 	public ResultatenScherm(final Spel spel) {
 		ArrayList<GekozenAntwoord> gekozenAntwoorden = spel.getGekozenAntwoorden();
 
-		setBackground(new Color(0, 0, 0, 150));
+		setBackground(new Color(43, 43, 43));
 		setBorder(null);
 		setLayout(new MigLayout("", "[grow][77px][grow]", "[grow][20px,growprio 50,grow][grow]"));
 
-		JPanel panel = JPanelFactory.createTransparentJPanel();
+		JPanel panel = JPanelFactory.createBackgroundJPanel();
 		add(panel, "cell 1 1,grow");
-		panel.setLayout(new MigLayout("", "[77px][95px]", "[20px,growprio 50,grow]"));
+		panel.setLayout(new MigLayout("", "[300px:n,grow,fill][95px]", "[20px,growprio 50,grow]"));
 
 		onderdelen = JPanelFactory.createTransparentJPanel();
-		panel.add(onderdelen, "cell 0 0,grow");
-		onderdelen.setLayout(new MigLayout("", "[100px:100px][86px]",
-				"[20px][20px][20px][20.00px][20px][20px][20px][20.00px]"));
+		panel.add(onderdelen, "cell 0 0,alignx left,growy");
+		onderdelen.setLayout(new MigLayout("", "[fill][grow]", "[grow][20px][20px][20px][20.00px][20px][20px][20px][20.00px]"));
 
 		panel_1 = JPanelFactory.createTransparentJPanel();
 		panel.add(panel_1, "cell 1 0,grow");
@@ -80,7 +79,7 @@ public class ResultatenScherm extends JPanel {
 		JLabel dtrpnScore = new JLabel();
 		panel_1.add(dtrpnScore, "cell 0 0 2 1,grow");
 		dtrpnScore.setBackground(new Color(0, 0, 0, 0));
-		dtrpnScore.setForeground(Color.WHITE);
+		dtrpnScore.setForeground(Color.BLACK);
 
 		int aantalGoed = 0;
 		int aantalFout = 0;
@@ -90,7 +89,7 @@ public class ResultatenScherm extends JPanel {
 				aantalGoed++;
 			else aantalFout++;
 
-		dtrpnScore.setText("<html>" + "Aantal goed: " + aantalGoed + "<br/>" + "Aantal fout: " + aantalFout + "<br/>"
+		dtrpnScore.setText("<html>" + "Aantal <b>goed</b>: " + aantalGoed + "<br/>" + "Aantal <b>fout</b>: " + aantalFout + "<br/>"
 				+ "Aantal jokers gebruikt: 0<br/><br/>" + "Score: 1500<br/><br/>" + "Tijd: 90 sec" + "</html>");
 
 		NiceButton btnStoppen = new NiceButton("Stoppen");
@@ -120,7 +119,7 @@ public class ResultatenScherm extends JPanel {
 
 			txtBoolean.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 			if (gk.isGoed())
-				txtBoolean.setForeground(Color.GREEN);
+				txtBoolean.setForeground(new Color(43, 111, 43));
 			else txtBoolean.setForeground(Color.RED);
 
 			txtBoolean.setText(gk.getGekozenOnderdeel().getTekst());
