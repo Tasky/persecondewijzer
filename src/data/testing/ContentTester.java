@@ -50,6 +50,7 @@ public class ContentTester {
 		for (Onderwerp onderwerp : onderwerpen) {
 			List<Vraag> vragen = content.getVragen(onderwerp.getNaam());
 			assertTrue("Er moeten vragen zijn bij onderwerp \"" + onderwerp.getNaam() + "\".", vragen.size() > 0);
+			assertTrue("Er meer dan 3 vragen zijn bij onderwerp \"" + onderwerp.getNaam() + "\".", vragen.size() > 3);
 
 			for (Vraag vraag : vragen) {
 				List<Onderdeel> onderdelen = vraag.getOnderdelen();

@@ -98,32 +98,45 @@ public class Content {
 	 * @throws DataException wanneer Vragen.xml niet gelezen kan worden
 	 */
 	public List<Vraag> getVragen(String onderwerpNaam, int hoeveel) throws DataException {
-		Element onderwerp = null;
+		// Laad onderdelen in uit document
 		Elements elements = doc.getRootElement().getChildElements();
 
+		// Vind onderwerp.
+		Element onderwerp = null;
 		for (int i = 0; i < elements.size(); i++) {
 			Element node = elements.get(i);
 			if (node.getAttribute("name").getValue().equals(onderwerpNaam)) onderwerp = node;
 		}
 
+		// Bij niks gevonden foutmelding
 		if (onderwerp == null) throw new DataException("Onderwerp bestaat niet");
 
-		List<Vraag> vragen = new ArrayList<Vraag>();
+		// Haal alle vragen uit het onderwerp.
 		Elements nodes = onderwerp.getChildElements();
+		
+		// Gooi alle vragen willekeurig door elkaar, ook wanneer er te weinig vragen zijn.
 		ArrayList<Integer> vragenKeys = new ArrayList<Integer>();
-
-		for (int i = 0; i < nodes.size(); i++)
+		for (int i = 0; i < Math.max(nodes.size(), hoeveel); i++)
 			vragenKeys.add(i);
-
 		Collections.shuffle(vragenKeys);
-		if (hoeveel > nodes.size()) hoeveel = nodes.size();
-		for (int i = 0; i < hoeveel; i++) {
-			Element node = nodes.get(vragenKeys.get(i));
+		
+		// Verkrijg alle vragen en gooi ze in een lijst
+		List<Vraag> vragen = new ArrayList<Vraag>();
+		for (int i = 0; i < vragenKeys.size(); i++) {
+			Element node = nodes.get(vragenKeys.get(i) % nodes.size());
 			String tekst = node.getFirstChildElement("tekst").getValue();
-			ArrayList<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
+			
+			// Haal onderdelen op
 			Elements nOnderdelen = node.getFirstChildElement("onderdelen").getChildElements();
-			for (int j = 0; j < nOnderdelen.size(); j++) {
-				Element nodeOnderdeel = nOnderdelen.get(j);
+			
+			ArrayList<Integer> onderdelenKeys = new ArrayList<Integer>();
+			for (int k = 0; k < nOnderdelen.size(); k++)
+				onderdelenKeys.add(k);
+			Collections.shuffle(onderdelenKeys);
+			
+			ArrayList<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
+			for (int j = 0; j < 9; j++) {
+				Element nodeOnderdeel = nOnderdelen.get(onderdelenKeys.get(j));
 				String antwoord = nodeOnderdeel.getValue();
 				String path = nodeOnderdeel.getAttribute("image").getValue();
 				File plaatje = null;
@@ -137,6 +150,8 @@ public class Content {
 
 				onderdelen.add(new Onderdeel(antwoord, plaatje));
 			}
+			
+			// Voeg vraag toe aan lijst.
 			vragen.add(new Vraag(tekst, onderdelen));
 		}
 		return vragen;
