@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <onderwerpen>
-	<onderwerp name="Steden" image="Steden.jpg">
+	<onderwerp name="Topografie" image="Land_Wereldkaart.gif">
 		<vraag>
-			<tekst>Welke stad is dit?</tekst>
+			<tekst>Steden</tekst>
 			<onderdelen>
 				<onderdeel image="Steden_Athene.jpg">Athene</onderdeel>
 				<onderdeel image="Steden_Berlijn.jpg">Berlijn</onderdeel>
@@ -29,6 +29,18 @@
 				<onderdeel image="GoogleMaps_Zwolle.png">Zwolle</onderdeel>
 			</onderdelen>
 		</vraag>
+		<vraag>
+			<tekst>Welk land is dit?</tekst>
+			<onderdelen>
+				<onderdeel image="Land_China.png">China</onderdeel>
+				<onderdeel image="Land_Hongarije.png">Hongarije</onderdeel>
+				<onderdeel image="Land_Letland.png">Letland</onderdeel>
+				<onderdeel image="Land_Nigeria.png">Nigeria</onderdeel>
+				<onderdeel image="Land_Oekraïne.png">Oekraïne</onderdeel>
+				<onderdeel image="Land_Panama.png">Panama</onderdeel>
+				<onderdeel image="Land_Peru.png">Peru</onderdeel>
+				<onderdeel image="Land_Somalië.png">Somalië</onderdeel>
+				<onderdeel image="Land_Suriname.png">Suriname</onderdeel></onderdelen></vraag>
 	</onderwerp>
 	
 	<onderwerp name="Theater" image="theater.jpg">
@@ -81,7 +93,7 @@
 			</onderdelen>
 		</vraag>
 	</onderwerp>
-		<onderwerp name="Politiek" image="Snor.jpg">
+		<onderwerp name="Politiek" image="Politiek_Snor.jpg">
 		<vraag>
 			<tekst>Wie hoort bij deze baard/snor?</tekst>
 			<onderdelen>
