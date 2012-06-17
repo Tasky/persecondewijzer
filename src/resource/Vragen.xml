@@ -31,19 +31,19 @@
 		</vraag>
 	</onderwerp>
 	
-	<onderwerp name="Alcohol" image="Bier.jpg">
+	<onderwerp name="Theater" image="theater.jpg">
 		<vraag>
-			<tekst>Van welk biermerk is dit bierflesje?</tekst>
+			<tekst>Welke cabaretier hoort bij de afbeelding?</tekst>
 			<onderdelen>
-				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
-				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
-				<onderdeel image="Bier_Dommelsch.jpg">Dommelsch</onderdeel>
-				<onderdeel image="Bier_Duvel.jpg">Duvel</onderdeel>
-				<onderdeel image="Bier_Grolsch.jpg">Grolsch</onderdeel>
-				<onderdeel image="Bier_Heineken.jpg">Heineken</onderdeel>
-				<onderdeel image="Bier_Hoegaarden.jpg">Hoegaarden</onderdeel>
-				<onderdeel image="Bier_Jupiler.jpg">Jupiler</onderdeel>
-				<onderdeel image="Bier_Palm.jpg">Palm</onderdeel>
+				<onderdeel image="Andre van duin.jpg">Andre van Duin</onderdeel>
+				<onderdeel image="Hans Teeuwen.jpg">Hans Teeuwen</onderdeel>
+				<onderdeel image="Herman Finkers.jpg">Herman Finkers</onderdeel>
+				<onderdeel image="Javier-Guzman.jpg">Javier Guzman</onderdeel>
+				<onderdeel image="Jochem Meijer.jpg">Jochem Meijer</onderdeel>
+				<onderdeel image="najib_amhali.jpg">Najib Amhali</onderdeel>
+				<onderdeel image="Theo maassen.jpg">Theo Maassen</onderdeel>
+				<onderdeel image="Tineke-Schouten.jpg">Tineke Schouten</onderdeel>
+				<onderdeel image="Yoep van het hek.jpg">Youp van 't Hek</onderdeel>
 			</onderdelen>
 		</vraag>
 		
