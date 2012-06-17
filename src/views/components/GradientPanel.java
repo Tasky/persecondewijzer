@@ -74,7 +74,7 @@ public class GradientPanel extends JPanel {
 		g2.setPaint(gradPaint);
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		if(roundedCorners) {
-			g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
+			g2.fillRoundRect(0, 0, getWidth(), getHeight(), 5, 5);
 		} else {
 			g2.fillRect(0, 0, getWidth(), getHeight());	
 		}
