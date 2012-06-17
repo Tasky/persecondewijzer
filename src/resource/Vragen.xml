@@ -101,6 +101,20 @@
 				<onderdeel image="Bier_Palm.jpg">Palm</onderdeel>
 			</onderdelen>
 		</vraag>
+				<vraag>
+			<tekst>Welke vrucht is dit?</tekst>
+			<onderdelen>
+				<onderdeel image="Fruit_Advocado.jpg">Advocado</onderdeel>
+				<onderdeel image="Fruit_Appel.jpg">Appel</onderdeel>
+				<onderdeel image="Fruit_Banaan.jpg">Banaan</onderdeel>
+				<onderdeel image="Fruit_Braam.jpg">Braam</onderdeel>
+				<onderdeel image="Fruit_Frambei.jpg">Frambei</onderdeel>
+				<onderdeel image="Fruit_Kiwi.jpg">Kiwi</onderdeel>
+				<onderdeel image="Fruit_Limoen.jpg">Limoen</onderdeel>
+				<onderdeel image="Fruit_Passie.jpg">Passievrucht</onderdeel>
+				<onderdeel image="Fruit_Pitahaya.jpg">Pitahaya</onderdeel>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
 	
 	<onderwerp name="Sport" image="Sport.jpg">
