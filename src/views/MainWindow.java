@@ -120,11 +120,10 @@ public class MainWindow {
 		frame.getContentPane().add(btnNewButton_3, "cell 2 3 1 2,grow");
 
 		NiceButton btnNewButton_2 = new NiceButton("Highscores");
-		final Highscore highscore = new Highscore(spel);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				openPanel(highscore);
+				openPanel(new Highscore(spel));
 			}
 		});
 		frame.getContentPane().add(btnNewButton_2, "cell 1 4,growx");
@@ -151,5 +150,12 @@ public class MainWindow {
 			openPanel(kiesOnderwerp);
 			spel.setSpelerNaam(naamNo);
 		}
+	}
+
+	/**
+	 * 
+	 */
+	public void close() {
+		frame.dispose();
 	}
 }

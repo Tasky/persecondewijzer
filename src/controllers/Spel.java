@@ -25,22 +25,6 @@ import exceptions.DataException;
  */
 public class Spel {
 
-	/**
-	 * Launch the application.
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					new Spel();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	private Speler				speler;
 	private Timer				timer;
@@ -52,12 +36,21 @@ public class Spel {
 	private Content				content;
 
 	private List<Vraag>			vragen;
+	private Applicatie	applicatie;
 
+	public Spel(Applicatie applicatie) {
+		this.applicatie = applicatie;
+		startSpel();
+	}
 	
 	/**
 	 * Start spel op.
 	 */
 	public Spel() {
+		startSpel();
+	}
+	
+	private void startSpel() {
 		speler = new Speler();
 		timer = new Timer();
 		joker = new JokerUitrekenaar();
@@ -78,7 +71,12 @@ public class Spel {
 	 * Ga terug naar het hoofdmenu.
 	 */
 	public void backToMainMenu() {
-		window.reset();
+		if(applicatie != null) {
+			window.close();
+			applicatie.nieuwSpel();
+		} else {
+			System.exit(0);
+		}
 	}
 
 	/**
