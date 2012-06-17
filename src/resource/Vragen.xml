@@ -81,19 +81,19 @@
 			</onderdelen>
 		</vraag>
 	</onderwerp>
-		<onderwerp name="Alcohol" image="Bier.jpg">
+		<onderwerp name="Politiek" image="Snor.jpg">
 		<vraag>
-			<tekst>Van welk biermerk is dit bierflesje?</tekst>
+			<tekst>Wie hoort bij deze baard/snor?</tekst>
 			<onderdelen>
-				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
-				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
-				<onderdeel image="Bier_Dommelsch.jpg">Dommelsch</onderdeel>
-				<onderdeel image="Bier_Duvel.jpg">Duvel</onderdeel>
-				<onderdeel image="Bier_Grolsch.jpg">Grolsch</onderdeel>
-				<onderdeel image="Bier_Heineken.jpg">Heineken</onderdeel>
-				<onderdeel image="Bier_Hoegaarden.jpg">Hoegaarden</onderdeel>
-				<onderdeel image="Bier_Jupiler.jpg">Jupiler</onderdeel>
-				<onderdeel image="Bier_Palm.jpg">Palm</onderdeel>
+				<onderdeel image="Politiek_Arafat.jpg">Yasser Arafat</onderdeel>
+				<onderdeel image="Politiek_Castro.jpg">Fidel Castro</onderdeel>
+				<onderdeel image="Politiek_Ghandi.jpg">Mahatma Gandhi</onderdeel>
+				<onderdeel image="Politiek_Hitler.jpg">Adolf Hitler</onderdeel>
+				<onderdeel image="Politiek_Hussein.jpg">Saddam Hussein</onderdeel>
+				<onderdeel image="Politiek_Lincoln.jpg">Abraham Lincoln</onderdeel>
+				<onderdeel image="Politiek_Musharraf.jpg">Pervez Musharraf</onderdeel>
+				<onderdeel image="Politiek_Roosevelt.jpg">Theodore Roosevelt</onderdeel>
+				<onderdeel image="Politiek_Stalin.jpg">Jozef Stalin</onderdeel>
 			</onderdelen>
 		</vraag>
 	</onderwerp>
