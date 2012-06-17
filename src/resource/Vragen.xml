@@ -65,19 +65,19 @@
 		</vraag>
 	</onderwerp>
 	
-	<onderwerp name="Alcohol" image="Bier.jpg">
+	<onderwerp name="Darts" image="Darts_dartbord.jpg">
 		<vraag>
-			<tekst>Van welk biermerk is dit bierflesje?</tekst>
+			<tekst>Welke darter hoort bij de afbeelding?</tekst>
 			<onderdelen>
-				<onderdeel image="Bier_Amstel.jpg">Amstel</onderdeel>
-				<onderdeel image="Bier_Bavaria.jpg">Bavaria</onderdeel>
-				<onderdeel image="Bier_Dommelsch.jpg">Dommelsch</onderdeel>
-				<onderdeel image="Bier_Duvel.jpg">Duvel</onderdeel>
-				<onderdeel image="Bier_Grolsch.jpg">Grolsch</onderdeel>
-				<onderdeel image="Bier_Heineken.jpg">Heineken</onderdeel>
-				<onderdeel image="Bier_Hoegaarden.jpg">Hoegaarden</onderdeel>
-				<onderdeel image="Bier_Jupiler.jpg">Jupiler</onderdeel>
-				<onderdeel image="Bier_Palm.jpg">Palm</onderdeel>
+				<onderdeel image="Darts_Adams.jpg">Martin Adams</onderdeel>
+				<onderdeel image="Darts_Barneveld.jpg">Raymond van Barneveld</onderdeel>
+				<onderdeel image="Darts_Frodham.jpg">Andy Fordham</onderdeel>
+				<onderdeel image="Darts_Lewis.jpg">Adrian Lewis</onderdeel>
+				<onderdeel image="Darts_O'Shea.jpg">Tony O'Shea</onderdeel>
+				<onderdeel image="Darts_Stompe.jpg">Co Stompe</onderdeel>
+				<onderdeel image="Darts_Taylor.jpg">Phil Taylor</onderdeel>
+				<onderdeel image="Darts_Wade.jpg">James Wade</onderdeel>
+				<onderdeel image="Darts_Whitlock.jpg">Simon Whitlock</onderdeel>
 			</onderdelen>
 		</vraag>
 	</onderwerp>
