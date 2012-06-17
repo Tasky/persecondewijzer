@@ -89,7 +89,7 @@
 		</vraag>
 	</onderwerp>
 	
-	<onderwerp name="Darts" image="Darts_dartbord.jpg">
+	<onderwerp name="Sport" image="Sport.jpg">
 		<vraag>
 			<tekst>Welke darter hoort bij de afbeelding?</tekst>
 			<onderdelen>
@@ -104,6 +104,17 @@
 				<onderdeel image="Darts_Whitlock.jpg">Simon Whitlock</onderdeel>
 			</onderdelen>
 		</vraag>
+		<vraag>
+			
+			<tekst>Welke voetballer hoort bij de afbeelding?</tekst><onderdelen>
+	<onderdeel image="Voetbal_Bergkamp.jpg">Dennis Bergkamp</onderdeel>
+	<onderdeel image="Voetbal_Best.jpg">George Best</onderdeel>
+	<onderdeel image="Voetbal_Cruijff.jpg">Johan Cruijff</onderdeel>
+	<onderdeel image="Voetbal_Maldini.jpg">Paolo Maldini</onderdeel>
+	<onderdeel image="Voetbal_Maradona.jpg">Diego Maradona
+	
+	</onderdeel><onderdeel image="Voetbal_Pele.jpg">Péle</onderdeel><onderdeel image="Voetbal_Zidane.jpg">Zinédine Zidane</onderdeel><onderdeel image="Voetbal_Ronaldo.JPG">Ronaldo</onderdeel>
+	<onderdeel image="Voetbal_Messi.jpg">Lionel Messi</onderdeel></onderdelen></vraag>
 	</onderwerp>
 		<onderwerp name="Politiek" image="Politiek_Snor.jpg">
 		<vraag>
