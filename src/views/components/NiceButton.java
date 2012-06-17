@@ -7,6 +7,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
+import java.awt.RenderingHints;
 
 import javax.swing.ButtonModel;
 import javax.swing.JButton;
@@ -61,18 +62,18 @@ public class NiceButton extends JButton {
 			GradientPaint gradPaint = new GradientPaint(0, 0, under, 0, originalSize.height - 3, above);
 			g.setPaint(gradPaint);
 		}
-
-		g.fillRoundRect(1, 1, originalSize.width - 3, originalSize.height - 3, 5, 5);
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g.fillRoundRect(1, 1, originalSize.width - 3, originalSize.height - 3, 7, 7);
 
 		g.setColor(Color.black);
-		g.drawRoundRect(0, 0, originalSize.width - 1, originalSize.height - 1, 5, 5);
+		g.drawRoundRect(0, 0, originalSize.width - 1, originalSize.height - 1, 7, 7);
 
 		g.setColor(new Color(110, 152, 242));
-		g.drawRoundRect(1, 1, originalSize.width - 3, originalSize.height - 3, 5, 5);
+		g.drawRoundRect(1, 1, originalSize.width - 3, originalSize.height - 3, 7, 7);
 
 		if (!isEnabled()) {
 			g.setColor(new Color(0, 0, 0, 100));
-			g.fillRoundRect(1, 1, originalSize.width - 2, originalSize.height - 2, 5, 5);
+			g.fillRoundRect(1, 1, originalSize.width - 2, originalSize.height - 2, 7, 7);
 		}
 
 		super.paintComponent(g);
