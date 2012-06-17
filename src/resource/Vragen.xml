@@ -115,6 +115,20 @@
 				<onderdeel image="Fruit_Pitahaya.jpg">Pitahaya</onderdeel>
 			</onderdelen>
 		</vraag>
+			<vraag>
+			<tekst>Welke snack is dit?</tekst>
+			<onderdelen>
+				<onderdeel image="Vet_Bitterbal.jpg">Bitterbal</onderdeel>
+				<onderdeel image="Vet_Frikandel.jpg">Frikandel</onderdeel>
+				<onderdeel image="Vet_Gehaktbal.jpg">Gehaktbal</onderdeel>
+				<onderdeel image="Vet_Gehaktstaaf.jpg">Gehaktstaaf</onderdeel>
+				<onderdeel image="Vet_Kipnuggut.jpg">Kipnugguts</onderdeel>
+				<onderdeel image="Vet_Kroket.jpg">Kroket</onderdeel>
+				<onderdeel image="Vet_Lihanboutje.jpg">Lihanboutje</onderdeel>
+				<onderdeel image="Vet_Mexicano.jpg">Mexicano</onderdeel>
+				<onderdeel image="Vet_Viandel.jpg">Viandel</onderdeel>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
 	
 	<onderwerp name="Sport" image="Sport.jpg">
