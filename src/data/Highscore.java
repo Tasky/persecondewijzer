@@ -6,8 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import nu.xom.Attribute;
 import nu.xom.Builder;
@@ -58,26 +56,26 @@ public class Highscore {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public ArrayList<logic.Highscore> getHighscores(int hoeveel) {
 		Elements elements = doc.getRootElement().getChildElements();
-		
+
 		ArrayList<logic.Highscore> highscores = new ArrayList<logic.Highscore>();
 		for (int i = 0; i < elements.size(); i++) {
 			Element node = elements.get(i);
-			
+
 			logic.Highscore highscore = new logic.Highscore();
-			
+
 			highscore.setSpelerNaam(node.getAttribute("naam").getValue());
 			highscore.setScore(node.getAttribute("score").getValue());
 			highscore.setTijdOver(node.getAttribute("tijdOver").getValue());
-			
+
 			highscores.add(highscore);
 		}
-		
-		//Collections.sort(highscores, new )
-		//TODO: sorteer highscores
-		
+
+		// Collections.sort(highscores, new )
+		// TODO: sorteer highscores
+
 		return highscores;
 	}
 }

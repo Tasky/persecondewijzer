@@ -1,17 +1,19 @@
 package views.factories;
+
 import java.awt.Color;
-import javax.swing.JScrollPane;
 import java.awt.Component;
-import javax.swing.ScrollPaneConstants;
+
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 /**
  * @author nanne
- *
+ * 
  */
 public final class JPanelFactory {
 	/**
-	 * @param viewportView 
+	 * @param viewportView
 	 * @return scrollpane
 	 * @wbp.factory
 	 * @wbp.factory.parameter.source viewportView gekozenAntwoordenPanel
@@ -24,6 +26,7 @@ public final class JPanelFactory {
 		scrollPane.setViewportView(viewportView);
 		return scrollPane;
 	}
+
 	/**
 	 * @return scrollpane
 	 * @wbp.factory

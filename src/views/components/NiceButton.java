@@ -7,8 +7,6 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.ButtonModel;
 import javax.swing.JButton;
@@ -20,28 +18,29 @@ import javax.swing.event.ChangeListener;
  * 
  */
 public class NiceButton extends JButton {
-	private boolean isPressed = false;
+	private boolean	isPressed	= false;
+
 	/**
 	 * @param string
 	 */
 	public NiceButton(String string) {
 		super(string);
 		setBackground(new Color(0, 0, 0, 0));
-        setFocusPainted(false);
-        setMargin(new Insets(0, 0, 0, 0));
-        setContentAreaFilled(false);
-        setBorderPainted(false);
-        setOpaque(false);
-        setFont(new Font("Arial", Font.BOLD, 12));
-        setForeground(Color.white);
-        getModel().addChangeListener(new ChangeListener() {
+		setFocusPainted(false);
+		setMargin(new Insets(0, 0, 0, 0));
+		setContentAreaFilled(false);
+		setBorderPainted(false);
+		setOpaque(false);
+		setFont(new Font("Arial", Font.BOLD, 12));
+		setForeground(Color.white);
+		getModel().addChangeListener(new ChangeListener() {
 
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            	ButtonModel model = (ButtonModel) e.getSource();
-            	isPressed = model.isPressed();
-            }
-        });
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				ButtonModel model = (ButtonModel) e.getSource();
+				isPressed = model.isPressed();
+			}
+		});
 	}
 
 	/**
@@ -51,31 +50,31 @@ public class NiceButton extends JButton {
 	public void paintComponent(Graphics g2) {
 		Graphics2D g = (Graphics2D) g2;
 		Dimension originalSize = super.getSize();
-		
+
 		Color above = new Color(66, 122, 241);
 		Color under = new Color(29, 82, 194);
 
-		if(isPressed){
+		if (isPressed) {
 			GradientPaint gradPaint = new GradientPaint(0, 0, above, 0, originalSize.height - 3, under);
 			g.setPaint(gradPaint);
 		} else {
 			GradientPaint gradPaint = new GradientPaint(0, 0, under, 0, originalSize.height - 3, above);
 			g.setPaint(gradPaint);
 		}
-        
-		g.fillRoundRect(1, 1, originalSize.width - 3,  originalSize.height - 3, 5, 5);
 
-        g.setColor(Color.black);
-        g.drawRoundRect(0, 0, originalSize.width - 1,  originalSize.height - 1, 5, 5);
-        
-        g.setColor(new Color(110, 152, 242));
-        g.drawRoundRect(1, 1, originalSize.width - 3,  originalSize.height - 3, 5, 5);
-        
-		if(!isEnabled()){
+		g.fillRoundRect(1, 1, originalSize.width - 3, originalSize.height - 3, 5, 5);
+
+		g.setColor(Color.black);
+		g.drawRoundRect(0, 0, originalSize.width - 1, originalSize.height - 1, 5, 5);
+
+		g.setColor(new Color(110, 152, 242));
+		g.drawRoundRect(1, 1, originalSize.width - 3, originalSize.height - 3, 5, 5);
+
+		if (!isEnabled()) {
 			g.setColor(new Color(0, 0, 0, 100));
-			g.fillRoundRect(1, 1, originalSize.width - 2,  originalSize.height - 2, 5, 5);
+			g.fillRoundRect(1, 1, originalSize.width - 2, originalSize.height - 2, 5, 5);
 		}
-        
-        super.paintComponent(g);
+
+		super.paintComponent(g);
 	}
 }

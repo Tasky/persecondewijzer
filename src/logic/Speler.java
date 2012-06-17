@@ -9,8 +9,7 @@ public class Speler {
 	}
 
 	/**
-	 * Constructor waarbij gelijk de naam toegewezen kan worden zonder setNaam()
-	 * aan te roepen.
+	 * Constructor waarbij gelijk de naam toegewezen kan worden zonder setNaam() aan te roepen.
 	 * 
 	 * @param naam
 	 *            Naam van de huidige speler

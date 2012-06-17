@@ -20,7 +20,7 @@ import exceptions.DataException;
 
 /**
  * @author nanne
- *
+ * 
  */
 public class Content {
 	// verkrijg vragen (met onderwerp)
@@ -29,7 +29,8 @@ public class Content {
 	/**
 	 * Maak de contentparser aan en bereidt voor op inlezen vragen bestand.
 	 * 
-	 * @throws DataException Als de vragen niet gevonden kunnen worden.
+	 * @throws DataException
+	 *             Als de vragen niet gevonden kunnen worden.
 	 */
 	public Content() throws DataException {
 		File file;
@@ -54,7 +55,8 @@ public class Content {
 	 * Haal alle onderwerpen uit resource/Vragen.xml.
 	 * 
 	 * @return Lijst met onderwerpen.
-	 * @throws DataException Wanneer het path van het plaatje verkeerd is.
+	 * @throws DataException
+	 *             Wanneer het path van het plaatje verkeerd is.
 	 */
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		List<Onderwerp> onderwerpen = new ArrayList<Onderwerp>();
@@ -82,9 +84,12 @@ public class Content {
 
 	/**
 	 * Krijg 4 vragen terug.
-	 * @param onderwerpNaam onderwerpfilter
+	 * 
+	 * @param onderwerpNaam
+	 *            onderwerpfilter
 	 * @return Lijst met vragen
-	 * @throws DataException wanneer Vragen.xml niet gelezen kan worden
+	 * @throws DataException
+	 *             wanneer Vragen.xml niet gelezen kan worden
 	 */
 	public List<Vraag> getVragen(String onderwerpNaam) throws DataException {
 		return getVragen(onderwerpNaam, 4);
@@ -92,10 +97,14 @@ public class Content {
 
 	/**
 	 * Krijg N vragen terug.
-	 * @param onderwerpNaam onderwerpfilter
-	 * @param hoeveel hoeveelheid vragen dat je terug wilt krijgen
+	 * 
+	 * @param onderwerpNaam
+	 *            onderwerpfilter
+	 * @param hoeveel
+	 *            hoeveelheid vragen dat je terug wilt krijgen
 	 * @return Lijst met vragen
-	 * @throws DataException wanneer Vragen.xml niet gelezen kan worden
+	 * @throws DataException
+	 *             wanneer Vragen.xml niet gelezen kan worden
 	 */
 	public List<Vraag> getVragen(String onderwerpNaam, int hoeveel) throws DataException {
 		// Laad onderdelen in uit document
@@ -113,27 +122,28 @@ public class Content {
 
 		// Haal alle vragen uit het onderwerp.
 		Elements nodes = onderwerp.getChildElements();
-		
-		// Gooi alle vragen willekeurig door elkaar, ook wanneer er te weinig vragen zijn.
+
+		// Gooi alle vragen willekeurig door elkaar, ook wanneer er te weinig
+		// vragen zijn.
 		ArrayList<Integer> vragenKeys = new ArrayList<Integer>();
 		for (int i = 0; i < Math.max(nodes.size(), hoeveel); i++)
 			vragenKeys.add(i);
 		Collections.shuffle(vragenKeys);
-		
+
 		// Verkrijg alle vragen en gooi ze in een lijst
 		List<Vraag> vragen = new ArrayList<Vraag>();
 		for (int i = 0; i < vragenKeys.size(); i++) {
 			Element node = nodes.get(vragenKeys.get(i) % nodes.size());
 			String tekst = node.getFirstChildElement("tekst").getValue();
-			
+
 			// Haal onderdelen op
 			Elements nOnderdelen = node.getFirstChildElement("onderdelen").getChildElements();
-			
+
 			ArrayList<Integer> onderdelenKeys = new ArrayList<Integer>();
 			for (int k = 0; k < nOnderdelen.size(); k++)
 				onderdelenKeys.add(k);
 			Collections.shuffle(onderdelenKeys);
-			
+
 			ArrayList<Onderdeel> onderdelen = new ArrayList<Onderdeel>();
 			for (int j = 0; j < 9; j++) {
 				Element nodeOnderdeel = nOnderdelen.get(onderdelenKeys.get(j));
@@ -143,14 +153,16 @@ public class Content {
 				try {
 					plaatje = new File(getClass().getResource("/resource/images/" + path).toURI());
 				} catch (URISyntaxException e) {
-					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord + "\" met path \""+path+"\"");
+					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord
+							+ "\" met path \"" + path + "\"");
 				} catch (java.lang.NullPointerException e) {
-					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord + "\" met path \""+path+"\"");
+					throw new DataException("Fout in filepath van plaatje van onderdeel \"" + antwoord
+							+ "\" met path \"" + path + "\"");
 				}
 
 				onderdelen.add(new Onderdeel(antwoord, plaatje));
 			}
-			
+
 			// Voeg vraag toe aan lijst.
 			vragen.add(new Vraag(tekst, onderdelen));
 		}

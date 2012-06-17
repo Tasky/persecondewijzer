@@ -8,14 +8,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import logic.GekozenAntwoord;
 import net.miginfocom.swing.MigLayout;
 import views.components.NiceButton;
-import views.components.NicePanel;
 import views.factories.JLabelFactory;
 import views.factories.JPanelFactory;
 import controllers.Spel;
@@ -43,8 +41,6 @@ public class ResultatenScherm extends JPanel {
 					SpeelScherm speelscherm = new SpeelScherm(spel);
 					spel.openPanel(speelscherm);
 					speelscherm.openResultaten();
-					
-					
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -63,12 +59,12 @@ public class ResultatenScherm extends JPanel {
 	 */
 	public ResultatenScherm(final Spel spel) {
 		ArrayList<GekozenAntwoord> gekozenAntwoorden = spel.getGekozenAntwoorden();
-		
-		setBackground(new Color(0,0,0,150));
+
+		setBackground(new Color(0, 0, 0, 150));
 		setBorder(null);
 		setLayout(new MigLayout("", "[grow][77px][grow]", "[grow][20px,growprio 50,grow][grow]"));
 
-		JPanel panel =  JPanelFactory.createTransparentJPanel();
+		JPanel panel = JPanelFactory.createTransparentJPanel();
 		add(panel, "cell 1 1,grow");
 		panel.setLayout(new MigLayout("", "[77px][95px]", "[20px,growprio 50,grow]"));
 
@@ -85,22 +81,17 @@ public class ResultatenScherm extends JPanel {
 		panel_1.add(dtrpnScore, "cell 0 0 2 1,grow");
 		dtrpnScore.setBackground(new Color(0, 0, 0, 0));
 		dtrpnScore.setForeground(Color.WHITE);
-		
+
 		int aantalGoed = 0;
 		int aantalFout = 0;
-		
+
 		for (GekozenAntwoord gk : gekozenAntwoorden)
-			if(gk.isGoed()) aantalGoed++;
+			if (gk.isGoed())
+				aantalGoed++;
 			else aantalFout++;
-		
-		
-		dtrpnScore.setText("<html>" +
-				"Aantal goed: "+ aantalGoed +"<br/>" +
-				"Aantal fout: "+ aantalFout +"<br/>" +
-				"Aantal jokers gebruikt: 0<br/><br/>" +
-				"Score: 1500<br/><br/>" +
-				"Tijd: 90 sec" +
-				"</html>");
+
+		dtrpnScore.setText("<html>" + "Aantal goed: " + aantalGoed + "<br/>" + "Aantal fout: " + aantalFout + "<br/>"
+				+ "Aantal jokers gebruikt: 0<br/><br/>" + "Score: 1500<br/><br/>" + "Tijd: 90 sec" + "</html>");
 
 		NiceButton btnStoppen = new NiceButton("Stoppen");
 		panel_1.add(btnStoppen, "cell 0 1,grow");

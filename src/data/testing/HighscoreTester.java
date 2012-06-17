@@ -25,9 +25,7 @@ public class HighscoreTester {
 	}
 
 	/**
-	 * Test method for
-	 * {@link data.Highscore#addHighscore(java.lang.String, java.lang.String, java.lang.String)}
-	 * .
+	 * Test method for {@link data.Highscore#addHighscore(java.lang.String, java.lang.String, java.lang.String)} .
 	 */
 	@Test
 	public void testAddHighscore() {

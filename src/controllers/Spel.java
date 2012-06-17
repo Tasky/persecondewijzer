@@ -1,6 +1,5 @@
 package controllers;
 
-import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +20,9 @@ import exceptions.DataException;
 
 /**
  * @author tim, nanne
- *
+ * 
  */
 public class Spel {
-
 
 	private Speler				speler;
 	private Timer				timer;
@@ -36,51 +34,37 @@ public class Spel {
 	private Content				content;
 
 	private List<Vraag>			vragen;
-	private Applicatie	applicatie;
+	private Applicatie			applicatie;
 
-	public Spel(Applicatie applicatie) {
-		this.applicatie = applicatie;
-		startSpel();
-	}
-	
 	/**
 	 * Start spel op.
 	 */
 	public Spel() {
 		startSpel();
 	}
-	
-	private void startSpel() {
-		speler = new Speler();
-		timer = new Timer();
-		joker = new JokerUitrekenaar();
 
-		try {
-			content = new Content();
-		} catch (DataException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
-			System.exit(0);
-			return;
-		}
-		window = new MainWindow(this);
+	public Spel(Applicatie applicatie) {
+		this.applicatie = applicatie;
+		startSpel();
 	}
 
 	/**
 	 * Ga terug naar het hoofdmenu.
 	 */
 	public void backToMainMenu() {
-		if(applicatie != null) {
+		if (applicatie != null) {
 			window.close();
 			applicatie.nieuwSpel();
-		} else {
-			System.exit(0);
-		}
+		} else System.exit(0);
+	}
+
+	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
+		return getHuidigeVraag().getGekozenAntwoorden();
 	}
 
 	/**
 	 * Geef het huidige onderdeel terug
+	 * 
 	 * @return huidige onderdeel
 	 */
 	public logic.Onderdeel getHuidigeOnderdeel() {
@@ -89,12 +73,13 @@ public class Spel {
 
 	/**
 	 * Geef de huidige vraag terug
+	 * 
 	 * @return huidige vraag
 	 */
 	private Vraag getHuidigeVraag() {
 		return vragen.get(huidigeRonde);
 	}
-	
+
 	/**
 	 * @return hoeveel jokers
 	 */
@@ -102,8 +87,17 @@ public class Spel {
 		return joker.getAantalOver();
 	}
 
+	public int getJokerKosten() {
+		return joker.getKosten();
+	}
+
+	public int getMaxJokers() {
+		return joker.getMaxJokers(timer);
+	}
+
 	/**
 	 * Verkrijg onderdelen van huidige vraag
+	 * 
 	 * @return alle onderdelen
 	 */
 	public ArrayList<Onderdeel> getOnderdelen() {
@@ -112,8 +106,10 @@ public class Spel {
 
 	/**
 	 * Verkrijg alle onderwerpen
+	 * 
 	 * @return Lijst met onderwerpen
-	 * @throws DataException wanneer onderwerpen niet ingelezen kunnen worden 
+	 * @throws DataException
+	 *             wanneer onderwerpen niet ingelezen kunnen worden
 	 */
 	public List<Onderwerp> getOnderwerpen() throws DataException {
 		return content.getOnderwerpen();
@@ -135,7 +131,9 @@ public class Spel {
 
 	/**
 	 * Kies een onderdeel, hiermee wordt een GekozenAntwoord aangemaakt en teruggestuurd.
-	 * @param optie gekozen onderdeel
+	 * 
+	 * @param optie
+	 *            gekozen onderdeel
 	 * @return gekozenantwoord, hiermee kan ook gekeken worden of het goed is
 	 */
 	public GekozenAntwoord kiesOnderdeel(Onderdeel optie) {
@@ -144,6 +142,7 @@ public class Spel {
 
 	/**
 	 * Open een scherm.
+	 * 
 	 * @param panel
 	 */
 	public void openPanel(JPanel panel) {
@@ -176,6 +175,23 @@ public class Spel {
 		speler.setNaam(naam);
 	}
 
+	private void startSpel() {
+		speler = new Speler();
+		timer = new Timer();
+		joker = new JokerUitrekenaar();
+
+		try {
+			content = new Content();
+		} catch (DataException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
+			System.exit(0);
+			return;
+		}
+		window = new MainWindow(this);
+	}
+
 	/**
 	 * @param aantal
 	 */
@@ -199,6 +215,7 @@ public class Spel {
 
 	/**
 	 * Antwoord wijzigen
+	 * 
 	 * @param van
 	 * @param naar
 	 */
@@ -208,21 +225,11 @@ public class Spel {
 
 	/**
 	 * Jokers inzetten
-	 * @param jokers hoeveel jokers
+	 * 
+	 * @param jokers
+	 *            hoeveel jokers
 	 */
 	public void zetJokersIn(int jokers) {
 		joker.zetJokersIn(jokers);
-	}
-
-	public int getJokerKosten() {
-		return joker.getKosten();
-	}
-
-	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
-		return getHuidigeVraag().getGekozenAntwoorden();
-	}
-
-	public int getMaxJokers() {
-		return joker.getMaxJokers(timer);
 	}
 }

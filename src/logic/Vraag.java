@@ -1,26 +1,28 @@
 package logic;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import exceptions.DataException;
 
 public class Vraag {
 
-	private String						_tekst;
-	private ArrayList<Onderdeel>		_onderdelen;
+	private String								_tekst;
+	private ArrayList<Onderdeel>				_onderdelen;
 	private ArrayList<logic.GekozenAntwoord>	_antwoorden		= new ArrayList<logic.GekozenAntwoord>();
-	private int							huidigOnderdeel	= -1;
+	private int									huidigOnderdeel	= -1;
 
 	public Vraag(String vraag, ArrayList<Onderdeel> onderdelen) throws DataException {
 		setTekst(vraag);
 		setOnderdelen(onderdelen);
 	}
 
+	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
+		return _antwoorden;
+	}
+
 	public Onderdeel getHuidigeOnderdeel() {
-		if(huidigOnderdeel > (_onderdelen.size()-1)) return null;
-		
+		if (huidigOnderdeel > _onderdelen.size() - 1) return null;
+
 		return _onderdelen.get(huidigOnderdeel);
 	}
 
@@ -71,10 +73,6 @@ public class Vraag {
 		}
 		if (gkVan != null) gkVan.setGekozenOnderdeel(naar);
 		if (gkNaar != null) gkNaar.setGekozenOnderdeel(van);
-	}
-
-	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
-		return _antwoorden;
 	}
 
 }

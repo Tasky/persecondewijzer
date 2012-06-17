@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -44,6 +43,13 @@ public class MainWindow {
 		frame.setVisible(true);
 
 		this.spel = spel;
+	}
+
+	/**
+	 * 
+	 */
+	public void close() {
+		frame.dispose();
 	}
 
 	/**
@@ -150,12 +156,5 @@ public class MainWindow {
 			openPanel(kiesOnderwerp);
 			spel.setSpelerNaam(naamNo);
 		}
-	}
-
-	/**
-	 * 
-	 */
-	public void close() {
-		frame.dispose();
 	}
 }

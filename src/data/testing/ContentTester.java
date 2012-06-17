@@ -15,7 +15,7 @@ import exceptions.DataException;
 
 /**
  * @author nanne
- *
+ * 
  */
 public class ContentTester {
 	private data.Content	content;

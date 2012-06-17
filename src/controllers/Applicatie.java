@@ -5,7 +5,8 @@ import java.awt.EventQueue;
 public class Applicatie {
 	/**
 	 * Launch the application.
-	 * @param args 
+	 * 
+	 * @param args
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -22,8 +23,8 @@ public class Applicatie {
 	}
 
 	public Applicatie() {}
-	
+
 	public void nieuwSpel() {
-		new Spel(this); 
+		new Spel(this);
 	}
 }

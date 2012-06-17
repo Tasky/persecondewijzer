@@ -3,11 +3,8 @@ package views.panels;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JButton;
-
-import views.components.NiceButton;
-
 import logic.Onderdeel;
+import views.components.NiceButton;
 
 public class OnderdeelButton extends NiceButton implements Observer {
 

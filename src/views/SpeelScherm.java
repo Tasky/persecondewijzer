@@ -2,7 +2,6 @@ package views;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,12 +14,9 @@ import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
@@ -56,15 +52,17 @@ public class SpeelScherm extends NicePanel {
 		});
 	}
 
-	private int							currentCell	= 0;
-	private final JPanel				middenvlak	= JPanelFactory.createTransparentJPanel();
-	private ArrayList<Onderdeel>		onderdelen;
-	private Onderdeel					huidigeOnderdeel;
-	private JPanel						gekozenAntwoordenPanel;
+	private int								currentCell			= 0;
+	private final JPanel					middenvlak			= JPanelFactory.createTransparentJPanel();
+	private ArrayList<Onderdeel>			onderdelen;
+	private Onderdeel						huidigeOnderdeel;
+	private JPanel							gekozenAntwoordenPanel;
 
-	private Spel						spel;
+	private Spel							spel;
 
-	private ArrayList<OnderdeelButton>	buttons		= new ArrayList<OnderdeelButton>();
+	private ArrayList<OnderdeelButton>		buttons				= new ArrayList<OnderdeelButton>();
+
+	ArrayList<views.panels.GekozenAntwoord>	gekozenAntwoorden	= new ArrayList<views.panels.GekozenAntwoord>();
 
 	/**
 	 * Opstarten van speelscherm
@@ -94,18 +92,20 @@ public class SpeelScherm extends NicePanel {
 
 		// Layout instellingen
 		setBounds(0, 0, 1024, 768);
-		setLayout(new MigLayout("ins 0 10px 10px 10px", "[124][grow][]", "[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
+		setLayout(new MigLayout("ins 0 10px 10px 10px", "[124][grow][]",
+				"[110.00][350px:24.00,grow][:126.00:250px,grow,fill]"));
 
 		// Middenvlak toevoegen
 		middenvlak.setLayout(new GridLayout(1, 0, 0, 0));
 		add(middenvlak, "cell 1 1 2 1,grow");
-		
+
 		// Vraag toevoegen
 		add(JLabelFactory.createJLabel(vraag), "cell 1 0 2 1");
 
 		// Toon kiesbare onderdelen
 		JPanel buttonsPanel = JPanelFactory.createTransparentJPanel();
-		buttonsPanel.setLayout(new MigLayout("ins 10px 10px 0 10px", "[grow]", "[grow][grow][grow][grow][grow][grow][grow][grow][grow][grow]"));
+		buttonsPanel.setLayout(new MigLayout("ins 10px 10px 0 10px", "[grow]",
+				"[grow][grow][grow][grow][grow][grow][grow][grow][grow][grow]"));
 		add(buttonsPanel, "cell 0 1,grow");
 		toonOnderdelen(buttonsPanel, onderdelen);
 
@@ -121,48 +121,6 @@ public class SpeelScherm extends NicePanel {
 		toonInfoPanel(spel);
 	}
 
-	/**
-	 * @param spel
-	 */
-	private void toonInfoPanel(final Spel spel) {
-		JPanel infoPanel = JPanelFactory.createTransparentJPanel();
-		add(infoPanel, "cell 2 2,grow");
-		infoPanel.setLayout(new MigLayout("", "[116px,grow]", "[grow,fill][154px]"));
-		
-		final views.panels.InfoPanel timer = new views.panels.InfoPanel(spel);
-		infoPanel.add(timer, "cell 0 0,grow");
-
-		NiceButton btnStoppen = new NiceButton("Stop de tijd");
-		infoPanel.add(btnStoppen, "cell 0 1,grow");
-		
-		luisterNaarStoppen(timer, btnStoppen);
-	}
-
-	/**
-	 * 
-	 * @param timer
-	 * @param btnStoppen
-	 */
-	private void luisterNaarStoppen(final views.panels.InfoPanel timer, final JButton btnStoppen) {
-		final SpeelScherm speelscherm = this;
-		btnStoppen.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				middenvlak.removeAll();
-				for (JButton button : buttons) {
-					button.setEnabled(false);
-				}
-				middenvlak.add(new JokerScherm(speelscherm, spel));
-				middenvlak.revalidate();
-				middenvlak.repaint();
-
-				btnStoppen.setEnabled(false);
-				timer.stopTimer();
-			}
-		});
-	}
-
-	ArrayList<views.panels.GekozenAntwoord> gekozenAntwoorden = new ArrayList<views.panels.GekozenAntwoord>();
 	/**
 	 * @param optie
 	 * @return
@@ -208,15 +166,69 @@ public class SpeelScherm extends NicePanel {
 		return gk;
 	}
 
+	/**
+	 * 
+	 * @param timer
+	 * @param btnStoppen
+	 */
+	private void luisterNaarStoppen(final views.panels.InfoPanel timer, final JButton btnStoppen) {
+		final SpeelScherm speelscherm = this;
+		btnStoppen.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				middenvlak.removeAll();
+				for (JButton button : buttons)
+					button.setEnabled(false);
+				middenvlak.add(new JokerScherm(speelscherm, spel));
+				middenvlak.revalidate();
+				middenvlak.repaint();
+
+				btnStoppen.setEnabled(false);
+				timer.stopTimer();
+			}
+		});
+	}
+
+	/**
+	 * 
+	 */
+	public void openResultaten() {
+		for (views.panels.GekozenAntwoord gk : gekozenAntwoorden)
+			gk.geefLijntje(true);
+		middenvlak.removeAll();
+		for (JButton button : buttons)
+			button.setEnabled(false);
+		middenvlak.revalidate();
+		middenvlak.repaint();
+		middenvlak.add(new ResultatenScherm(spel));
+	}
+
+	/**
+	 * @param spel
+	 */
+	private void toonInfoPanel(final Spel spel) {
+		JPanel infoPanel = JPanelFactory.createTransparentJPanel();
+		add(infoPanel, "cell 2 2,grow");
+		infoPanel.setLayout(new MigLayout("", "[116px,grow]", "[grow,fill][154px]"));
+
+		final views.panels.InfoPanel timer = new views.panels.InfoPanel(spel);
+		infoPanel.add(timer, "cell 0 0,grow");
+
+		NiceButton btnStoppen = new NiceButton("Stop de tijd");
+		infoPanel.add(btnStoppen, "cell 0 1,grow");
+
+		luisterNaarStoppen(timer, btnStoppen);
+	}
+
 	private void toonOnderdelen(JPanel buttonsPanel, ArrayList<Onderdeel> onderdelen) {
 		int cell = 0;
-		
+
 		ArrayList<Onderdeel> buttonOnderdelen = new ArrayList<Onderdeel>();
 		for (Onderdeel optie : onderdelen)
 			buttonOnderdelen.add(optie);
-		
+
 		Collections.shuffle(buttonOnderdelen);
-		
+
 		for (final Onderdeel optie : buttonOnderdelen) {
 			final OnderdeelButton button = new OnderdeelButton(optie);
 			button.addActionListener(new ActionListener() {
@@ -242,7 +254,7 @@ public class SpeelScherm extends NicePanel {
 		spel.volgendeOnderdeel();
 		huidigeOnderdeel = spel.getHuidigeOnderdeel();
 
-		if(huidigeOnderdeel != null) {
+		if (huidigeOnderdeel != null) {
 			middenvlak.removeAll();
 			ImagePanel plaatje = new ImagePanel(huidigeOnderdeel.getPlaatje());
 			plaatje.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -251,22 +263,5 @@ public class SpeelScherm extends NicePanel {
 		}
 		middenvlak.revalidate();
 		middenvlak.repaint();
-	}
-
-	/**
-	 * 
-	 */
-	public void openResultaten() {
-		for (views.panels.GekozenAntwoord gk : gekozenAntwoorden) {
-			gk.geefLijntje(true);
-		
-		}
-		middenvlak.removeAll();
-		for (JButton button : buttons) {
-			button.setEnabled(false);
-		}
-		middenvlak.revalidate();
-		middenvlak.repaint();
-		middenvlak.add(new ResultatenScherm(spel));
 	}
 }
