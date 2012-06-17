@@ -53,7 +53,7 @@ public class Timer extends Observable {
 	}
 
 	public boolean hasLost() {
-		return huidigeTijd > 0 ? true : false;
+		return huidigeTijd < 0;
 	}
 
 	private void setTime(int time) {
