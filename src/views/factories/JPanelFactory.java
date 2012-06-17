@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import views.components.GradientPanel;
+import views.components.NoisePanel;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -43,7 +44,7 @@ public final class JPanelFactory {
 	 * @wbp.factory
 	 */
 	public static JPanel createBackgroundJPanel() {
-		GradientPanel panel = new GradientPanel();
+		NoisePanel panel = new NoisePanel();
 		panel.setRoundedCorners(true);
 		panel.setUpperColor(new Color(209, 199, 195));
 		panel.setLowerColor(new Color(231, 226, 224));
