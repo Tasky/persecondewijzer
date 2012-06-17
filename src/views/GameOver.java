@@ -14,11 +14,26 @@ import views.components.NicePanel;
 import controllers.Spel;
 
 public class GameOver extends NicePanel {
+	/**
+	 * Redenen dat iemand kan verliezen.
+	 */
+	public enum Reason {
+		/**
+		 * Tijd op.
+		 */
+		TIMEUP,
+		/**
+		 * Teveel fouten.
+		 */
+		MISTAKES
+	}
 
 	/**
 	 * Create the frame.
+	 * @param spel 
+	 * @param timeup 
 	 */
-	public GameOver(final Spel spel) {
+	public GameOver(final Spel spel, Reason timeup) {
 		setForeground(Color.WHITE);
 		setBounds(0, 0, 800, 543);
 		setBorder(new EmptyBorder(5, 5, 5, 5));

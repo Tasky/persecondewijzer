@@ -34,6 +34,10 @@ import views.factories.JPanelFactory;
 import views.panels.OnderdeelButton;
 import controllers.Spel;
 
+/**
+ * Ons prachige speelscherm.
+ * @author bas
+ */
 public class SpeelScherm extends NicePanel {
 	/**
 	 * Opstarten speelscherm, handig voor debuggen of snel testen.
@@ -127,13 +131,15 @@ public class SpeelScherm extends NicePanel {
 			@Override
 			public void update(Observable arg0, Object arg1) {
 				if(spel.getTimer().hasLost())
-					spel.openPanel(new GameOver(spel));
+					spel.openPanel(new GameOver(spel, GameOver.Reason.TIMEUP));
 			}
 			
 		});
 	}
 
 	/**
+	 * Kies onderdeel.
+	 * 
 	 * @param optie
 	 * @return
 	 */
@@ -178,11 +184,6 @@ public class SpeelScherm extends NicePanel {
 		return gk;
 	}
 
-	/**
-	 * 
-	 * @param timer
-	 * @param btnStoppen
-	 */
 	private void luisterNaarStoppen(final views.panels.InfoPanel timer, final JButton btnStoppen) {
 		final SpeelScherm speelscherm = this;
 		btnStoppen.addActionListener(new ActionListener() {
@@ -202,7 +203,7 @@ public class SpeelScherm extends NicePanel {
 	}
 
 	/**
-	 * 
+	 * Geef resultaten weer.
 	 */
 	public void openResultaten() {
 		for (views.panels.GekozenAntwoord gk : gekozenAntwoorden)
@@ -214,10 +215,7 @@ public class SpeelScherm extends NicePanel {
 		middenvlak.repaint();
 		middenvlak.add(new ResultatenScherm(spel));
 	}
-
-	/**
-	 * @param spel
-	 */
+	
 	private void toonInfoPanel(final Spel spel) {
 		JPanel infoPanel = JPanelFactory.createTransparentJPanel();
 		add(infoPanel, "cell 2 2,grow");
@@ -261,9 +259,6 @@ public class SpeelScherm extends NicePanel {
 		}
 	}
 
-	/**
-	 * @throws IOException
-	 */
 	private void volgendeOnderdeel() throws IOException {
 		spel.volgendeOnderdeel();
 		huidigeOnderdeel = spel.getHuidigeOnderdeel();
