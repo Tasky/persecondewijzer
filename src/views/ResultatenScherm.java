@@ -89,9 +89,11 @@ public class ResultatenScherm extends JPanel {
 				+ "Aantal jokers gebruikt: 0<br/><br/>" + "Score: 1500<br/><br/>" + "Tijd: 90 sec" + "</html>");
 
 		NiceButton btnStoppen = new NiceButton("Stoppen");
-		panel_1.add(btnStoppen, "cell 0 1,grow");
-
 		NiceButton btnNewButton = new NiceButton("Verder");
+		
+		btnStoppen.setEnabled(spel.moetDoorspelen());
+		
+		panel_1.add(btnStoppen, "cell 0 1,grow");
 		panel_1.add(btnNewButton, "cell 1 1,grow");
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override

@@ -14,6 +14,7 @@ import logic.Onderwerp;
 import logic.Speler;
 import logic.Timer;
 import logic.Vraag;
+import views.GameOver;
 import views.MainWindow;
 import data.Content;
 import exceptions.DataException;
@@ -226,6 +227,10 @@ public class Spel {
 	 * Verhoog ronde.
 	 */
 	public void volgendeVraag() {
+		if(!magDoorspelen()) {
+			openPanel(new GameOver(this, GameOver.Reason.MISTAKES));
+			return;
+		}
 		huidigeRonde++;
 	}
 
@@ -270,7 +275,15 @@ public class Spel {
 	 * @return timer
 	 */
 	public logic.Timer getTimer() {
-		// TODO Auto-generated method stub
 		return timer;
+	}
+
+	/**
+	 * Krijg score
+	 * @return huidige score
+	 */
+	public int getScore() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
