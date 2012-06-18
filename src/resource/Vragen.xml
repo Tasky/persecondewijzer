@@ -84,7 +84,19 @@
 				<onderdeel image="Acteur_Willis.jpg">Bruce Willis</onderdeel>
 			</onderdelen>
 		</vraag>
-		
+		<vraag>
+			<tekst>Welke film is dit?</tekst>
+			<onderdelen>
+				<onderdeel image="Films_2001ASpaceOdyssey.png">2001: A Space Odyssey</onderdeel>
+				<onderdeel image="Films_AmericanPsycho.png">American Psycho</onderdeel>
+				<onderdeel image="Films_GroundhogDay.png">Groundhog Day</onderdeel>
+				<onderdeel image="Films_Leon.png">Léon: The Professional</onderdeel>
+				<onderdeel image="Films_LordOfWar.png">Lord of War</onderdeel>
+				<onderdeel image="Films_MenInBlack.png">Men in Black</onderdeel>
+				<onderdeel image="Films_PulpFiction.png">Pulp Fiction</onderdeel>
+				<onderdeel image="Films_TheGreenMile.png">The Green Mile</onderdeel>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
 	<onderwerp name="Eten en Drank" image="Bier.jpg">
 		<vraag>
