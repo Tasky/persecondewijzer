@@ -252,31 +252,30 @@
 		<vraag>
 			<tekst>In welk jaar is de onderstaande uitvinding gedaan?</tekst>
 			<onderdelen>
-				<onderdeel image="Uitvindingen_Gloeilamp.jpg">1879</onderdeel>
-				<onderdeel image="Uitvindingen_kompass.jpg">12e eeuw</onderdeel>
-				<onderdeel image="uitvindingen_onderzeeBoot.jpg">1620</onderdeel>
-				<onderdeel image="Uitvindingen_Piano.jpg">1998 - 1709</onderdeel>
-				<onderdeel image="Uitvindingen_Plakband.jpg">1926</onderdeel>
-				<onderdeel image="Uitvindingen_Straalmoter.jpg">1928</onderdeel>
-				<onderdeel image="Uitvindingen_tv.jpg">1922</onderdeel>
-				<onderdeel image="Uitvindingen_Wiel.jpg">3500 v.Chr.</onderdeel>
-				<onderdeel image="Uitvindingen_Zeppelin.jpg">1899</onderdeel>
+				<onderdeel antwoord="Gloeilamp" image="Uitvindingen_Gloeilamp.jpg">1879</onderdeel>
+				<onderdeel antwoord="Kompass" image="Uitvindingen_kompass.jpg">12e eeuw</onderdeel>
+				<onderdeel antwoord="Onderzeeboot" image="uitvindingen_onderzeeBoot.jpg">1620</onderdeel>
+				<onderdeel antwoord="Piano" image="Uitvindingen_Piano.jpg">1998 - 1709</onderdeel>
+				<onderdeel antwoord="Plakband" image="Uitvindingen_Plakband.jpg">1926</onderdeel>
+				<onderdeel antwoord="Straalmoter" image="Uitvindingen_Straalmoter.jpg">1928</onderdeel>
+				<onderdeel antwoord="TV" image="Uitvindingen_tv.jpg">1922</onderdeel>
+				<onderdeel antwoord="Wiel" image="Uitvindingen_Wiel.jpg">3500 v.Chr.</onderdeel>
+				<onderdeel antwoord="Zeppelin" image="Uitvindingen_Zeppelin.jpg">1899</onderdeel>
 			</onderdelen>
 		</vraag>
 		<vraag>
 			<tekst>Wanneer werd een land met de EK kampioen?</tekst>
 			<onderdelen>
-				<onderdeel image="Vlag_Sovjet-Unie.jpg">1960</onderdeel>
-				<onderdeel image="Vlag_Italie.jpg">1968</onderdeel>
-				<onderdeel image="Vlag_Tsjecho-Slowakije.jpg">1976</onderdeel>
-				<onderdeel image="Vlag_Nederland.jpg">1988</onderdeel>
-				<onderdeel image="Vlag_Denemarken.jpg">1992</onderdeel>
-				<onderdeel image="Vlag_Duitsland.jpg">1996</onderdeel>
-				<onderdeel image="Vlag_Frankrijk.jpg">2000</onderdeel>
-				<onderdeel image="Vlag_Griekenland.jpg">2004</onderdeel>
-				<onderdeel image="Vlag_Spain.jpg">2008</onderdeel>
+				<onderdeel antwoord="Sovjet-Unie" image="Vlag_Sovjet-Unie.jpg">1960</onderdeel>
+				<onderdeel antwoord="Italië" image="Vlag_Italie.jpg">1968</onderdeel>
+				<onderdeel antwoord="Tsjecho-Slowakije" image="Vlag_Tsjecho-Slowakije.jpg">1976</onderdeel>
+				<onderdeel antwoord="Nederland" image="Vlag_Nederland.jpg">1988</onderdeel>
+				<onderdeel antwoord="Denemarken" image="Vlag_Denemarken.jpg">1992</onderdeel>
+				<onderdeel antwoord="Duitsland" image="Vlag_Duitsland.jpg">1996</onderdeel>
+				<onderdeel antwoord="Frankrijk" image="Vlag_Frankrijk.jpg">2000</onderdeel>
+				<onderdeel antwoord="Griekenland" image="Vlag_Griekenland.jpg">2004</onderdeel>
+				<onderdeel antwoord="Spanje" image="Vlag_Spain.jpg">2008</onderdeel>
 			</onderdelen>
 		</vraag>
 	</onderwerp>
->>>>>>> b3aa02de794ee1e5dcd56e61c4baf1853c42476d
 </onderwerpen>
