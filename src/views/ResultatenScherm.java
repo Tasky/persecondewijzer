@@ -31,9 +31,20 @@ public class ResultatenScherm extends JPanel {
 					List<logic.Onderwerp> onderwerpen = spel.getOnderwerpen();
 					spel.setOnderwerp(onderwerpen.get(1));
 
-					List<logic.Onderdeel> onderdelen = spel.getOnderdelen();
-
-					for (logic.Onderdeel o : onderdelen) {
+					List<logic.Onderdeel> ondrln = spel.getOnderdelen();
+					List<logic.Onderdeel> ondrln2 = new ArrayList<logic.Onderdeel>(); 
+					
+					ondrln2.add(ondrln.get(0)); // 0
+					ondrln2.add(ondrln.get(1)); // 1
+					ondrln2.add(ondrln.get(2)); // 2
+					ondrln2.add(ondrln.get(3)); // 3
+					ondrln2.add(ondrln.get(4)); // 4
+					ondrln2.add(ondrln.get(8)); // 5
+					ondrln2.add(ondrln.get(7)); // 6
+					ondrln2.add(ondrln.get(6)); // 7
+					ondrln2.add(ondrln.get(5)); // 8
+					
+					for (logic.Onderdeel o : ondrln2) {
 						spel.volgendeOnderdeel();
 						spel.kiesOnderdeel(o);
 					}
@@ -85,8 +96,22 @@ public class ResultatenScherm extends JPanel {
 				aantalGoed++;
 			else aantalFout++;
 
-		dtrpnScore.setText("<html>Aantal <b>goed</b>: " + aantalGoed + "<br/>Aantal <b>fout</b>: " + aantalFout + "<br/>"
-				+ "Aantal jokers gebruikt: 0<br/><br/>" + "Score: 1500, tijd: 90 sec" + (spel.moetDoorspelen() ? "<br /><br /><b>Je moet doorspelen.</b>" : "") + "</html>");
+		StringBuilder builder = new StringBuilder();
+		builder.append("<html>Aantal <b>goed</b>: ");
+		builder.append(aantalGoed);
+		builder.append("<br/>Aantal <b>fout</b>: ");
+		builder.append(aantalFout);
+		builder.append("<br/>");
+		builder.append("Aantal jokers gebruikt: 0<br/><br/>");
+		builder.append("Score: 1500, tijd: 90 sec");
+		if(!spel.magDoorspelen()) {
+			builder.append("<br /><br /><b>Je hebt verloren.</b>");
+		} else if(spel.moetDoorspelen()) {
+			builder.append("<br /><br /><b>Je moet doorspelen.</b>");	
+		}
+		
+		builder.append("</html>");
+		dtrpnScore.setText(builder.toString());
 
 		NiceButton btnStoppen = new NiceButton("Stoppen");
 		NiceButton btnNewButton = new NiceButton("Verder");
