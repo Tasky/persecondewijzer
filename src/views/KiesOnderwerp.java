@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import logic.Onderwerp;
 import net.miginfocom.swing.MigLayout;
 import views.components.NicePanel;
+import views.factories.JPanelFactory;
 import controllers.Spel;
 import exceptions.DataException;
 
@@ -48,7 +49,7 @@ public class KiesOnderwerp extends NicePanel {
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 47));
 		add(lblNewLabel, "flowx,cell 1 1,alignx center,aligny center");
 
-		JPanel panel = new JPanel();
+		JPanel panel = JPanelFactory.createBackgroundJPanel();
 		add(panel, "cell 1 2,alignx center,aligny center");
 		panel.setLayout(new MigLayout("", "[40px,grow][40px,grow][40px,grow][40px,grow][40px,grow]", "[]"));
 

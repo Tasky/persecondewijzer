@@ -14,6 +14,7 @@ import net.miginfocom.swing.MigLayout;
 import views.SpeelScherm;
 import views.components.ImagePanel;
 import controllers.Spel;
+import javax.swing.SwingConstants;
 
 public class Onderwerp extends JPanel {
 
@@ -21,12 +22,14 @@ public class Onderwerp extends JPanel {
 	 * Create the panel.
 	 */
 	public Onderwerp(final logic.Onderwerp onderwerp, final Spel spel) {
+		setOpaque(false);
 		setBorder(null);
-		setLayout(new MigLayout("", "[123.00,fill][21.00][408.00,grow][]", "[][100px:149.00:100px,grow,fill]"));
+		setLayout(new MigLayout("", "[123px:176.00,grow,fill]", "[40.00][100px:149.00:100px,grow,fill]"));
 		try {
 			JLabel lblSteden = new JLabel(onderwerp.getNaam());
-			lblSteden.setFont(new Font("Dialog", Font.PLAIN, 24));
-			add(lblSteden, "cell 0 0");
+			lblSteden.setHorizontalAlignment(SwingConstants.CENTER);
+			lblSteden.setFont(new Font("Dialog", Font.PLAIN, 15));
+			add(lblSteden, "cell 0 0,growx");
 
 			// Dat je op het plaatje kan klikken
 			ImagePanel image = new ImagePanel(onderwerp.getPlaatje());
