@@ -149,6 +149,9 @@ public class Content {
 				Element nodeOnderdeel = nOnderdelen.get(onderdelenKeys.get(j));
 				String antwoord = nodeOnderdeel.getValue();
 				String path = nodeOnderdeel.getAttribute("image").getValue();
+				String extraAntwoord = "";
+				if(nodeOnderdeel.getAttribute("antwoord") != null)
+					extraAntwoord = nodeOnderdeel.getAttribute("antwoord").getValue();
 				File plaatje = null;
 				try {
 					plaatje = new File(getClass().getResource("/resource/images/" + path).toURI());
@@ -160,7 +163,9 @@ public class Content {
 							+ "\" met path \"" + path + "\"");
 				}
 
-				onderdelen.add(new Onderdeel(antwoord, plaatje));
+				Onderdeel onderdeel = new Onderdeel(antwoord, plaatje);
+				if(extraAntwoord != "") onderdeel.setAntwoord(extraAntwoord);
+				onderdelen.add(onderdeel);
 			}
 
 			// Voeg vraag toe aan lijst.

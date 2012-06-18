@@ -4,6 +4,7 @@ import java.io.File;
 
 public class Onderdeel {
 	private String	_tekst;
+	private String	_antwoord;
 	private File	_plaatje;
 
 	public Onderdeel(String antwoord, File plaatje) {
@@ -30,5 +31,21 @@ public class Onderdeel {
 	@Override
 	public String toString() {
 		return getTekst();
+	}
+
+	/**
+	 * @return the _antwoord
+	 */
+	public String getAntwoord() {
+		if(_antwoord == null)
+			return getTekst();
+		return _antwoord;
+	}
+
+	/**
+	 * @param _antwoord the _antwoord to set
+	 */
+	public void setAntwoord(String _antwoord) {
+		this._antwoord = _antwoord;
 	}
 }

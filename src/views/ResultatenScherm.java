@@ -119,14 +119,12 @@ public class ResultatenScherm extends JPanel {
 			
 			onderdelen.add(JLabelFactory.createAntwoordJLabel("="), "cell 1 " + i + ",grow");
 			
-			JLabel txtBoolean =  JLabelFactory.createAntwoordJLabel(gk.getHuidigeOnderdeel().getTekst());
+			JLabel txtBoolean =  JLabelFactory.createAntwoordJLabel(gk.getGekozenOnderdeel().getAntwoord());
 
 			txtBoolean.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 			if (gk.isGoed())
 				txtBoolean.setForeground(new Color(43, 111, 43));
 			else txtBoolean.setForeground(Color.RED);
-
-			txtBoolean.setText(gk.getGekozenOnderdeel().getTekst());
 
 			onderdelen.add(txtBoolean, "cell 2 " + i + ",grow");
 
