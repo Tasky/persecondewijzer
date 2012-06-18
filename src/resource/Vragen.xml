@@ -40,26 +40,30 @@
 				<onderdeel image="Land_Panama.png">Panama</onderdeel>
 				<onderdeel image="Land_Peru.png">Peru</onderdeel>
 				<onderdeel image="Land_Somalie.png">Somalië</onderdeel>
-				<onderdeel image="Land_Suriname.png">Suriname</onderdeel></onderdelen></vraag>
+				<onderdeel image="Land_Suriname.png">Suriname</onderdeel>
+			</onderdelen>
+		</vraag>
 		<vraag>
-			
-			<tekst>Welk gebouw is dit?</tekst><onderdelen>
-	<onderdeel image="Gebouw_Atomium.jpg">Atomium</onderdeel>
-	<onderdeel image="Gebouw_Bigben.jpg">Big Ben</onderdeel>
-	<onderdeel image="Gebouw_Colosseum.jpg">Colosseum</onderdeel>
-	<onderdeel image="Gebouw_Eiffeltoren.jpg">Eiffeltoren</onderdeel>
-	<onderdeel image="Gebouw_Empire.jpg">Empire State Building</onderdeel>
-	<onderdeel image="Gebouw_Pisa.jpg">Toren van Pisa</onderdeel>
-	<onderdeel image="Gebouw_Sydney.jpg">Sydney Opera House</onderdeel>
-	<onderdeel image="Gebouw_Taj_Mahal.jpg">Taj Mahal</onderdeel>
-	<onderdeel image="Gebouw_Whitehouse.jpg">Witte Huis</onderdeel></onderdelen></vraag>
+
+			<tekst>Welk gebouw is dit?</tekst>
+			<onderdelen>
+				<onderdeel image="Gebouw_Atomium.jpg">Atomium</onderdeel>
+				<onderdeel image="Gebouw_Bigben.jpg">Big Ben</onderdeel>
+				<onderdeel image="Gebouw_Colosseum.jpg">Colosseum</onderdeel>
+				<onderdeel image="Gebouw_Eiffeltoren.jpg">Eiffeltoren</onderdeel>
+				<onderdeel image="Gebouw_Empire.jpg">Empire State Building</onderdeel>
+				<onderdeel image="Gebouw_Pisa.jpg">Toren van Pisa</onderdeel>
+				<onderdeel image="Gebouw_Sydney.jpg">Sydney Opera House</onderdeel>
+				<onderdeel image="Gebouw_Taj_Mahal.jpg">Taj Mahal</onderdeel>
+				<onderdeel image="Gebouw_Whitehouse.jpg">Witte Huis</onderdeel>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
-	
 	<onderwerp name="Amusement" image="theater.jpg">
 		<vraag>
 			<tekst>Welke cabaretier hoort bij de afbeelding?</tekst>
 			<onderdelen>
-								<onderdeel image="Theater_Andre.jpg">Andre van Duin</onderdeel>
+				<onderdeel image="Theater_Andre.jpg">Andre van Duin</onderdeel>
 				<onderdeel image="Theater_Hans.jpg">Hans Teeuwen</onderdeel>
 				<onderdeel image="Theater_Herman.jpg">Herman Finkers</onderdeel>
 				<onderdeel image="Theater_Javier.jpg">Javier Guzman</onderdeel>
@@ -70,10 +74,10 @@
 				<onderdeel image="Theater_Yoep.jpg">Youp van 't Hek</onderdeel>
 			</onderdelen>
 		</vraag>
-				<vraag>
+		<vraag>
 			<tekst>Wie is deze Actieheld?</tekst>
 			<onderdelen>
-								<onderdeel image="Acteur_Chan.jpg">Jackie Chan</onderdeel>
+				<onderdeel image="Acteur_Chan.jpg">Jackie Chan</onderdeel>
 				<onderdeel image="Acteur_Damme.jpg">Jean Claude Van Damme</onderdeel>
 				<onderdeel image="Acteur_Li.jpg">Jet Li</onderdeel>
 				<onderdeel image="Acteur_Norris.jpg">Chuck Norris</onderdeel>
@@ -96,6 +100,20 @@
 				<onderdeel image="Films_PulpFiction.png">Pulp Fiction</onderdeel>
 				<onderdeel image="Films_TheGreenMile.png">The Green Mile</onderdeel>
 				<onderdeel image="Films_DonnyDarko.png">Donnie Darko</onderdeel>
+			</onderdelen>
+		</vraag>
+		<vraag>
+			<tekst>Uit welke game komt deze screenshot?</tekst>
+			<onderdelen>
+				<onderdeel image="Game_bioshock.jpg">Bioshock</onderdeel>
+				<onderdeel image="Game_commanderKeen.jpg">Commander Keen</onderdeel>
+				<onderdeel image="Game_diablo2.jpg">Diablo II</onderdeel>
+				<onderdeel image="Game_gta2.jpg">Grand Theft Auto 2</onderdeel>
+				<onderdeel image="Game_legendOfZelda.jpg">Legend of Zelda</onderdeel>
+				<onderdeel image="Game_Limbo.jpg">Limbo</onderdeel>
+				<onderdeel image="Game_Okami.jpg">Okami</onderdeel>
+				<onderdeel image="Game_portal.jpg">Portal</onderdeel>
+				<onderdeel image="Game_simCity2000.jpg">SimCity 2000</onderdeel>
 			</onderdelen>
 		</vraag>
 		<vraag>
@@ -128,7 +146,7 @@
 				<onderdeel image="Bier_Palm.jpg">Palm</onderdeel>
 			</onderdelen>
 		</vraag>
-				<vraag>
+		<vraag>
 			<tekst>Welke vrucht is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Fruit_Advocado.jpg">Advocado</onderdeel>
@@ -142,7 +160,7 @@
 				<onderdeel image="Fruit_Pitahaya.jpg">Pitahaya</onderdeel>
 			</onderdelen>
 		</vraag>
-			<vraag>
+		<vraag>
 			<tekst>Welke snack is dit?</tekst>
 			<onderdelen>
 				<onderdeel image="Vet_Bitterbal.jpg">Bitterbal</onderdeel>
@@ -157,7 +175,6 @@
 			</onderdelen>
 		</vraag>
 	</onderwerp>
-	
 	<onderwerp name="Sport" image="Sport.jpg">
 		<vraag>
 			<tekst>Welke darter hoort bij de afbeelding?</tekst>
@@ -174,17 +191,20 @@
 			</onderdelen>
 		</vraag>
 		<vraag>
-			
-			<tekst>Welke voetballer hoort bij de afbeelding?</tekst><onderdelen>
-	<onderdeel image="Voetbal_Bergkamp.jpg">Dennis Bergkamp</onderdeel>
-	<onderdeel image="Voetbal_Best.jpg">George Best</onderdeel>
-	<onderdeel image="Voetbal_Cruijff.jpg">Johan Cruijff</onderdeel>
-	<onderdeel image="Voetbal_Maldini.jpg">Paolo Maldini</onderdeel>
-	<onderdeel image="Voetbal_Maradona.jpg">Diego Maradona
-	</onderdeel><onderdeel image="Voetbal_Pele.jpg">Péle</onderdeel>
-	<onderdeel image="Voetbal_Zidane.jpg">Zinédine Zidane</onderdeel>
-	<onderdeel image="Voetbal_Ronaldo.JPG">Ronaldo</onderdeel>
-	<onderdeel image="Voetbal_Messi.jpg">Lionel Messi</onderdeel></onderdelen></vraag>
+			<tekst>Welke voetballer hoort bij de afbeelding?</tekst>
+			<onderdelen>
+				<onderdeel image="Voetbal_Bergkamp.jpg">Dennis Bergkamp</onderdeel>
+				<onderdeel image="Voetbal_Best.jpg">George Best</onderdeel>
+				<onderdeel image="Voetbal_Cruijff.jpg">Johan Cruijff</onderdeel>
+				<onderdeel image="Voetbal_Maldini.jpg">Paolo Maldini</onderdeel>
+				<onderdeel image="Voetbal_Maradona.jpg">Diego Maradona
+				</onderdeel>
+				<onderdeel image="Voetbal_Pele.jpg">Péle</onderdeel>
+				<onderdeel image="Voetbal_Zidane.jpg">Zinédine Zidane</onderdeel>
+				<onderdeel image="Voetbal_Ronaldo.JPG">Ronaldo</onderdeel>
+				<onderdeel image="Voetbal_Messi.jpg">Lionel Messi</onderdeel>
+			</onderdelen>
+		</vraag>
 		<vraag>
 			<tekst>Welke bal hoort bij de sport?</tekst>
 			<onderdelen>
@@ -197,7 +217,8 @@
 				<onderdeel image="Bal_Bowlingbal.jpg">Bowlingbal</onderdeel>
 				<onderdeel image="Bal_Tennisbal.jpg">Tennisbal</onderdeel>
 				<onderdeel image="Bal_Volleybal.jpg">Volleybal</onderdeel>
-				</onderdelen></vraag>
+			</onderdelen>
+		</vraag>
 		<vraag>
 			<tekst>Welke sporter is op de afbeelding te zien?</tekst>
 			<onderdelen>
@@ -210,9 +231,10 @@
 				<onderdeel image="Sport_Kasparov.jpg">Garri Kasparov</onderdeel>
 				<onderdeel image="Sport_Kramer.jpg">Sven Kramer</onderdeel>
 				<onderdeel image="Sport_Williams.jpg">Serena Williams</onderdeel>
-				</onderdelen></vraag>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
-		<onderwerp name="Geschiedenis" image="Politiek_Snor.jpg">
+	<onderwerp name="Geschiedenis" image="Politiek_Snor.jpg">
 		<vraag>
 			<tekst>Wie hoort bij deze baard/snor?</tekst>
 			<onderdelen>
@@ -227,9 +249,8 @@
 				<onderdeel image="Politiek_Stalin.jpg">Jozef Stalin</onderdeel>
 			</onderdelen>
 		</vraag>
-		
 		<vraag>
-			<tekst>Wanneer werdt een land met de EK kampioen?</tekst>
+			<tekst>Wanneer werd een land met de EK kampioen?</tekst>
 			<onderdelen>
 				<onderdeel image="Vlag_Sovjet-Unie.jpg">1960</onderdeel>
 				<onderdeel image="Vlag_Italie.jpg">1968</onderdeel>
@@ -242,6 +263,6 @@
 				<onderdeel image="Vlag_Spain.jpg">2008</onderdeel>
 			</onderdelen>
 		</vraag>
-		
 	</onderwerp>
+>>>>>>> b3aa02de794ee1e5dcd56e61c4baf1853c42476d
 </onderwerpen>
