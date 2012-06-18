@@ -98,6 +98,20 @@
 				<onderdeel image="Films_DonnyDarko.png">Donnie Darko</onderdeel>
 			</onderdelen>
 		</vraag>
+				<vraag>
+			<tekst>Uit welke game komt deze screenshot?</tekst>
+			<onderdelen>
+				<onderdeel image="Game_bioshock.jpg">Bioshock</onderdeel>
+				<onderdeel image="Game_commanderKeen.jpg">Commander Keen</onderdeel>
+				<onderdeel image="Game_diablo2.jpg">Diablo II</onderdeel>
+				<onderdeel image="Game_gta2.jpg">Grand Theft Auto 2</onderdeel>
+				<onderdeel image="Game_legendOfZelda.jpg">Legend of Zelda</onderdeel>
+				<onderdeel image="Game_Limbo.jpg">Limbo</onderdeel>
+				<onderdeel image="Game_Okami.jpg">Okami</onderdeel>
+				<onderdeel image="Game_portal.jpg">Portal</onderdeel>
+				<onderdeel image="Game_simCity2000.jpg">SimCity 2000</onderdeel>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
 	<onderwerp name="Eten en Drank" image="Bier.jpg">
 		<vraag>
