@@ -1,19 +1,15 @@
 package logic;
 
+import exceptions.LogicException;
+
 /**
  * @author tim
  * 
  */
 public class JokerUitrekenaar {
-	private static final int	jokerKosten	= 16;
-	private int					jokersOver	= 0;
-
-	/**
-	 * JokerUitrekenaar aanmaken, standaard 2 jokers.
-	 */
-	public JokerUitrekenaar() {
-		setAantalOver(2);
-	}
+	private static final int	jokerKosten		= 16;
+	private static final int	startSaldo		= 2;
+	private int					jokersGebruikt	= 0;
 
 	/**
 	 * Geeft aantal jokers terug.
@@ -21,7 +17,7 @@ public class JokerUitrekenaar {
 	 * @return aantal jokers
 	 */
 	public int getAantalOver() {
-		return jokersOver;
+		return startSaldo - jokersGebruikt;
 	}
 
 	/**
@@ -34,63 +30,38 @@ public class JokerUitrekenaar {
 	}
 
 	/**
+	 * Krijg terug hoeveel jokers er gebruikt kunnen worden.
 	 * 
 	 * @param timer
 	 * @return hoeveel jokers gebruikt kunnen worden
 	 */
 	public int getMaxJokers(Timer timer) {
-		return getAantalOver();
-	}
-
-	/**
-	 * Zet het aantal jokers op het opgegeven getal.
-	 * 
-	 * @param aantal
-	 */
-	public void setAantalOver(int aantal) {
-		jokersOver = aantal;
+		return Math.min(getAantalOver(), timer.getTime() / jokerKosten);
 	}
 
 	/**
 	 * Verlaagd het jokeraantal met 1.
-	 * 
-	 * @return true met succes
+	 * @param timer waar jokers vanaf gehaald worden
+	 * @throws LogicException jokers op
 	 */
-	public boolean verwijderJoker() {
-		int jokers = getAantalOver();
-		if (jokers > 0) {
-			setAantalOver(jokers - 1);
-			// TODO: timer verlagen met 16 seconde.
-			return true;
+	public void zetJokerIn(Timer timer) throws LogicException {
+		int jokers = getMaxJokers(timer);
+		if (jokers <= 0) {
+			throw new LogicException("Jokers zijn op!");
 		}
-		return false;
+		
+		jokersGebruikt++;
 	}
-
-	/**
-	 * Joker wordt ingezet en verwijderd van het aantal jokers.
-	 * 
-	 * @param aantal
-	 */
-	public void verwijderJokers(int aantal) {
-		for (int i = 0; i < aantal; i++)
-			verwijderJoker();
-	}
-
-	/**
-	 * Functie voor het toevoegen van een enkele joker. Deze functie haalt de huidige aantal jokers op en voegt daar er
-	 * 1 aan toe.
-	 */
-	public void zetJokerIn() {
-		setAantalOver(getAantalOver() + 1);
-	}
-
+	
 	/**
 	 * Functie voor het toevoegen van meerdere jokers. Deze functie loopt een aantal keer de functie addJoker().
-	 * 
+	 * @param timer 
+	 * @param vraag 
 	 * @param aantal
+	 * @throws LogicException jokers op
 	 */
-	public void zetJokersIn(int aantal) {
+	public void zetJokersIn(Timer timer, Vraag vraag, int aantal) throws LogicException {
 		for (int i = 0; i < aantal; i++)
-			zetJokerIn();
+			zetJokerIn(timer);
 	}
 }

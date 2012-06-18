@@ -20,6 +20,7 @@ import views.MainWindow;
 import views.SpeelScherm;
 import data.Content;
 import exceptions.DataException;
+import exceptions.LogicException;
 
 /**
  * @author tim, nanne
@@ -224,13 +225,6 @@ public class Spel {
 	}
 
 	/**
-	 * @param aantal
-	 */
-	public void verwijderJokers(int aantal) {
-		joker.verwijderJokers(aantal);
-	}
-
-	/**
 	 * 
 	 */
 	public void volgendeOnderdeel() {
@@ -268,9 +262,10 @@ public class Spel {
 	 * 
 	 * @param jokers
 	 *            hoeveel jokers
+	 * @throws LogicException 
 	 */
-	public void zetJokersIn(int jokers) {
-		joker.zetJokersIn(jokers);
+	public void zetJokersIn(int jokers) throws LogicException {
+		joker.zetJokersIn(timer, getHuidigeVraag(), jokers);
 	}
 	
 	/**

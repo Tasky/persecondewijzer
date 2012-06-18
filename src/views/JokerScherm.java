@@ -14,6 +14,7 @@ import net.miginfocom.swing.MigLayout;
 import views.components.NiceButton;
 import views.factories.JPanelFactory;
 import controllers.Spel;
+import exceptions.LogicException;
 
 /**
  * @author ?
@@ -77,7 +78,13 @@ public class JokerScherm extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				spel.zetJokersIn((Integer) spinner.getValue());
+				try {
+					spel.zetJokersIn((Integer) spinner.getValue());
+				} catch (LogicException e) {
+					// TODO Auto-generated catch block
+					// zoveel jokers heeft de gebruiker niet..
+					e.printStackTrace();
+				}
 				speelscherm.openResultaten();
 			}
 		});
