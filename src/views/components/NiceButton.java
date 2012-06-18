@@ -77,5 +77,6 @@ public class NiceButton extends JButton {
 		}
 
 		super.paintComponent(g);
+		g.translate(0, 2);
 	}
 }
