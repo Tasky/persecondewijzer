@@ -66,7 +66,7 @@ public class ResultatenScherm extends JPanel {
 
 		JPanel panel = JPanelFactory.createBackgroundJPanel();
 		add(panel, "cell 1 1,grow");
-		panel.setLayout(new MigLayout("", "[300px:n,grow,fill][95px]", "[20px,growprio 50,grow]"));
+		panel.setLayout(new MigLayout("", "[grow,fill][95px]", "[20px,growprio 50,grow]"));
 
 		panel_1 = JPanelFactory.createTransparentJPanel();
 		panel.add(panel_1, "cell 1 0,grow");
@@ -85,13 +85,13 @@ public class ResultatenScherm extends JPanel {
 				aantalGoed++;
 			else aantalFout++;
 
-		dtrpnScore.setText("<html>" + "Aantal <b>goed</b>: " + aantalGoed + "<br/>" + "Aantal <b>fout</b>: " + aantalFout + "<br/>"
-				+ "Aantal jokers gebruikt: 0<br/><br/>" + "Score: 1500<br/><br/>" + "Tijd: 90 sec" + "</html>");
+		dtrpnScore.setText("<html>Aantal <b>goed</b>: " + aantalGoed + "<br/>Aantal <b>fout</b>: " + aantalFout + "<br/>"
+				+ "Aantal jokers gebruikt: 0<br/><br/>" + "Score: 1500, tijd: 90 sec" + (spel.moetDoorspelen() ? "<br /><br /><b>Je moet doorspelen.</b>" : "") + "</html>");
 
 		NiceButton btnStoppen = new NiceButton("Stoppen");
 		NiceButton btnNewButton = new NiceButton("Verder");
 		
-		btnStoppen.setEnabled(spel.moetDoorspelen());
+		btnStoppen.setEnabled(!spel.moetDoorspelen());
 		
 		panel_1.add(btnStoppen, "cell 0 1,grow");
 		panel_1.add(btnNewButton, "cell 1 1,grow");
@@ -110,7 +110,7 @@ public class ResultatenScherm extends JPanel {
 
 		onderdelen = JPanelFactory.createTransparentJPanel();
 		panel.add(onderdelen, "cell 0 0,alignx left,growy");
-		onderdelen.setLayout(new MigLayout("", "[fill][10px][fill]", "[20px][20px][20px][20px][20px][20px][20px][20px][20px]"));
+		onderdelen.setLayout(new MigLayout("", "[200px:n,grow,fill][10px][200px:n,grow,fill]", "[20px][20px][20px][20px][20px][20px][20px][20px][20px]"));
 		
 		int i = 0;
 		for (GekozenAntwoord gk : gekozenAntwoorden) {

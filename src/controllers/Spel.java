@@ -275,7 +275,7 @@ public class Spel {
 	 * @return antwoord hierop
 	 */
 	public boolean moetDoorspelen() {
-		return true;
+		return huidigeRonde == 0;
 	}
 
 	/**
