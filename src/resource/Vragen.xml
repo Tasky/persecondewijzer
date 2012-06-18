@@ -201,4 +201,22 @@
 			</onderdelen>
 		</vraag>
 	</onderwerp>
+	
+	<onderwerp name="Planeten" image="Planeten.jpg">
+		<vraag>
+			<tekst>Welke planeet is op de afbeelding te zien?</tekst>
+			<onderdelen>
+				<onderdeel image="Planeet_Aarde.jpg">Aarde</onderdeel>
+				<onderdeel image="Planeet_Jupiter.jpg">Jupiter</onderdeel>
+				<onderdeel image="Planeet_Maan.jpg">Maan</onderdeel>
+				<onderdeel image="Planeet_Mars.jpg">Mars</onderdeel>
+				<onderdeel image="Planeet_Mercurius.jpg">Mercurius</onderdeel>
+				<onderdeel image="Planeet_Neptunus.jpg">Neptunus</onderdeel>
+				<onderdeel image="Planeet_Saturnus.jpg">Saturnus</onderdeel>
+				<onderdeel image="Planeet_Uranus.jpg">Uranus</onderdeel>
+				<onderdeel image="Planeet_Venus">Venus</onderdeel>
+			</onderdelen>
+		</vraag>
+	</onderwerp>
+	
 </onderwerpen>
