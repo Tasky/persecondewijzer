@@ -15,7 +15,9 @@ import logic.Speler;
 import logic.Timer;
 import logic.Vraag;
 import views.GameOver;
+import views.GameWon;
 import views.MainWindow;
+import views.SpeelScherm;
 import data.Content;
 import exceptions.DataException;
 
@@ -232,6 +234,11 @@ public class Spel {
 			return;
 		}
 		huidigeRonde++;
+		if(vragen.size() > huidigeRonde){
+			openPanel(new SpeelScherm(this));	
+		} else {
+			openPanel(new GameWon(this));
+		}
 	}
 
 	/**
