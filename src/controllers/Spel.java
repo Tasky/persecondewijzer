@@ -279,7 +279,7 @@ public class Spel {
 	 */
 	public boolean magDoorspelen() {
 		boolean magDoorspelen = true;
-		for (int i = 0; i < huidigeRonde; i++) {
+		for (int i = 0; i <= huidigeRonde; i++) {
 			magDoorspelen = magDoorspelen && vragen.get(i).magDoorspelen();
 		}
 		return magDoorspelen;
