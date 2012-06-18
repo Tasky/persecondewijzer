@@ -98,6 +98,20 @@
 				<onderdeel image="Films_DonnyDarko.png">Donnie Darko</onderdeel>
 			</onderdelen>
 		</vraag>
+		<vraag>
+					<tekst>Welke zanger is dit?</tekst>
+			<onderdelen>
+				<onderdeel image="Zanger_Cash.jpg">Johnny Cash</onderdeel>
+				<onderdeel image="Zanger_Cobain.jpg">Kurt Cobain</onderdeel>
+				<onderdeel image="Zanger_Elvis.jpg">Elvis Presley</onderdeel>
+				<onderdeel image="Zanger_Hay.jpg">Barry Hay</onderdeel>
+				<onderdeel image="Zanger_Jackson.jpg">Micheal Jackson</onderdeel>
+				<onderdeel image="Zanger_Lennon.jpg">John Lennon</onderdeel>
+				<onderdeel image="Zanger_Marley.jpg">Bob Marley</onderdeel>
+				<onderdeel image="Zanger_Mercury.jpg">Freddy Mercury</onderdeel>
+				<onderdeel image="Zanger_Sinatra.jpg">Frank Sinatra</onderdeel>
+			</onderdelen>
+		</vraag>
 	</onderwerp>
 	<onderwerp name="Eten en Drank" image="Bier.jpg">
 		<vraag>
