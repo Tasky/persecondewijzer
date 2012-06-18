@@ -47,6 +47,7 @@ public class InfoPanel extends NoisePanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		if(!(arg0 instanceof Timer)) return;
 		Timer timer = (Timer)arg0;
 		int s = timer.getTime();
 		if(s < 5) {

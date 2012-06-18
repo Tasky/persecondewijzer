@@ -5,8 +5,8 @@ package logic;
  * 
  */
 public class JokerUitrekenaar {
-	private final int	jokerKosten	= 16;
-	private int			jokersOver	= 0;
+	private static final int	jokerKosten	= 16;
+	private int					jokersOver	= 0;
 
 	/**
 	 * JokerUitrekenaar aanmaken, standaard 2 jokers.

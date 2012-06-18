@@ -62,6 +62,7 @@ public class GekozenAntwoord extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		if(!(arg0 instanceof logic.GekozenAntwoord)) return;
 		Onderdeel onderdeel = ((logic.GekozenAntwoord) arg0).getGekozenOnderdeel();
 		comboBoxModel.setSelectedItem(onderdeel);
 		revalidate();

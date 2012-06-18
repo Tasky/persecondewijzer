@@ -153,8 +153,8 @@ public class MainWindow {
 			txtVulHierJe.setBackground(Color.red);
 			txtVulHierJe.selectAll();
 		} else {
-			openPanel(kiesOnderwerp);
 			spel.setSpelerNaam(naamNo);
+			openPanel(kiesOnderwerp);
 		}
 	}
 }

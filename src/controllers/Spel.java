@@ -193,8 +193,7 @@ public class Spel {
 		} catch (DataException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
-			System.exit(0);
-			return;
+			throw new RuntimeException("Kan niet verder gaan.");
 		}
 	}
 

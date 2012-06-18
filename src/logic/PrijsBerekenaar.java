@@ -5,8 +5,8 @@ import java.util.List;
 public class PrijsBerekenaar {
 
 	List<Vraag>					vragen;
-	int							ronde					= 0;
 	int							score[]					= { 0, 0, 0, 0 };
+	private int	ronde;
 	private static final int	AANTAL_VRAGEN_PER_RONDE	= 9;
 	private static final int	MAX_BELASTINGVRIJ		= 454;
 	private static final int[]	GELD_PER_RONDE			= { 20, 25, 30, 35 };
@@ -49,10 +49,6 @@ public class PrijsBerekenaar {
 			score[i] = vraag.getHoeveelGoed();
 			i++;
 		}
-	}
-
-	public void setRonde(int rondeNummer) {
-		ronde = rondeNummer;
 	}
 
 	public void setVragen(List<Vraag> vragen) {
