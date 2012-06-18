@@ -42,5 +42,7 @@ public class GameWon extends NicePanel {
 		lblDeTijdIs.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblDeTijdIs.setForeground(Color.WHITE);
 		add(lblDeTijdIs, "cell 1 2,alignx center");
+		
+		spel.addHighScore();
 	}
 }

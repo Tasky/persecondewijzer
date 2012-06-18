@@ -37,6 +37,7 @@ public class Spel {
 
 	private List<Vraag>			vragen;
 	private Applicatie			applicatie;
+	private data.Highscore		highscores;
 
 	/**
 	 * Start spel op.
@@ -198,8 +199,8 @@ public class Spel {
 		speler = new Speler();
 		timer = new Timer();
 		joker = new JokerUitrekenaar();
-
 		try {
+			highscores = new data.Highscore();
 			content = new Content();
 		} catch (DataException e) {
 			// TODO Auto-generated catch block
@@ -292,5 +293,26 @@ public class Spel {
 	public int getScore() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	/**
+	 * Voeg highscore toe aan highscore lijst.
+	 */
+	public void addHighScore() {
+		logic.Highscore highscore = new logic.Highscore();
+		highscore.setSpelerNaam(getSpelerNaam());
+		highscore.setTijdOver(getTimer().getTime() + "");
+		highscore.setScore(getScore() + "");
+		highscores.addHighscore(highscore);
+	}
+	
+	/**
+	 * Verkrijg highscores.
+	 * @param hoeveel highscores terug
+	 * @return highscores
+	 * 
+	 */
+	public ArrayList<logic.Highscore> getHighscores(int hoeveel) {
+		return highscores.getHighscores(hoeveel);
 	}
 }
