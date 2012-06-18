@@ -213,5 +213,21 @@
 				<onderdeel image="Politiek_Stalin.jpg">Jozef Stalin</onderdeel>
 			</onderdelen>
 		</vraag>
+		
+		<vraag>
+			<tekst>Wanneer werdt een land met de EK kampioen?</tekst>
+			<onderdelen>
+				<onderdeel image="Vlag_Sovjet-Unie.jpg">1960</onderdeel>
+				<onderdeel image="Vlag_Italie.jpg">1968</onderdeel>
+				<onderdeel image="Vlag_Tsjecho-Slowakije.jpg">1976</onderdeel>
+				<onderdeel image="Vlag_Nederland.jpg">1988</onderdeel>
+				<onderdeel image="Vlag_Denemarken.jpg">1992</onderdeel>
+				<onderdeel image="Vlag_Duitsland.jpg">1996</onderdeel>
+				<onderdeel image="Vlag_Frankrijk.jpg">2000</onderdeel>
+				<onderdeel image="Vlag_Griekenland.jpg">2004</onderdeel>
+				<onderdeel image="Vlag_Spain.jpg">2008</onderdeel>
+			</onderdelen>
+		</vraag>
+		
 	</onderwerp>
 </onderwerpen>
