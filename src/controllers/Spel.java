@@ -178,6 +178,18 @@ public class Spel {
 		_onderwerp = onderwerp;
 		try {
 			vragen = content.getVragen(_onderwerp.getNaam());
+			
+			vragen.get(0).setMoetGoedHebben(5);
+			vragen.get(0).setHoeveelWaard(20);
+			
+			vragen.get(1).setMoetGoedHebben(6);
+			vragen.get(0).setHoeveelWaard(25);
+			
+			vragen.get(2).setMoetGoedHebben(7);
+			vragen.get(0).setHoeveelWaard(30);
+			
+			vragen.get(3).setMoetGoedHebben(9);
+			vragen.get(0).setHoeveelWaard(35);
 		} catch (DataException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
@@ -267,7 +279,11 @@ public class Spel {
 	 * @return antwoord hierop
 	 */
 	public boolean magDoorspelen() {
-		return true;
+		boolean magDoorspelen = true;
+		for (int i = 0; i < huidigeRonde; i++) {
+			magDoorspelen = magDoorspelen && vragen.get(i).magDoorspelen();
+		}
+		return magDoorspelen;
 	}
 	
 	/**
