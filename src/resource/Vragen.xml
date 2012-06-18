@@ -43,7 +43,7 @@
 				<onderdeel image="Land_Suriname.png">Suriname</onderdeel></onderdelen></vraag>
 		<vraag>
 			
-			<tekst></tekst><onderdelen>
+			<tekst>Welk gebouw is dit?</tekst><onderdelen>
 	<onderdeel image="Gebouw_Atomium.jpg">Atomium</onderdeel>
 	<onderdeel image="Gebouw_Bigben.jpg">Big Ben</onderdeel>
 	<onderdeel image="Gebouw_Colosseum.jpg">Colosseum</onderdeel>
