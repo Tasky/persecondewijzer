@@ -46,7 +46,7 @@ public class PrijsBerekenaar {
 	private void parseVragen() {
 		int i = 0;
 		for (Vraag vraag : vragen) {
-			score[i] = vraag.getScore();
+			score[i] = vraag.getHoeveelGoed();
 			i++;
 		}
 	}

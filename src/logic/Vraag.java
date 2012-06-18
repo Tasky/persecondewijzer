@@ -51,7 +51,7 @@ public class Vraag {
 	/**
 	 * @return
 	 */
-	public int getScore() {
+	public int getHoeveelGoed() {
 		int score = 0;
 
 		for (GekozenAntwoord gk : _antwoorden)
@@ -114,7 +114,7 @@ public class Vraag {
 	 * @return mag doorspelen?
 	 */
 	public boolean magDoorspelen() {
-		return getScore() >= getMoetGoedHebben();
+		return getHoeveelGoed() >= getMoetGoedHebben();
 	}
 
 	/**
