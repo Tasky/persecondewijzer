@@ -328,8 +328,11 @@ public class Spel {
 			openPanel(new GameOver(this, GameOver.Reason.MISTAKES));
 			return;
 		}
+		Vraag vraag = getHuidigeVraag();
 		huidigeRonde++;
 		if(vragen.size() > huidigeRonde){
+			if(vraag.getHoeveelGoed() + vraag.getHoeveelJokersGebruikt() > 9)
+				joker.addJokers(1);
 			openPanel(new SpeelScherm(this));	
 		} else {
 			openPanel(new GameWon(this));

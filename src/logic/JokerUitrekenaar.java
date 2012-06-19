@@ -9,6 +9,7 @@ import exceptions.LogicException;
 public class JokerUitrekenaar {
 	private static final int	jokerKosten		= 16;
 	private static final int	startSaldo		= 2;
+	private static int			extraJokers		= 0;
 	private int					jokersGebruikt	= 0;
 
 	/**
@@ -17,7 +18,7 @@ public class JokerUitrekenaar {
 	 * @return aantal jokers
 	 */
 	public int getAantalOver() {
-		return startSaldo - jokersGebruikt;
+		return startSaldo - jokersGebruikt + extraJokers;
 	}
 
 	/**
@@ -66,5 +67,13 @@ public class JokerUitrekenaar {
 		for (int i = 0; i < aantal; i++)
 			zetJokerIn(timer);
 		vraag.setHoeveelJokersGebruikt(aantal);
+	}
+	
+	/**
+	 * Voeg jokers toe
+	 * @param jokers hoeveelheid jokers
+	 */
+	public void addJokers(int jokers) {
+		extraJokers += jokers;
 	}
 }
