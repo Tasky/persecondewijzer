@@ -69,6 +69,7 @@ public class SpeelScherm extends NicePanel {
 	private ArrayList<OnderdeelButton>		buttons				= new ArrayList<OnderdeelButton>();
 
 	ArrayList<views.panels.GekozenAntwoord>	gekozenAntwoorden	= new ArrayList<views.panels.GekozenAntwoord>();
+	private JButton	btnStoppen;
 
 	/**
 	 * Opstarten van speelscherm
@@ -184,24 +185,21 @@ public class SpeelScherm extends NicePanel {
 		return gk;
 	}
 
-	private void luisterNaarStoppen(final views.panels.InfoPanel timer, final JButton btnStoppen) {
-		final SpeelScherm speelscherm = this;
-		btnStoppen.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				middenvlak.removeAll();
-				for (JButton button : buttons)
-					button.setEnabled(false);
-				middenvlak.add(new JokerScherm(speelscherm, spel));
-				middenvlak.revalidate();
-				middenvlak.repaint();
+	
+	/**
+	 * Open het jokerscherm.
+	 */
+	public void openJokerscherm() {
+		middenvlak.removeAll();
+		for (JButton button : buttons)
+			button.setEnabled(false);
+		middenvlak.add(new JokerScherm(this, spel));
+		middenvlak.revalidate();
+		middenvlak.repaint();
 
-				btnStoppen.setEnabled(false);
-				spel.getTimer().stop();
-			}
-		});
+		btnStoppen.setEnabled(false);
+		spel.getTimer().stop();
 	}
-
 	/**
 	 * Geef resultaten weer.
 	 */
@@ -228,7 +226,12 @@ public class SpeelScherm extends NicePanel {
 		NiceButton btnStoppen = new NiceButton("Stop de tijd");
 		infoPanel.add(btnStoppen, "cell 0 1,grow");
 
-		luisterNaarStoppen(timer, btnStoppen);
+		btnStoppen.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openJokerscherm();
+			}
+		});
 		
 	}
 
