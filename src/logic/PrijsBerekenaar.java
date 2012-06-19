@@ -17,21 +17,8 @@ public class PrijsBerekenaar {
 	 * @return berekende score
 	 */
 	public int getScore(final List<Vraag> vragen) {
-		int score = hoeveelGoed(vragen);
-		double bedrag = vragen.get(vragen.size() - 1).getHoeveelWaard() * score;
-		
-		if (bedrag > MAX_BELASTINGVRIJ) bedrag /= (KANSSPELBELASTING / 100 + 1);
-		
-		return (int) Math.round(bedrag);
-	}
-
-	/**
-	 * Algoritme om uit te rekenen hoeveel vragen een speler geld voor krijgt.
-	 * @param vragen
-	 * @return hoeveel vragen er goed zijn
-	 */
-	private int hoeveelGoed(final List<Vraag> vragen) {
 		int vragenGoed = 0;
+		
 		for (Vraag vraag : vragen) {
 			int aantalGoed = 0;
 			int aantalFout = 0;
@@ -40,8 +27,17 @@ public class PrijsBerekenaar {
 				if (gk.isGoed()) aantalGoed++;
 				else aantalFout++;
 			
-			vragenGoed += aantalGoed + Math.min(aantalFout, jokers);
+			vragenGoed += (aantalGoed + Math.min(aantalFout, jokers));
 		}
-		return vragenGoed;
+		
+		double bedrag = 0;
+		for (Vraag vraag : vragen) {
+			bedrag += vragenGoed * vraag.getHoeveelWaard();
+			if(vraag.isDoubling()) bedrag *= 2;
+		}
+		
+		if (bedrag > MAX_BELASTINGVRIJ) bedrag /= (KANSSPELBELASTING / 100 + 1);
+		
+		return (int) Math.round(bedrag);
 	}
 }

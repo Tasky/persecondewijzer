@@ -30,7 +30,7 @@ public class ResultatenScherm extends JPanel {
 				try {
 					Spel spel = new Spel();
 					List<logic.Onderwerp> onderwerpen = spel.getOnderwerpen();
-					spel.setOnderwerp(onderwerpen.get(1));
+					spel.setOnderwerp(onderwerpen.get(2));
 
 					List<logic.Onderdeel> ondrln = spel.getOnderdelen();
 					List<logic.Onderdeel> ondrln2 = new ArrayList<logic.Onderdeel>(); 
@@ -50,12 +50,12 @@ public class ResultatenScherm extends JPanel {
 						spel.kiesOnderdeel(o);
 					}
 
+					
 					SpeelScherm speelscherm = new SpeelScherm(spel);
 					spel.zetJokersIn(0);
 					spel.getTimer().stop();
 					spel.openPanel(speelscherm);
 					speelscherm.openResultaten();
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -121,7 +121,7 @@ public class ResultatenScherm extends JPanel {
 		builder.append(spel.getJokerAantal());
 		builder.append("<br/>");
 		builder.append("Score: ");
-		builder.append(spel.getScore());
+		builder.append(spel.getEindScore());
 		builder.append(", tijd: ");
 		builder.append(spel.getTimer().getTime());
 		builder.append(" sec");

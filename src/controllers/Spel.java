@@ -83,7 +83,7 @@ public class Spel {
 		logic.Highscore highscore = new logic.Highscore();
 		highscore.setSpelerNaam(getSpelerNaam());
 		highscore.setTijdOver(getTimer().getTime() + "");
-		highscore.setScore(getScore());
+		highscore.setScore(getEindScore());
 		highscores.addHighscore(highscore);
 	}
 
@@ -189,10 +189,24 @@ public class Spel {
 	 * Krijg score
 	 * @return huidige score
 	 */
-	public String getScore() {
+	public String getEindScore() {
 		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
 		
 		for (int i = 0; i <= huidigeRonde; i++) {
+			tmpVragen.add(vragen.get(huidigeRonde));
+		}
+		
+		return "Û " + prijzen.getScore(tmpVragen);
+	}
+	
+	/**
+	 * Krijg score
+	 * @return huidige score
+	 */
+	public String getScore() {
+		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
+		if(huidigeRonde == 0) return "Û 0,-";
+		for (int i = 0; i < huidigeRonde; i++) {
 			tmpVragen.add(vragen.get(huidigeRonde));
 		}
 		
@@ -275,13 +289,14 @@ public class Spel {
 			vragen.get(0).setHoeveelWaard(20);
 			
 			vragen.get(1).setMoetGoedHebben(6);
-			vragen.get(0).setHoeveelWaard(25);
+			vragen.get(1).setHoeveelWaard(25);
 			
 			vragen.get(2).setMoetGoedHebben(7);
-			vragen.get(0).setHoeveelWaard(30);
+			vragen.get(2).setHoeveelWaard(30);
 			
 			vragen.get(3).setMoetGoedHebben(9);
-			vragen.get(0).setHoeveelWaard(35);
+			vragen.get(3).setHoeveelWaard(35);
+			vragen.get(3).setDoubling(true);
 		} catch (DataException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
