@@ -118,7 +118,7 @@ public class Spel {
 	 * 
 	 * @return huidige vraag
 	 */
-	private Vraag getHuidigeVraag() {
+	public Vraag getHuidigeVraag() {
 		return vragen.get(huidigeRonde);
 	}
 

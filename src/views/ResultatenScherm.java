@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import logic.GekozenAntwoord;
+import logic.Vraag;
 import net.miginfocom.swing.MigLayout;
 import views.components.NiceButton;
 import views.factories.JLabelFactory;
@@ -50,6 +51,7 @@ public class ResultatenScherm extends JPanel {
 					}
 
 					SpeelScherm speelscherm = new SpeelScherm(spel);
+					spel.zetJokersIn(2);
 					spel.openPanel(speelscherm);
 					speelscherm.openResultaten();
 
@@ -95,6 +97,8 @@ public class ResultatenScherm extends JPanel {
 			if (gk.isGoed())
 				aantalGoed++;
 			else aantalFout++;
+		
+		Vraag vraag = spel.getHuidigeVraag();
 
 		StringBuilder builder = new StringBuilder();
 		builder.append("<html>Aantal <span style=\"color: green; font-weight:bold;\">goed</span>: ");
@@ -102,8 +106,11 @@ public class ResultatenScherm extends JPanel {
 		builder.append("<br/>Aantal <span style=\"color: red; font-weight:bold;\">fout</span>: ");
 		builder.append(aantalFout);
 		builder.append("<br/>");
-		//builder.append("Aantal jokers gebruikt:");
-		//builder.append(spel.);
+		builder.append("Jokers gebruikt:");
+		builder.append(vraag.getHoeveelJokersGebruikt());
+		builder.append("<br/>");
+		builder.append("Jokers over: ");
+		builder.append(spel.getJokerAantal());
 		builder.append("<br/>");
 		builder.append("Score: ");
 		builder.append(spel.getScore());
@@ -144,6 +151,7 @@ public class ResultatenScherm extends JPanel {
 		onderdelen.setLayout(new MigLayout("", "[200px:n,grow,fill][10px][200px:n,grow,fill]", "[20px][20px][20px][20px][20px][20px][20px][20px][20px]"));
 		
 		int i = 0;
+		int jokers = vraag.getHoeveelJokersGebruikt();
 		for (GekozenAntwoord gk : gekozenAntwoorden) {
 			JLabel txt = JLabelFactory.createAntwoordJLabel(gk.getHuidigeOnderdeel().getTekst());
 			onderdelen.add(txt, "cell 0 " + i + ",grow");
@@ -155,7 +163,11 @@ public class ResultatenScherm extends JPanel {
 			txtBoolean.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 			if (gk.isGoed())
 				txtBoolean.setForeground(new Color(43, 111, 43));
-			else txtBoolean.setForeground(Color.RED);
+			else if(jokers > 0) {
+				txtBoolean.setForeground(new Color(244, 77, 50));
+				txtBoolean.setText(txtBoolean.getText() + " (j)");
+				jokers--;
+			} else txtBoolean.setForeground(Color.RED);
 
 			onderdelen.add(txtBoolean, "cell 2 " + i + ",grow");
 
