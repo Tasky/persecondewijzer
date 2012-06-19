@@ -114,7 +114,7 @@ public class ResultatenScherm extends JPanel {
 		builder.append("<br/>");
 		builder.append("Score: ");
 		builder.append(spel.getScore());
-		builder.append(", tijd ");
+		builder.append(", tijd: ");
 		builder.append(spel.getTimer().getTime());
 		builder.append(" sec");
 		if(!spel.magDoorspelen()) {
@@ -164,8 +164,9 @@ public class ResultatenScherm extends JPanel {
 			if (gk.isGoed())
 				txtBoolean.setForeground(new Color(43, 111, 43));
 			else if(jokers > 0) {
+				// TODO: streep erdoor
 				txtBoolean.setForeground(new Color(244, 77, 50));
-				txtBoolean.setText(txtBoolean.getText() + " (j)");
+				txtBoolean.setText("<html><s>"+txtBoolean.getText() + "</s></html>");
 				jokers--;
 			} else txtBoolean.setForeground(Color.RED);
 
