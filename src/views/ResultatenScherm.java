@@ -40,10 +40,10 @@ public class ResultatenScherm extends JPanel {
 					ondrln2.add(ondrln.get(2)); // 2
 					ondrln2.add(ondrln.get(3)); // 3
 					ondrln2.add(ondrln.get(4)); // 4
-					ondrln2.add(ondrln.get(8)); // 5
-					ondrln2.add(ondrln.get(7)); // 6
-					ondrln2.add(ondrln.get(6)); // 7
-					ondrln2.add(ondrln.get(5)); // 8
+					ondrln2.add(ondrln.get(5)); // 5
+					ondrln2.add(ondrln.get(6)); // 6
+					ondrln2.add(ondrln.get(7)); // 7
+					ondrln2.add(ondrln.get(8)); // 8
 					
 					for (logic.Onderdeel o : ondrln2) {
 						spel.volgendeOnderdeel();
@@ -99,14 +99,21 @@ public class ResultatenScherm extends JPanel {
 			else aantalFout++;
 		
 		Vraag vraag = spel.getHuidigeVraag();
-
+		int jokers = vraag.getHoeveelJokersGebruikt();
 		StringBuilder builder = new StringBuilder();
 		builder.append("<html>Aantal <span style=\"color: green; font-weight:bold;\">goed</span>: ");
 		builder.append(aantalGoed);
-		builder.append("<br/>Aantal <span style=\"color: red; font-weight:bold;\">fout</span>: ");
+		if(jokers > 0) {
+			builder.append("<b> + "+(Math.min(aantalFout, jokers))+"</b>");
+		}
+		builder.append("<br/>");
+		builder.append("Aantal <span style=\"color: red; font-weight:bold;\">fout</span>: ");
 		builder.append(aantalFout);
 		builder.append("<br/>");
-		builder.append("Jokers gebruikt:");
+		builder.append("Hoeveel goed hebben: ");
+		builder.append(spel.getHoeveelGoedVerplicht());
+		builder.append("<br/>");
+		builder.append("Jokers gebruikt: ");
 		builder.append(vraag.getHoeveelJokersGebruikt());
 		builder.append("<br/>");
 		builder.append("Jokers over: ");
@@ -151,7 +158,7 @@ public class ResultatenScherm extends JPanel {
 		onderdelen.setLayout(new MigLayout("", "[200px:n,grow,fill][10px][200px:n,grow,fill]", "[20px][20px][20px][20px][20px][20px][20px][20px][20px]"));
 		
 		int i = 0;
-		int jokers = vraag.getHoeveelJokersGebruikt();
+		
 		for (GekozenAntwoord gk : gekozenAntwoorden) {
 			JLabel txt = JLabelFactory.createAntwoordJLabel(gk.getHuidigeOnderdeel().getTekst());
 			onderdelen.add(txt, "cell 0 " + i + ",grow");
