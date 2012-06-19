@@ -38,7 +38,7 @@ public class GameWon extends NicePanel {
 		add(lblNewLabel, "flowy,cell 1 2,alignx center");
 		add(btnTerug, "cell 1 3,grow");
 
-		JLabel lblDeTijdIs = new JLabel("Je hebt 9001 euro gewonnen.");
+		JLabel lblDeTijdIs = new JLabel("Je hebt "+spel.getEindScore()+" gewonnen.");
 		lblDeTijdIs.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblDeTijdIs.setForeground(Color.WHITE);
 		add(lblDeTijdIs, "cell 1 2,alignx center");

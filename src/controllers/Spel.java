@@ -366,6 +366,10 @@ public class Spel {
 	 * Eindig het spel.
 	 */
 	public void eindigSpel() {
+		if(!magDoorspelen()) {
+			openPanel(new GameOver(this, GameOver.Reason.MISTAKES));
+			return;
+		}
 		openPanel(new GameWon(this));
 	}
 }
