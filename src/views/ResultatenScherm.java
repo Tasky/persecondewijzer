@@ -49,7 +49,6 @@ public class ResultatenScherm extends JPanel {
 						spel.volgendeOnderdeel();
 						spel.kiesOnderdeel(o);
 					}
-
 					
 					SpeelScherm speelscherm = new SpeelScherm(spel);
 					spel.zetJokersIn(0);
@@ -150,7 +149,7 @@ public class ResultatenScherm extends JPanel {
 		btnStoppen.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				spel.backToMainMenu();
+				spel.eindigSpel();
 			}
 		});
 

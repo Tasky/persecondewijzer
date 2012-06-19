@@ -5,9 +5,9 @@ package logic;
  * 
  */
 public class Highscore {
-	private String	spelerNaam;
-	private String	score;
-	private String	tijdOver;
+	private String	spelerNaam = "";
+	private String	score = "";
+	private String	tijdOver = "";
 
 	/**
 	 * @return the score

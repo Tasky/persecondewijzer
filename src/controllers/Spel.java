@@ -190,6 +190,8 @@ public class Spel {
 	 * @return huidige score
 	 */
 	public String getEindScore() {
+		if(!magDoorspelen()) return "Û 0,-";
+		
 		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
 		
 		for (int i = 0; i <= huidigeRonde; i++) {
@@ -331,7 +333,7 @@ public class Spel {
 		Vraag vraag = getHuidigeVraag();
 		huidigeRonde++;
 		if(vragen.size() > huidigeRonde){
-			if(vraag.getHoeveelGoed() + vraag.getHoeveelJokersGebruikt() > 9)
+			if(vraag.getHoeveelGoed() + vraag.getHoeveelJokersGebruikt() >= 9)
 				joker.addJokers(1);
 			openPanel(new SpeelScherm(this));	
 		} else {
@@ -358,5 +360,12 @@ public class Spel {
 	 */
 	public void zetJokersIn(int jokers) throws LogicException {
 		joker.zetJokersIn(timer, getHuidigeVraag(), jokers);
+	}
+
+	/**
+	 * Eindig het spel.
+	 */
+	public void eindigSpel() {
+		openPanel(new GameWon(this));
 	}
 }
