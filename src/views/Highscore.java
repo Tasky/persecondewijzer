@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
@@ -22,23 +24,6 @@ import views.components.NicePanel;
 import controllers.Spel;
 
 public class Highscore extends NicePanel {
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					JFrame frame = new JFrame();
-					frame.setBounds(100, 100, 800, 600);
-					frame.setVisible(true);
-					Highscore ko = new Highscore(null);
-					frame.setContentPane(ko);
-					ko.updateUI();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	private JTable	table;
 
@@ -47,7 +32,7 @@ public class Highscore extends NicePanel {
 	 */
 	public Highscore(final Spel spel) {
 		setBounds(0, 0, 800, 600);
-		setLayout(new MigLayout("", "[grow][400px:n][grow]", "[80.00][10.00,grow][][450.00,grow][40.00][10.00,grow]"));
+		setLayout(new MigLayout("", "[grow][400px:n][grow]", "[80.00][450.00,grow][40.00][10.00,grow]"));
 
 		JLabel lblNewLabel = new JLabel("Highscores");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -62,17 +47,48 @@ public class Highscore extends NicePanel {
 			}
 		});
 
-		JLabel lblNewLabel_1 = new JLabel("Rang         Naam        Punten      Tijd");
+		JLabel lblNewLabel_1 = new JLabel("Rang         Naam        Prijs      Tijd");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setForeground(Color.WHITE);
-		// add(lblNewLabel_1, "cell 1 2");
 
-		table = new JTable();
+
+		
+		final ArrayList<logic.Highscore> highscores = spel.getHighscores(10);
+		DefaultTableModel model = new DefaultTableModel();
+		
+		
+		//model.addRow(new Object[]{"","","",""});
+		int i = 1;
+		for (logic.Highscore score : highscores) {
+			model.addColumn(score.getSpelerNaam());
+			System.out.println(score.getSpelerNaam());
+			/*model.addRow(new Object[]{
+					i + "",
+					score.getSpelerNaam(),
+					score.getScore(),
+					score.getTijdOver()+" s"});*/
+			i++;
+		}
+		final String[] columnNames = {"Rang", "Naam", "Prijs", "Tijd"};
+		table = new JTable(new AbstractTableModel() {
+		    public String getColumnName(int col) {
+		        return columnNames[col].toString();
+		    }
+		    public int getRowCount() { return highscores.size(); }
+		    public int getColumnCount() { return columnNames.length; }
+		    public Object getValueAt(int row, int col) {
+		    	switch(col) {
+		    		case 0: return (row + 1) + "";
+		    		case 1: return highscores.get(row).getSpelerNaam();
+		    		case 2: return highscores.get(row).getScore();
+		    		case 3: return highscores.get(row).getTijdOver() + "s";
+		    		default: return "";
+		    	}
+		    }
+		    public boolean isCellEditable(int row, int col){ return false; }
+		    public void setValueAt(Object value, int row, int col) {}
+		});
 		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		table.setModel(new DefaultTableModel(new Object[][] { { "1", "Jodi", "7500", "5:00" },
-				{ "2", "Nanne", "300", "0:10" }, { "3", "Bas", "1", "0:01" }, }, new String[] { "Rang", "Naam",
-				"Prijzengeld", "Tijd over" }));
-
 		// table = new JTable(model);
 		table.setRowHeight(60);
 
@@ -87,9 +103,7 @@ public class Highscore extends NicePanel {
 				label.setForeground(new Color(255, 255, 255));
 				if (row % 2 == 0)
 					label.setBackground(new Color(31, 31, 31));
-				// label.setBackground(new Color(255, 255, 255));
 				else label.setBackground(new Color(41, 41, 41));
-				// label.setBackground(new Color(242, 242, 242));
 				label.setFont(new Font("Arial", Font.PLAIN, 20));
 				Border paddingBorder = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
@@ -98,25 +112,21 @@ public class Highscore extends NicePanel {
 					label.setFont(new Font("Arial", Font.BOLD, 30));
 				}
 				label.setBorder(paddingBorder);
-				// if (row == 0) {
-				// label.setHorizontalAlignment(SwingConstants.CENTER);
-				// } else {
 				label.setHorizontalAlignment(SwingConstants.LEFT);
-				// }
 				return label;
 			}
 		};
 		table.setDefaultRenderer(Object.class, renderer);
-		table.setEnabled(false);
+		table.setEnabled(true);
 		table.setFillsViewportHeight(true);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setShowGrid(false);
 		table.setForeground(Color.WHITE);
 		table.setBackground(Color.BLACK);
 		table.setBorder(null);
-
-		add(table, "cell 1 3,grow");
-		add(btnTerug, "cell 1 4,grow");
-
+		
+		add(table, "cell 1 1,grow");
+		add(btnTerug, "cell 1 2,grow");
+		
 	}
 }
