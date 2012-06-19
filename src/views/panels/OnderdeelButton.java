@@ -23,7 +23,7 @@ public class OnderdeelButton extends NiceButton implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		if(!(arg0 instanceof logic.GekozenAntwoord)) return;
+		if (!(arg0 instanceof logic.GekozenAntwoord)) return;
 		logic.GekozenAntwoord updatedGk = (logic.GekozenAntwoord) arg0;
 		Onderdeel updatedOnderdeel = updatedGk.getGekozenOnderdeel();
 		if (gk == updatedGk) setEnabled(true);

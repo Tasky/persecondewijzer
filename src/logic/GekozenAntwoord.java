@@ -4,7 +4,7 @@ import java.util.Observable;
 
 /**
  * @author nanne
- *
+ * 
  */
 public class GekozenAntwoord extends Observable {
 	private Onderdeel	huidigeOnderdeel;

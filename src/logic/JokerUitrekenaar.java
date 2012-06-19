@@ -13,6 +13,16 @@ public class JokerUitrekenaar {
 	private int					jokersGebruikt	= 0;
 
 	/**
+	 * Voeg jokers toe
+	 * 
+	 * @param jokers
+	 *            hoeveelheid jokers
+	 */
+	public void addJokers(int jokers) {
+		extraJokers += jokers;
+	}
+
+	/**
 	 * Geeft aantal jokers terug.
 	 * 
 	 * @return aantal jokers
@@ -42,38 +52,34 @@ public class JokerUitrekenaar {
 
 	/**
 	 * Verlaagd het jokeraantal met 1.
-	 * @param timer waar jokers vanaf gehaald worden
-	 * @param vraag vraag waar de joker bij opgeteld wordt
-	 * @throws LogicException jokers op
+	 * 
+	 * @param timer
+	 *            waar jokers vanaf gehaald worden
+	 * @param vraag
+	 *            vraag waar de joker bij opgeteld wordt
+	 * @throws LogicException
+	 *             jokers op
 	 */
 	public void zetJokerIn(Timer timer) throws LogicException {
 		int jokers = getMaxJokers(timer);
-		if (jokers <= 0) {
-			throw new LogicException("Jokers zijn op!");
-		}
-		
+		if (jokers <= 0) throw new LogicException("Jokers zijn op!");
+
 		jokersGebruikt++;
 		timer.addJoker();
 	}
-	
+
 	/**
 	 * Functie voor het toevoegen van meerdere jokers. Deze functie loopt een aantal keer de functie addJoker().
-	 * @param timer 
-	 * @param vraag 
+	 * 
+	 * @param timer
+	 * @param vraag
 	 * @param aantal
-	 * @throws LogicException jokers op
+	 * @throws LogicException
+	 *             jokers op
 	 */
 	public void zetJokersIn(Timer timer, Vraag vraag, int aantal) throws LogicException {
 		for (int i = 0; i < aantal; i++)
 			zetJokerIn(timer);
 		vraag.setHoeveelJokersGebruikt(aantal);
-	}
-	
-	/**
-	 * Voeg jokers toe
-	 * @param jokers hoeveelheid jokers
-	 */
-	public void addJokers(int jokers) {
-		extraJokers += jokers;
 	}
 }

@@ -17,18 +17,19 @@ import views.components.ImagePanel;
 
 public class GekozenAntwoord extends JPanel implements Observer {
 
-	private JComboBox			combobox;
-	private ImagePanel			imagePanel	= null;
-	private final ComboBoxModel	comboBoxModel;
+	private JComboBox					combobox;
+	private ImagePanel					imagePanel	= null;
+	private final ComboBoxModel			comboBoxModel;
 	private final logic.GekozenAntwoord	gekozenAntwoord;
 
 	/**
 	 * Create the panel.
-	 * @param gk 
-	 * @param comboBoxModel 
+	 * 
+	 * @param gk
+	 * @param comboBoxModel
 	 */
 	public GekozenAntwoord(logic.GekozenAntwoord gk, ComboBoxModel comboBoxModel) {
-		this.gekozenAntwoord = gk;
+		gekozenAntwoord = gk;
 		File file = gk.getHuidigeOnderdeel().getPlaatje();
 		this.comboBoxModel = comboBoxModel;
 		try {
@@ -62,7 +63,7 @@ public class GekozenAntwoord extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		if(!(arg0 instanceof logic.GekozenAntwoord)) return;
+		if (!(arg0 instanceof logic.GekozenAntwoord)) return;
 		Onderdeel onderdeel = ((logic.GekozenAntwoord) arg0).getGekozenOnderdeel();
 		comboBoxModel.setSelectedItem(onderdeel);
 		revalidate();

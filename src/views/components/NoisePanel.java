@@ -53,20 +53,20 @@ public class NoisePanel extends GradientPanel {
 
 	private void generateNoise() {
 		int wid = getSize().width, ht = getSize().height;
-		int length = ((wid + 5) * ht) / 7;
-		
+		int length = (wid + 5) * ht / 7;
+
 		DataBuffer dataBuffer = new DataBufferByte(b, length);
 		WritableRaster raster = Raster.createPackedRaster(dataBuffer, wid, ht, 1, null);
 		ColorModel colorModel = new IndexColorModel(1, 2, new byte[] { (byte) 0, (byte) 250 }, new byte[] { (byte) 0,
 				(byte) 250 }, new byte[] { (byte) 0, (byte) 250 });
 		bufferedImage = new BufferedImage(colorModel, raster, false, null);
-		
-		//while () {
-		
-		//	repaint();
-		//}
+
+		// while () {
+
+		// repaint();
+		// }
 	}
-	
+
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -76,14 +76,12 @@ public class NoisePanel extends GradientPanel {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.fillRoundRect(0, 0, getWidth(), getHeight(), 5, 5);
 		generateNoise();
-		if (bufferedImage != null){
+		if (bufferedImage != null) {
 			Composite original = g2.getComposite();
 			AlphaComposite alpha = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.02F);
 			g2.setComposite(alpha);
 			g2.drawImage(bufferedImage, 0, 0, this);
 			g2.setComposite(original);
-		} else {
-			generateNoise();
-		}
+		} else generateNoise();
 	}
 }

@@ -2,14 +2,12 @@ package views;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -51,42 +49,48 @@ public class Highscore extends NicePanel {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setForeground(Color.WHITE);
 
-
-		
 		final ArrayList<logic.Highscore> highscores = spel.getHighscores(10);
-		DefaultTableModel model = new DefaultTableModel();
-		
-		
-		//model.addRow(new Object[]{"","","",""});
-		int i = 1;
-		for (logic.Highscore score : highscores) {
-			model.addColumn(score.getSpelerNaam());
-			System.out.println(score.getSpelerNaam());
-			/*model.addRow(new Object[]{
-					i + "",
-					score.getSpelerNaam(),
-					score.getScore(),
-					score.getTijdOver()+" s"});*/
-			i++;
-		}
-		final String[] columnNames = {"Rang", "Naam", "Prijs", "Tijd"};
+		new DefaultTableModel();
+		final String[] columnNames = { "Rang", "Naam", "Prijs", "Tijd" };
 		table = new JTable(new AbstractTableModel() {
-		    public String getColumnName(int col) {
-		        return columnNames[col].toString();
-		    }
-		    public int getRowCount() { return highscores.size(); }
-		    public int getColumnCount() { return columnNames.length; }
-		    public Object getValueAt(int row, int col) {
-		    	switch(col) {
-		    		case 0: return (row + 1) + "";
-		    		case 1: return highscores.get(row).getSpelerNaam();
-		    		case 2: return highscores.get(row).getScore();
-		    		case 3: return highscores.get(row).getTijdOver() + "s";
-		    		default: return "";
-		    	}
-		    }
-		    public boolean isCellEditable(int row, int col){ return false; }
-		    public void setValueAt(Object value, int row, int col) {}
+			@Override
+			public int getColumnCount() {
+				return columnNames.length;
+			}
+
+			@Override
+			public String getColumnName(int col) {
+				return columnNames[col].toString();
+			}
+
+			@Override
+			public int getRowCount() {
+				return highscores.size();
+			}
+
+			@Override
+			public Object getValueAt(int row, int col) {
+				switch (col) {
+					case 0:
+						return row + 1 + "";
+					case 1:
+						return highscores.get(row).getSpelerNaam();
+					case 2:
+						return highscores.get(row).getScore();
+					case 3:
+						return highscores.get(row).getTijdOver() + "s";
+					default:
+						return "";
+				}
+			}
+
+			@Override
+			public boolean isCellEditable(int row, int col) {
+				return false;
+			}
+
+			@Override
+			public void setValueAt(Object value, int row, int col) {}
 		});
 		table.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		// table = new JTable(model);
@@ -124,9 +128,9 @@ public class Highscore extends NicePanel {
 		table.setForeground(Color.WHITE);
 		table.setBackground(Color.BLACK);
 		table.setBorder(null);
-		
+
 		add(table, "cell 1 1,grow");
 		add(btnTerug, "cell 1 2,grow");
-		
+
 	}
 }

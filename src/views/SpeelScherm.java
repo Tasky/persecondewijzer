@@ -36,6 +36,7 @@ import controllers.Spel;
 
 /**
  * Ons prachige speelscherm.
+ * 
  * @author bas
  */
 public class SpeelScherm extends NicePanel {
@@ -69,7 +70,7 @@ public class SpeelScherm extends NicePanel {
 	private ArrayList<OnderdeelButton>		buttons				= new ArrayList<OnderdeelButton>();
 
 	ArrayList<views.panels.GekozenAntwoord>	gekozenAntwoorden	= new ArrayList<views.panels.GekozenAntwoord>();
-	private JButton	btnStoppen;
+	private JButton							btnStoppen;
 
 	/**
 	 * Opstarten van speelscherm
@@ -127,11 +128,10 @@ public class SpeelScherm extends NicePanel {
 		volgendeOnderdeel();
 		toonInfoPanel(spel);
 		spel.getTimer().start();
-		spel.getTimer().addObserver(new Observer(){
+		spel.getTimer().addObserver(new Observer() {
 			@Override
 			public void update(Observable arg0, Object arg1) {
-				if(spel.getTimer().hasLost())
-					spel.openPanel(new GameOver(spel, GameOver.Reason.TIMEUP));
+				if (spel.getTimer().hasLost()) spel.openPanel(new GameOver(spel, GameOver.Reason.TIMEUP));
 			}
 		});
 	}
@@ -148,7 +148,7 @@ public class SpeelScherm extends NicePanel {
 		final DefaultComboBoxModel onderdelenComboBoxModel = new DefaultComboBoxModel();
 		for (Onderdeel comboOptie : onderdelen)
 			onderdelenComboBoxModel.addElement(comboOptie);
-		
+
 		onderdelenComboBoxModel.setSelectedItem(gk.getGekozenOnderdeel());
 		onderdelenComboBoxModel.addListDataListener(new ListDataListener() {
 			@Override
@@ -183,7 +183,6 @@ public class SpeelScherm extends NicePanel {
 		return gk;
 	}
 
-	
 	/**
 	 * Open het jokerscherm.
 	 */
@@ -198,6 +197,7 @@ public class SpeelScherm extends NicePanel {
 		btnStoppen.setEnabled(false);
 		spel.getTimer().stop();
 	}
+
 	/**
 	 * Geef resultaten weer.
 	 */
@@ -211,7 +211,7 @@ public class SpeelScherm extends NicePanel {
 		middenvlak.repaint();
 		middenvlak.add(new ResultatenScherm(spel));
 	}
-	
+
 	private void toonInfoPanel(final Spel spel) {
 		JPanel infoPanel = JPanelFactory.createTransparentJPanel();
 		add(infoPanel, "cell 2 2,grow");
@@ -230,7 +230,7 @@ public class SpeelScherm extends NicePanel {
 				openJokerscherm();
 			}
 		});
-		
+
 	}
 
 	private void toonOnderdelen(JPanel buttonsPanel, ArrayList<Onderdeel> onderdelen) {

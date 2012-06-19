@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 /**
  * Applicatieklasse, deze wordt gebruikt voor het opstarten van alles.
- *
+ * 
  */
 public class Applicatie {
 	/**
@@ -25,7 +25,6 @@ public class Applicatie {
 			}
 		});
 	}
-
 
 	/**
 	 * Start een nieuw spel.

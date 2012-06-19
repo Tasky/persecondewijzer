@@ -10,12 +10,12 @@ import exceptions.DataException;
 public class Vraag {
 	private String								_tekst;
 	private ArrayList<Onderdeel>				_onderdelen;
-	private ArrayList<logic.GekozenAntwoord>	_antwoorden		= new ArrayList<logic.GekozenAntwoord>();
-	private int									huidigOnderdeel	= -1;
-	private int									moetGoedHebben = 9;
-	private int									hoeveelWaard = 20;
-	private int									hoeveelJokersGebruikt = 0;
-	private boolean								isDoubling = false;
+	private ArrayList<logic.GekozenAntwoord>	_antwoorden				= new ArrayList<logic.GekozenAntwoord>();
+	private int									huidigOnderdeel			= -1;
+	private int									moetGoedHebben			= 9;
+	private int									hoeveelWaard			= 20;
+	private int									hoeveelJokersGebruikt	= 0;
+	private boolean								isDoubling				= false;
 
 	/**
 	 * @param vraag
@@ -108,28 +108,32 @@ public class Vraag {
 	}
 
 	/**
-	 * @param isDoubling the isDoubling to set
+	 * @param isDoubling
+	 *            the isDoubling to set
 	 */
 	public void setDoubling(boolean isDoubling) {
 		this.isDoubling = isDoubling;
 	}
 
 	/**
-	 * @param hoeveelJokersGebruikt the hoeveelJokersGebruikt to set
+	 * @param hoeveelJokersGebruikt
+	 *            the hoeveelJokersGebruikt to set
 	 */
 	public void setHoeveelJokersGebruikt(int hoeveelJokersGebruikt) {
 		this.hoeveelJokersGebruikt = hoeveelJokersGebruikt;
 	}
 
 	/**
-	 * @param hoeveelWaard the hoeveelWaard to set
+	 * @param hoeveelWaard
+	 *            the hoeveelWaard to set
 	 */
 	public void setHoeveelWaard(int hoeveelWaard) {
 		this.hoeveelWaard = hoeveelWaard;
 	}
 
 	/**
-	 * @param moetGoedHebben the moetGoedHebben to set
+	 * @param moetGoedHebben
+	 *            the moetGoedHebben to set
 	 */
 	public void setMoetGoedHebben(int moetGoedHebben) {
 		this.moetGoedHebben = moetGoedHebben;

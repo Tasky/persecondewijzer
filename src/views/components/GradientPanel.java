@@ -73,11 +73,9 @@ public class GradientPanel extends JPanel {
 		GradientPaint gradPaint = new GradientPaint(0, 0, getLowerColor(), 0, getHeight(), getUpperColor());
 		g2.setPaint(gradPaint);
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		if(roundedCorners) {
+		if (roundedCorners)
 			g2.fillRoundRect(0, 0, getWidth(), getHeight(), 5, 5);
-		} else {
-			g2.fillRect(0, 0, getWidth(), getHeight());	
-		}
+		else g2.fillRect(0, 0, getWidth(), getHeight());
 	}
 
 	/**
@@ -89,20 +87,21 @@ public class GradientPanel extends JPanel {
 	}
 
 	/**
-	 * @param upper
-	 *            the upper to set
-	 */
-	public void setUpperColor(Color upper) {
-		this.upper = upper;
-	}
-
-	/**
 	 * Ronde hoekjes!
+	 * 
 	 * @param b
 	 */
 	public void setRoundedCorners(final boolean b) {
 		roundedCorners = b;
 		setOpaque(!roundedCorners);
+	}
+
+	/**
+	 * @param upper
+	 *            the upper to set
+	 */
+	public void setUpperColor(Color upper) {
+		this.upper = upper;
 	}
 
 }

@@ -30,8 +30,9 @@ public class GameOver extends NicePanel {
 
 	/**
 	 * Create the frame.
-	 * @param spel 
-	 * @param timeup 
+	 * 
+	 * @param spel
+	 * @param timeup
 	 */
 	public GameOver(final Spel spel, Reason timeup) {
 		setForeground(Color.WHITE);

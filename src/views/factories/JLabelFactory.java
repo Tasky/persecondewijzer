@@ -37,10 +37,11 @@ public final class JLabelFactory {
 		label.setFont(new Font("Tahoma", Font.PLAIN, 47));
 		return label;
 	}
-	
+
 	/**
-	 * @param arg0 tekst
-	 * @return 
+	 * @param arg0
+	 *            tekst
+	 * @return
 	 * @wbp.factory
 	 * @wbp.factory.parameter.source arg0 tekst
 	 */

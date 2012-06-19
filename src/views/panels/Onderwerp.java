@@ -8,13 +8,13 @@ import java.io.IOException;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import net.miginfocom.swing.MigLayout;
 import views.SpeelScherm;
 import views.components.ImagePanel;
 import controllers.Spel;
-import javax.swing.SwingConstants;
 
 public class Onderwerp extends JPanel {
 

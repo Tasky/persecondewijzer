@@ -2,7 +2,6 @@ package views;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ public class JokerScherm extends JPanel {
 					spel.setOnderwerp(onderwerpen.get(1));
 
 					List<logic.Onderdeel> ondrln = spel.getOnderdelen();
-					List<logic.Onderdeel> ondrln2 = new ArrayList<logic.Onderdeel>(); 
-					
+					List<logic.Onderdeel> ondrln2 = new ArrayList<logic.Onderdeel>();
+
 					ondrln2.add(ondrln.get(0)); // 0
 					ondrln2.add(ondrln.get(1)); // 1
 					ondrln2.add(ondrln.get(2)); // 2
@@ -49,7 +48,7 @@ public class JokerScherm extends JPanel {
 					ondrln2.add(ondrln.get(7)); // 6
 					ondrln2.add(ondrln.get(6)); // 7
 					ondrln2.add(ondrln.get(5)); // 8
-					
+
 					for (logic.Onderdeel o : ondrln2) {
 						spel.volgendeOnderdeel();
 						spel.kiesOnderdeel(o);
@@ -66,7 +65,6 @@ public class JokerScherm extends JPanel {
 		});
 	}
 
-
 	/**
 	 * Create the panel.
 	 * 
@@ -81,7 +79,8 @@ public class JokerScherm extends JPanel {
 
 		JPanel panel = JPanelFactory.createBackgroundJPanel();
 		add(panel, "cell 1 1,grow");
-		panel.setLayout(new MigLayout("", "[66px][12px][226px][4px][13px][93px][85px]", "[27px][28px][19px][19px][19px][29px]"));
+		panel.setLayout(new MigLayout("", "[66px][12px][226px][4px][13px][93px][85px]",
+				"[27px][28px][19px][19px][19px][29px]"));
 
 		JLabel lblNewLabel = JLabelFactory.createJokerLabel("Hoeveel jokers wil je inzetten?");
 		panel.add(lblNewLabel, "cell 0 0 5 1,alignx left,aligny top");
@@ -93,7 +92,8 @@ public class JokerScherm extends JPanel {
 		JLabel lblJokers = JLabelFactory.createJokerLabel("jokers");
 		JLabel lblJokersOver = JLabelFactory.createJokerLabel("Je hebt nog " + spel.getMaxJokers() + " jokers");
 		JLabel lblJokerkosten = JLabelFactory.createJokerLabel("Een joker kost " + spel.getJokerKosten() + " seconden");
-		JLabel lblHoeveelGoedVerplicht = JLabelFactory.createJokerLabel("Je moet deze ronde " + spel.getHoeveelGoedVerplicht() + " vragen goed hebben");
+		JLabel lblHoeveelGoedVerplicht = JLabelFactory.createJokerLabel("Je moet deze ronde "
+				+ spel.getHoeveelGoedVerplicht() + " vragen goed hebben");
 		JLabel lblHuidigeScore = JLabelFactory.createJokerLabel("Je huidige score is: " + spel.getScore());
 
 		panel.add(lblHuidigeScore, "cell 0 4 3 1,alignx left,aligny top");
@@ -109,7 +109,7 @@ public class JokerScherm extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					int jokers = (Integer) spinner.getValue();
-					if(jokers > spel.getMaxJokers()) {
+					if (jokers > spel.getMaxJokers()) {
 						spinner.setBackground(Color.red);
 						return;
 					}

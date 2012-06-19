@@ -67,7 +67,7 @@ public class ImagePanel extends JPanel {
 			int top = 0;
 			if (scaledWidth < maxWidth) left = (Math.round(maxWidth) - Math.round(scaledWidth)) / 2;
 			if (scaledHeight < maxHeight) top = (Math.round(maxHeight) - Math.round(scaledHeight)) / 2;
-			
+
 			g.drawImage(scaledBI, left, top, null);
 		} else g.drawImage(image, 0, 0, null);
 	}

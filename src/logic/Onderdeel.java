@@ -12,12 +12,28 @@ public class Onderdeel {
 		setPlaatje(plaatje);
 	}
 
+	/**
+	 * @return the _antwoord
+	 */
+	public String getAntwoord() {
+		if (_antwoord == null) return getTekst();
+		return _antwoord;
+	}
+
 	public File getPlaatje() {
 		return _plaatje;
 	}
 
 	public String getTekst() {
 		return _tekst;
+	}
+
+	/**
+	 * @param _antwoord
+	 *            the _antwoord to set
+	 */
+	public void setAntwoord(String _antwoord) {
+		this._antwoord = _antwoord;
 	}
 
 	public void setPlaatje(File plaatje) {
@@ -31,21 +47,5 @@ public class Onderdeel {
 	@Override
 	public String toString() {
 		return getTekst();
-	}
-
-	/**
-	 * @return the _antwoord
-	 */
-	public String getAntwoord() {
-		if(_antwoord == null)
-			return getTekst();
-		return _antwoord;
-	}
-
-	/**
-	 * @param _antwoord the _antwoord to set
-	 */
-	public void setAntwoord(String _antwoord) {
-		this._antwoord = _antwoord;
 	}
 }

@@ -1,7 +1,6 @@
 package controllers;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -52,28 +51,12 @@ public class Spel {
 
 	/**
 	 * Start spel op, moet applicatie hebben voor het wissen van alle data.
+	 * 
 	 * @param applicatie
 	 */
 	public Spel(Applicatie applicatie) {
 		this.applicatie = applicatie;
 		startSpel();
-	}
-
-	private void startSpel() {
-		speler = new Speler();
-		timer = new Timer();
-		joker = new JokerUitrekenaar();
-		prijzen = new PrijsBerekenaar();
-		try {
-			highscores = new data.Highscore();
-			content = new Content();
-		} catch (DataException e) {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
-			System.exit(0);
-			return;
-		}
-		window = new MainWindow(this);
 	}
 
 	/**
@@ -98,6 +81,33 @@ public class Spel {
 	}
 
 	/**
+	 * Eindig het spel.
+	 */
+	public void eindigSpel() {
+		if (!magDoorspelen()) {
+			openPanel(new GameOver(this, GameOver.Reason.MISTAKES));
+			return;
+		}
+		openPanel(new GameWon(this));
+	}
+
+	/**
+	 * Krijg score
+	 * 
+	 * @return huidige score
+	 */
+	public String getEindScore() {
+		if (!magDoorspelen()) return "Û 0,-";
+
+		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
+
+		for (int i = 0; i <= huidigeRonde; i++)
+			tmpVragen.add(vragen.get(i));
+
+		return "Û " + prijzen.getScore(tmpVragen);
+	}
+
+	/**
 	 * Breng door de gebruiker gekozen antwoorden terug.
 	 * 
 	 * @return gekozen antwoorden
@@ -108,7 +118,9 @@ public class Spel {
 
 	/**
 	 * Verkrijg highscores.
-	 * @param hoeveel highscores terug
+	 * 
+	 * @param hoeveel
+	 *            highscores terug
 	 * @return highscores
 	 * 
 	 */
@@ -118,6 +130,7 @@ public class Spel {
 
 	/**
 	 * Geef terug hoeveel vragen de speler goed moet hebben.
+	 * 
 	 * @return aantal vragen
 	 */
 	public int getHoeveelGoedVerplicht() {
@@ -151,6 +164,7 @@ public class Spel {
 
 	/**
 	 * Geef terug hoeveel een joker kost.
+	 * 
 	 * @return jokerkosten
 	 */
 	public int getJokerKosten() {
@@ -159,6 +173,7 @@ public class Spel {
 
 	/**
 	 * Geef terug hoeveel jokers de gebuiker maximaal mag inzetten
+	 * 
 	 * @return jokeraantal
 	 */
 	public int getMaxJokers() {
@@ -187,31 +202,15 @@ public class Spel {
 
 	/**
 	 * Krijg score
-	 * @return huidige score
-	 */
-	public String getEindScore() {
-		if(!magDoorspelen()) return "Û 0,-";
-		
-		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
-		
-		for (int i = 0; i <= huidigeRonde; i++) {
-			tmpVragen.add(vragen.get(i));
-		}
-		
-		return "Û " + prijzen.getScore(tmpVragen);
-	}
-	
-	/**
-	 * Krijg score
+	 * 
 	 * @return huidige score
 	 */
 	public String getScore() {
 		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
-		if(huidigeRonde == 0) return "Û 0,-";
-		for (int i = 0; i < huidigeRonde; i++) {
+		if (huidigeRonde == 0) return "Û 0,-";
+		for (int i = 0; i < huidigeRonde; i++)
 			tmpVragen.add(vragen.get(i));
-		}
-		
+
 		return "Û " + prijzen.getScore(tmpVragen);
 	}
 
@@ -224,6 +223,7 @@ public class Spel {
 
 	/**
 	 * Geef timer terug.
+	 * 
 	 * @return timer
 	 */
 	public logic.Timer getTimer() {
@@ -250,18 +250,19 @@ public class Spel {
 
 	/**
 	 * Mag de speler nog doorspelen?
+	 * 
 	 * @return antwoord hierop
 	 */
 	public boolean magDoorspelen() {
 		boolean magDoorspelen = true;
-		for (int i = 0; i <= huidigeRonde; i++) {
+		for (int i = 0; i <= huidigeRonde; i++)
 			magDoorspelen = magDoorspelen && vragen.get(i).magDoorspelen();
-		}
 		return magDoorspelen;
 	}
 
 	/**
 	 * Moet de speler doorspelen?
+	 * 
 	 * @return antwoord hierop
 	 */
 	public boolean moetDoorspelen() {
@@ -276,7 +277,7 @@ public class Spel {
 	public void openPanel(JPanel panel) {
 		window.openPanel(panel);
 	}
-	
+
 	/**
 	 * Stel het ontwerp in.
 	 * 
@@ -286,16 +287,16 @@ public class Spel {
 		_onderwerp = onderwerp;
 		try {
 			vragen = content.getVragen(_onderwerp.getNaam());
-			
+
 			vragen.get(0).setMoetGoedHebben(5);
 			vragen.get(0).setHoeveelWaard(20);
-			
+
 			vragen.get(1).setMoetGoedHebben(6);
 			vragen.get(1).setHoeveelWaard(25);
-			
+
 			vragen.get(2).setMoetGoedHebben(7);
 			vragen.get(2).setHoeveelWaard(30);
-			
+
 			vragen.get(3).setMoetGoedHebben(9);
 			vragen.get(3).setHoeveelWaard(35);
 			vragen.get(3).setDoubling(true);
@@ -305,7 +306,7 @@ public class Spel {
 			throw new RuntimeException("Kan niet verder gaan.");
 		}
 	}
-	
+
 	/**
 	 * Spelermethodes
 	 * 
@@ -313,6 +314,23 @@ public class Spel {
 	 */
 	public void setSpelerNaam(String naam) {
 		speler.setNaam(naam);
+	}
+
+	private void startSpel() {
+		speler = new Speler();
+		timer = new Timer();
+		joker = new JokerUitrekenaar();
+		prijzen = new PrijsBerekenaar();
+		try {
+			highscores = new data.Highscore();
+			content = new Content();
+		} catch (DataException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
+			System.exit(0);
+			return;
+		}
+		window = new MainWindow(this);
 	}
 
 	/**
@@ -326,21 +344,18 @@ public class Spel {
 	 * Verhoog ronde.
 	 */
 	public void volgendeVraag() {
-		if(!magDoorspelen()) {
+		if (!magDoorspelen()) {
 			openPanel(new GameOver(this, GameOver.Reason.MISTAKES));
 			return;
 		}
 		Vraag vraag = getHuidigeVraag();
 		huidigeRonde++;
-		if(vragen.size() > huidigeRonde){
-			if(vraag.getHoeveelGoed() + vraag.getHoeveelJokersGebruikt() >= 9)
-				joker.addJokers(1);
-			openPanel(new SpeelScherm(this));	
-		} else {
-			openPanel(new GameWon(this));
-		}
+		if (vragen.size() > huidigeRonde) {
+			if (vraag.getHoeveelGoed() + vraag.getHoeveelJokersGebruikt() >= 9) joker.addJokers(1);
+			openPanel(new SpeelScherm(this));
+		} else openPanel(new GameWon(this));
 	}
-	
+
 	/**
 	 * Antwoord wijzigen
 	 * 
@@ -356,20 +371,9 @@ public class Spel {
 	 * 
 	 * @param jokers
 	 *            hoeveel jokers
-	 * @throws LogicException 
+	 * @throws LogicException
 	 */
 	public void zetJokersIn(int jokers) throws LogicException {
 		joker.zetJokersIn(timer, getHuidigeVraag(), jokers);
-	}
-
-	/**
-	 * Eindig het spel.
-	 */
-	public void eindigSpel() {
-		if(!magDoorspelen()) {
-			openPanel(new GameOver(this, GameOver.Reason.MISTAKES));
-			return;
-		}
-		openPanel(new GameWon(this));
 	}
 }

@@ -150,7 +150,7 @@ public class Content {
 				String antwoord = nodeOnderdeel.getValue();
 				String path = nodeOnderdeel.getAttribute("image").getValue();
 				String extraAntwoord = "";
-				if(nodeOnderdeel.getAttribute("antwoord") != null)
+				if (nodeOnderdeel.getAttribute("antwoord") != null)
 					extraAntwoord = nodeOnderdeel.getAttribute("antwoord").getValue();
 				File plaatje = null;
 				try {
@@ -164,7 +164,7 @@ public class Content {
 				}
 
 				Onderdeel onderdeel = new Onderdeel(antwoord, plaatje);
-				if(extraAntwoord != "") onderdeel.setAntwoord(extraAntwoord);
+				if (extraAntwoord != "") onderdeel.setAntwoord(extraAntwoord);
 				onderdelen.add(onderdeel);
 			}
 

@@ -7,15 +7,24 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-import views.components.GradientPanel;
 import views.components.NoisePanel;
-import net.miginfocom.swing.MigLayout;
 
 /**
  * @author nanne
  * 
  */
 public final class JPanelFactory {
+	/**
+	 * @wbp.factory
+	 */
+	public static JPanel createBackgroundJPanel() {
+		NoisePanel panel = new NoisePanel();
+		panel.setRoundedCorners(true);
+		panel.setUpperColor(new Color(209, 199, 195));
+		panel.setLowerColor(new Color(231, 226, 224));
+		return panel;
+	}
+
 	/**
 	 * @param viewportView
 	 * @return scrollpane
@@ -38,16 +47,6 @@ public final class JPanelFactory {
 	public static JPanel createTransparentJPanel() {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 0, 0, 0));
-		return panel;
-	}
-	/**
-	 * @wbp.factory
-	 */
-	public static JPanel createBackgroundJPanel() {
-		NoisePanel panel = new NoisePanel();
-		panel.setRoundedCorners(true);
-		panel.setUpperColor(new Color(209, 199, 195));
-		panel.setLowerColor(new Color(231, 226, 224));
 		return panel;
 	}
 }
