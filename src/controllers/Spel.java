@@ -57,6 +57,17 @@ public class Spel {
 	}
 
 	/**
+	 * Voeg highscore toe aan highscore lijst.
+	 */
+	public void addHighScore() {
+		logic.Highscore highscore = new logic.Highscore();
+		highscore.setSpelerNaam(getSpelerNaam());
+		highscore.setTijdOver(getTimer().getTime() + "");
+		highscore.setScore(getScore() + "");
+		highscores.addHighscore(highscore);
+	}
+
+	/**
 	 * Ga terug naar het hoofdmenu.
 	 */
 	public void backToMainMenu() {
@@ -73,6 +84,24 @@ public class Spel {
 	 */
 	public ArrayList<GekozenAntwoord> getGekozenAntwoorden() {
 		return getHuidigeVraag().getGekozenAntwoorden();
+	}
+
+	/**
+	 * Verkrijg highscores.
+	 * @param hoeveel highscores terug
+	 * @return highscores
+	 * 
+	 */
+	public ArrayList<logic.Highscore> getHighscores(int hoeveel) {
+		return highscores.getHighscores(hoeveel);
+	}
+
+	/**
+	 * Geef terug hoeveel vragen de speler goed moet hebben.
+	 * @return aantal vragen
+	 */
+	public int getHoeveelGoedVerplicht() {
+		return getHuidigeVraag().getHoeveelGoed();
 	}
 
 	/**
@@ -137,10 +166,27 @@ public class Spel {
 	}
 
 	/**
+	 * Krijg score
+	 * @return huidige score
+	 */
+	public int getScore() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
 	 * @return Spelernaam
 	 */
 	public String getSpelerNaam() {
 		return speler.getNaam();
+	}
+
+	/**
+	 * Geef timer terug.
+	 * @return timer
+	 */
+	public logic.Timer getTimer() {
+		return timer;
 	}
 
 	/**
@@ -162,6 +208,26 @@ public class Spel {
 	}
 
 	/**
+	 * Mag de speler nog doorspelen?
+	 * @return antwoord hierop
+	 */
+	public boolean magDoorspelen() {
+		boolean magDoorspelen = true;
+		for (int i = 0; i <= huidigeRonde; i++) {
+			magDoorspelen = magDoorspelen && vragen.get(i).magDoorspelen();
+		}
+		return magDoorspelen;
+	}
+
+	/**
+	 * Moet de speler doorspelen?
+	 * @return antwoord hierop
+	 */
+	public boolean moetDoorspelen() {
+		return huidigeRonde == 0;
+	}
+
+	/**
 	 * Open een scherm.
 	 * 
 	 * @param panel
@@ -169,7 +235,7 @@ public class Spel {
 	public void openPanel(JPanel panel) {
 		window.openPanel(panel);
 	}
-
+	
 	/**
 	 * Stel het ontwerp in.
 	 * 
@@ -197,7 +263,7 @@ public class Spel {
 			throw new RuntimeException("Kan niet verder gaan.");
 		}
 	}
-
+	
 	/**
 	 * Spelermethodes
 	 * 
@@ -246,7 +312,7 @@ public class Spel {
 			openPanel(new GameWon(this));
 		}
 	}
-
+	
 	/**
 	 * Antwoord wijzigen
 	 * 
@@ -266,71 +332,5 @@ public class Spel {
 	 */
 	public void zetJokersIn(int jokers) throws LogicException {
 		joker.zetJokersIn(timer, getHuidigeVraag(), jokers);
-	}
-	
-	/**
-	 * Mag de speler nog doorspelen?
-	 * @return antwoord hierop
-	 */
-	public boolean magDoorspelen() {
-		boolean magDoorspelen = true;
-		for (int i = 0; i <= huidigeRonde; i++) {
-			magDoorspelen = magDoorspelen && vragen.get(i).magDoorspelen();
-		}
-		return magDoorspelen;
-	}
-	
-	/**
-	 * Moet de speler doorspelen?
-	 * @return antwoord hierop
-	 */
-	public boolean moetDoorspelen() {
-		return huidigeRonde == 0;
-	}
-
-	/**
-	 * Geef timer terug.
-	 * @return timer
-	 */
-	public logic.Timer getTimer() {
-		return timer;
-	}
-
-	/**
-	 * Krijg score
-	 * @return huidige score
-	 */
-	public int getScore() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * Voeg highscore toe aan highscore lijst.
-	 */
-	public void addHighScore() {
-		logic.Highscore highscore = new logic.Highscore();
-		highscore.setSpelerNaam(getSpelerNaam());
-		highscore.setTijdOver(getTimer().getTime() + "");
-		highscore.setScore(getScore() + "");
-		highscores.addHighscore(highscore);
-	}
-	
-	/**
-	 * Verkrijg highscores.
-	 * @param hoeveel highscores terug
-	 * @return highscores
-	 * 
-	 */
-	public ArrayList<logic.Highscore> getHighscores(int hoeveel) {
-		return highscores.getHighscores(hoeveel);
-	}
-
-	/**
-	 * Geef terug hoeveel vragen de speler goed moet hebben.
-	 * @return aantal vragen
-	 */
-	public int getHoeveelGoedVerplicht() {
-		return getHuidigeVraag().getHoeveelGoed();
 	}
 }
