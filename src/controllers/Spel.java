@@ -325,4 +325,9 @@ public class Spel {
 	public ArrayList<logic.Highscore> getHighscores(int hoeveel) {
 		return highscores.getHighscores(hoeveel);
 	}
+
+	public int getHoeveelGoedVerplicht() {
+		// TODO Auto-generated method stub
+		return getHuidigeVraag().getHoeveelGoed();
+	}
 }

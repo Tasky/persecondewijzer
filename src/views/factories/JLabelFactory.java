@@ -37,4 +37,17 @@ public final class JLabelFactory {
 		label.setFont(new Font("Tahoma", Font.PLAIN, 47));
 		return label;
 	}
+	
+	/**
+	 * @param arg0 tekst
+	 * @return 
+	 * @wbp.factory
+	 * @wbp.factory.parameter.source arg0 tekst
+	 */
+	public static JLabel createJokerLabel(String arg0) {
+		JLabel label = new JLabel(arg0);
+		label.setForeground(Color.BLACK);
+		label.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		return label;
+	}
 }
