@@ -51,7 +51,8 @@ public class ResultatenScherm extends JPanel {
 					}
 
 					SpeelScherm speelscherm = new SpeelScherm(spel);
-					spel.zetJokersIn(2);
+					spel.zetJokersIn(0);
+					spel.getTimer().stop();
 					spel.openPanel(speelscherm);
 					speelscherm.openResultaten();
 
@@ -171,7 +172,6 @@ public class ResultatenScherm extends JPanel {
 			if (gk.isGoed())
 				txtBoolean.setForeground(new Color(43, 111, 43));
 			else if(jokers > 0) {
-				// TODO: streep erdoor
 				txtBoolean.setForeground(new Color(244, 77, 50));
 				txtBoolean.setText("<html><s>"+txtBoolean.getText() + "</s></html>");
 				jokers--;

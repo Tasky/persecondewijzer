@@ -2,58 +2,46 @@ package logic;
 
 import java.util.List;
 
+/**
+ * PrijsBerekenaar klasse.
+ *
+ */
 public class PrijsBerekenaar {
-
-	List<Vraag>					vragen;
-	int							score[]					= { 0, 0, 0, 0 };
-	private int	ronde;
-	private static final int	AANTAL_VRAGEN_PER_RONDE	= 9;
 	private static final int	MAX_BELASTINGVRIJ		= 454;
-	private static final int[]	GELD_PER_RONDE			= { 20, 25, 30, 35 };
+	private static final int	KANSSPELBELASTING		= 25;
 
-	public PrijsBerekenaar() {
-
-	}
-
-	public int getGeld() {
-		int bedrag = 0;
-
-		for (int i = 0; i < score.length; i++)
-			// Als er in ronde 4 een fout gemaakt is verliest de gebuiker al
-			// zijn geld
-			if (i == 3 && score[i] < AANTAL_VRAGEN_PER_RONDE)
-				return 0;
-			else bedrag += score[i] * GELD_PER_RONDE[i];
-
-		// Betaal belasting indien nodig
-		if (bedrag > MAX_BELASTINGVRIJ) bedrag = bedrag / 100 * 75;
-
-		return bedrag;
-	}
-
-	public int getScore() {
-		int totalScore = 0;
-
-		for (int i = 0; i < score.length; i++)
-			totalScore += score[i] * (i + 1 * 5);
-
-		return totalScore;
+	/**
+	 * Krijg score terug.
+	 * 
+	 * @param vragen
+	 * @return berekende score
+	 */
+	public int getScore(final List<Vraag> vragen) {
+		int score = hoeveelGoed(vragen);
+		double bedrag = vragen.get(vragen.size() - 1).getHoeveelWaard() * score;
+		
+		if (bedrag > MAX_BELASTINGVRIJ) bedrag /= (KANSSPELBELASTING / 100 + 1);
+		
+		return (int) Math.round(bedrag);
 	}
 
 	/**
-	 * Telt het aantal goede vragen
+	 * Algoritme om uit te rekenen hoeveel vragen een speler geld voor krijgt.
+	 * @param vragen
+	 * @return hoeveel vragen er goed zijn
 	 */
-	private void parseVragen() {
-		int i = 0;
+	private int hoeveelGoed(final List<Vraag> vragen) {
+		int vragenGoed = 0;
 		for (Vraag vraag : vragen) {
-			score[i] = vraag.getHoeveelGoed();
-			i++;
+			int aantalGoed = 0;
+			int aantalFout = 0;
+			int jokers = vraag.getHoeveelJokersGebruikt();
+			for (GekozenAntwoord gk : vraag.getGekozenAntwoorden())
+				if (gk.isGoed()) aantalGoed++;
+				else aantalFout++;
+			
+			vragenGoed += aantalGoed + Math.min(aantalFout, jokers);
 		}
+		return vragenGoed;
 	}
-
-	public void setVragen(List<Vraag> vragen) {
-		this.vragen = vragen;
-		parseVragen();
-	}
-
 }

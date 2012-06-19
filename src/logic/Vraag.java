@@ -115,14 +115,14 @@ public class Vraag {
 	 * @return mag doorspelen?
 	 */
 	public boolean magDoorspelen() {
-		return getHoeveelGoed() >= getMoetGoedHebben();
+		return getHoeveelGoed() >= getMoetGoedHebben() - getHoeveelJokersGebruikt();
 	}
 
 	/**
 	 * @return the moetGoedHebben
 	 */
 	public int getMoetGoedHebben() {
-		return moetGoedHebben - getHoeveelJokersGebruikt();
+		return moetGoedHebben;
 	}
 
 	/**

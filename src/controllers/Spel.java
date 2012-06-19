@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -11,6 +12,7 @@ import logic.GekozenAntwoord;
 import logic.JokerUitrekenaar;
 import logic.Onderdeel;
 import logic.Onderwerp;
+import logic.PrijsBerekenaar;
 import logic.Speler;
 import logic.Timer;
 import logic.Vraag;
@@ -39,6 +41,7 @@ public class Spel {
 	private List<Vraag>			vragen;
 	private Applicatie			applicatie;
 	private data.Highscore		highscores;
+	private PrijsBerekenaar		prijzen;
 
 	/**
 	 * Start spel op.
@@ -56,6 +59,23 @@ public class Spel {
 		startSpel();
 	}
 
+	private void startSpel() {
+		speler = new Speler();
+		timer = new Timer();
+		joker = new JokerUitrekenaar();
+		prijzen = new PrijsBerekenaar();
+		try {
+			highscores = new data.Highscore();
+			content = new Content();
+		} catch (DataException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
+			System.exit(0);
+			return;
+		}
+		window = new MainWindow(this);
+	}
+
 	/**
 	 * Voeg highscore toe aan highscore lijst.
 	 */
@@ -63,7 +83,7 @@ public class Spel {
 		logic.Highscore highscore = new logic.Highscore();
 		highscore.setSpelerNaam(getSpelerNaam());
 		highscore.setTijdOver(getTimer().getTime() + "");
-		highscore.setScore(getScore() + "");
+		highscore.setScore(getScore());
 		highscores.addHighscore(highscore);
 	}
 
@@ -101,7 +121,7 @@ public class Spel {
 	 * @return aantal vragen
 	 */
 	public int getHoeveelGoedVerplicht() {
-		return getHuidigeVraag().getHoeveelGoed();
+		return getHuidigeVraag().getMoetGoedHebben();
 	}
 
 	/**
@@ -169,9 +189,14 @@ public class Spel {
 	 * Krijg score
 	 * @return huidige score
 	 */
-	public int getScore() {
-		// TODO Auto-generated method stub
-		return 0;
+	public String getScore() {
+		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
+		
+		for (int i = 0; i <= huidigeRonde; i++) {
+			tmpVragen.add(vragen.get(huidigeRonde));
+		}
+		
+		return "Û " + prijzen.getScore(tmpVragen);
 	}
 
 	/**
@@ -271,23 +296,6 @@ public class Spel {
 	 */
 	public void setSpelerNaam(String naam) {
 		speler.setNaam(naam);
-	}
-
-	private void startSpel() {
-		speler = new Speler();
-		timer = new Timer();
-		joker = new JokerUitrekenaar();
-		try {
-			highscores = new data.Highscore();
-			content = new Content();
-		} catch (DataException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
-			System.exit(0);
-			return;
-		}
-		window = new MainWindow(this);
 	}
 
 	/**

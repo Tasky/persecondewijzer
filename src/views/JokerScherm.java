@@ -58,7 +58,7 @@ public class JokerScherm extends JPanel {
 					SpeelScherm speelscherm = new SpeelScherm(spel);
 					spel.openPanel(speelscherm);
 					speelscherm.openJokerscherm();
-
+					spel.getTimer().stop();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -91,19 +91,16 @@ public class JokerScherm extends JPanel {
 		spinner.setModel(new SpinnerNumberModel(0, 0, spel.getMaxJokers(), 1));
 
 		JLabel lblJokers = JLabelFactory.createJokerLabel("jokers");
+		JLabel lblJokersOver = JLabelFactory.createJokerLabel("Je hebt nog " + spel.getMaxJokers() + " jokers");
+		JLabel lblJokerkosten = JLabelFactory.createJokerLabel("Een joker kost " + spel.getJokerKosten() + " seconden");
+		JLabel lblHoeveelGoedVerplicht = JLabelFactory.createJokerLabel("Je moet deze ronde " + spel.getHoeveelGoedVerplicht() + " vragen goed hebben");
+		JLabel lblHuidigeScore = JLabelFactory.createJokerLabel("Je huidige score is: " + spel.getScore());
+
+		panel.add(lblHuidigeScore, "cell 0 4 3 1,alignx left,aligny top");
 		panel.add(lblJokers, "cell 2 1,alignx left,growy");
-
-		JLabel lblJ = JLabelFactory.createJokerLabel("Je hebt nog " + spel.getMaxJokers() + " jokers");
-		panel.add(lblJ, "cell 0 2 3 1,alignx left,aligny top");
-
-		JLabel lblEenJokerKost = JLabelFactory.createJokerLabel("Een joker kost " + spel.getJokerKosten() + " seconden");
-		panel.add(lblEenJokerKost, "cell 4 2 3 1,alignx left,aligny top");
-
-		JLabel lblJeMoetDeze = JLabelFactory.createJokerLabel("Je moet deze ronde " + spel.getHoeveelGoedVerplicht() + " vragen goed hebben");
-		panel.add(lblJeMoetDeze, "cell 0 3 3 1,alignx left,aligny top");
-
-		JLabel lblJeHuidigeScore = JLabelFactory.createJokerLabel("Je huidige score is: " + spel.getScore());
-		panel.add(lblJeHuidigeScore, "cell 0 4 3 1,alignx left,aligny top");
+		panel.add(lblJokersOver, "cell 0 2 3 1,alignx left,aligny top");
+		panel.add(lblJokerkosten, "cell 4 2 3 1,alignx left,aligny top");
+		panel.add(lblHoeveelGoedVerplicht, "cell 0 3 3 1,alignx left,aligny top");
 
 		NiceButton btnNewButton = new NiceButton("Verder");
 		panel.add(btnNewButton, "cell 6 5,growx,aligny top");
@@ -111,7 +108,12 @@ public class JokerScherm extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					spel.zetJokersIn((Integer) spinner.getValue());
+					int jokers = (Integer) spinner.getValue();
+					if(jokers > spel.getMaxJokers()) {
+						spinner.setBackground(Color.red);
+						return;
+					}
+					spel.zetJokersIn(jokers);
 				} catch (LogicException e) {
 					// TODO Auto-generated catch block
 					// zoveel jokers heeft de gebruiker niet..

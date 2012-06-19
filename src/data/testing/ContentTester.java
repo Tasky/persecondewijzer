@@ -33,7 +33,6 @@ public class ContentTester {
 	 */
 	@Test
 	public void testOnderwerpen() throws DataException {
-		// fail("Not yet implemented"); // TODO
 		List<Onderwerp> onderwerpen = content.getOnderwerpen();
 
 		assertTrue("Er moeten onderwerpen zijn.", onderwerpen.size() > 0);
@@ -44,7 +43,6 @@ public class ContentTester {
 	 */
 	@Test
 	public void testVragen() throws DataException {
-		// fail("Not yet implemented"); // TODO
 		List<Onderwerp> onderwerpen = content.getOnderwerpen();
 
 		for (Onderwerp onderwerp : onderwerpen) {
