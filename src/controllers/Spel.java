@@ -326,8 +326,11 @@ public class Spel {
 		return highscores.getHighscores(hoeveel);
 	}
 
+	/**
+	 * Geef terug hoeveel vragen de speler goed moet hebben.
+	 * @return aantal vragen
+	 */
 	public int getHoeveelGoedVerplicht() {
-		// TODO Auto-generated method stub
 		return getHuidigeVraag().getHoeveelGoed();
 	}
 }
