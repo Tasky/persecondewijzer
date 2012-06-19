@@ -97,13 +97,19 @@ public class ResultatenScherm extends JPanel {
 			else aantalFout++;
 
 		StringBuilder builder = new StringBuilder();
-		builder.append("<html>Aantal <b>goed</b>: ");
+		builder.append("<html>Aantal <span style=\"color: green; font-weight:bold;\">goed</span>: ");
 		builder.append(aantalGoed);
-		builder.append("<br/>Aantal <b>fout</b>: ");
+		builder.append("<br/>Aantal <span style=\"color: red; font-weight:bold;\">fout</span>: ");
 		builder.append(aantalFout);
 		builder.append("<br/>");
-		builder.append("Aantal jokers gebruikt: 0<br/><br/>");
-		builder.append("Score: 1500, tijd: 90 sec");
+		//builder.append("Aantal jokers gebruikt:");
+		//builder.append(spel.);
+		builder.append("<br/>");
+		builder.append("Score: ");
+		builder.append(spel.getScore());
+		builder.append(", tijd ");
+		builder.append(spel.getTimer().getTime());
+		builder.append(" sec");
 		if(!spel.magDoorspelen()) {
 			builder.append("<br /><br /><b>Je hebt verloren.</b>");
 		} else if(spel.moetDoorspelen()) {

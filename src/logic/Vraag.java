@@ -14,6 +14,7 @@ public class Vraag {
 	private int									huidigOnderdeel	= -1;
 	private int									moetGoedHebben = 9;
 	private int									hoeveelWaard = 20;
+	private int									hoeveelJokersGebruikt = 0;
 
 	/**
 	 * @param vraag
@@ -121,7 +122,7 @@ public class Vraag {
 	 * @return the moetGoedHebben
 	 */
 	public int getMoetGoedHebben() {
-		return moetGoedHebben;
+		return moetGoedHebben - getHoeveelJokersGebruikt();
 	}
 
 	/**
@@ -129,6 +130,20 @@ public class Vraag {
 	 */
 	public void setMoetGoedHebben(int moetGoedHebben) {
 		this.moetGoedHebben = moetGoedHebben;
+	}
+
+	/**
+	 * @return the hoeveelJokersGebruikt
+	 */
+	public int getHoeveelJokersGebruikt() {
+		return hoeveelJokersGebruikt;
+	}
+
+	/**
+	 * @param hoeveelJokersGebruikt the hoeveelJokersGebruikt to set
+	 */
+	public void setHoeveelJokersGebruikt(int hoeveelJokersGebruikt) {
+		this.hoeveelJokersGebruikt = hoeveelJokersGebruikt;
 	}
 
 }

@@ -42,6 +42,7 @@ public class JokerUitrekenaar {
 	/**
 	 * Verlaagd het jokeraantal met 1.
 	 * @param timer waar jokers vanaf gehaald worden
+	 * @param vraag vraag waar de joker bij opgeteld wordt
 	 * @throws LogicException jokers op
 	 */
 	public void zetJokerIn(Timer timer) throws LogicException {
@@ -51,6 +52,7 @@ public class JokerUitrekenaar {
 		}
 		
 		jokersGebruikt++;
+		timer.addJoker();
 	}
 	
 	/**
@@ -63,5 +65,6 @@ public class JokerUitrekenaar {
 	public void zetJokersIn(Timer timer, Vraag vraag, int aantal) throws LogicException {
 		for (int i = 0; i < aantal; i++)
 			zetJokerIn(timer);
+		vraag.setHoeveelJokersGebruikt(aantal);
 	}
 }

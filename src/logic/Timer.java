@@ -12,6 +12,7 @@ public class Timer extends Observable {
 	private int					huidigeTijd;
 	private javax.swing.Timer timer;
 	private Date metingBeginTijd;
+	private int	jokerAftrek = 0;
 
 	public Timer() {
 		huidigeTijd = BEGIN_TIJD;
@@ -31,38 +32,51 @@ public class Timer extends Observable {
 		});
 	}
 	
+	/**
+	 * Start de timer.
+	 */
 	public void start(){
 		metingBeginTijd = new Date();
 		timer.start();
 	}
 	
+	/**
+	 * Stop de timer.
+	 */
 	public void stop(){
 		timer.stop();
 	}
 
-	public boolean canDeductJoker(int jokerAmount) {
-		return BEGIN_TIJD - jokerAmount * JOKER_TIJD > 0 ? true : false;
-	}
-
-	public void deductJoker(int jokerAmount) {
-		setTime(getTime() - jokerAmount * JOKER_TIJD);
-	}
-
+	/**
+	 * Krijg de tijd van de timer terug
+	 * @return tijd van de timer.
+	 */
 	public int getTime() {
-		return huidigeTijd;
+		return huidigeTijd - (jokerAftrek * JOKER_TIJD);
 	}
 
+	/**
+	 * Krijg terug of de speler heeft verloren
+	 * @return heeft speler verloren
+	 */
 	public boolean hasLost() {
-		return huidigeTijd < 0;
+		return getTime() < 0;
 	}
 
-	private void setTime(int time) {
+	/*private void setTime(int time) {
 		huidigeTijd = time;
-	}
+	}*/
 
 	@Override
 	public String toString() {
 		return Integer.toString(huidigeTijd);
+	}
+
+	/**
+	 * Haal joker van de tijd af.
+	 */
+	public void addJoker() {
+		jokerAftrek++;
 	}
 
 }

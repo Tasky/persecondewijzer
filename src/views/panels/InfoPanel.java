@@ -38,7 +38,7 @@ public class InfoPanel extends NoisePanel implements Observer {
 		setLowerColor(new Color(231, 226, 224));
 		
 		setLayout(new MigLayout("", "[75px:75px,grow,center]", "[48px,grow]"));
-		lblTime = new JLabel("200");
+		lblTime = new JLabel("---");
 		lblTime.setForeground(Color.black);
 		//lblTime.setBackground(new Color(0, 0, 0, 0));
 		lblTime.setFont(new Font("Lucida Grande", Font.PLAIN, 40));

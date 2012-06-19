@@ -128,13 +128,11 @@ public class SpeelScherm extends NicePanel {
 		toonInfoPanel(spel);
 		spel.getTimer().start();
 		spel.getTimer().addObserver(new Observer(){
-
 			@Override
 			public void update(Observable arg0, Object arg1) {
 				if(spel.getTimer().hasLost())
 					spel.openPanel(new GameOver(spel, GameOver.Reason.TIMEUP));
 			}
-			
 		});
 	}
 
@@ -223,7 +221,7 @@ public class SpeelScherm extends NicePanel {
 		spel.getTimer().addObserver(timer);
 		infoPanel.add(timer, "cell 0 0,grow");
 
-		NiceButton btnStoppen = new NiceButton("Stop de tijd");
+		btnStoppen = new NiceButton("Stop de tijd");
 		infoPanel.add(btnStoppen, "cell 0 1,grow");
 
 		btnStoppen.addActionListener(new ActionListener() {
