@@ -195,7 +195,7 @@ public class Spel {
 		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
 		
 		for (int i = 0; i <= huidigeRonde; i++) {
-			tmpVragen.add(vragen.get(huidigeRonde));
+			tmpVragen.add(vragen.get(i));
 		}
 		
 		return "Û " + prijzen.getScore(tmpVragen);
@@ -209,7 +209,7 @@ public class Spel {
 		ArrayList<Vraag> tmpVragen = new ArrayList<Vraag>();
 		if(huidigeRonde == 0) return "Û 0,-";
 		for (int i = 0; i < huidigeRonde; i++) {
-			tmpVragen.add(vragen.get(huidigeRonde));
+			tmpVragen.add(vragen.get(i));
 		}
 		
 		return "Û " + prijzen.getScore(tmpVragen);
