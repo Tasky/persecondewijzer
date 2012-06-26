@@ -23,7 +23,7 @@ public class GameOver extends NicePanel {
 		 */
 		TIMEUP,
 		/**
-		 * Teveel fouten.
+		 * Te veel fouten.
 		 */
 		MISTAKES
 	}
@@ -54,7 +54,7 @@ public class GameOver extends NicePanel {
 		add(lblNewLabel, "flowy,cell 1 2,alignx center");
 		add(btnTerug, "cell 1 3,grow");
 
-		JLabel lblDeTijdIs = new JLabel("De tijd is op / je had teveel vragen fout");
+		JLabel lblDeTijdIs = new JLabel("De tijd is op / je had te veel vragen fout");
 		lblDeTijdIs.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblDeTijdIs.setForeground(Color.WHITE);
 		add(lblDeTijdIs, "cell 1 2,alignx center");
